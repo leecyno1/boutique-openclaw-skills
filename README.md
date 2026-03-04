@@ -4,6 +4,30 @@
 ![Boutique Hero](assets/hero.png)
 ![Profiles Matrix](assets/profiles.png)
 
+## 仓库参数（Repository Parameters）
+
+| 参数 | 值 |
+|---|---|
+| Curation 模式 | One Capability = One Skill |
+| 精选能力数 | 42 |
+| 行业档数量 | 7 |
+| 更新策略 | 每周上游同步（可手动触发） |
+| 审计策略 | 更新后本地审计（风险/依赖/冲突） |
+| 打包格式 | `dist/*.tar.gz` |
+| 目标 | 降低 token 浪费，减少技能冲突，提升稳定性 |
+
+## 快捷导航（Quick Navigation）
+
+- [快速开始](#2-快速开始)
+- [行业档（Profiles）](#3-行业档profiles)
+- [更新与审计机制](#5-更新与审计机制)
+- [安全与质量原则](#6-安全与质量原则)
+- [打包发布](#7-打包发布)
+- [设计说明](#8-设计说明)
+- [精选策略文档](docs/CURATION_POLICY.md)
+- [更新与审计SOP](docs/UPDATE_AND_AUDIT.md)
+- [行业映射说明](docs/INDUSTRY_MAP.md)
+
 **精选店模式（Boutique Mode）** 的 OpenClaw skills 集合：
 
 - 每个功能只精选 1 个 skill（不重复、不混装）
