@@ -1,0 +1,17 @@
+{
+  "id": "media_marketing",
+  "title": "Media / Marketing",
+  "description": "Campaign execution, creative assets, and channel distribution.",
+  "capabilities": [
+    "content_strategy",
+    "social_content",
+    "programmatic_seo",
+    "marketing_psychology",
+    "logo_design",
+    "banner_design",
+    "infographic_design",
+    "image_generation",
+    "video_frame_extraction",
+    "url_to_markdown"
+  ]
+}

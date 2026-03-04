@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" fill="#0b1020"/>
+  <rect x="0" y="330" width="1200" height="90" fill="#111827"/>
+  <rect x="60" y="70" width="230" height="230" rx="36" fill="#f8fafc"/>
+  <rect x="95" y="105" width="160" height="30" fill="#dc2626"/>
+  <rect x="95" y="160" width="160" height="30" fill="#0f172a"/>
+  <rect x="95" y="215" width="160" height="30" fill="#0f172a"/>
+  <text x="340" y="150" fill="#f8fafc" font-size="54" font-family="Arial, Helvetica, sans-serif">boutique-openclaw-skills</text>
+  <text x="344" y="205" fill="#f87171" font-size="30" font-family="Arial, Helvetica, sans-serif">ONE CAPABILITY • ONE SKILL</text>
+  <text x="344" y="255" fill="#cbd5e1" font-size="28" font-family="Arial, Helvetica, sans-serif">精选店模式 / 稳定优先 / 定期审计</text>
+</svg>

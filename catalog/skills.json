@@ -1,0 +1,515 @@
+{
+  "catalog": "boutique-openclaw-skills",
+  "version": "2026.03.04",
+  "curation_mode": "one-skill-per-capability",
+  "skills": [
+    {
+      "capability": "web_search",
+      "skill": "brave-search",
+      "category": "research",
+      "source": {
+        "type": "clawhub",
+        "ref": "brave-search"
+      },
+      "risk": "low",
+      "requires": [
+        "BRAVE_API_KEY"
+      ],
+      "note": "Primary web search; fast + low token overhead."
+    },
+    {
+      "capability": "content_summarization",
+      "skill": "summarize",
+      "category": "research",
+      "source": {
+        "type": "clawhub",
+        "ref": "summarize"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Summarize URL/PDF/media with one tool."
+    },
+    {
+      "capability": "browser_automation",
+      "skill": "agent-browser",
+      "category": "engineering",
+      "source": {
+        "type": "clawhub",
+        "ref": "agent-browser"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Automate interactive websites."
+    },
+    {
+      "capability": "browser_debug",
+      "skill": "chrome-devtools-mcp",
+      "category": "engineering",
+      "source": {
+        "type": "clawhub",
+        "ref": "chrome-devtools-mcp"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "CDP debugging + performance traces."
+    },
+    {
+      "capability": "terminal_ops",
+      "skill": "shell",
+      "category": "engineering",
+      "source": {
+        "type": "clawhub",
+        "ref": "shell"
+      },
+      "risk": "high",
+      "requires": [],
+      "note": "Single terminal executor; keep sandbox policy strict."
+    },
+    {
+      "capability": "scheduled_actions",
+      "skill": "cron-wake",
+      "category": "automation",
+      "source": {
+        "type": "clawhub",
+        "ref": "cron-wake"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Scheduled proactive jobs."
+    },
+    {
+      "capability": "proactive_followups",
+      "skill": "proactive-agent",
+      "category": "automation",
+      "source": {
+        "type": "clawhub",
+        "ref": "proactive-agent"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Follow-up loops without manual prompts."
+    },
+    {
+      "capability": "self_improvement",
+      "skill": "self-improving-agent",
+      "category": "automation",
+      "source": {
+        "type": "clawhub",
+        "ref": "self-improving-agent"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Captures failure patterns and corrections."
+    },
+    {
+      "capability": "multi_agent_dispatch",
+      "skill": "subagent",
+      "category": "automation",
+      "source": {
+        "type": "clawhub",
+        "ref": "subagent"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Parallel subtask delegation."
+    },
+    {
+      "capability": "skill_discovery",
+      "skill": "find-skills",
+      "category": "operations",
+      "source": {
+        "type": "clawhub",
+        "ref": "find-skills"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Search skills catalog efficiently."
+    },
+    {
+      "capability": "skill_authoring",
+      "skill": "skill-creator",
+      "category": "operations",
+      "source": {
+        "type": "clawhub",
+        "ref": "skill-creator"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Create/update in-house skills."
+    },
+    {
+      "capability": "skill_security_review",
+      "skill": "skill-security-auditor",
+      "category": "security",
+      "source": {
+        "type": "clawhub",
+        "ref": "skill-security-auditor"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Static safety checks for skill code/prompts."
+    },
+    {
+      "capability": "github_ops",
+      "skill": "github",
+      "category": "engineering",
+      "source": {
+        "type": "clawhub",
+        "ref": "github"
+      },
+      "risk": "medium",
+      "requires": [
+        "GH_TOKEN"
+      ],
+      "note": "PR/issue/actions operations."
+    },
+    {
+      "capability": "database_ops",
+      "skill": "database",
+      "category": "engineering",
+      "source": {
+        "type": "clawhub",
+        "ref": "database"
+      },
+      "risk": "high",
+      "requires": [],
+      "note": "Unified DB operations."
+    },
+    {
+      "capability": "prisma_bootstrap",
+      "skill": "prisma-database-setup",
+      "category": "engineering",
+      "source": {
+        "type": "clawhub",
+        "ref": "prisma-database-setup"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Prisma setup and troubleshooting."
+    },
+    {
+      "capability": "cost_observability",
+      "skill": "model-usage",
+      "category": "operations",
+      "source": {
+        "type": "clawhub",
+        "ref": "model-usage"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Token/cost visibility."
+    },
+    {
+      "capability": "session_observability",
+      "skill": "session-logs",
+      "category": "operations",
+      "source": {
+        "type": "clawhub",
+        "ref": "session-logs"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Analyze conversations and failures."
+    },
+    {
+      "capability": "pdf_processing",
+      "skill": "pdf",
+      "category": "documents",
+      "source": {
+        "type": "clawhub",
+        "ref": "pdf"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Reliable PDF parsing/editing."
+    },
+    {
+      "capability": "docx_processing",
+      "skill": "docx",
+      "category": "documents",
+      "source": {
+        "type": "clawhub",
+        "ref": "docx"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Word creation/editing."
+    },
+    {
+      "capability": "spreadsheet_processing",
+      "skill": "xlsx",
+      "category": "documents",
+      "source": {
+        "type": "clawhub",
+        "ref": "xlsx"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Spreadsheet automation."
+    },
+    {
+      "capability": "presentation_generation",
+      "skill": "pptx",
+      "category": "documents",
+      "source": {
+        "type": "clawhub",
+        "ref": "pptx"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Deck generation/editing."
+    },
+    {
+      "capability": "personal_notes",
+      "skill": "apple-notes",
+      "category": "productivity",
+      "source": {
+        "type": "clawhub",
+        "ref": "apple-notes"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Mac local notes integration."
+    },
+    {
+      "capability": "task_reminders",
+      "skill": "apple-reminders",
+      "category": "productivity",
+      "source": {
+        "type": "clawhub",
+        "ref": "apple-reminders"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Reminder management."
+    },
+    {
+      "capability": "calendar_planning",
+      "skill": "apple-calendar",
+      "category": "productivity",
+      "source": {
+        "type": "clawhub",
+        "ref": "apple-calendar"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Calendar search/create."
+    },
+    {
+      "capability": "weather_lookup",
+      "skill": "weather",
+      "category": "productivity",
+      "source": {
+        "type": "clawhub",
+        "ref": "weather"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Weather context."
+    },
+    {
+      "capability": "financial_data",
+      "skill": "finance-data",
+      "category": "industry-finance",
+      "source": {
+        "type": "clawhub",
+        "ref": "finance-data"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Market and finance data."
+    },
+    {
+      "capability": "news_intelligence",
+      "skill": "news-radar",
+      "category": "research",
+      "source": {
+        "type": "clawhub",
+        "ref": "news-radar"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "News monitoring and topic tracking."
+    },
+    {
+      "capability": "blog_monitoring",
+      "skill": "blogwatcher",
+      "category": "research",
+      "source": {
+        "type": "clawhub",
+        "ref": "blogwatcher"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "RSS/blog updates."
+    },
+    {
+      "capability": "domain_research",
+      "skill": "domain-hunter",
+      "category": "growth",
+      "source": {
+        "type": "clawhub",
+        "ref": "domain-hunter"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Domain discovery + checks."
+    },
+    {
+      "capability": "content_strategy",
+      "skill": "content-strategy",
+      "category": "growth",
+      "source": {
+        "type": "clawhub",
+        "ref": "content-strategy"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Editorial planning."
+    },
+    {
+      "capability": "social_content",
+      "skill": "social-content",
+      "category": "growth",
+      "source": {
+        "type": "clawhub",
+        "ref": "social-content"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Platform-aware content rewriting."
+    },
+    {
+      "capability": "programmatic_seo",
+      "skill": "programmatic-seo",
+      "category": "growth",
+      "source": {
+        "type": "clawhub",
+        "ref": "programmatic-seo"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Scale SEO pages."
+    },
+    {
+      "capability": "marketing_psychology",
+      "skill": "marketing-psychology",
+      "category": "growth",
+      "source": {
+        "type": "clawhub",
+        "ref": "marketing-psychology"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Copy/conversion heuristics."
+    },
+    {
+      "capability": "logo_design",
+      "skill": "logo-creator",
+      "category": "design",
+      "source": {
+        "type": "clawhub",
+        "ref": "logo-creator"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Brand logo generation."
+    },
+    {
+      "capability": "banner_design",
+      "skill": "banner-creator",
+      "category": "design",
+      "source": {
+        "type": "clawhub",
+        "ref": "banner-creator"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Marketing banners."
+    },
+    {
+      "capability": "infographic_design",
+      "skill": "infographic-pro",
+      "category": "design",
+      "source": {
+        "type": "clawhub",
+        "ref": "infographic-pro"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Data visual storytelling."
+    },
+    {
+      "capability": "image_generation",
+      "skill": "ai-image-generation",
+      "category": "media",
+      "source": {
+        "type": "clawhub",
+        "ref": "ai-image-generation"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Image generation/edit."
+    },
+    {
+      "capability": "speech_to_text",
+      "skill": "openai-whisper",
+      "category": "media",
+      "source": {
+        "type": "clawhub",
+        "ref": "openai-whisper"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Audio transcription."
+    },
+    {
+      "capability": "text_to_speech",
+      "skill": "tts",
+      "category": "media",
+      "source": {
+        "type": "clawhub",
+        "ref": "tts"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Speech synthesis."
+    },
+    {
+      "capability": "video_frame_extraction",
+      "skill": "video-frames",
+      "category": "media",
+      "source": {
+        "type": "clawhub",
+        "ref": "video-frames"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Video frame extraction."
+    },
+    {
+      "capability": "community_intelligence",
+      "skill": "reddit",
+      "category": "research",
+      "source": {
+        "type": "clawhub",
+        "ref": "reddit"
+      },
+      "risk": "medium",
+      "requires": [],
+      "note": "Reddit query and extraction."
+    },
+    {
+      "capability": "url_to_markdown",
+      "skill": "url-to-markdown",
+      "category": "research",
+      "source": {
+        "type": "clawhub",
+        "ref": "url-to-markdown"
+      },
+      "risk": "low",
+      "requires": [],
+      "note": "Convert web pages to markdown."
+    }
+  ]
+}

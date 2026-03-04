@@ -1,0 +1,16 @@
+{
+  "id": "operations_support",
+  "title": "Operations / Support",
+  "description": "Task-driven operations with proactive reminders and runbook hygiene.",
+  "capabilities": [
+    "scheduled_actions",
+    "proactive_followups",
+    "self_improvement",
+    "task_reminders",
+    "calendar_planning",
+    "personal_notes",
+    "session_observability",
+    "skill_discovery",
+    "weather_lookup"
+  ]
+}

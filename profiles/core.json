@@ -1,0 +1,22 @@
+{
+  "id": "core",
+  "title": "Core Essentials",
+  "description": "Stable baseline for most teams: search, docs, automation, observability, and basic media.",
+  "capabilities": [
+    "web_search",
+    "content_summarization",
+    "browser_automation",
+    "terminal_ops",
+    "scheduled_actions",
+    "proactive_followups",
+    "github_ops",
+    "skill_security_review",
+    "cost_observability",
+    "session_observability",
+    "pdf_processing",
+    "docx_processing",
+    "spreadsheet_processing",
+    "presentation_generation",
+    "weather_lookup"
+  ]
+}

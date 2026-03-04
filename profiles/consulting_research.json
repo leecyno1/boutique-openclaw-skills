@@ -1,0 +1,16 @@
+{
+  "id": "consulting_research",
+  "title": "Consulting / Research",
+  "description": "Fast synthesis and executive deliverables for client work.",
+  "capabilities": [
+    "web_search",
+    "content_summarization",
+    "url_to_markdown",
+    "blog_monitoring",
+    "news_intelligence",
+    "pdf_processing",
+    "docx_processing",
+    "presentation_generation",
+    "calendar_planning"
+  ]
+}

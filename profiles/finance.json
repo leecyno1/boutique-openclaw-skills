@@ -1,0 +1,16 @@
+{
+  "id": "finance",
+  "title": "Finance",
+  "description": "Research + reporting + monitoring for investment/analysis workflows.",
+  "capabilities": [
+    "web_search",
+    "financial_data",
+    "news_intelligence",
+    "community_intelligence",
+    "content_summarization",
+    "spreadsheet_processing",
+    "presentation_generation",
+    "database_ops",
+    "programmatic_seo"
+  ]
+}

@@ -1,0 +1,37 @@
+name: Sync and Audit Skills
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "15 2 * * 1" # weekly Monday UTC
+
+jobs:
+  sync-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install clawhub
+        run: npm i -g clawhub
+
+      - name: Run sync + audit
+        run: |
+          chmod +x scripts/*.sh scripts/*.py
+          ./scripts/sync-upstream.sh
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-audit-reports
+          path: reports/

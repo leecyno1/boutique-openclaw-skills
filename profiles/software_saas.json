@@ -1,0 +1,17 @@
+{
+  "id": "software_saas",
+  "title": "Software / SaaS",
+  "description": "Engineering delivery, debugging, docs, and release operations.",
+  "capabilities": [
+    "github_ops",
+    "browser_debug",
+    "browser_automation",
+    "terminal_ops",
+    "database_ops",
+    "prisma_bootstrap",
+    "skill_authoring",
+    "subagent",
+    "session_observability",
+    "cost_observability"
+  ]
+}

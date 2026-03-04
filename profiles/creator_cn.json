@@ -1,0 +1,23 @@
+{
+  "id": "creator_cn",
+  "title": "Creator (CN Channels)",
+  "description": "Chinese content pipeline using Baoyu-style production/distribution skills.",
+  "capabilities": [
+    "content_strategy",
+    "social_content",
+    "image_generation",
+    "infographic_design",
+    "logo_design",
+    "banner_design",
+    "url_to_markdown"
+  ],
+  "extra_skills": [
+    "baoyu-xhs-images",
+    "baoyu-cover-image",
+    "baoyu-comic",
+    "baoyu-article-illustrator",
+    "baoyu-slide-deck",
+    "baoyu-post-to-wechat",
+    "baoyu-post-to-x"
+  ]
+}
