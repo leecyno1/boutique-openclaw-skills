@@ -25,6 +25,7 @@
 - [打包发布](#7-打包发布)
 - [设计说明](#8-设计说明)
 - [Skills 全量目录](#10-skills-全量目录按分类可点击跳转原项目)
+- [本机 OpenClaw 全量技能快照](#11-本机-openclaw-全量技能快照)
 - [精选策略文档](docs/CURATION_POLICY.md)
 - [更新与审计SOP](docs/UPDATE_AND_AUDIT.md)
 - [行业映射说明](docs/INDUSTRY_MAP.md)
@@ -241,3 +242,14 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 ### 安全审计（1）
 - [`skill-security-auditor`](https://github.com/search?q=skill-security-auditor&type=repositories) - `skill_security_review`
 
+---
+
+## 11) 本机 OpenClaw 全量技能快照
+
+- 当前机器自动导出的 OpenClaw skills（含 ready/not ready、来源、缺失依赖）：
+  - [`docs/OPENCLAW_SKILLS_FULL.md`](docs/OPENCLAW_SKILLS_FULL.md)
+- 导出命令：
+
+```bash
+python3 scripts/export_openclaw_skills_inventory.py
+```
