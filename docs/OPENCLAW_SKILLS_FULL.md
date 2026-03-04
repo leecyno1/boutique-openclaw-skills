@@ -1,6 +1,6 @@
 # OpenClaw Skills Inventory (Current Machine)
 
-- Generated at: `2026-03-04 21:24:20`
+- Generated at: `2026-03-04 22:29:30`
 - Total skills: `125`
 - Ready (eligible): `99`
 - Not ready: `26`
@@ -57,7 +57,7 @@
 |---|---:|---:|---|---|
 | `brainstorming` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=brainstorming&type=repositories) |
 | `byterover` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=byterover&type=repositories) |
-| `capability-evolver` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=capability-evolver&type=repositories) |
+| `capability-evolver` | yes | no | `openclaw-managed` | [repo](https://github.com/autogame-17/evolver/releases`) |
 | `cron-wake` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=cron-wake&type=repositories) |
 | `find-skills` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=find-skills&type=repositories) |
 | `oracle` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=oracle&type=repositories) |
@@ -81,7 +81,7 @@
 | `prisma-database-setup` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=prisma-database-setup&type=repositories) |
 | `session-logs` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=session-logs&type=repositories) |
 | `shell` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=shell&type=repositories) |
-| `skill-security-auditor` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=skill-security-auditor&type=repositories) |
+| `skill-security-auditor` | yes | no | `openclaw-workspace` | [repo](https://github.com/openclaw/security-auditor/issues) |
 | `tdd` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tdd&type=repositories) |
 | `test-driven-development` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=test-driven-development&type=repositories) |
 | `tmux` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=tmux&type=repositories) |
@@ -93,13 +93,13 @@
 |---|---:|---:|---|---|
 | `blogwatcher` | yes | no | `openclaw-workspace` | [repo](https://github.com/Hyaxia/blogwatcher) |
 | `brave-search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=brave-search&type=repositories) |
-| `domain-hunter` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=domain-hunter&type=repositories) |
+| `domain-hunter` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/domain-hunter) |
 | `finance-data` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=finance-data&type=repositories) |
 | `minimax-web-search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=minimax-web-search&type=repositories) |
 | `news-radar` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=news-radar&type=repositories) |
-| `producthunt` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=producthunt&type=repositories) |
-| `reddit` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=reddit&type=repositories) |
-| `requesthunt` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=requesthunt&type=repositories) |
+| `producthunt` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/producthunt) |
+| `reddit` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/reddit) |
+| `requesthunt` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/requesthunt) |
 | `search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=search&type=repositories) |
 | `summarize` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=summarize&type=repositories) |
 | `tavily-search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tavily-search&type=repositories) |
@@ -110,11 +110,11 @@
 
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
-| `banner-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=banner-creator&type=repositories) |
+| `banner-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/banner-creator) |
 | `format-pro` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=format-pro&type=repositories) |
 | `frontend-design` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=frontend-design&type=repositories) |
 | `infographic-pro` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=infographic-pro&type=repositories) |
-| `logo-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=logo-creator&type=repositories) |
+| `logo-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/logo-creator) |
 | `tailwind` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tailwind&type=repositories) |
 | `tailwind-design-system` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tailwind-design-system&type=repositories) |
 
@@ -128,9 +128,9 @@
 | `larry` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=larry&type=repositories) |
 | `marketing-psychology` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=marketing-psychology&type=repositories) |
 | `programmatic-seo` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=programmatic-seo&type=repositories) |
-| `seo-geo` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=seo-geo&type=repositories) |
+| `seo-geo` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/seo-geo) |
 | `social-content` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=social-content&type=repositories) |
-| `twitter` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=twitter&type=repositories) |
+| `twitter` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/twitter) |
 
 
 ### 图像/音频/多媒体生成处理（10）
@@ -143,7 +143,7 @@
 | `elevenlabs-music` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=elevenlabs-music&type=repositories) |
 | `minimax-image-understanding` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=minimax-image-understanding&type=repositories) |
 | `minimax-understand-image` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=minimax-understand-image&type=repositories) |
-| `nanobanana` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=nanobanana&type=repositories) |
+| `nanobanana` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/nanobanana) |
 | `openai-whisper` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=openai-whisper&type=repositories) |
 | `tts` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=tts&type=repositories) |
 | `video-frames` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=video-frames&type=repositories) |
@@ -174,7 +174,7 @@
 | `baoyu-comic` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-comic&type=repositories) |
 | `baoyu-cover-image` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-cover-image&type=repositories) |
 | `baoyu-infographic` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-infographic&type=repositories) |
-| `baoyu-post-to-wechat` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-post-to-wechat&type=repositories) |
+| `baoyu-post-to-wechat` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-markdown-to-html/SKILL.md) |
 | `baoyu-post-to-x` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-post-to-x&type=repositories) |
 | `baoyu-slide-deck` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-slide-deck&type=repositories) |
 | `baoyu-url-to-markdown` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-url-to-markdown&type=repositories) |
@@ -185,14 +185,14 @@
 
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
-| `archive` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=archive&type=repositories) |
-| `atxp` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=atxp&type=repositories) |
-| `feishu-doc` | yes | no | `openclaw-extra` | [repo](https://github.com/search?q=feishu-doc&type=repositories) |
-| `feishu-drive` | yes | no | `openclaw-extra` | [repo](https://github.com/search?q=feishu-drive&type=repositories) |
-| `feishu-perm` | yes | no | `openclaw-extra` | [repo](https://github.com/search?q=feishu-perm&type=repositories) |
-| `feishu-wiki` | yes | no | `openclaw-extra` | [repo](https://github.com/search?q=feishu-wiki&type=repositories) |
+| `archive` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/archive) |
+| `atxp` | yes | no | `openclaw-managed` | [repo](https://github.com/atxp-dev/cli) |
+| `feishu-doc` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-doc) |
+| `feishu-drive` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-drive) |
+| `feishu-perm` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-perm) |
+| `feishu-wiki` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-wiki) |
 | `peekaboo` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=peekaboo&type=repositories) |
-| `skill-name` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=skill-name&type=repositories) |
+| `skill-name` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/skill-name) |
 | `weather` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=weather&type=repositories) |
 
 

@@ -2,6 +2,7 @@
 import argparse
 import datetime as dt
 import json
+import re
 import subprocess
 from pathlib import Path
 from collections import defaultdict
@@ -9,6 +10,9 @@ from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "docs" / "OPENCLAW_SKILLS_FULL.md"
+SKILLS_LOCK_PATH = Path.home() / "clawd" / "skills-lock.json"
+
+GITHUB_URL_RE = re.compile(r"https?://github\.com/[^\s)\"'>]+")
 
 
 CATEGORY_ORDER = [
@@ -46,11 +50,117 @@ def load_skills_from_cli() -> dict:
     return json.loads(proc.stdout)
 
 
-def github_link(skill: dict) -> str:
+def load_workspace_skill_lock() -> dict:
+    if not SKILLS_LOCK_PATH.exists():
+        return {}
+    try:
+        payload = json.loads(SKILLS_LOCK_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return payload.get("skills", {}) if isinstance(payload, dict) else {}
+
+
+def normalize_repo_url(url: str) -> str:
+    u = url.strip()
+    if u.startswith("git+"):
+        u = u[4:]
+    if u.endswith(".git"):
+        u = u[:-4]
+    return u
+
+
+def infer_base_dir(skill: dict) -> Path | None:
+    name = (skill.get("name") or "").strip()
+    source = (skill.get("source") or "").strip()
+    if source == "openclaw-managed":
+        p = Path.home() / ".openclaw" / "skills" / name
+        return p if p.exists() else None
+    if source == "openclaw-workspace":
+        p = Path.home() / "clawd" / "skills" / name
+        return p if p.exists() else None
+    if source == "openclaw-extra":
+        p = Path.home() / ".npm-global" / "lib" / "node_modules" / "openclaw" / "extensions" / "feishu" / "skills" / name
+        return p if p.exists() else None
+    return None
+
+
+def parse_repository_from_package_json(base_dir: Path) -> str | None:
+    pkg = base_dir / "package.json"
+    if not pkg.exists():
+        return None
+    try:
+        data = json.loads(pkg.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    repo = data.get("repository")
+    if isinstance(repo, dict):
+        url = repo.get("url") or ""
+    elif isinstance(repo, str):
+        url = repo
+    else:
+        url = ""
+    if "github.com/" not in url:
+        return None
+    return normalize_repo_url(url)
+
+
+def extract_github_urls_from_text(path: Path) -> list[str]:
+    try:
+        content = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return []
+    urls = [u.rstrip(".,)]}\"'") for u in GITHUB_URL_RE.findall(content)]
+    filtered = []
+    for u in urls:
+        bad_tokens = ("/login", "/sponsors/", "/orgs/community/discussions", "/example", "${")
+        if any(tok in u for tok in bad_tokens):
+            continue
+        filtered.append(u)
+    return filtered
+
+
+def pick_best_github_from_local(base_dir: Path, skill_name: str) -> str | None:
+    pkg_repo = parse_repository_from_package_json(base_dir)
+    if pkg_repo:
+        return pkg_repo
+
+    for filename in ("SKILL.md", "README.md", "readme.md"):
+        p = base_dir / filename
+        if not p.exists():
+            continue
+        urls = extract_github_urls_from_text(p)
+        if not urls:
+            continue
+        for u in urls:
+            if f"/skills/{skill_name}" in u or u.endswith(f"/{skill_name}"):
+                return normalize_repo_url(u)
+        return normalize_repo_url(urls[0])
+    return None
+
+
+def github_link(skill: dict, lock_sources: dict) -> str:
+    name = (skill.get("name") or "").strip()
+
+    lock_item = lock_sources.get(name) or {}
+    if lock_item.get("sourceType") == "github":
+        source = str(lock_item.get("source") or "").strip()
+        if "/" in source:
+            return f"https://github.com/{source}/tree/main/skills/{name}"
+        return f"https://github.com/{source}"
+
+    if skill.get("source") == "openclaw-extra":
+        return f"https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/{name}"
+
     homepage = (skill.get("homepage") or "").strip()
-    if "github.com" in homepage:
-        return homepage
-    name = skill.get("name", "").strip()
+    if "github.com/" in homepage:
+        return normalize_repo_url(homepage)
+
+    base_dir = infer_base_dir(skill)
+    if base_dir:
+        link = pick_best_github_from_local(base_dir, name)
+        if link:
+            return link
+
     return f"https://github.com/search?q={name}&type=repositories"
 
 
@@ -192,6 +302,7 @@ def classify_skill(skill: dict) -> str:
 
 def render(skills_data: dict) -> str:
     skills = sorted(skills_data.get("skills", []), key=lambda x: x.get("name", "").lower())
+    lock_sources = load_workspace_skill_lock()
     now = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     total = len(skills)
     ready = sum(1 for s in skills if s.get("eligible"))
@@ -244,7 +355,7 @@ def render(skills_data: dict) -> str:
                 f"{'yes' if s.get('eligible') else 'no'} | "
                 f"{'yes' if s.get('disabled') else 'no'} | "
                 f"`{s.get('source','unknown')}` | "
-                f"[repo]({github_link(s)}) |"
+                f"[repo]({github_link(s, lock_sources)}) |"
             )
         lines += ["", ""]
 
