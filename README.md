@@ -24,6 +24,7 @@
 - [安全与质量原则](#6-安全与质量原则)
 - [打包发布](#7-打包发布)
 - [设计说明](#8-设计说明)
+- [Skills 全量目录](#10-skills-全量目录按分类可点击跳转原项目)
 - [精选策略文档](docs/CURATION_POLICY.md)
 - [更新与审计SOP](docs/UPDATE_AND_AUDIT.md)
 - [行业映射说明](docs/INDUSTRY_MAP.md)
@@ -172,3 +173,73 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 ## 9) License
 
 [MIT](LICENSE)
+
+---
+
+## 10) Skills 全量目录（按分类，可点击跳转原项目）
+
+> 所有条目均可点击跳转到对应项目页（ClawHub）。
+
+### 自动化与能力进化（4）
+- [`cron-wake`](https://clawhub.com/skills/cron-wake) - `scheduled_actions`
+- [`proactive-agent`](https://clawhub.com/skills/proactive-agent) - `proactive_followups`
+- [`self-improving-agent`](https://clawhub.com/skills/self-improving-agent) - `self_improvement`
+- [`subagent`](https://clawhub.com/skills/subagent) - `multi_agent_dispatch`
+
+### 开发/工程与运维（6）
+- [`agent-browser`](https://clawhub.com/skills/agent-browser) - `browser_automation`
+- [`chrome-devtools-mcp`](https://clawhub.com/skills/chrome-devtools-mcp) - `browser_debug`
+- [`database`](https://clawhub.com/skills/database) - `database_ops`
+- [`github`](https://clawhub.com/skills/github) - `github_ops`
+- [`prisma-database-setup`](https://clawhub.com/skills/prisma-database-setup) - `prisma_bootstrap`
+- [`shell`](https://clawhub.com/skills/shell) - `terminal_ops`
+
+### 搜索/研究/情报（6）
+- [`blogwatcher`](https://clawhub.com/skills/blogwatcher) - `blog_monitoring`
+- [`brave-search`](https://clawhub.com/skills/brave-search) - `web_search`
+- [`news-radar`](https://clawhub.com/skills/news-radar) - `news_intelligence`
+- [`reddit`](https://clawhub.com/skills/reddit) - `community_intelligence`
+- [`summarize`](https://clawhub.com/skills/summarize) - `content_summarization`
+- [`url-to-markdown`](https://clawhub.com/skills/url-to-markdown) - `url_to_markdown`
+
+### 内容/营销/增长（5）
+- [`content-strategy`](https://clawhub.com/skills/content-strategy) - `content_strategy`
+- [`domain-hunter`](https://clawhub.com/skills/domain-hunter) - `domain_research`
+- [`marketing-psychology`](https://clawhub.com/skills/marketing-psychology) - `marketing_psychology`
+- [`programmatic-seo`](https://clawhub.com/skills/programmatic-seo) - `programmatic_seo`
+- [`social-content`](https://clawhub.com/skills/social-content) - `social_content`
+
+### 设计/前端/UI（3）
+- [`banner-creator`](https://clawhub.com/skills/banner-creator) - `banner_design`
+- [`infographic-pro`](https://clawhub.com/skills/infographic-pro) - `infographic_design`
+- [`logo-creator`](https://clawhub.com/skills/logo-creator) - `logo_design`
+
+### 图像/音频/多媒体（4）
+- [`ai-image-generation`](https://clawhub.com/skills/ai-image-generation) - `image_generation`
+- [`openai-whisper`](https://clawhub.com/skills/openai-whisper) - `speech_to_text`
+- [`tts`](https://clawhub.com/skills/tts) - `text_to_speech`
+- [`video-frames`](https://clawhub.com/skills/video-frames) - `video_frame_extraction`
+
+### 文档/办公（4）
+- [`docx`](https://clawhub.com/skills/docx) - `docx_processing`
+- [`pdf`](https://clawhub.com/skills/pdf) - `pdf_processing`
+- [`pptx`](https://clawhub.com/skills/pptx) - `presentation_generation`
+- [`xlsx`](https://clawhub.com/skills/xlsx) - `spreadsheet_processing`
+
+### 个人效率/助手（4）
+- [`apple-calendar`](https://clawhub.com/skills/apple-calendar) - `calendar_planning`
+- [`apple-notes`](https://clawhub.com/skills/apple-notes) - `personal_notes`
+- [`apple-reminders`](https://clawhub.com/skills/apple-reminders) - `task_reminders`
+- [`weather`](https://clawhub.com/skills/weather) - `weather_lookup`
+
+### 运营/观测（4）
+- [`find-skills`](https://clawhub.com/skills/find-skills) - `skill_discovery`
+- [`model-usage`](https://clawhub.com/skills/model-usage) - `cost_observability`
+- [`session-logs`](https://clawhub.com/skills/session-logs) - `session_observability`
+- [`skill-creator`](https://clawhub.com/skills/skill-creator) - `skill_authoring`
+
+### 安全审计（1）
+- [`skill-security-auditor`](https://clawhub.com/skills/skill-security-auditor) - `skill_security_review`
+
+### 行业专项（金融）（1）
+- [`finance-data`](https://clawhub.com/skills/finance-data) - `financial_data`
