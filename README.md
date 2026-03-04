@@ -24,8 +24,7 @@
 - [安全与质量原则](#6-安全与质量原则)
 - [打包发布](#7-打包发布)
 - [设计说明](#8-设计说明)
-- [Skills 全量目录](#10-skills-全量目录按分类可点击跳转原项目)
-- [本机 OpenClaw 全量技能快照](#11-本机-openclaw-全量技能快照)
+- [Skills 目录（推荐在前）](#10-skills-目录推荐在前)
 - [精选策略文档](docs/CURATION_POLICY.md)
 - [更新与审计SOP](docs/UPDATE_AND_AUDIT.md)
 - [行业映射说明](docs/INDUSTRY_MAP.md)
@@ -177,79 +176,41 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 
 ---
 
-## 10) Skills 全量目录（按分类，可点击跳转原项目）
+## 10) Skills 目录（推荐在前）
 
-> 所有条目均可点击跳转到对应项目页（GitHub）。
+这个仓库现在按你的要求改成两层目录：
 
-### 自动化与能力进化（4）
-- [`cron-wake`](https://github.com/search?q=cron-wake&type=repositories) - `scheduled_actions`
-- [`proactive-agent`](https://github.com/search?q=proactive-agent&type=repositories) - `proactive_followups`
-- [`self-improving-agent`](https://github.com/search?q=self-improving-agent&type=repositories) - `self_improvement`
-- [`subagent`](https://github.com/search?q=subagent&type=repositories) - `multi_agent_dispatch`
+- 推荐 skills（优先展示，带简介 + GitHub 地址）
+- OpenClaw 官方默认 skills（单独一类，带简介）
 
-### 开发/工程与运维（6）
-- [`agent-browser`](https://github.com/search?q=agent-browser&type=repositories) - `browser_automation`
-- [`chrome-devtools-mcp`](https://github.com/search?q=chrome-devtools-mcp&type=repositories) - `browser_debug`
-- [`database`](https://github.com/search?q=database&type=repositories) - `database_ops`
-- [`github`](https://github.com/search?q=github&type=repositories) - `github_ops`
-- [`prisma-database-setup`](https://github.com/search?q=prisma-database-setup&type=repositories) - `prisma_bootstrap`
-- [`shell`](https://github.com/search?q=shell&type=repositories) - `terminal_ops`
+统计如下（满足你要的 80+）：
 
-### 搜索/研究/情报（6）
-- [`blogwatcher`](https://github.com/search?q=blogwatcher&type=repositories) - `blog_monitoring`
-- [`brave-search`](https://github.com/search?q=brave-search&type=repositories) - `web_search`
-- [`news-radar`](https://github.com/search?q=news-radar&type=repositories) - `news_intelligence`
-- [`reddit`](https://github.com/search?q=reddit&type=repositories) - `community_intelligence`
-- [`summarize`](https://github.com/search?q=summarize&type=repositories) - `content_summarization`
-- [`url-to-markdown`](https://github.com/search?q=url-to-markdown&type=repositories) - `url_to_markdown`
+- 推荐 skills：`41`
+- OpenClaw 官方默认 skills：`58`（core `52` + extension `6`）
+- 可查看总条目：`99`
 
-### 内容/营销/增长（5）
-- [`content-strategy`](https://github.com/search?q=content-strategy&type=repositories) - `content_strategy`
-- [`domain-hunter`](https://github.com/search?q=domain-hunter&type=repositories) - `domain_research`
-- [`marketing-psychology`](https://github.com/search?q=marketing-psychology&type=repositories) - `marketing_psychology`
-- [`programmatic-seo`](https://github.com/search?q=programmatic-seo&type=repositories) - `programmatic_seo`
-- [`social-content`](https://github.com/search?q=social-content&type=repositories) - `social_content`
+完整目录（每个 skill 均附简介）：
 
-### 设计/前端/UI（3）
-- [`banner-creator`](https://github.com/search?q=banner-creator&type=repositories) - `banner_design`
-- [`infographic-pro`](https://github.com/search?q=infographic-pro&type=repositories) - `infographic_design`
-- [`logo-creator`](https://github.com/search?q=logo-creator&type=repositories) - `logo_design`
+- [`docs/SKILLS_DIRECTORY.md`](docs/SKILLS_DIRECTORY.md)
 
-### 图像/音频/多媒体（4）
-- [`ai-image-generation`](https://github.com/search?q=ai-image-generation&type=repositories) - `image_generation`
-- [`openai-whisper`](https://github.com/search?q=openai-whisper&type=repositories) - `speech_to_text`
-- [`tts`](https://github.com/search?q=tts&type=repositories) - `text_to_speech`
-- [`video-frames`](https://github.com/search?q=video-frames&type=repositories) - `video_frame_extraction`
-
-### 文档/办公（4）
-- [`docx`](https://github.com/search?q=docx&type=repositories) - `docx_processing`
-- [`pdf`](https://github.com/search?q=pdf&type=repositories) - `pdf_processing`
-- [`pptx`](https://github.com/search?q=pptx&type=repositories) - `presentation_generation`
-- [`xlsx`](https://github.com/search?q=xlsx&type=repositories) - `spreadsheet_processing`
-
-### 个人效率/助手（4）
-- [`apple-calendar`](https://github.com/search?q=apple-calendar&type=repositories) - `calendar_planning`
-- [`apple-notes`](https://github.com/search?q=apple-notes&type=repositories) - `personal_notes`
-- [`apple-reminders`](https://github.com/search?q=apple-reminders&type=repositories) - `task_reminders`
-- [`weather`](https://github.com/search?q=weather&type=repositories) - `weather_lookup`
-
-### 运营/观测（4）
-- [`find-skills`](https://github.com/search?q=find-skills&type=repositories) - `skill_discovery`
-- [`model-usage`](https://github.com/search?q=model-usage&type=repositories) - `cost_observability`
-- [`session-logs`](https://github.com/search?q=session-logs&type=repositories) - `session_observability`
-- [`skill-creator`](https://github.com/search?q=skill-creator&type=repositories) - `skill_authoring`
-
-### 安全审计（1）
-- [`skill-security-auditor`](https://github.com/search?q=skill-security-auditor&type=repositories) - `skill_security_review`
-
----
-
-## 11) 本机 OpenClaw 全量技能快照
-
-- 当前机器自动导出的 OpenClaw skills（含 ready/not ready、来源、缺失依赖）：
-  - [`docs/OPENCLAW_SKILLS_FULL.md`](docs/OPENCLAW_SKILLS_FULL.md)
-- 导出命令：
+生成命令：
 
 ```bash
-python3 scripts/export_openclaw_skills_inventory.py
+python3 scripts/build_skills_directory.py
 ```
+
+目录说明：
+
+- 推荐区继续按你指定的分类结构展示：
+  1) Agent/自动化与能力进化  
+  2) 开发/工程与运维  
+  3) 搜索/研究/情报  
+  4) 设计/前端/UI  
+  5) 内容/营销/增长  
+  6) 图像/音频/多媒体生成处理  
+  7) 文档/办公生产力  
+  8) Baoyu 系列内容产出与分发  
+  9) 其他集成能力
+- 官方默认区按 OpenClaw 包内目录读取（非本机会话导出）：
+  - `openclaw/skills/*`
+  - `openclaw/extensions/*/skills/*`
