@@ -308,18 +308,6 @@
       "note": "Weather context."
     },
     {
-      "capability": "financial_data",
-      "skill": "finance-data",
-      "category": "industry-finance",
-      "source": {
-        "type": "clawhub",
-        "ref": "finance-data"
-      },
-      "risk": "medium",
-      "requires": [],
-      "note": "Market and finance data."
-    },
-    {
       "capability": "news_intelligence",
       "skill": "news-radar",
       "category": "research",

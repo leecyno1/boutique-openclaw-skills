@@ -9,7 +9,7 @@
 | 参数 | 值 |
 |---|---|
 | Curation 模式 | One Capability = One Skill |
-| 精选能力数 | 42 |
+| 精选能力数 | 41 |
 | 行业档数量 | 7 |
 | 更新策略 | 每周上游同步（可手动触发） |
 | 审计策略 | 更新后本地审计（风险/依赖/冲突） |
@@ -178,68 +178,66 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 
 ## 10) Skills 全量目录（按分类，可点击跳转原项目）
 
-> 所有条目均可点击跳转到对应项目页（ClawHub）。
+> 所有条目均可点击跳转到对应项目页（GitHub）。
 
 ### 自动化与能力进化（4）
-- [`cron-wake`](https://clawhub.com/skills/cron-wake) - `scheduled_actions`
-- [`proactive-agent`](https://clawhub.com/skills/proactive-agent) - `proactive_followups`
-- [`self-improving-agent`](https://clawhub.com/skills/self-improving-agent) - `self_improvement`
-- [`subagent`](https://clawhub.com/skills/subagent) - `multi_agent_dispatch`
+- [`cron-wake`](https://github.com/search?q=cron-wake&type=repositories) - `scheduled_actions`
+- [`proactive-agent`](https://github.com/search?q=proactive-agent&type=repositories) - `proactive_followups`
+- [`self-improving-agent`](https://github.com/search?q=self-improving-agent&type=repositories) - `self_improvement`
+- [`subagent`](https://github.com/search?q=subagent&type=repositories) - `multi_agent_dispatch`
 
 ### 开发/工程与运维（6）
-- [`agent-browser`](https://clawhub.com/skills/agent-browser) - `browser_automation`
-- [`chrome-devtools-mcp`](https://clawhub.com/skills/chrome-devtools-mcp) - `browser_debug`
-- [`database`](https://clawhub.com/skills/database) - `database_ops`
-- [`github`](https://clawhub.com/skills/github) - `github_ops`
-- [`prisma-database-setup`](https://clawhub.com/skills/prisma-database-setup) - `prisma_bootstrap`
-- [`shell`](https://clawhub.com/skills/shell) - `terminal_ops`
+- [`agent-browser`](https://github.com/search?q=agent-browser&type=repositories) - `browser_automation`
+- [`chrome-devtools-mcp`](https://github.com/search?q=chrome-devtools-mcp&type=repositories) - `browser_debug`
+- [`database`](https://github.com/search?q=database&type=repositories) - `database_ops`
+- [`github`](https://github.com/search?q=github&type=repositories) - `github_ops`
+- [`prisma-database-setup`](https://github.com/search?q=prisma-database-setup&type=repositories) - `prisma_bootstrap`
+- [`shell`](https://github.com/search?q=shell&type=repositories) - `terminal_ops`
 
 ### 搜索/研究/情报（6）
-- [`blogwatcher`](https://clawhub.com/skills/blogwatcher) - `blog_monitoring`
-- [`brave-search`](https://clawhub.com/skills/brave-search) - `web_search`
-- [`news-radar`](https://clawhub.com/skills/news-radar) - `news_intelligence`
-- [`reddit`](https://clawhub.com/skills/reddit) - `community_intelligence`
-- [`summarize`](https://clawhub.com/skills/summarize) - `content_summarization`
-- [`url-to-markdown`](https://clawhub.com/skills/url-to-markdown) - `url_to_markdown`
+- [`blogwatcher`](https://github.com/search?q=blogwatcher&type=repositories) - `blog_monitoring`
+- [`brave-search`](https://github.com/search?q=brave-search&type=repositories) - `web_search`
+- [`news-radar`](https://github.com/search?q=news-radar&type=repositories) - `news_intelligence`
+- [`reddit`](https://github.com/search?q=reddit&type=repositories) - `community_intelligence`
+- [`summarize`](https://github.com/search?q=summarize&type=repositories) - `content_summarization`
+- [`url-to-markdown`](https://github.com/search?q=url-to-markdown&type=repositories) - `url_to_markdown`
 
 ### 内容/营销/增长（5）
-- [`content-strategy`](https://clawhub.com/skills/content-strategy) - `content_strategy`
-- [`domain-hunter`](https://clawhub.com/skills/domain-hunter) - `domain_research`
-- [`marketing-psychology`](https://clawhub.com/skills/marketing-psychology) - `marketing_psychology`
-- [`programmatic-seo`](https://clawhub.com/skills/programmatic-seo) - `programmatic_seo`
-- [`social-content`](https://clawhub.com/skills/social-content) - `social_content`
+- [`content-strategy`](https://github.com/search?q=content-strategy&type=repositories) - `content_strategy`
+- [`domain-hunter`](https://github.com/search?q=domain-hunter&type=repositories) - `domain_research`
+- [`marketing-psychology`](https://github.com/search?q=marketing-psychology&type=repositories) - `marketing_psychology`
+- [`programmatic-seo`](https://github.com/search?q=programmatic-seo&type=repositories) - `programmatic_seo`
+- [`social-content`](https://github.com/search?q=social-content&type=repositories) - `social_content`
 
 ### 设计/前端/UI（3）
-- [`banner-creator`](https://clawhub.com/skills/banner-creator) - `banner_design`
-- [`infographic-pro`](https://clawhub.com/skills/infographic-pro) - `infographic_design`
-- [`logo-creator`](https://clawhub.com/skills/logo-creator) - `logo_design`
+- [`banner-creator`](https://github.com/search?q=banner-creator&type=repositories) - `banner_design`
+- [`infographic-pro`](https://github.com/search?q=infographic-pro&type=repositories) - `infographic_design`
+- [`logo-creator`](https://github.com/search?q=logo-creator&type=repositories) - `logo_design`
 
 ### 图像/音频/多媒体（4）
-- [`ai-image-generation`](https://clawhub.com/skills/ai-image-generation) - `image_generation`
-- [`openai-whisper`](https://clawhub.com/skills/openai-whisper) - `speech_to_text`
-- [`tts`](https://clawhub.com/skills/tts) - `text_to_speech`
-- [`video-frames`](https://clawhub.com/skills/video-frames) - `video_frame_extraction`
+- [`ai-image-generation`](https://github.com/search?q=ai-image-generation&type=repositories) - `image_generation`
+- [`openai-whisper`](https://github.com/search?q=openai-whisper&type=repositories) - `speech_to_text`
+- [`tts`](https://github.com/search?q=tts&type=repositories) - `text_to_speech`
+- [`video-frames`](https://github.com/search?q=video-frames&type=repositories) - `video_frame_extraction`
 
 ### 文档/办公（4）
-- [`docx`](https://clawhub.com/skills/docx) - `docx_processing`
-- [`pdf`](https://clawhub.com/skills/pdf) - `pdf_processing`
-- [`pptx`](https://clawhub.com/skills/pptx) - `presentation_generation`
-- [`xlsx`](https://clawhub.com/skills/xlsx) - `spreadsheet_processing`
+- [`docx`](https://github.com/search?q=docx&type=repositories) - `docx_processing`
+- [`pdf`](https://github.com/search?q=pdf&type=repositories) - `pdf_processing`
+- [`pptx`](https://github.com/search?q=pptx&type=repositories) - `presentation_generation`
+- [`xlsx`](https://github.com/search?q=xlsx&type=repositories) - `spreadsheet_processing`
 
 ### 个人效率/助手（4）
-- [`apple-calendar`](https://clawhub.com/skills/apple-calendar) - `calendar_planning`
-- [`apple-notes`](https://clawhub.com/skills/apple-notes) - `personal_notes`
-- [`apple-reminders`](https://clawhub.com/skills/apple-reminders) - `task_reminders`
-- [`weather`](https://clawhub.com/skills/weather) - `weather_lookup`
+- [`apple-calendar`](https://github.com/search?q=apple-calendar&type=repositories) - `calendar_planning`
+- [`apple-notes`](https://github.com/search?q=apple-notes&type=repositories) - `personal_notes`
+- [`apple-reminders`](https://github.com/search?q=apple-reminders&type=repositories) - `task_reminders`
+- [`weather`](https://github.com/search?q=weather&type=repositories) - `weather_lookup`
 
 ### 运营/观测（4）
-- [`find-skills`](https://clawhub.com/skills/find-skills) - `skill_discovery`
-- [`model-usage`](https://clawhub.com/skills/model-usage) - `cost_observability`
-- [`session-logs`](https://clawhub.com/skills/session-logs) - `session_observability`
-- [`skill-creator`](https://clawhub.com/skills/skill-creator) - `skill_authoring`
+- [`find-skills`](https://github.com/search?q=find-skills&type=repositories) - `skill_discovery`
+- [`model-usage`](https://github.com/search?q=model-usage&type=repositories) - `cost_observability`
+- [`session-logs`](https://github.com/search?q=session-logs&type=repositories) - `session_observability`
+- [`skill-creator`](https://github.com/search?q=skill-creator&type=repositories) - `skill_authoring`
 
 ### 安全审计（1）
-- [`skill-security-auditor`](https://clawhub.com/skills/skill-security-auditor) - `skill_security_review`
+- [`skill-security-auditor`](https://github.com/search?q=skill-security-auditor&type=repositories) - `skill_security_review`
 
-### 行业专项（金融）（1）
-- [`finance-data`](https://clawhub.com/skills/finance-data) - `financial_data`
