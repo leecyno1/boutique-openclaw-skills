@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import re
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -7,18 +8,45 @@ ASSETS = ROOT / "assets"
 ASSETS.mkdir(parents=True, exist_ok=True)
 
 
-def pick_font(size: int, bold: bool = False):
-    candidates = []
-    if bold:
-        candidates += [
-            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-            "/System/Library/Fonts/Supplemental/Helvetica.ttc",
-        ]
-    candidates += [
-        "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/System/Library/Fonts/Supplemental/Menlo.ttc",
-        "/System/Library/Fonts/SFNS.ttf",
-    ]
+CJK_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\u3000-\u303f]")
+
+LATIN_BOLD_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "/System/Library/Fonts/Supplemental/Helvetica.ttc",
+]
+LATIN_REGULAR_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Arial.ttf",
+    "/System/Library/Fonts/Supplemental/Menlo.ttc",
+    "/System/Library/Fonts/SFNS.ttf",
+]
+CJK_BOLD_CANDIDATES = [
+    "/System/Library/Fonts/STHeiti Medium.ttc",
+    "/System/Library/Fonts/Hiragino Sans GB.ttc",
+    "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+]
+CJK_REGULAR_CANDIDATES = [
+    "/System/Library/Fonts/STHeiti Light.ttc",
+    "/System/Library/Fonts/Hiragino Sans GB.ttc",
+    "/System/Library/Fonts/Songti.ttc",
+    "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+]
+
+
+def contains_cjk(text: str) -> bool:
+    return bool(CJK_RE.search(text))
+
+
+def pick_font(size: int, bold: bool = False, text: str = "", prefer_cjk: bool | None = None):
+    if prefer_cjk is None:
+        prefer_cjk = contains_cjk(text)
+
+    if prefer_cjk:
+        candidates = (CJK_BOLD_CANDIDATES if bold else CJK_REGULAR_CANDIDATES) + \
+            LATIN_BOLD_CANDIDATES + LATIN_REGULAR_CANDIDATES
+    else:
+        candidates = (LATIN_BOLD_CANDIDATES if bold else []) + LATIN_REGULAR_CANDIDATES + \
+            CJK_BOLD_CANDIDATES + CJK_REGULAR_CANDIDATES
+
     for c in candidates:
         p = Path(c)
         if p.exists():
@@ -94,13 +122,19 @@ def draw_logo() -> None:
     draw_store_icon(d, 70, 72)
     draw_lobster_icon(d, 1190, 72)
 
-    d.text((340, 110), "BOUTIQUE OPENCLAW SKILLS", font=pick_font(58, bold=True), fill="#f8fafc")
-    d.text((342, 186), "精选店模式  |  一功能一技能  |  稳定优先", font=pick_font(38, bold=True), fill="#f87171")
-    d.text((342, 248), "NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY", font=pick_font(30), fill="#cbd5e1")
-    d.text((342, 304), "Theme: Boutique Store + Lobster", font=pick_font(28), fill="#fde68a")
+    line1 = "BOUTIQUE OPENCLAW SKILLS"
+    line2 = "精选店模式  |  一功能一技能  |  稳定优先"
+    line3 = "NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY"
+    line4 = "Theme: Boutique Store + Lobster"
+    line5 = "github.com/leecyno1/boutique-openclaw-skills"
+
+    d.text((340, 110), line1, font=pick_font(58, bold=True, text=line1), fill="#f8fafc")
+    d.text((342, 186), line2, font=pick_font(38, bold=True, text=line2), fill="#f87171")
+    d.text((342, 248), line3, font=pick_font(30, text=line3), fill="#cbd5e1")
+    d.text((342, 304), line4, font=pick_font(28, text=line4), fill="#fde68a")
 
     d.line((340, 350, 1110, 350), fill="#334155", width=2)
-    d.text((340, 380), "github.com/leecyno1/boutique-openclaw-skills", font=pick_font(27), fill="#93c5fd")
+    d.text((340, 380), line5, font=pick_font(27, text=line5), fill="#93c5fd")
 
     img.save(ASSETS / "logo.png", "PNG")
 
@@ -116,9 +150,12 @@ def draw_hero() -> None:
         b = 30 + int((yy / h) * 15)
         d.line((0, yy, w, yy), fill=(r, g, b))
 
-    d.text((90, 92), "Boutique Mode 宣传图", font=pick_font(74, bold=True), fill="#f8fafc")
-    d.text((90, 194), "精选，不堆叠", font=pick_font(66, bold=True), fill="#f87171")
-    d.text((90, 276), "每个功能只保留一个最优 skills", font=pick_font(48, bold=True), fill="#e2e8f0")
+    title1 = "Boutique Mode 宣传图"
+    title2 = "精选，不堆叠"
+    title3 = "每个功能只保留一个最优 skills"
+    d.text((90, 92), title1, font=pick_font(74, bold=True, text=title1), fill="#f8fafc")
+    d.text((90, 194), title2, font=pick_font(66, bold=True, text=title2), fill="#f87171")
+    d.text((90, 276), title3, font=pick_font(48, bold=True, text=title3), fill="#e2e8f0")
 
     bullets = [
         "减少 token 消耗：避免重复工具评估链路",
@@ -128,10 +165,12 @@ def draw_hero() -> None:
     ]
     y = 420
     for line in bullets:
-        d.text((126, y), "• " + line, font=pick_font(40), fill="#cbd5e1")
+        bullet_line = "• " + line
+        d.text((126, y), bullet_line, font=pick_font(40, text=bullet_line), fill="#cbd5e1")
         y += 84
 
-    d.text((90, 804), "把复杂度放在编排层，而不是对话层。", font=pick_font(44, bold=True), fill="#fde68a")
+    footer = "把复杂度放在编排层，而不是对话层。"
+    d.text((90, 804), footer, font=pick_font(44, bold=True, text=footer), fill="#fde68a")
     img.save(ASSETS / "hero.png", "PNG")
 
 
@@ -141,7 +180,8 @@ def draw_quick_nav() -> None:
     d = ImageDraw.Draw(img)
 
     d.rectangle((0, 0, w, 110), fill="#0f172a")
-    d.text((48, 28), "Repository Quick Navigation", font=pick_font(54, bold=True), fill="#f8fafc")
+    nav_title = "Repository Quick Navigation"
+    d.text((48, 28), nav_title, font=pick_font(54, bold=True, text=nav_title), fill="#f8fafc")
 
     items = [
         "README: 项目总览与安装入口",
@@ -156,11 +196,13 @@ def draw_quick_nav() -> None:
 
     y = 170
     for i, line in enumerate(items, start=1):
-        d.text((70, y), f"{i:02d}. {line}", font=pick_font(38), fill="#1e293b")
+        nav_line = f"{i:02d}. {line}"
+        d.text((70, y), nav_line, font=pick_font(38, text=nav_line), fill="#1e293b")
         d.line((66, y + 54, 1540, y + 54), fill="#e2e8f0", width=2)
         y += 78
 
-    d.text((66, 780), "精品店模式：去重、可维护、可审计、可复制。", font=pick_font(36, bold=True), fill="#dc2626")
+    nav_footer = "精品店模式：去重、可维护、可审计、可复制。"
+    d.text((66, 780), nav_footer, font=pick_font(36, bold=True, text=nav_footer), fill="#dc2626")
     img.save(ASSETS / "profiles.png", "PNG")
 
 
@@ -177,10 +219,10 @@ def draw_svg() -> None:
     <rect x="0" y="90" width="220" height="190" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>
     <rect x="-6" y="42" width="232" height="76" rx="18" fill="#ef4444"/>
   </g>
-  <text x="340" y="160" fill="#f8fafc" font-size="58" font-family="Arial, Helvetica, sans-serif">BOUTIQUE OPENCLAW SKILLS</text>
-  <text x="342" y="220" fill="#f87171" font-size="38" font-family="Arial, Helvetica, sans-serif">精选店模式 | 一功能一技能 | 稳定优先</text>
-  <text x="342" y="278" fill="#cbd5e1" font-size="30" font-family="Arial, Helvetica, sans-serif">NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY</text>
-  <text x="342" y="334" fill="#fde68a" font-size="28" font-family="Arial, Helvetica, sans-serif">Theme: Boutique Store + Lobster</text>
+  <text x="340" y="160" fill="#f8fafc" font-size="58" font-family="'Hiragino Sans GB', 'STHeiti', 'Arial Unicode MS', Arial, Helvetica, sans-serif">BOUTIQUE OPENCLAW SKILLS</text>
+  <text x="342" y="220" fill="#f87171" font-size="38" font-family="'Hiragino Sans GB', 'STHeiti', 'Arial Unicode MS', Arial, Helvetica, sans-serif">精选店模式 | 一功能一技能 | 稳定优先</text>
+  <text x="342" y="278" fill="#cbd5e1" font-size="30" font-family="'Hiragino Sans GB', 'STHeiti', 'Arial Unicode MS', Arial, Helvetica, sans-serif">NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY</text>
+  <text x="342" y="334" fill="#fde68a" font-size="28" font-family="'Hiragino Sans GB', 'STHeiti', 'Arial Unicode MS', Arial, Helvetica, sans-serif">Theme: Boutique Store + Lobster</text>
 </svg>
 '''
     (ASSETS / "logo.svg").write_text(svg, encoding="utf-8")
