@@ -4,10 +4,36 @@ import datetime as dt
 import json
 import subprocess
 from pathlib import Path
+from collections import defaultdict
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "docs" / "OPENCLAW_SKILLS_FULL.md"
+
+
+CATEGORY_ORDER = [
+    "agent_automation",
+    "engineering_ops",
+    "research_intel",
+    "design_ui",
+    "content_growth",
+    "media_generation",
+    "docs_office",
+    "baoyu_suite",
+    "other_integrations",
+]
+
+CATEGORY_LABELS = {
+    "agent_automation": "Agent/自动化与能力进化",
+    "engineering_ops": "开发/工程与运维",
+    "research_intel": "搜索/研究/情报",
+    "design_ui": "设计/前端/UI",
+    "content_growth": "内容/营销/增长",
+    "media_generation": "图像/音频/多媒体生成处理",
+    "docs_office": "文档/办公生产力",
+    "baoyu_suite": "Baoyu 系列内容产出与分发",
+    "other_integrations": "其他集成能力",
+}
 
 
 def load_skills_from_cli() -> dict:
@@ -22,7 +48,7 @@ def load_skills_from_cli() -> dict:
 
 def github_link(skill: dict) -> str:
     homepage = (skill.get("homepage") or "").strip()
-    if homepage:
+    if "github.com" in homepage:
         return homepage
     name = skill.get("name", "").strip()
     return f"https://github.com/search?q={name}&type=repositories"
@@ -40,14 +66,128 @@ def missing_text(skill: dict) -> str:
     return "; ".join(parts)
 
 
-def group_source_name(source: str) -> str:
-    mapping = {
-        "openclaw-workspace": "Workspace skills",
-        "openclaw-managed": "Managed skills",
-        "openclaw-bundled": "Bundled skills",
-        "openclaw-extra": "Extra skills",
-    }
-    return mapping.get(source, source)
+def classify_skill(skill: dict) -> str:
+    name = (skill.get("name") or "").strip().lower()
+
+    if name.startswith("baoyu-"):
+        return "baoyu_suite"
+
+    if name in {
+        "capability-evolver",
+        "cron-wake",
+        "proactive-agent",
+        "self-improving-agent",
+        "subagent",
+        "brainstorming",
+        "reflection",
+        "oracle",
+        "find-skills",
+        "skill-creator",
+        "byterover",
+    }:
+        return "agent_automation"
+
+    if name in {
+        "agent-browser",
+        "chrome-devtools-mcp",
+        "github",
+        "gh-issues",
+        "mcp-builder",
+        "database",
+        "prisma-database-setup",
+        "shell",
+        "tmux",
+        "tdd",
+        "test-driven-development",
+        "session-logs",
+        "model-usage",
+        "skill-security-auditor",
+        "coding-agent",
+    }:
+        return "engineering_ops"
+
+    if name in {
+        "brave-search",
+        "tavily-search",
+        "web-search",
+        "search",
+        "minimax-web-search",
+        "blogwatcher",
+        "news-radar",
+        "finance-data",
+        "producthunt",
+        "requesthunt",
+        "domain-hunter",
+        "summarize",
+        "baoyu-url-to-markdown",
+        "url-to-markdown",
+        "reddit",
+        "goplaces",
+        "mcporter",
+    }:
+        return "research_intel"
+
+    if name in {
+        "frontend-design",
+        "tailwind",
+        "tailwind-design-system",
+        "logo-creator",
+        "banner-creator",
+        "infographic-pro",
+        "format-pro",
+    }:
+        return "design_ui"
+
+    if name in {
+        "content-strategy",
+        "social-content",
+        "marketing-psychology",
+        "programmatic-seo",
+        "seo-geo",
+        "larry",
+        "twitter",
+        "bird",
+    }:
+        return "content_growth"
+
+    if name in {
+        "ai-image-generation",
+        "openai-image-gen",
+        "nanobanana",
+        "nano-banana-pro",
+        "minimax-image-understanding",
+        "minimax-understand-image",
+        "ai-music-generation",
+        "ai-music-prompts",
+        "elevenlabs-music",
+        "openai-whisper",
+        "openai-whisper-api",
+        "tts",
+        "sherpa-onnx-tts",
+        "video-frames",
+    }:
+        return "media_generation"
+
+    if name in {
+        "pdf",
+        "nano-pdf",
+        "docx",
+        "pptx",
+        "xlsx",
+        "todo",
+        "todoist-api",
+        "apple-notes",
+        "apple-reminders",
+        "apple-calendar",
+        "things-mac",
+        "himalaya",
+        "notion",
+        "obsidian",
+        "bear-notes",
+    }:
+        return "docs_office"
+
+    return "other_integrations"
 
 
 def render(skills_data: dict) -> str:
@@ -56,6 +196,8 @@ def render(skills_data: dict) -> str:
     total = len(skills)
     ready = sum(1 for s in skills if s.get("eligible"))
     not_ready = total - ready
+    bundled = [s for s in skills if s.get("source") == "openclaw-bundled"]
+    non_bundled = [s for s in skills if s.get("source") != "openclaw-bundled"]
 
     lines = [
         "# OpenClaw Skills Inventory (Current Machine)",
@@ -64,31 +206,50 @@ def render(skills_data: dict) -> str:
         f"- Total skills: `{total}`",
         f"- Ready (eligible): `{ready}`",
         f"- Not ready: `{not_ready}`",
+        f"- OpenClaw 内置默认 skills: `{len(bundled)}`",
+        f"- 非内置 skills: `{len(non_bundled)}`",
         "",
         "> Source: `openclaw skills list --json`",
         "",
     ]
 
-    # Section 1: all skills by source
-    lines += ["## 1) All skills by source", ""]
-    sources = sorted({s.get("source", "unknown") for s in skills})
-    for src in sources:
-        chunk = [s for s in skills if s.get("source", "unknown") == src]
-        lines += [f"### {group_source_name(src)} ({len(chunk)})", ""]
-        lines += ["| Skill | Eligible | Disabled | Missing requirements | Link |", "|---|---:|---:|---|---|"]
+    # Section 1: bundled skills
+    lines += ["## 1) OpenClaw 内置默认 skills（单独分类，不附 GitHub 地址）", ""]
+    lines += ["| Skill | Eligible | Disabled | Missing requirements |", "|---|---:|---:|---|"]
+    for s in bundled:
+        lines.append(
+            f"| `{s.get('name','')}` | "
+            f"{'yes' if s.get('eligible') else 'no'} | "
+            f"{'yes' if s.get('disabled') else 'no'} | "
+            f"{missing_text(s)} |"
+        )
+    lines += ["", ""]
+
+    # Section 2: classify non-bundled skills with github links
+    lines += ["## 2) 非内置 skills（按仓库分类要求 + GitHub 地址）", ""]
+    grouped = defaultdict(list)
+    for s in non_bundled:
+        grouped[classify_skill(s)].append(s)
+
+    for key in CATEGORY_ORDER:
+        chunk = sorted(grouped.get(key, []), key=lambda x: (x.get("name") or "").lower())
+        lines += [f"### {CATEGORY_LABELS[key]}（{len(chunk)}）", ""]
+        if not chunk:
+            lines += ["- （无）", ""]
+            continue
+        lines += ["| Skill | Eligible | Disabled | Source | GitHub |", "|---|---:|---:|---|---|"]
         for s in chunk:
-            link = github_link(s)
             lines.append(
                 f"| `{s.get('name','')}` | "
                 f"{'yes' if s.get('eligible') else 'no'} | "
                 f"{'yes' if s.get('disabled') else 'no'} | "
-                f"{missing_text(s)} | "
-                f"[repo]({link}) |"
+                f"`{s.get('source','unknown')}` | "
+                f"[repo]({github_link(s)}) |"
             )
         lines += ["", ""]
 
-    # Section 2: plain name list
-    lines += ["## 2) Plain name list", ""]
+    # Section 3: plain name list
+    lines += ["## 3) Plain name list", ""]
     lines += [", ".join(f"`{s.get('name','')}`" for s in skills), ""]
     return "\n".join(lines)
 
