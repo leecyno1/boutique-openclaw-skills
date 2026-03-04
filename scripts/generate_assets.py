@@ -29,94 +29,92 @@ def pick_font(size: int, bold: bool = False):
     return ImageFont.load_default()
 
 
-def draw_pixels(draw: ImageDraw.ImageDraw, ox: int, oy: int, scale: int, cells, color: str):
-    for x, y in cells:
-        draw.rectangle(
-            (ox + x * scale, oy + y * scale, ox + (x + 1) * scale - 1, oy + (y + 1) * scale - 1),
-            fill=color,
-        )
+def draw_store_icon(draw: ImageDraw.ImageDraw, x: int, y: int) -> None:
+    # Body
+    draw.rounded_rectangle((x, y + 90, x + 220, y + 280), radius=22, fill="#f8fafc", outline="#cbd5e1", width=3)
+    # Roof
+    draw.rounded_rectangle((x - 6, y + 42, x + 226, y + 118), radius=18, fill="#ef4444")
+    # Awning stripes
+    for i in range(0, 8):
+        sx1 = x + 6 + i * 26
+        sx2 = sx1 + 13
+        draw.rectangle((sx1, y + 52, sx2, y + 112), fill="#fee2e2")
+    # Door
+    draw.rounded_rectangle((x + 92, y + 170, x + 128, y + 280), radius=8, fill="#0f172a")
+    # Windows
+    draw.rounded_rectangle((x + 24, y + 164, x + 68, y + 206), radius=8, fill="#38bdf8")
+    draw.rounded_rectangle((x + 152, y + 164, x + 196, y + 206), radius=8, fill="#38bdf8")
+    # Shop label
+    draw.rounded_rectangle((x + 56, y + 126, x + 164, y + 152), radius=8, fill="#fde047")
 
 
-def boutique_shop_cells():
-    cells = {}
-    frame = []
-    for x in range(2, 18):
-        frame += [(x, 5), (x, 16)]
-    for y in range(6, 16):
-        frame += [(2, y), (17, y)]
-    cells["#f8fafc"] = frame
-    roof = [(x, 4) for x in range(1, 19)] + [(x, 3) for x in range(3, 17)]
-    cells["#ef4444"] = roof
-    door = [(9, y) for y in range(11, 16)] + [(10, y) for y in range(11, 16)]
-    cells["#0f172a"] = door
-    sign = [(6, 7), (7, 7), (8, 7), (9, 7), (10, 7), (11, 7), (12, 7)]
-    cells["#fde047"] = sign
-    win = [(4, 9), (5, 9), (4, 10), (5, 10), (14, 9), (15, 9), (14, 10), (15, 10)]
-    cells["#38bdf8"] = win
-    return cells
+def draw_lobster_icon(draw: ImageDraw.ImageDraw, x: int, y: int) -> None:
+    red = "#dc2626"
+    deep = "#7f1d1d"
+    light = "#fca5a5"
+
+    # Body + head
+    draw.ellipse((x + 46, y + 66, x + 230, y + 224), fill=red)
+    draw.ellipse((x + 18, y + 92, x + 88, y + 182), fill=red)
+
+    # Tail fins
+    draw.polygon([(x + 228, y + 122), (x + 286, y + 96), (x + 268, y + 152)], fill=red)
+    draw.polygon([(x + 228, y + 166), (x + 286, y + 192), (x + 268, y + 136)], fill=red)
+
+    # Claws
+    draw.pieslice((x - 40, y + 54, x + 48, y + 142), 30, 290, fill=red)
+    draw.pieslice((x - 38, y + 130, x + 52, y + 220), 70, 320, fill=red)
+
+    # Legs
+    for i in range(6):
+        lx = x + 70 + i * 24
+        draw.line((lx, y + 220, lx - 16, y + 262), fill=deep, width=5)
+
+    # Antennae
+    draw.arc((x - 10, y - 6, x + 146, y + 136), 190, 330, fill=deep, width=4)
+    draw.arc((x + 10, y - 26, x + 188, y + 126), 198, 340, fill=deep, width=4)
+
+    # Highlights
+    draw.ellipse((x + 92, y + 102, x + 176, y + 150), fill=light)
+    draw.ellipse((x + 108, y + 154, x + 170, y + 186), fill=light)
 
 
-def lobster_cells():
-    cells = {}
-    red = []
-    for x in range(8, 24):
-        for y in range(8, 19):
-            if not ((x in {8, 23}) and y in {8, 18}):
-                red.append((x, y))
-    red += [(4, 9), (5, 8), (6, 7), (7, 7), (5, 10), (4, 11), (6, 12), (7, 12)]
-    red += [(24, 10), (25, 11), (26, 12), (24, 16), (25, 15), (26, 14)]
-    red += [(10, 19), (12, 20), (14, 19), (16, 20), (18, 19), (20, 20)]
-    red += [(9, 7), (8, 6), (7, 5), (6, 4), (10, 7), (11, 6), (12, 5), (13, 4)]
-    cells["#dc2626"] = red
-    cells["#7f1d1d"] = [(12, 11), (13, 12), (14, 13), (18, 12), (19, 13), (20, 14)]
-    cells["#fca5a5"] = [(14, 10), (15, 10), (16, 10), (17, 10), (15, 15), (16, 15)]
-    return cells
-
-
-def draw_logo():
+def draw_logo() -> None:
     w, h = 1600, 520
     img = Image.new("RGB", (w, h), "#0b1020")
     d = ImageDraw.Draw(img)
 
-    # smooth background, no checker/grids
-    for y in range(h):
-        r = 10 + int((y / h) * 14)
-        g = 14 + int((y / h) * 9)
-        b = 26 + int((y / h) * 12)
-        d.line((0, y, w, y), fill=(r, g, b))
+    # Smooth gradient background
+    for yy in range(h):
+        r = 10 + int((yy / h) * 14)
+        g = 14 + int((yy / h) * 9)
+        b = 26 + int((yy / h) * 12)
+        d.line((0, yy, w, yy), fill=(r, g, b))
 
-    # pixel boutique icon (small, lightweight)
-    s1 = 7
-    for color, pts in boutique_shop_cells().items():
-        draw_pixels(d, 80, 150, s1, pts, color)
+    draw_store_icon(d, 70, 72)
+    draw_lobster_icon(d, 1190, 72)
 
-    # pixel lobster (small-medium, not giant blocks)
-    s2 = 7
-    for color, pts in lobster_cells().items():
-        draw_pixels(d, 1220, 120, s2, pts, color)
+    d.text((340, 110), "BOUTIQUE OPENCLAW SKILLS", font=pick_font(58, bold=True), fill="#f8fafc")
+    d.text((342, 186), "精选店模式  |  一功能一技能  |  稳定优先", font=pick_font(38, bold=True), fill="#f87171")
+    d.text((342, 248), "NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY", font=pick_font(30), fill="#cbd5e1")
+    d.text((342, 304), "Theme: Boutique Store + Lobster", font=pick_font(28), fill="#fde68a")
 
-    d.text((320, 126), "BOUTIQUE OPENCLAW SKILLS", font=pick_font(58, bold=True), fill="#f8fafc")
-    d.text((322, 202), "精选店模式  |  一功能一技能  |  稳定优先", font=pick_font(38, bold=True), fill="#f87171")
-    d.text((322, 262), "NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY", font=pick_font(30), fill="#cbd5e1")
-    d.text((322, 318), "Pixel Theme: Boutique Store + Lobster", font=pick_font(28), fill="#fde68a")
-
-    d.line((320, 360, 1110, 360), fill="#334155", width=2)
-    d.text((320, 388), "github.com/leecyno1/boutique-openclaw-skills", font=pick_font(27), fill="#93c5fd")
+    d.line((340, 350, 1110, 350), fill="#334155", width=2)
+    d.text((340, 380), "github.com/leecyno1/boutique-openclaw-skills", font=pick_font(27), fill="#93c5fd")
 
     img.save(ASSETS / "logo.png", "PNG")
 
 
-def draw_hero():
+def draw_hero() -> None:
     w, h = 1600, 900
     img = Image.new("RGB", (w, h), "#0b1220")
     d = ImageDraw.Draw(img)
 
-    # clean gradient only
-    for y in range(h):
-        r = 9 + int((y / h) * 20)
-        g = 17 + int((y / h) * 13)
-        b = 30 + int((y / h) * 15)
-        d.line((0, y, w, y), fill=(r, g, b))
+    for yy in range(h):
+        r = 9 + int((yy / h) * 20)
+        g = 17 + int((yy / h) * 13)
+        b = 30 + int((yy / h) * 15)
+        d.line((0, yy, w, yy), fill=(r, g, b))
 
     d.text((90, 92), "Boutique Mode 宣传图", font=pick_font(74, bold=True), fill="#f8fafc")
     d.text((90, 194), "精选，不堆叠", font=pick_font(66, bold=True), fill="#f87171")
@@ -129,15 +127,15 @@ def draw_hero():
         "行业化安装：按 profile 一键部署",
     ]
     y = 420
-    for b in bullets:
-        d.text((126, y), "• " + b, font=pick_font(40), fill="#cbd5e1")
+    for line in bullets:
+        d.text((126, y), "• " + line, font=pick_font(40), fill="#cbd5e1")
         y += 84
 
     d.text((90, 804), "把复杂度放在编排层，而不是对话层。", font=pick_font(44, bold=True), fill="#fde68a")
     img.save(ASSETS / "hero.png", "PNG")
 
 
-def draw_quick_nav():
+def draw_quick_nav() -> None:
     w, h = 1600, 840
     img = Image.new("RGB", (w, h), "#f8fafc")
     d = ImageDraw.Draw(img)
@@ -166,7 +164,7 @@ def draw_quick_nav():
     img.save(ASSETS / "profiles.png", "PNG")
 
 
-def draw_svg():
+def draw_svg() -> None:
     svg = '''<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
@@ -175,10 +173,14 @@ def draw_svg():
     </linearGradient>
   </defs>
   <rect width="1600" height="520" fill="url(#bg)"/>
-  <text x="320" y="160" fill="#f8fafc" font-size="58" font-family="Arial, Helvetica, sans-serif">BOUTIQUE OPENCLAW SKILLS</text>
-  <text x="322" y="220" fill="#f87171" font-size="38" font-family="Arial, Helvetica, sans-serif">精选店模式 | 一功能一技能 | 稳定优先</text>
-  <text x="322" y="276" fill="#cbd5e1" font-size="30" font-family="Arial, Helvetica, sans-serif">NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY</text>
-  <text x="322" y="330" fill="#fde68a" font-size="28" font-family="Arial, Helvetica, sans-serif">Pixel Theme: Boutique Store + Lobster</text>
+  <g transform="translate(70 72)">
+    <rect x="0" y="90" width="220" height="190" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>
+    <rect x="-6" y="42" width="232" height="76" rx="18" fill="#ef4444"/>
+  </g>
+  <text x="340" y="160" fill="#f8fafc" font-size="58" font-family="Arial, Helvetica, sans-serif">BOUTIQUE OPENCLAW SKILLS</text>
+  <text x="342" y="220" fill="#f87171" font-size="38" font-family="Arial, Helvetica, sans-serif">精选店模式 | 一功能一技能 | 稳定优先</text>
+  <text x="342" y="278" fill="#cbd5e1" font-size="30" font-family="Arial, Helvetica, sans-serif">NO DUPLICATE SKILLS · LOW TOKEN WASTE · AUDITED WEEKLY</text>
+  <text x="342" y="334" fill="#fde68a" font-size="28" font-family="Arial, Helvetica, sans-serif">Theme: Boutique Store + Lobster</text>
 </svg>
 '''
     (ASSETS / "logo.svg").write_text(svg, encoding="utf-8")
