@@ -14,6 +14,55 @@ SKILLS_LOCK_PATH = Path.home() / "clawd" / "skills-lock.json"
 
 GITHUB_URL_RE = re.compile(r"https?://github\.com/[^\s)\"'>]+")
 
+KNOWN_GITHUB_OVERRIDES = {
+    "agent-browser": "https://github.com/TheSethRose",
+    "ai-image-generation": "https://github.com/okaris",
+    "ai-music-generation": "https://github.com/okaris",
+    "atxp": "https://github.com/atxp-dev/cli",
+    "baoyu-article-illustrator": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator",
+    "baoyu-comic": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic",
+    "baoyu-cover-image": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image",
+    "baoyu-infographic": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic",
+    "baoyu-post-to-wechat": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat",
+    "baoyu-post-to-x": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-x",
+    "baoyu-slide-deck": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck",
+    "baoyu-url-to-markdown": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown",
+    "baoyu-xhs-images": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images",
+    "brainstorming": "https://github.com/zlc000190",
+    "brave-search": "https://github.com/steipete",
+    "byterover": "https://github.com/byteroverinc",
+    "capability-evolver": "https://github.com/autogame-17/capability-evolver",
+    "content-strategy": "https://github.com/JK-0001",
+    "elevenlabs-music": "https://github.com/clawdbotborges",
+    "find-skills": "https://github.com/JimLiuxinghai",
+    "frontend-design": "https://github.com/steipete",
+    "github": "https://github.com/steipete",
+    "larry": "https://github.com/OllieWazza",
+    "minimax-understand-image": "https://github.com/Thincher",
+    "minimax-web-search": "https://github.com/Thincher",
+    "model-usage": "https://github.com/steipete",
+    "nano-pdf": "https://github.com/steipete",
+    "openai-whisper": "https://github.com/steipete",
+    "oracle": "https://github.com/steipete/oracle",
+    "pdf": "https://github.com/awspace",
+    "peekaboo": "https://github.com/steipete/Peekaboo",
+    "proactive-agent": "https://github.com/halthelobster/proactive-agent",
+    "reflection": "https://github.com/ivangdavila",
+    "self-improving-agent": "https://github.com/pskoett/self-improving-agent",
+    "session-logs": "https://github.com/guogang1024",
+    "skill-creator": "https://github.com/chindden",
+    "social-content": "https://github.com/CarlosFMTZ",
+    "summarize": "https://github.com/steipete/summarize",
+    "tailwind-design-system": "https://github.com/wpank",
+    "tavily-search": "https://github.com/arun-8687",
+    "tmux": "https://github.com/steipete",
+    "todoist-api": "https://github.com/byungkyu",
+    "tts": "https://github.com/AMSTKO",
+    "video-frames": "https://github.com/steipete",
+    "weather": "https://github.com/steipete",
+    "web-search": "https://github.com/billyutw",
+}
+
 
 CATEGORY_ORDER = [
     "agent_automation",
@@ -140,6 +189,9 @@ def pick_best_github_from_local(base_dir: Path, skill_name: str) -> str | None:
 
 def github_link(skill: dict, lock_sources: dict) -> str:
     name = (skill.get("name") or "").strip()
+
+    if name in KNOWN_GITHUB_OVERRIDES:
+        return KNOWN_GITHUB_OVERRIDES[name]
 
     lock_item = lock_sources.get(name) or {}
     if lock_item.get("sourceType") == "github":

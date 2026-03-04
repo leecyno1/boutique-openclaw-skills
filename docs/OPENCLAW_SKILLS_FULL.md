@@ -1,6 +1,6 @@
 # OpenClaw Skills Inventory (Current Machine)
 
-- Generated at: `2026-03-04 22:29:30`
+- Generated at: `2026-03-04 22:56:44`
 - Total skills: `125`
 - Ready (eligible): `99`
 - Not ready: `26`
@@ -55,16 +55,16 @@
 
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
-| `brainstorming` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=brainstorming&type=repositories) |
-| `byterover` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=byterover&type=repositories) |
-| `capability-evolver` | yes | no | `openclaw-managed` | [repo](https://github.com/autogame-17/evolver/releases`) |
+| `brainstorming` | yes | no | `openclaw-managed` | [repo](https://github.com/zlc000190) |
+| `byterover` | yes | no | `openclaw-managed` | [repo](https://github.com/byteroverinc) |
+| `capability-evolver` | yes | no | `openclaw-managed` | [repo](https://github.com/autogame-17/capability-evolver) |
 | `cron-wake` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=cron-wake&type=repositories) |
-| `find-skills` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=find-skills&type=repositories) |
-| `oracle` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=oracle&type=repositories) |
-| `proactive-agent` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=proactive-agent&type=repositories) |
-| `reflection` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=reflection&type=repositories) |
-| `self-improving-agent` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=self-improving-agent&type=repositories) |
-| `skill-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=skill-creator&type=repositories) |
+| `find-skills` | yes | no | `openclaw-workspace` | [repo](https://github.com/JimLiuxinghai) |
+| `oracle` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete/oracle) |
+| `proactive-agent` | yes | no | `openclaw-managed` | [repo](https://github.com/halthelobster/proactive-agent) |
+| `reflection` | yes | no | `openclaw-managed` | [repo](https://github.com/ivangdavila) |
+| `self-improving-agent` | yes | no | `openclaw-managed` | [repo](https://github.com/pskoett/self-improving-agent) |
+| `skill-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/chindden) |
 | `subagent` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=subagent&type=repositories) |
 
 
@@ -72,19 +72,19 @@
 
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
-| `agent-browser` | no | yes | `openclaw-managed` | [repo](https://github.com/search?q=agent-browser&type=repositories) |
+| `agent-browser` | no | yes | `openclaw-managed` | [repo](https://github.com/TheSethRose) |
 | `chrome-devtools-mcp` | yes | no | `openclaw-workspace` | [repo](https://github.com/ChromeDevTools/chrome-devtools-mcp) |
 | `database` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=database&type=repositories) |
-| `github` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=github&type=repositories) |
+| `github` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
 | `mcp-builder` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=mcp-builder&type=repositories) |
-| `model-usage` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=model-usage&type=repositories) |
+| `model-usage` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
 | `prisma-database-setup` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=prisma-database-setup&type=repositories) |
-| `session-logs` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=session-logs&type=repositories) |
+| `session-logs` | yes | no | `openclaw-workspace` | [repo](https://github.com/guogang1024) |
 | `shell` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=shell&type=repositories) |
 | `skill-security-auditor` | yes | no | `openclaw-workspace` | [repo](https://github.com/openclaw/security-auditor/issues) |
 | `tdd` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tdd&type=repositories) |
 | `test-driven-development` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=test-driven-development&type=repositories) |
-| `tmux` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=tmux&type=repositories) |
+| `tmux` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
 
 
 ### 搜索/研究/情报（13）
@@ -92,18 +92,18 @@
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
 | `blogwatcher` | yes | no | `openclaw-workspace` | [repo](https://github.com/Hyaxia/blogwatcher) |
-| `brave-search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=brave-search&type=repositories) |
+| `brave-search` | yes | no | `openclaw-managed` | [repo](https://github.com/steipete) |
 | `domain-hunter` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/domain-hunter) |
 | `finance-data` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=finance-data&type=repositories) |
-| `minimax-web-search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=minimax-web-search&type=repositories) |
+| `minimax-web-search` | yes | no | `openclaw-managed` | [repo](https://github.com/Thincher) |
 | `news-radar` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=news-radar&type=repositories) |
 | `producthunt` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/producthunt) |
 | `reddit` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/reddit) |
 | `requesthunt` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/requesthunt) |
 | `search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=search&type=repositories) |
-| `summarize` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=summarize&type=repositories) |
-| `tavily-search` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tavily-search&type=repositories) |
-| `web-search` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=web-search&type=repositories) |
+| `summarize` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete/summarize) |
+| `tavily-search` | yes | no | `openclaw-managed` | [repo](https://github.com/arun-8687) |
+| `web-search` | yes | no | `openclaw-workspace` | [repo](https://github.com/billyutw) |
 
 
 ### 设计/前端/UI（7）
@@ -112,11 +112,11 @@
 |---|---:|---:|---|---|
 | `banner-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/banner-creator) |
 | `format-pro` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=format-pro&type=repositories) |
-| `frontend-design` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=frontend-design&type=repositories) |
+| `frontend-design` | yes | no | `openclaw-managed` | [repo](https://github.com/steipete) |
 | `infographic-pro` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=infographic-pro&type=repositories) |
 | `logo-creator` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/logo-creator) |
 | `tailwind` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tailwind&type=repositories) |
-| `tailwind-design-system` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=tailwind-design-system&type=repositories) |
+| `tailwind-design-system` | yes | no | `openclaw-managed` | [repo](https://github.com/wpank) |
 
 
 ### 内容/营销/增长（8）
@@ -124,12 +124,12 @@
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
 | `bird` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=bird&type=repositories) |
-| `content-strategy` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=content-strategy&type=repositories) |
-| `larry` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=larry&type=repositories) |
+| `content-strategy` | yes | no | `openclaw-managed` | [repo](https://github.com/JK-0001) |
+| `larry` | yes | no | `openclaw-managed` | [repo](https://github.com/OllieWazza) |
 | `marketing-psychology` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=marketing-psychology&type=repositories) |
 | `programmatic-seo` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=programmatic-seo&type=repositories) |
 | `seo-geo` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/seo-geo) |
-| `social-content` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=social-content&type=repositories) |
+| `social-content` | yes | no | `openclaw-managed` | [repo](https://github.com/CarlosFMTZ) |
 | `twitter` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/twitter) |
 
 
@@ -137,16 +137,16 @@
 
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
-| `ai-image-generation` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=ai-image-generation&type=repositories) |
-| `ai-music-generation` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=ai-music-generation&type=repositories) |
+| `ai-image-generation` | yes | no | `openclaw-managed` | [repo](https://github.com/okaris) |
+| `ai-music-generation` | yes | no | `openclaw-managed` | [repo](https://github.com/okaris) |
 | `ai-music-prompts` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=ai-music-prompts&type=repositories) |
-| `elevenlabs-music` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=elevenlabs-music&type=repositories) |
+| `elevenlabs-music` | yes | no | `openclaw-managed` | [repo](https://github.com/clawdbotborges) |
 | `minimax-image-understanding` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=minimax-image-understanding&type=repositories) |
-| `minimax-understand-image` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=minimax-understand-image&type=repositories) |
+| `minimax-understand-image` | yes | no | `openclaw-managed` | [repo](https://github.com/Thincher) |
 | `nanobanana` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/nanobanana) |
-| `openai-whisper` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=openai-whisper&type=repositories) |
-| `tts` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=tts&type=repositories) |
-| `video-frames` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=video-frames&type=repositories) |
+| `openai-whisper` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
+| `tts` | yes | no | `openclaw-workspace` | [repo](https://github.com/AMSTKO) |
+| `video-frames` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
 
 
 ### 文档/办公生产力（11）
@@ -158,27 +158,27 @@
 | `apple-reminders` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete/remindctl) |
 | `docx` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=docx&type=repositories) |
 | `himalaya` | yes | no | `openclaw-workspace` | [repo](https://github.com/pimalaya/himalaya) |
-| `nano-pdf` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=nano-pdf&type=repositories) |
-| `pdf` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=pdf&type=repositories) |
+| `nano-pdf` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
+| `pdf` | yes | no | `openclaw-managed` | [repo](https://github.com/awspace) |
 | `pptx` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=pptx&type=repositories) |
 | `things-mac` | yes | no | `openclaw-workspace` | [repo](https://github.com/ossianhempel/things3-cli) |
 | `todo` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=todo&type=repositories) |
-| `todoist-api` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=todoist-api&type=repositories) |
+| `todoist-api` | yes | no | `openclaw-managed` | [repo](https://github.com/byungkyu) |
 
 
 ### Baoyu 系列内容产出与分发（9）
 
 | Skill | Eligible | Disabled | Source | GitHub |
 |---|---:|---:|---|---|
-| `baoyu-article-illustrator` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-article-illustrator&type=repositories) |
-| `baoyu-comic` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-comic&type=repositories) |
-| `baoyu-cover-image` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-cover-image&type=repositories) |
-| `baoyu-infographic` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-infographic&type=repositories) |
-| `baoyu-post-to-wechat` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-markdown-to-html/SKILL.md) |
-| `baoyu-post-to-x` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-post-to-x&type=repositories) |
-| `baoyu-slide-deck` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-slide-deck&type=repositories) |
-| `baoyu-url-to-markdown` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-url-to-markdown&type=repositories) |
-| `baoyu-xhs-images` | yes | no | `openclaw-managed` | [repo](https://github.com/search?q=baoyu-xhs-images&type=repositories) |
+| `baoyu-article-illustrator` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
+| `baoyu-comic` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic) |
+| `baoyu-cover-image` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image) |
+| `baoyu-infographic` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic) |
+| `baoyu-post-to-wechat` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat) |
+| `baoyu-post-to-x` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-x) |
+| `baoyu-slide-deck` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck) |
+| `baoyu-url-to-markdown` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
+| `baoyu-xhs-images` | yes | no | `openclaw-managed` | [repo](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images) |
 
 
 ### 其他集成能力（9）
@@ -191,9 +191,9 @@
 | `feishu-drive` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-drive) |
 | `feishu-perm` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-perm) |
 | `feishu-wiki` | yes | no | `openclaw-extra` | [repo](https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-wiki) |
-| `peekaboo` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=peekaboo&type=repositories) |
+| `peekaboo` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete/Peekaboo) |
 | `skill-name` | yes | no | `openclaw-workspace` | [repo](https://github.com/ReScienceLab/opc-skills/tree/main/skills/skill-name) |
-| `weather` | yes | no | `openclaw-workspace` | [repo](https://github.com/search?q=weather&type=repositories) |
+| `weather` | yes | no | `openclaw-workspace` | [repo](https://github.com/steipete) |
 
 
 ## 3) Plain name list
