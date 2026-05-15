@@ -1,0 +1,23 @@
+{
+  "name": "dasheng-daily-outline",
+  "description": "接收选题，生成大纲（按 lemon DNA 风格）",
+  "version": "2.0.0",
+  "trigger": {
+    "keyword": "下一步",
+    "previous_step": "dasheng-daily-material"
+  },
+  "chat_id": "oc_975d43c5704bf8c755bb9e32bf7c3922",
+  "outline": {
+    "style": "lemon_dna",
+    "structure": ["hook", "context", "analysis", "insight", "call_to_action"],
+    "max_sections": 8
+  },
+  "output": {
+    "type": "feishu_doc",
+    "doc_name": "大纲"
+  },
+  "feishu": {
+    "folder_naming": "YYYY-MM-DD",
+    "auto_create_folder": true
+  }
+}

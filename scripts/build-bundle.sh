@@ -9,6 +9,6 @@ NAME="boutique-openclaw-skills-$TS.tar.gz"
 
 tar -czf "$DIST/$NAME" \
   -C "$REPO_ROOT" \
-  README.md LICENSE catalog profiles scripts docs assets .github
+  README.md LICENSE catalog profiles tiers skills scripts docs assets .github
 
 echo "$DIST/$NAME"

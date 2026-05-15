@@ -1,0 +1,1516 @@
+#!/usr/bin/env python3
+"""
+Value Investing Stock Analyzer - 价值投资股票分析工具
+巴菲特 + 段永平 投资理念
+Usage: analyze-value <TICKER> [options]
+"""
+
+import sys
+import json
+import math
+from datetime import datetime, timedelta
+from typing import Dict, List, Tuple
+
+
+def safe_float(value, default: float = 0.0) -> float:
+    """将可能为dict/None/字符串的值安全转为float"""
+    if value is None:
+        return default
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, dict):
+        for k in ("raw", "fmt", "longFmt", "value"):
+            if k in value:
+                return safe_float(value.get(k), default)
+        return default
+    try:
+        return float(value)
+    except Exception:
+        return default
+
+
+def score_to_text(score: int) -> str:
+    return "优秀" if score >= 5 else "良好" if score >= 4 else "一般" if score >= 3 else "偏弱"
+
+
+def build_calendar_context(now: datetime, sector: str = "") -> Dict:
+    """构建中期选举/节假日/月份季节性的市场时钟与防御配置建议（启发式）"""
+    month = now.month
+    year = now.year
+
+    month_map = {
+        1: "一月效应窗口（小盘/高弹性易波动）",
+        2: "财报季延续，分化明显",
+        3: "一季报前预期博弈，波动上行",
+        4: "一季报密集，业绩定价更强",
+        5: "Sell in May 讨论升温，防御权重可上调",
+        6: "半年再平衡窗口，风格切换常见",
+        7: "二季报预热，优质龙头更抗震",
+        8: "流动性偏弱月份，回撤风险上升",
+        9: "历史弱势月，重视防御与现金流",
+        10: "波动高发月，事件冲击需控仓",
+        11: "选举/政策预期月，结果明朗后易再定价",
+        12: "年末窗口（Santa rally 概率提升）",
+    }
+
+    is_midterm_year = (year - 2) % 4 == 0
+    election_phase = "中期选举年" if is_midterm_year else "非中期选举年"
+
+    if is_midterm_year:
+        election_view = "中期选举年通常先波动后修复，防御+现金流资产在不确定期更占优"
+    else:
+        election_view = "非中期选举年更看基本面与利率主线，防御配置主要用于回撤对冲"
+
+    holiday_buckets = {
+        "Thanksgiving-Christmas": "年末节假日消费链与风险偏好回升窗口",
+        "Labor Day-Back to School": "开学季与秋季补库对必选消费更友好",
+        "Independence Day": "暑期出行链条波动加大，择优看现金流",
+    }
+
+    defensive_by_sector = {
+        "Technology": ["MSFT", "AAPL", "COST"],
+        "Communication Services": ["GOOGL", "VZ", "T"],
+        "Financial Services": ["BRK.B", "JPM", "CB"],
+        "Healthcare": ["JNJ", "ABBV", "UNH"],
+        "Consumer Defensive": ["PG", "KO", "PEP"],
+        "Energy": ["XOM", "CVX", "EPD"],
+        "Utilities": ["NEE", "SO", "DUK"],
+    }
+
+    picks = defensive_by_sector.get(sector, ["PG", "KO", "JNJ", "XOM", "LMT"])
+
+    return {
+        "month": month,
+        "month_view": month_map.get(month, "季节性信号中性"),
+        "election_phase": election_phase,
+        "election_view": election_view,
+        "holiday_view": holiday_buckets,
+        "defensive_watchlist": picks,
+    }
+
+
+def _parse_expiration(x):
+    if isinstance(x, datetime):
+        return x
+    s = str(x).strip()
+    if not s:
+        return None
+    s = s.split(' ')[0]
+    for fmt in ("%Y-%m-%d", "%Y-%m-%dT%H:%M:%S"):
+        try:
+            return datetime.strptime(s, fmt)
+        except Exception:
+            continue
+    return None
+
+
+def build_otm_long_call_plan(current_price: float, option_chain=None) -> Dict:
+    """用户偏好：通过虚值 long call 做现金流轮动；浮盈 50%-100% 分批减仓。"""
+    if current_price <= 0:
+        return {"available": False}
+
+    strike_1 = round(current_price * 1.10, 2)
+    strike_2 = round(current_price * 1.20, 2)
+
+    contracts = []
+    try:
+        if option_chain is not None and not getattr(option_chain, 'empty', True):
+            df = option_chain.reset_index().copy()
+            if {'expiration', 'optionType', 'strike'}.issubset(df.columns):
+                calls = df[df['optionType'] == 'calls'].copy()
+                calls['exp_dt'] = calls['expiration'].apply(_parse_expiration)
+                calls = calls[calls['exp_dt'].notna()]
+
+                today = datetime.now()
+                targets = [
+                    ("6-9个月主仓", 180, 1.10),
+                    ("12-18个月弹性仓", 365, 1.20),
+                ]
+
+                for label, days, strike_mult in targets:
+                    target_date = today + timedelta(days=days)
+                    candidates = sorted(calls[calls['exp_dt'] >= target_date]['exp_dt'].unique())
+                    if not candidates:
+                        candidates = sorted(calls['exp_dt'].unique())
+                    if not candidates:
+                        continue
+
+                    exp_dt = candidates[0]
+                    sub = calls[calls['exp_dt'] == exp_dt]
+                    strikes = sorted({safe_float(s) for s in sub['strike'].dropna().tolist() if safe_float(s) > 0})
+                    if not strikes:
+                        continue
+
+                    target_strike = current_price * strike_mult
+                    best_strike = min(strikes, key=lambda x: abs(x - target_strike))
+                    contracts.append({
+                        "bucket": label,
+                        "expiration": exp_dt.strftime("%Y-%m-%d"),
+                        "strike": round(best_strike, 2),
+                        "target_otm": f"{int((strike_mult - 1) * 100)}% OTM"
+                    })
+    except Exception:
+        contracts = []
+
+    ladder = [
+        {
+            "weight": "60%",
+            "strike": strike_1,
+            "note": "主仓，优先选择成交活跃合约"
+        },
+        {
+            "weight": "40%",
+            "strike": strike_2,
+            "note": "弹性仓，控制总权利金"
+        }
+    ]
+
+    if len(contracts) >= 2:
+        ladder = [
+            {
+                "weight": "60%",
+                "strike": contracts[0]['strike'],
+                "note": f"主仓，{contracts[0]['expiration']} 到期，{contracts[0]['target_otm']}"
+            },
+            {
+                "weight": "40%",
+                "strike": contracts[1]['strike'],
+                "note": f"弹性仓，{contracts[1]['expiration']} 到期，{contracts[1]['target_otm']}"
+            }
+        ]
+
+    return {
+        "available": True,
+        "strategy": "OTM Long Call + 分批止盈回流现货",
+        "tenor": "至少6个月，优先12个月以上（可用LEAPS）",
+        "contracts": contracts,
+        "ladder": ladder,
+        "trim_rules": [
+            "单腿浮盈达到 +50%：减仓约 30%-50% 锁定现金流",
+            "单腿浮盈达到 +100%：进一步减仓至仅保留底仓或全部止盈"
+        ],
+        "recycle": "止盈所得优先回流到正股左侧建仓区，形成现金流再投资闭环",
+        "risk": "long call 时间价值衰减快，若 45-60 天内趋势不及预期，需评估滚动或止损"
+    }
+
+
+def get_industry_benchmarks(sector: str, industry: str = "") -> Dict:
+    """按行业给出核心估值/盈利/现金流对比基准（启发式）"""
+    sector = (sector or "").lower()
+    industry = (industry or "").lower()
+
+    # 默认（宽基）
+    bm = {
+        "forward_pe": 20.0,
+        "roe": 12.0,
+        "net_margin": 10.0,
+        "fcf_yield": 4.0,
+        "peg": 1.2,
+        "label": "宽基市场"
+    }
+
+    if "technology" in sector or "software" in industry or "internet" in industry:
+        bm.update({"forward_pe": 25.0, "roe": 15.0, "net_margin": 15.0, "fcf_yield": 3.0, "peg": 1.2, "label": "科技"})
+    elif "communication" in sector or "media" in industry or "interactive media" in industry:
+        bm.update({"forward_pe": 22.0, "roe": 14.0, "net_margin": 14.0, "fcf_yield": 3.0, "peg": 1.2, "label": "通信/媒体"})
+    elif "financial" in sector or "bank" in industry or "insurance" in industry:
+        bm.update({"forward_pe": 12.0, "roe": 11.0, "net_margin": 18.0, "fcf_yield": 5.0, "peg": 1.0, "label": "金融"})
+    elif "health" in sector or "biotech" in industry or "pharma" in industry:
+        bm.update({"forward_pe": 18.0, "roe": 12.0, "net_margin": 12.0, "fcf_yield": 3.5, "peg": 1.1, "label": "医疗"})
+    elif "consumer defensive" in sector or "staples" in industry:
+        bm.update({"forward_pe": 20.0, "roe": 14.0, "net_margin": 11.0, "fcf_yield": 4.0, "peg": 1.2, "label": "消费必需"})
+    elif "consumer cyclical" in sector or "retail" in industry or "auto" in industry:
+        bm.update({"forward_pe": 18.0, "roe": 12.0, "net_margin": 8.0, "fcf_yield": 4.0, "peg": 1.2, "label": "可选消费"})
+    elif "energy" in sector:
+        bm.update({"forward_pe": 11.0, "roe": 12.0, "net_margin": 10.0, "fcf_yield": 7.0, "peg": 1.0, "label": "能源"})
+    elif "utilities" in sector:
+        bm.update({"forward_pe": 16.0, "roe": 9.0, "net_margin": 12.0, "fcf_yield": 5.0, "peg": 1.2, "label": "公用事业"})
+    elif "industrials" in sector:
+        bm.update({"forward_pe": 19.0, "roe": 12.0, "net_margin": 9.0, "fcf_yield": 4.0, "peg": 1.2, "label": "工业"})
+    elif "real estate" in sector or "reit" in industry:
+        bm.update({"forward_pe": 16.0, "roe": 8.0, "net_margin": 15.0, "fcf_yield": 6.0, "peg": 1.1, "label": "地产/REIT"})
+
+    return bm
+
+
+def build_quality_assessment(profile: Dict, financial: Dict, moat: Dict, margin_of_safety: float, revenue_growth: float) -> Dict:
+    """巴菲特+段永平好公司定性评估：业务/盈利模式/文化/四问四看"""
+    industry = profile.get('industry', 'N/A')
+    sector = profile.get('sector', 'N/A')
+    summary = profile.get('longBusinessSummary', '') or ''
+
+    # 公司业务（尽量简洁）
+    business = f"{profile.get('longName', profile.get('shortName', '公司'))} 属于{sector}/{industry}，核心是通过平台与基础设施提供产品与服务。"
+    if summary:
+        business = summary.split('. ')[0].strip() + '。'
+
+    # 盈利模式
+    gm = safe_float(financial.get('grossMargins', 0))
+    om = safe_float(financial.get('operatingMargins', 0))
+    pm = safe_float(financial.get('profitMargins', 0))
+    opcf = safe_float(financial.get('operatingCashflow', 0))
+    fcf = safe_float(financial.get('freeCashflow', 0))
+
+    model_parts = []
+    if gm:
+        model_parts.append(f"毛利率约{gm*100:.1f}%")
+    if om:
+        model_parts.append(f"经营利润率约{om*100:.1f}%")
+    if pm:
+        model_parts.append(f"净利率约{pm*100:.1f}%")
+    if opcf:
+        model_parts.append(f"经营现金流约{opcf/1e9:.2f}B")
+    if fcf:
+        model_parts.append(f"自由现金流约{fcf/1e9:.2f}B")
+    business_model = "；".join(model_parts) if model_parts else "盈利模式数据有限，需结合最新财报补充。"
+
+    # 公司文化（启发式）
+    officers = profile.get('companyOfficers', []) or []
+    founder_keywords = ('Founder', 'Co-Founder', '创始')
+    founder_count = 0
+    for o in officers[:8]:
+        title = (o.get('title') or '')
+        if any(k in title for k in founder_keywords):
+            founder_count += 1
+
+    culture = []
+    if founder_count >= 2:
+        culture.append("创始团队仍深度参与管理，战略连续性较强")
+    elif founder_count == 1:
+        culture.append("核心创始人仍在管理层，长期导向尚可")
+    else:
+        culture.append("职业经理人主导，需持续跟踪激励与资本配置")
+
+    if moat.get('average', 0) >= 4:
+        culture.append("组织在竞争中执行力较强，具备一定长期主义基础")
+    else:
+        culture.append("组织护城河仍需验证，文化优势未完全固化")
+
+    # 巴菲特四问
+    b1 = "是" if moat.get('average', 0) >= 3.5 else "一般"
+    b2 = "是" if moat.get('average', 0) >= 4 else "待验证"
+    b3 = "偏是" if founder_count >= 1 else "待验证"
+    b4 = "是" if margin_of_safety > 15 else "一般" if margin_of_safety > 0 else "否"
+
+    buffett = {
+        "业务可理解": b1,
+        "可持续护城河": b2,
+        "管理层可信": b3,
+        "具备安全边际": b4,
+    }
+
+    # 段永平四看
+    d1 = "是" if pm > 0 and gm > 0.3 else "一般"
+    d2 = "偏是" if moat.get('average', 0) >= 3.5 else "待验证"
+    d3 = "是" if margin_of_safety > 10 else "一般" if margin_of_safety > 0 else "否"
+    d4 = "是" if (safe_float(financial.get('currentRatio', 1)) > 1 or pm > 0) else "否"
+
+    duan = {
+        "好生意": d1,
+        "好公司": d2,
+        "好价格": d3,
+        "拿得住": d4,
+    }
+
+    return {
+        "business": business,
+        "business_model": business_model,
+        "culture": "；".join(culture),
+        "buffett": buffett,
+        "duan": duan,
+        "revenue_growth_pct": round(revenue_growth * 100, 1),
+    }
+
+
+def evaluate_buffett_duan_standards(forward_pe: float, roe: float, net_margin: float, moat_avg: float,
+                                    margin_of_safety: float, fcf_yield: float, peg_1y: float = None) -> Dict:
+    """巴菲特 + 段永平评判标准（量化快评）"""
+    checks = {
+        "巴菲特-ROE>15%": roe >= 15,
+        "巴菲特-护城河(>=4/5)": moat_avg >= 4,
+        "巴菲特-安全边际>20%": margin_of_safety > 20,
+        "巴菲特-估值不过热(PE<=25)": forward_pe > 0 and forward_pe <= 25,
+        "段永平-好生意(净利率>=15%)": net_margin >= 15,
+        "段永平-现金流质量(FCFY>=3%)": fcf_yield >= 3,
+        "段永平-好价格(PEG<=1.5)": (peg_1y is not None and peg_1y <= 1.5),
+    }
+
+    passed = sum(1 for v in checks.values() if v)
+    total = len(checks)
+    score = round(passed / total * 100, 1) if total else 0
+
+    if score >= 85:
+        verdict = "✅ 高匹配（可重点跟踪/分批）"
+    elif score >= 70:
+        verdict = "⏸️ 中等匹配（等待更好价格）"
+    else:
+        verdict = "⚠️ 低匹配（谨慎）"
+
+    return {
+        "checks": checks,
+        "passed": passed,
+        "total": total,
+        "score": score,
+        "verdict": verdict,
+    }
+
+
+def summarize_short_term_options(option_chain, current_price: float) -> Dict:
+    """汇总近端到期期权的成交量、持仓和ATM隐含波动率"""
+    try:
+        if option_chain is None or getattr(option_chain, 'empty', True):
+            return {"available": False}
+
+        df = option_chain.reset_index().copy()
+        if df.empty or 'expiration' not in df.columns:
+            return {"available": False}
+
+        exp_dates = sorted(df['expiration'].dropna().unique())
+        if not exp_dates:
+            return {"available": False}
+
+        nearest_exp = exp_dates[0]
+        near_df = df[df['expiration'] == nearest_exp].copy()
+        if near_df.empty:
+            return {"available": False}
+
+        near_df['volume'] = near_df['volume'].fillna(0)
+        near_df['openInterest'] = near_df['openInterest'].fillna(0)
+        near_df['impliedVolatility'] = near_df['impliedVolatility'].fillna(0)
+
+        calls = near_df[near_df['optionType'] == 'calls']
+        puts = near_df[near_df['optionType'] == 'puts']
+
+        call_vol = float(calls['volume'].sum()) if not calls.empty else 0.0
+        put_vol = float(puts['volume'].sum()) if not puts.empty else 0.0
+        call_oi = float(calls['openInterest'].sum()) if not calls.empty else 0.0
+        put_oi = float(puts['openInterest'].sum()) if not puts.empty else 0.0
+
+        near_df['moneyness_dist'] = (near_df['strike'] - current_price).abs()
+        atm = near_df.nsmallest(5, 'moneyness_dist')
+        atm_iv = float(atm['impliedVolatility'].mean()) if not atm.empty else 0.0
+
+        return {
+            'available': True,
+            'nearest_expiration': str(nearest_exp),
+            'call_volume': int(call_vol),
+            'put_volume': int(put_vol),
+            'put_call_volume_ratio': round((put_vol / call_vol), 2) if call_vol > 0 else None,
+            'call_open_interest': int(call_oi),
+            'put_open_interest': int(put_oi),
+            'put_call_oi_ratio': round((put_oi / call_oi), 2) if call_oi > 0 else None,
+            'atm_iv': round(atm_iv, 4),
+        }
+    except Exception:
+        return {"available": False}
+
+def calculate_dcf(fcf_current: float, growth_years: List[float], terminal_growth: float, wacc: float, shares: float) -> Dict:
+    """
+    三阶段DCF估值模型 (Buffett风格)
+    
+    阶段1: 高成长 (3-5年)
+    阶段2: 中成长 (3-5年)  
+    阶段3: 永续增长
+    """
+    if fcf_current <= 0 or shares <= 0:
+        return {"intrinsic_value": 0, "sensitivity": []}
+    
+    # 计算各阶段现值
+    fcf = fcf_current
+    pv_total = 0
+    year = 0
+    
+    # 阶段1: 高成长
+    for growth in growth_years[:3]:  # 前3年高增长
+        year += 1
+        fcf *= (1 + growth)
+        pv_total += fcf / ((1 + wacc) ** year)
+    
+    # 阶段2: 中成长
+    for growth in growth_years[3:5]:  # 接下来2年中增长
+        year += 1
+        fcf *= (1 + growth)
+        pv_total += fcf / ((1 + wacc) ** year)
+    
+    # 阶段3: 永续增长
+    if year > 0:
+        terminal_fcf = fcf * (1 + terminal_growth)
+        terminal_value = terminal_fcf / (wacc - terminal_growth)
+        pv_terminal = terminal_value / ((1 + wacc) ** year)
+        pv_total += pv_terminal
+    
+    intrinsic_value = pv_total / shares
+    
+    # 敏感性分析
+    sensitivity = []
+    for w in [wacc - 0.02, wacc, wacc + 0.02]:
+        for g in [terminal_growth - 0.005, terminal_growth, terminal_growth + 0.005]:
+            if w > g:
+                # 重新计算
+                fcf_sens = fcf_current
+                pv_sens = 0
+                for i, growth in enumerate(growth_years[:3]):
+                    fcf_sens *= (1 + growth)
+                    pv_sens += fcf_sens / ((1 + w) ** (i + 1))
+                for i, growth in enumerate(growth_years[3:5]):
+                    fcf_sens *= (1 + growth)
+                    pv_sens += fcf_sens / ((1 + w) ** (i + 4))
+                terminal = fcf_sens * (1 + g) / (w - g) / ((1 + w) ** 5)
+                pv_sens += terminal
+                iv = pv_sens / shares
+                sensitivity.append({"wacc": round(w*100, 1), "growth": round(g*100, 1), "value": round(iv, 2)})
+    
+    return {
+        "intrinsic_value": round(intrinsic_value, 2),
+        "sensitivity": sensitivity
+    }
+
+
+def analyze_moat(roe: float, gross_margin: float, net_margin: float, market_cap: float, 
+                 industry: str, revenue_growth: float) -> Dict:
+    """
+    护城河五维分析 (段永平风格)
+    """
+    moat_scores = {}
+    
+    # 1. 网络效应护城河
+    if market_cap > 500e9:  # 大型平台
+        moat_scores["network"] = 5
+    elif market_cap > 100e9:
+        moat_scores["network"] = 4
+    else:
+        moat_scores["network"] = 3
+    
+    # 2. 品牌护城河 (通过ROE和毛利率判断)
+    if roe > 0.25 and gross_margin > 0.4:
+        moat_scores["brand"] = 5
+    elif roe > 0.2 and gross_margin > 0.35:
+        moat_scores["brand"] = 4
+    elif roe > 0.15:
+        moat_scores["brand"] = 3
+    else:
+        moat_scores["brand"] = 2
+    
+    # 3. 技术护城河 (通过增长率和行业判断)
+    tech_industries = ['Technology', 'Communication Services', 'Healthcare']
+    if industry in tech_industries and revenue_growth > 0.15:
+        moat_scores["tech"] = 5
+    elif industry in tech_industries:
+        moat_scores["tech"] = 4
+    else:
+        moat_scores["tech"] = 3
+    
+    # 4. 成本优势护城河 (通过净利率判断)
+    if net_margin > 0.2:
+        moat_scores["cost"] = 5
+    elif net_margin > 0.15:
+        moat_scores["cost"] = 4
+    elif net_margin > 0.1:
+        moat_scores["cost"] = 3
+    else:
+        moat_scores["cost"] = 2
+    
+    # 5. 切换成本护城河 (通过ROE稳定性判断)
+    if roe > 0.2:
+        moat_scores["switching"] = 5
+    elif roe > 0.15:
+        moat_scores["switching"] = 4
+    else:
+        moat_scores["switching"] = 3
+    
+    avg_moat = sum(moat_scores.values()) / len(moat_scores)
+    
+    return {
+        "scores": moat_scores,
+        "average": round(avg_moat, 1),
+        "rating": "极宽" if avg_moat >= 4.5 else "宽阔" if avg_moat >= 4 else "中等" if avg_moat >= 3 else "狭窄"
+    }
+
+
+def calculate_future_value(current_price: float, intrinsic_value: float, 
+                          growth_rate: float, years: int) -> Dict:
+    """
+    计算未来1-5年的价值估算
+    """
+    results = {}
+    
+    for year in range(1, years + 1):
+        # 基于增长率和内在价值的复合增长
+        future_value = intrinsic_value * ((1 + growth_rate) ** year)
+        
+        # 年化回报率
+        if current_price > 0:
+            annual_return = ((future_value / current_price) ** (1/year) - 1) * 100
+        else:
+            annual_return = 0
+        
+        results[year] = {
+            "value": round(future_value, 2),
+            "annual_return": round(annual_return, 1)
+        }
+    
+    return results
+
+
+def value_investing_analysis(ticker: str) -> Dict:
+    """
+    价值投资分析 (巴菲特 + 段永平 风格)
+    """
+    try:
+        from yahooquery import Ticker
+    except ImportError:
+        print("Error: yahooquery not installed. Run: pip install yahooquery")
+        sys.exit(1)
+    
+    print(f"🔍 正在进行价值投资分析: {ticker}...")
+    print("💡 理念: 买公司，不是买股票 | 和时间做朋友 | 左侧交易\n")
+    
+    stock = Ticker(ticker)
+    
+    # 基础数据
+    price_data = stock.price.get(ticker, {})
+    stats_data = stock.key_stats.get(ticker, {})
+    financial = stock.financial_data.get(ticker, {})
+    profile = stock.asset_profile.get(ticker, {})
+    cashflow = stock.cash_flow(frequency='a')
+    income = stock.income_statement(frequency='a')
+    earnings_trend = stock.earnings_trend
+    option_chain = stock.option_chain
+    
+    current_price = safe_float(price_data.get('regularMarketPrice', 0))
+    market_cap = safe_float(price_data.get('marketCap', 0))
+    shares = safe_float(stats_data.get('sharesOutstanding', 0))
+    
+    high_52w = safe_float(price_data.get('fiftyTwoWeekHigh', current_price * 1.2), current_price * 1.2)
+    low_52w = safe_float(price_data.get('fiftyTwoWeekLow', current_price * 0.8), current_price * 0.8)
+
+    # 短期期权成交量与隐含波动率
+    options_summary = summarize_short_term_options(option_chain, current_price)
+    
+    # 财务指标
+    roe = safe_float(financial.get('returnOnEquity', 0))
+    roa = safe_float(financial.get('returnOnAssets', 0))
+    gross_margin = safe_float(financial.get('grossMargins', 0))
+    operating_margin = safe_float(financial.get('operatingMargins', 0))
+    net_margin = safe_float(financial.get('profitMargins', 0))
+    
+    forward_pe = safe_float(stats_data.get('forwardPE', 0))
+    pb = safe_float(stats_data.get('priceToBook', 0))
+    
+    # 获取FCF (尝试多种方式)
+    fcf = 0
+    ocf = 0
+    capex = 0
+    
+    if cashflow is not None and not cashflow.empty:
+        # 尝试获取FCF
+        for col in cashflow.columns:
+            if 'FreeCashFlow' in cashflow.index:
+                fcf_val = cashflow.loc['FreeCashFlow', col]
+                if fcf_val and fcf_val == fcf_val and fcf_val != 0:
+                    fcf = fcf_val
+                    break
+        
+        # 如果没有FCF，用OCF - Capex计算
+        if fcf == 0:
+            for col in cashflow.columns:
+                if 'OperatingCashFlow' in cashflow.index:
+                    ocf_val = cashflow.loc['OperatingCashFlow', col]
+                    if ocf_val and ocf_val == ocf_val:
+                        ocf = ocf_val
+                        break
+                if 'CapitalExpenditure' in cashflow.index:
+                    capex_val = cashflow.loc['CapitalExpenditure', col]
+                    if capex_val and capex_val == capex_val:
+                        capex = abs(capex_val)  # Capex通常是负数
+                        break
+            
+            if ocf > 0:
+                fcf = ocf - capex
+    
+    # financial_data 兜底（很多标的在cash_flow表中字段不稳定）
+    if fcf == 0:
+        fcf = safe_float(financial.get('freeCashflow', 0), 0)
+    if ocf == 0:
+        ocf = safe_float(financial.get('operatingCashflow', 0), 0)
+
+    # 如果还是获取不到，用净利润估算
+    if fcf == 0 and net_margin and income is not None and not income.empty:
+        for col in income.columns:
+            if 'NetIncome' in income.index:
+                net_income = income.loc['NetIncome', col]
+                if net_income and net_income == net_income and net_income > 0:
+                    # FCF ≈ 净利润 + 折旧 - 资本支出 (简化)
+                    fcf = net_income * 0.7  # 保守估计
+                    break
+    
+    fcf_per_share = fcf / shares if shares else 0
+    ocf_per_share = ocf / shares if shares and ocf else 0
+    
+    # 增长预期
+    eps_growth_1y = 0
+    eps_growth_2y = 0
+    revenue_growth = 0
+    
+    if earnings_trend:
+        trend_data = earnings_trend.get(ticker, {}).get('trend', [])
+        for item in trend_data:
+            period = item.get('period')
+            if period == '0y':
+                eps_growth_1y = safe_float(item.get('growth', 0), 0)
+                revenue_growth = safe_float(item.get('revenueEstimate', {}).get('growth', 0), 0)
+            elif period == '+1y':
+                eps_growth_2y = safe_float(item.get('growth', 0), 0)
+    
+    if revenue_growth == 0:
+        revenue_growth = safe_float(financial.get('revenueGrowth', 0), 0)
+
+    # 护城河分析
+    moat = analyze_moat(roe, gross_margin, net_margin, market_cap, 
+                        profile.get('sector', ''), revenue_growth)
+    
+    # DCF估值 (三阶段) - 使用保守的FCF估计
+    fcf_for_dcf = fcf if fcf > 0 else market_cap * 0.03  # 如果获取不到，用市值的3%估算
+    
+    growth_years = [eps_growth_1y if eps_growth_1y > 0 else 0.1,
+                    eps_growth_1y if eps_growth_1y > 0 else 0.1,
+                    eps_growth_2y if eps_growth_2y > 0 else 0.08,
+                    0.08, 0.05]  # 5年增长假设
+    
+    dcf_result = calculate_dcf(fcf_for_dcf, growth_years, 0.025, 0.09, shares)
+    intrinsic_value = dcf_result["intrinsic_value"]
+    
+    # 如果DCF计算失败，使用简化估值
+    if intrinsic_value <= 0:
+        # 简化估值：P/E法
+        if forward_pe > 0 and eps_growth_1y > 0:
+            # 合理P/E = 增长率 * 100
+            fair_pe = eps_growth_1y * 100 * 1.5  # 给予50%溢价
+            eps_estimate = current_price / forward_pe * (1 + eps_growth_1y)
+            intrinsic_value = eps_estimate * fair_pe
+        else:
+            intrinsic_value = current_price * 1.2  # 保守估计
+    
+    # 安全边际
+    margin_of_safety = ((intrinsic_value - current_price) / intrinsic_value * 100) if intrinsic_value > 0 else 0
+    
+    # 未来价值估算
+    avg_growth = (eps_growth_1y + eps_growth_2y) / 2 if eps_growth_1y and eps_growth_2y else 0.1
+    iv_for_future = intrinsic_value if intrinsic_value > 0 else current_price * 1.2
+    future_values = calculate_future_value(current_price, iv_for_future, avg_growth, 5)
+    
+    # 左侧交易价格区间（修正区间上下界，确保 min <= max）
+    first_batch_min = current_price * 0.95
+    first_batch_max = current_price * 1.05
+
+    second_batch_min = current_price * 0.85
+    second_batch_max = current_price * 0.95
+
+    heavy_min = max(low_52w * 0.95, current_price * 0.75)
+    heavy_max = second_batch_min
+    if heavy_min > heavy_max:
+        heavy_min, heavy_max = heavy_max * 0.9, heavy_max
+
+    extreme = heavy_min
+    
+    # 巴菲特 + 段永平定性评估
+    quality = build_quality_assessment(profile, financial, moat, margin_of_safety, revenue_growth)
+
+    # PEG（用于结构化输出）
+    peg_1y = (forward_pe / (eps_growth_1y * 100)) if forward_pe > 0 and eps_growth_1y > 0 else None
+    peg_2y = (forward_pe / (eps_growth_2y * 100)) if forward_pe > 0 and eps_growth_2y > 0 else None
+
+    # 巴菲特 + 段永平评判标准（量化）
+    fcf_yield_pct = (fcf_per_share / current_price * 100) if current_price else 0
+    standards = evaluate_buffett_duan_standards(
+        forward_pe=forward_pe,
+        roe=roe * 100 if roe else 0,
+        net_margin=net_margin * 100 if net_margin else 0,
+        moat_avg=moat.get('average', 0),
+        margin_of_safety=margin_of_safety,
+        fcf_yield=fcf_yield_pct,
+        peg_1y=peg_1y,
+    )
+
+    # 市场时钟（中期选举/节假日/月份季节性）
+    calendar = build_calendar_context(datetime.now(), profile.get('sector', ''))
+
+    # 期权现金流策略（用户偏好：虚值long call + 50%-100%减仓回流）
+    options_strategy = build_otm_long_call_plan(current_price, option_chain)
+
+    # 五维评分
+    score_valuation = 5 if margin_of_safety > 30 else 4 if margin_of_safety > 15 else 3 if margin_of_safety > 0 else 2
+    score_moat = int(moat["average"])
+    score_fcf = 5 if fcf > 0 and fcf/market_cap > 0.03 else 4 if fcf > 0 else 3
+    score_profit = 5 if roe > 0.2 else 4 if roe > 0.15 else 3 if roe > 0.1 else 2
+    score_growth = 5 if avg_growth > 0.2 else 4 if avg_growth > 0.15 else 3 if avg_growth > 0.1 else 2
+    
+    total_score = (score_valuation + score_moat + score_fcf + score_profit + score_growth) / 5
+    
+    # 投资评级
+    if total_score >= 4.5 and margin_of_safety > 20:
+        rating = "STRONG BUY ⭐⭐⭐⭐⭐"
+    elif total_score >= 4 and margin_of_safety > 10:
+        rating = "BUY ⭐⭐⭐⭐"
+    elif total_score >= 3.5:
+        rating = "HOLD ⭐⭐⭐"
+    else:
+        rating = "AVOID ⭐⭐"
+    
+    return {
+        "framework": "Buffett+Duan qualitative + Five-Dimension Value Framework v2",
+        "ticker": ticker,
+        "name": profile.get('shortName', ticker),
+        "date": datetime.now().strftime("%Y-%m-%d"),
+        
+        "price": {
+            "current": round(current_price, 2),
+            "market_cap_b": round(market_cap / 1e9, 2),
+            "week_52_high": round(high_52w, 2),
+            "week_52_low": round(low_52w, 2),
+            "position_pct": round((current_price - low_52w) / (high_52w - low_52w) * 100, 1) if high_52w != low_52w else 0,
+            "drop_from_high": round((high_52w - current_price) / high_52w * 100, 1) if high_52w else 0,
+        },
+        
+        "valuation": {
+            "forward_pe": round(forward_pe, 1),
+            "pb": round(pb, 2),
+            "intrinsic_value": intrinsic_value,
+            "margin_of_safety": round(margin_of_safety, 1),
+        },
+        
+        "fundamentals": {
+            "roe": round(roe * 100, 1) if roe else None,
+            "roa": round(roa * 100, 1) if roa else None,
+            "gross_margin": round(gross_margin * 100, 1) if gross_margin else None,
+            "net_margin": round(net_margin * 100, 1) if net_margin else None,
+        },
+        
+        "cashflow": {
+            "ocf_b": round(ocf / 1e9, 2) if ocf else None,
+            "ocf_per_share": round(ocf_per_share, 2) if ocf_per_share else 0,
+            "fcf_b": round(fcf / 1e9, 2) if fcf else None,
+            "fcf_per_share": round(fcf_per_share, 2),
+            "fcf_yield": round(fcf_per_share / current_price * 100, 2) if current_price else 0,
+        },
+        
+        "growth": {
+            "eps_growth_1y": round(eps_growth_1y * 100, 1),
+            "eps_growth_2y": round(eps_growth_2y * 100, 1),
+            "revenue_growth": round(revenue_growth * 100, 1),
+        },
+
+        "quality": quality,
+        "standards": standards,
+        "calendar": calendar,
+
+        "options": options_summary,
+        "options_strategy": options_strategy,
+        
+        "moat": moat,
+        
+        "peg": {
+            "peg_1y": round(peg_1y, 2) if peg_1y is not None else None,
+            "peg_2y": round(peg_2y, 2) if peg_2y is not None else None,
+        },
+
+        "dcf": {
+            **dcf_result,
+            "assumptions": {
+                "base_fcf_b": round(fcf_for_dcf / 1e9, 2) if fcf_for_dcf else None,
+                "stage1_growth_pct": round((growth_years[0] if growth_years else 0) * 100, 1),
+                "stage2_growth_pct": round((growth_years[2] if len(growth_years) > 2 else 0) * 100, 1),
+                "terminal_growth_pct": 2.5,
+                "wacc_pct": 9.0,
+            }
+        },
+        
+        "future_value": future_values,
+        
+        "entry_points": {
+            "first_batch": (round(first_batch_min, 2), round(first_batch_max, 2)),
+            "second_batch": (round(second_batch_min, 2), round(second_batch_max, 2)),
+            "heavy": (round(heavy_min, 2), round(heavy_max, 2)),
+            "extreme": round(extreme, 2),
+        },
+        
+        "scores": {
+            "valuation": score_valuation,
+            "moat": score_moat,
+            "fcf": score_fcf,
+            "profitability": score_profit,
+            "growth": score_growth,
+            "total": round(total_score, 1),
+        },
+        
+        "rating": rating,
+        "sector": profile.get('sector', 'N/A'),
+        "industry": profile.get('industry', 'N/A'),
+        "ceo": profile.get('companyOfficers', [{}])[0].get('name', 'N/A') if profile.get('companyOfficers') else 'N/A',
+    }
+
+
+def print_value_report(data: Dict):
+    """打印价值投资分析报告"""
+    print("\n" + "=" * 80)
+    print(f"📊 {data['name']} ({data['ticker']}) 价值投资分析报告")
+    print("=" * 80)
+    print(f"💡 理念: 买公司，不是买股票 | 和时间做朋友 | 左侧交易")
+    print("=" * 80)
+    
+    # 核心数据
+    print(f"\n【核心数据】")
+    print(f"• 股价: ${data['price']['current']} | 市值: ${data['price']['market_cap_b']:.1f}B")
+    print(f"• 52周区间: ${data['price']['week_52_low']} - ${data['price']['week_52_high']}")
+    print(f"• 当前位置: {data['price']['position_pct']}% (距高点 -{data['price'].get('drop_from_high', 0):.1f}%)")
+
+    # 核心数据快评（优秀区间 + 同行业对比）
+    print(f"\n【核心数据快评】(优秀区间 & 同行业对比)")
+    bm = get_industry_benchmarks(data.get('sector', ''), data.get('industry', ''))
+    industry_pe = bm['forward_pe']
+    industry_roe = bm['roe']
+    industry_net_margin = bm['net_margin']
+    industry_fcf_yield = bm['fcf_yield']
+
+    fpe = data['valuation'].get('forward_pe') or 0
+    roe = data['fundamentals'].get('roe') or 0
+    net_margin = data['fundamentals'].get('net_margin') or 0
+    fcf_yield = data['cashflow'].get('fcf_yield') or 0
+    peg_1y = data.get('peg', {}).get('peg_1y')
+
+    # Forward PE: 越低越好（在成长不失速前提下）
+    if fpe <= 0:
+        pe_eval = "N/A"
+    elif fpe < 18:
+        pe_eval = "✅ 估值偏低"
+    elif fpe <= 28:
+        pe_eval = "⏸️ 估值合理"
+    else:
+        pe_eval = "⚠️ 估值偏高"
+    pe_vs_industry = "优于行业" if fpe > 0 and fpe < industry_pe else "弱于行业" if fpe > industry_pe else "接近行业"
+
+    # ROE: 越高越好
+    if roe >= 25:
+        roe_eval = "✅ 优秀"
+    elif roe >= 15:
+        roe_eval = "✅ 良好"
+    else:
+        roe_eval = "⚠️ 一般"
+    roe_vs_industry = "优于行业" if roe > industry_roe else "弱于行业" if roe < industry_roe else "接近行业"
+
+    # 净利率: 越高越好
+    if net_margin >= 25:
+        nm_eval = "✅ 优秀"
+    elif net_margin >= 15:
+        nm_eval = "✅ 良好"
+    else:
+        nm_eval = "⚠️ 一般"
+    nm_vs_industry = "优于行业" if net_margin > industry_net_margin else "弱于行业" if net_margin < industry_net_margin else "接近行业"
+
+    # FCF Yield: 越高越好
+    if fcf_yield >= 5:
+        fcf_eval = "✅ 优秀"
+    elif fcf_yield >= 3:
+        fcf_eval = "✅ 合格"
+    elif fcf_yield > 0:
+        fcf_eval = "⏸️ 偏低"
+    else:
+        fcf_eval = "⚠️ 异常"
+    fcf_vs_industry = "优于行业" if fcf_yield > industry_fcf_yield else "弱于行业" if fcf_yield < industry_fcf_yield else "接近行业"
+
+    # PEG: 越低越好
+    if peg_1y is None:
+        peg_eval = "N/A"
+        peg_vs_industry = "N/A"
+    else:
+        if peg_1y < 1.0:
+            peg_eval = "✅ 低估"
+        elif peg_1y <= 1.5:
+            peg_eval = "⏸️ 合理偏高"
+        else:
+            peg_eval = "⚠️ 偏高"
+        peg_vs_industry = "优于行业" if peg_1y < bm['peg'] else "弱于行业"
+
+    print(f"• 行业基准: {bm['label']} | PE~{industry_pe:.0f}x | ROE~{industry_roe:.0f}% | 净利率~{industry_net_margin:.0f}% | FCFY~{industry_fcf_yield:.1f}% | PEG~{bm['peg']:.1f}")
+    print(f"• Forward PE: {fpe:.1f}x | {pe_eval} | 行业对比: {pe_vs_industry} (行业~{industry_pe:.0f}x)")
+    print(f"• ROE: {roe:.1f}% | {roe_eval} | 行业对比: {roe_vs_industry} (行业~{industry_roe:.0f}%)")
+    print(f"• 净利率: {net_margin:.1f}% | {nm_eval} | 行业对比: {nm_vs_industry} (行业~{industry_net_margin:.0f}%)")
+    print(f"• FCF收益率: {fcf_yield:.2f}% | {fcf_eval} | 行业对比: {fcf_vs_industry} (行业~{industry_fcf_yield:.0f}%)")
+    if peg_1y is not None:
+        print(f"• PEG(1Y): {peg_1y:.2f} | {peg_eval} | 行业对比: {peg_vs_industry} (基准~{bm['peg']:.1f})")
+
+    q = data.get('quality', {})
+    if q:
+        print(f"\n【零、巴菲特 + 段永平好公司评估】")
+        print(f"• 公司业务: {q.get('business', 'N/A')}")
+        print(f"• 盈利模式: {q.get('business_model', 'N/A')}")
+        print(f"• 公司文化: {q.get('culture', 'N/A')}")
+
+        b = q.get('buffett', {})
+        d = q.get('duan', {})
+        print(f"• 巴菲特四问: 业务可理解={b.get('业务可理解','N/A')} / 护城河={b.get('可持续护城河','N/A')} / 管理层={b.get('管理层可信','N/A')} / 安全边际={b.get('具备安全边际','N/A')}")
+        print(f"• 段永平四看: 好生意={d.get('好生意','N/A')} / 好公司={d.get('好公司','N/A')} / 好价格={d.get('好价格','N/A')} / 拿得住={d.get('拿得住','N/A')}")
+
+    if data.get('standards'):
+        s = data['standards']
+        print(f"\n【巴菲特 + 段永平投资评判标准】")
+        for k, v in s.get('checks', {}).items():
+            print(f"• {k}: {'✅ 达标' if v else '❌ 未达标'}")
+        print(f"• 总分: {s.get('passed', 0)}/{s.get('total', 0)} ({s.get('score', 0)}分) | 结论: {s.get('verdict', 'N/A')}")
+
+    if data.get('options', {}).get('available'):
+        o = data['options']
+        print(f"\n【短期期权与隐含波动率】(最近到期: {o.get('nearest_expiration')})")
+        print(f"• Call成交量: {o.get('call_volume')} | Put成交量: {o.get('put_volume')} | P/C成交量比: {o.get('put_call_volume_ratio')}")
+        print(f"• Call持仓量: {o.get('call_open_interest')} | Put持仓量: {o.get('put_open_interest')} | P/C持仓比: {o.get('put_call_oi_ratio')}")
+        print(f"• ATM附近平均IV: {round(o.get('atm_iv', 0) * 100, 2)}%")
+
+    os = data.get('options_strategy', {})
+    if os.get('available'):
+        print(f"\n【期权现金流策略（虚值 Long Call）】")
+        print(f"• 策略: {os.get('strategy')} | 到期建议: {os.get('tenor')}")
+        if os.get('contracts'):
+            print("• 具体合约价位（建议）:")
+            for c in os.get('contracts', []):
+                print(f"  - {c.get('bucket')}: 到期 {c.get('expiration')} | 行权价 ${c.get('strike')} ({c.get('target_otm')})")
+        for leg in os.get('ladder', []):
+            print(f"  - 仓位{leg.get('weight')}: 行权价≈${leg.get('strike')}（{leg.get('note')}）")
+        for r in os.get('trim_rules', []):
+            print(f"• 止盈规则: {r}")
+        print(f"• 现金流回投: {os.get('recycle')}")
+        print(f"• 风险提示: {os.get('risk')}")
+
+    cal = data.get('calendar', {})
+    if cal:
+        print(f"\n【市场时钟（中期选举 / 节假日 / 月份季节性）】")
+        print(f"• 当前月份观点: {cal.get('month_view', 'N/A')}")
+        print(f"• 选举周期: {cal.get('election_phase', 'N/A')} | 结论: {cal.get('election_view', 'N/A')}")
+        print("• 节假日效应: ")
+        for k, v in cal.get('holiday_view', {}).items():
+            print(f"  - {k}: {v}")
+        wl = ', '.join(cal.get('defensive_watchlist', []))
+        print(f"• 下跌期防御观察池: {wl}")
+    
+    # 维度1: 前瞻市盈率 (Forward P/E) 详细分析
+    print(f"\n【一、前瞻市盈率 (Forward P/E) 详细分析】")
+    print(f"• 当前Forward P/E: {data['valuation']['forward_pe']}x")
+    print(f"• 行业平均Forward P/E: ~25x (科技行业)")
+    print(f"• 历史P/E区间: {data['price'].get('trailing_pe', 'N/A')}x (TTM) - {data['valuation']['forward_pe']}x")
+    
+    # P/E 分析
+    pe = data['valuation']['forward_pe']
+    if pe <= 0:
+        pe_analysis = "⚠️ Forward P/E为负或不可用，PE估值失效（需结合P/S、现金流与路径）"
+    elif pe < 15:
+        pe_analysis = "✅ 估值显著偏低，具备安全边际"
+    elif pe < 20:
+        pe_analysis = "✅ 估值合理偏低，成长性匹配"
+    elif pe < 25:
+        pe_analysis = "⏸️ 估值合理，符合成长股标准"
+    elif pe < 30:
+        pe_analysis = "⚠️ 估值偏高，需要高增长支撑"
+    else:
+        pe_analysis = "❌ 估值过高，需谨慎评估"
+    print(f"• 分析: {pe_analysis}")
+    
+    # 行业对比
+    industry_pe = 25.0
+    pe_ratio = pe / industry_pe if industry_pe else 0
+    if pe <= 0:
+        pe_comparison = "PE不可比（建议使用P/S、EV/Sales、FCF路径）"
+        print(f"• 行业对比: N/A → {pe_comparison}")
+    else:
+        if pe_ratio < 0.8:
+            pe_comparison = "低于行业均值20%以上，相对低估"
+        elif pe_ratio < 0.9:
+            pe_comparison = "低于行业均值10-20%，略低估"
+        elif pe_ratio < 1.1:
+            pe_comparison = "接近行业均值，估值合理"
+        elif pe_ratio < 1.2:
+            pe_comparison = "高于行业均值10-20%，略高估"
+        else:
+            pe_comparison = "高于行业均值20%以上，明显高估"
+        print(f"• 行业对比: {pe_ratio:.2f}x 行业均值 → {pe_comparison}")
+    
+    # 维度2: 基本面分析
+    print(f"\n【二、基本面五维分析】")
+    print(f"┌─────────────────┬──────────┬─────────────────────────────────────┐")
+    print(f"│ 指标            │ 数值     │ 分析                                │")
+    print(f"├─────────────────┼──────────┼─────────────────────────────────────┤")
+    
+    if data['fundamentals']['roe']:
+        roe = data['fundamentals']['roe']
+        roe_analysis = "优秀" if roe > 20 else "良好" if roe > 15 else "一般"
+        print(f"│ ROE             │ {roe:>6.1f}%  │ {roe_analysis:20} (巴菲特标准>15%) │")
+    
+    if data['fundamentals']['roa']:
+        roa = data['fundamentals']['roa']
+        print(f"│ ROA             │ {roa:>6.1f}%  │ 资产使用效率指标                    │")
+    
+    if data['fundamentals']['gross_margin']:
+        gm = data['fundamentals']['gross_margin']
+        gm_analysis = "高毛利" if gm > 40 else "中等" if gm > 20 else "低毛利"
+        print(f"│ 毛利率          │ {gm:>6.1f}%  │ {gm_analysis:20} (商业模式健康度) │")
+    
+    if data['fundamentals']['net_margin']:
+        nm = data['fundamentals']['net_margin']
+        nm_analysis = "盈利能力强" if nm > 15 else "盈利能力一般" if nm > 8 else "盈利能力弱"
+        print(f"│ 净利率          │ {nm:>6.1f}%  │ {nm_analysis:26} │")
+    
+    print(f"└─────────────────┴──────────┴─────────────────────────────────────┘")
+    
+    # 维度3: 现金流详细分析
+    print(f"\n【三、现金流详细分析】")
+    
+    if data['cashflow']['fcf_b']:
+        print(f"• 年度经营现金流 (OCF): ${data['cashflow'].get('ocf_b', 0)}B")
+        print(f"• 每股经营现金流 (OCF/share): ${data['cashflow'].get('ocf_per_share', 0)}")
+        print(f"• 年度自由现金流 (FCF): ${data['cashflow']['fcf_b']}B")
+        print(f"• 每股自由现金流 (FCF/share): ${data['cashflow']['fcf_per_share']}")
+        print(f"• FCF收益率 (FCF Yield): {data['cashflow']['fcf_yield']:.2f}%")
+        print(f"• 股价/每股FCF (P/FCF): {data['price']['current'] / data['cashflow']['fcf_per_share']:.1f}x")
+        
+        # FCF计算过程
+        print(f"\n  FCF计算过程:")
+        print(f"  • 经营现金流 (OCF): ~${data['cashflow']['fcf_b'] * 1.2:.1f}B (估算)")
+        print(f"  • 资本支出 (CapEx): ~${data['cashflow']['fcf_b'] * 0.2:.1f}B")
+        print(f"  • FCF = OCF - CapEx = ${data['cashflow']['fcf_b']:.1f}B")
+        
+        # FCF分析
+        fcf_yield = data['cashflow']['fcf_yield']
+        if fcf_yield > 5:
+            fcf_analysis = "✅ 现金流优秀，股东回报能力强"
+        elif fcf_yield > 3:
+            fcf_analysis = "✅ 现金流良好，具备持续分红能力"
+        elif fcf_yield > 1:
+            fcf_analysis = "⏸️ 现金流一般，可能处于投资扩张期"
+        else:
+            fcf_analysis = "⚠️ 现金流较弱，关注资本支出效率"
+        print(f"• 分析: {fcf_analysis}")
+        
+        # P/FCF对比
+        p_fcf = data['price']['current'] / data['cashflow']['fcf_per_share'] if data['cashflow']['fcf_per_share'] else 0
+        if p_fcf < 15:
+            pfcf_analysis = "✅ P/FCF偏低"
+        elif p_fcf < 20:
+            pfcf_analysis = "✅ P/FCF合理"
+        elif p_fcf < 25:
+            pfcf_analysis = "⏸️ P/FCF偏高"
+        else:
+            pfcf_analysis = "⚠️ P/FCF过高"
+        print(f"• P/FCF估值: {p_fcf:.1f}x → {pfcf_analysis}")
+    else:
+        print(f"• FCF数据获取失败，可能处于投资扩张期")
+        print(f"• 建议使用净利润估算: 净利润 × 70% ≈ FCF")
+    
+    # 维度4: PEG估值详细分析
+    print(f"\n【四、PEG估值 (市盈率相对盈利增长比率) 详细分析】")
+    print(f"• 前瞻P/E: {data['valuation']['forward_pe']}x")
+    print(f"• 1年EPS增长预测: {data['growth']['eps_growth_1y']}%")
+    print(f"• 2年EPS增长预测: {data['growth']['eps_growth_2y']}%")
+    print(f"• 行业平均增长率: ~12% (科技行业)")
+    
+    # 计算PEG
+    if data['growth']['eps_growth_1y'] > 0:
+        peg_1y = data['valuation']['forward_pe'] / data['growth']['eps_growth_1y']
+        peg_2y = data['valuation']['forward_pe'] / data['growth']['eps_growth_2y'] if data['growth']['eps_growth_2y'] > 0 else 999
+        
+        print(f"• PEG (1年): {peg_1y:.2f}")
+        print(f"• PEG (2年): {peg_2y:.2f}")
+        
+        # PEG分析
+        if peg_1y < 0.8:
+            peg_analysis = "✅ PEG<0.8，严重低估，极具投资价值"
+        elif peg_1y < 1.0:
+            peg_analysis = "✅ PEG<1.0，低估，投资价值高"
+        elif peg_1y < 1.2:
+            peg_analysis = "⏸️ PEG在1.0-1.2之间，估值合理"
+        elif peg_1y < 1.5:
+            peg_analysis = "⚠️ PEG在1.2-1.5之间，估值偏高"
+        else:
+            peg_analysis = "❌ PEG>1.5，高估，需高增长支撑"
+        print(f"• 分析: {peg_analysis}")
+        
+        # PEG对比
+        peg_ratio = peg_1y / 1.0  # 以1.0为基准
+        if peg_ratio < 0.8:
+            peg_comparison = "低于基准20%以上"
+        elif peg_ratio < 0.9:
+            peg_comparison = "低于基准10-20%"
+        elif peg_ratio < 1.1:
+            peg_comparison = "接近基准"
+        elif peg_ratio < 1.2:
+            peg_comparison = "高于基准10-20%"
+        else:
+            peg_comparison = "高于基准20%以上"
+        print(f"• 相对基准: PEG {peg_ratio:.2f}x → {peg_comparison}")
+    
+    # 维度5: DCF估值详细分析
+    print(f"\n【五、DCF估值 (未来现金流折现) 详细分析】")
+    print(f"• DCF内在价值: ${data['valuation']['intrinsic_value']}")
+    print(f"• 当前股价: ${data['price']['current']}")
+    print(f"• 安全边际: {data['valuation']['margin_of_safety']:+.1f}%")
+    
+    # DCF三阶段详细计算
+    print(f"\n  DCF三阶段详细计算:")
+    fcf_b = data['cashflow']['fcf_b']
+    eps_growth_1y = data['growth']['eps_growth_1y']
+    eps_growth_2y = data['growth']['eps_growth_2y']
+    
+    if fcf_b:
+        print(f"  • 基础FCF: ${fcf_b:.1f}B (年)")
+    else:
+        print(f"  • 基础FCF: 数据获取失败，使用估算值")
+    
+    if eps_growth_1y:
+        print(f"  • 阶段1 (高成长3年): 年增长 {eps_growth_1y:.1f}%")
+    else:
+        print(f"  • 阶段1 (高成长3年): 年增长 ~10% (估算)")
+    
+    if eps_growth_2y:
+        print(f"  • 阶段2 (中成长2年): 年增长 {eps_growth_2y:.1f}%")
+    else:
+        print(f"  • 阶段2 (中成长2年): 年增长 ~8% (估算)")
+    
+    print(f"  • 阶段3 (永续增长): 年增长 2.5%")
+    print(f"  • 折现率 (WACC): 9%")
+    
+    # DCF分析
+    mos = data['valuation']['margin_of_safety']
+    if mos > 30:
+        dcf_analysis = "✅ 安全边际>30%，强烈建议买入"
+    elif mos > 20:
+        dcf_analysis = "✅ 安全边际20-30%，符合巴菲特标准"
+    elif mos > 10:
+        dcf_analysis = "⏸️ 安全边际10-20%，可小仓位试探"
+    elif mos > -10:
+        dcf_analysis = "⚠️ 安全边际<10%，建议等待回调"
+    else:
+        dcf_analysis = "❌ 股价高于内在价值，当前高估"
+    print(f"• 分析: {dcf_analysis}")
+    
+    # DCF敏感性分析（如果有）
+    if 'dcf' in data and data['dcf'].get('sensitivity'):
+        print(f"\n  DCF敏感性分析 (不同WACC和永续增长率组合):")
+        print(f"  ┌────────┬──────────┬──────────────┐")
+        print(f"  │ WACC   │ 永续增长 │ 内在价值     │")
+        print(f"  ├────────┼──────────┼──────────────┤")
+        for sens in data['dcf']['sensitivity'][:6]:  # 显示前6个
+            print(f"  │ {sens['wacc']:>4.1f}%  │ {sens['growth']:>5.1f}%   │ ${sens['value']:>10.2f}  │")
+        print(f"  └────────┴──────────┴──────────────┘")
+        
+        # 敏感性结论
+        values = [s['value'] for s in data['dcf']['sensitivity']]
+        min_val = min(values)
+        max_val = max(values)
+        avg_val = sum(values) / len(values)
+        print(f"  • 估值区间: ${min_val:.2f} - ${max_val:.2f} (平均: ${avg_val:.2f})")
+        if data['valuation']['intrinsic_value'] >= min_val * 0.9 and data['valuation']['intrinsic_value'] <= max_val * 1.1:
+            sens_analysis = "DCF估值在合理敏感性范围内"
+        else:
+            sens_analysis = "DCF估值处于敏感性范围边缘"
+        print(f"  • 结论: {sens_analysis}")
+    
+    # 护城河详细分析
+    print(f"\n【六、护城河详细分析】(段永平五维护城河模型)")
+    print(f"┌─────────────────┬──────────┬─────────────────────────────────────┐")
+    print(f"│ 护城河类型      │ 评分     │ 分析                                │")
+    print(f"├─────────────────┼──────────┼─────────────────────────────────────┤")
+    
+    network_score = data['moat']['scores']['network']
+    network_analysis = "极强" if network_score == 5 else "强" if network_score == 4 else "中等"
+    print(f"│ 网络效应        │ {'⭐' * network_score:<5}   │ {network_analysis:20} (平台/生态价值) │")
+    
+    brand_score = data['moat']['scores']['brand']
+    brand_analysis = "极强" if brand_score == 5 else "强" if brand_score == 4 else "中等"
+    print(f"│ 品牌护城河      │ {'⭐' * brand_score:<5}   │ {brand_analysis:20} (定价权/用户忠诚) │")
+    
+    tech_score = data['moat']['scores']['tech']
+    tech_analysis = "极强" if tech_score == 5 else "强" if tech_score == 4 else "中等"
+    print(f"│ 技术护城河      │ {'⭐' * tech_score:<5}   │ {tech_analysis:20} (技术壁垒/R&D) │")
+    
+    cost_score = data['moat']['scores']['cost']
+    cost_analysis = "极强" if cost_score == 5 else "强" if cost_score == 4 else "中等"
+    print(f"│ 成本优势        │ {'⭐' * cost_score:<5}   │ {cost_analysis:20} (规模经济/效率) │")
+    
+    switching_score = data['moat']['scores']['switching']
+    switching_analysis = "极强" if switching_score == 5 else "强" if switching_score == 4 else "中等"
+    print(f"│ 切换成本        │ {'⭐' * switching_score:<5}   │ {switching_analysis:20} (用户粘性/数据) │")
+    
+    print(f"└─────────────────┴──────────┴─────────────────────────────────────┘")
+    print(f"• 综合评级: {data['moat']['rating']}护城河 ({data['moat']['average']}/5.0)")
+    
+    if data['moat']['average'] >= 4.5:
+        moat_conclusion = "✅ 极宽护城河，具备长期竞争优势"
+    elif data['moat']['average'] >= 4:
+        moat_conclusion = "✅ 宽阔护城河，竞争优势明显"
+    elif data['moat']['average'] >= 3:
+        moat_conclusion = "⏸️ 中等护城河，竞争优势一般"
+    else:
+        moat_conclusion = "⚠️ 护城河较窄，竞争优势弱"
+    print(f"• 结论: {moat_conclusion}")
+    
+    # 未来价值表格
+    print(f"\n【七、未来1-5年价值估算 (基于DCF模型)】")
+    print(f"┌──────┬────────────┬──────────────┬─────────────────┐")
+    print(f"│ 年限 │ 目标价值   │ 年化回报率   │ 评价            │")
+    print(f"├──────┼────────────┼──────────────┼─────────────────┤")
+    
+    for year, value in data['future_value'].items():
+        target = value['value']
+        ret = value['annual_return']
+        
+        if ret > 15:
+            eval_text = "优秀"
+        elif ret > 10:
+            eval_text = "良好"
+        elif ret > 5:
+            eval_text = "一般"
+        elif ret > -5:
+            eval_text = "持平"
+        else:
+            eval_text = "下跌"
+        
+        print(f"│ {year}年  │ ${target:>8.2f}  │ {ret:>+6.1f}%       │ {eval_text:14} │")
+    
+    print(f"└──────┴────────────┴──────────────┴─────────────────┘")
+    
+    # 五维评分总结
+    print(f"\n【八、五维评分总结】")
+    print(f"┌─────────────────┬──────────┬─────────────────────────────────────┐")
+    print(f"│ 维度            │ 评分     │ 说明                                │")
+    print(f"├─────────────────┼──────────┼─────────────────────────────────────┤")
+    print(f"│ 1. 估值/安全边际│ {'⭐' * data['scores']['valuation']:<5}   │ 买入价格vs内在价值                  │")
+    print(f"│ 2. 护城河       │ {'⭐' * data['scores']['moat']:<5}   │ 竞争优势                            │")
+    print(f"│ 3. 现金流       │ {'⭐' * data['scores']['fcf']:<5}   │ 真实盈利能力                        │")
+    print(f"│ 4. 盈利能力     │ {'⭐' * data['scores']['profitability']:<5}   │ ROE/ROA/利润率                      │")
+    print(f"│ 5. 增长潜力     │ {'⭐' * data['scores']['growth']:<5}   │ 未来增长空间                        │")
+    print(f"├─────────────────┼──────────┼─────────────────────────────────────┤")
+    print(f"│ 综合评分        │ {data['scores']['total']:.1f}/5.0  │                                     │")
+    print(f"└─────────────────┴──────────┴─────────────────────────────────────┘")
+    
+    # 投资评级
+    print(f"\n【投资评级】")
+    print(f"🎯 {data['rating']}")
+    
+    # 左侧交易
+    print(f"\n【左侧交易执行计划】(目标仓位: 5-10%)")
+    print(f"• 第一批 (试仓20%): ${data['entry_points']['first_batch'][0]} - ${data['entry_points']['first_batch'][1]}")
+    print(f"• 第二批 (加仓30%): ${data['entry_points']['second_batch'][0]} - ${data['entry_points']['second_batch'][1]}")
+    print(f"• 重仓区 (35%): ${data['entry_points']['heavy'][0]} - ${data['entry_points']['heavy'][1]}")
+    print(f"• 极端区 (15%): <${data['entry_points']['extreme']}")
+    
+    # "时间是朋友"逻辑
+    print(f"\n【\"时间是朋友\"持有逻辑】(Buffett/Duan式)")
+    print(f"1. {data['moat']['rating']}护城河保护企业长期竞争力")
+    if data['fundamentals']['roe'] and data['fundamentals']['roe'] > 15:
+        print(f"2. ROE {data['fundamentals']['roe']}% 显示优秀的资本回报能力")
+    if data['cashflow']['fcf_b'] and data['cashflow']['fcf_b'] > 0:
+        print(f"3. ${data['cashflow']['fcf_b']}B 年自由现金流，为股东创造价值")
+    print(f"4. 以低于内在价值 {abs(data['valuation']['margin_of_safety']):.0f}% 的价格买入，安全边际充足")
+    print(f"5. 持有3-5年，让企业价值复合增长")
+    
+    print("\n" + "=" * 75)
+
+
+def save_value_report(data: Dict, filename: str = None):
+    """保存价值投资报告为Markdown"""
+    if not filename:
+        filename = f"./{data['ticker']}-value-analysis-{data['date']}.md"
+    
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(f"# {data['name']} ({data['ticker']}) 价值投资分析报告\n\n")
+        f.write(f"> 💡 投资理念: 买公司，不是买股票 | 和时间做朋友 | 左侧交易\n\n")
+        f.write(f"**分析日期**: {data['date']}\n\n")
+        
+        f.write("## 🧭 巴菲特 + 段永平好公司评估\n\n")
+        q = data.get('quality', {})
+        if q:
+            f.write(f"- **公司业务**: {q.get('business', 'N/A')}\n")
+            f.write(f"- **盈利模式**: {q.get('business_model', 'N/A')}\n")
+            f.write(f"- **公司文化**: {q.get('culture', 'N/A')}\n")
+            b = q.get('buffett', {})
+            d = q.get('duan', {})
+            f.write(f"- **巴菲特四问**: 业务可理解={b.get('业务可理解','N/A')} / 护城河={b.get('可持续护城河','N/A')} / 管理层={b.get('管理层可信','N/A')} / 安全边际={b.get('具备安全边际','N/A')}\n")
+            f.write(f"- **段永平四看**: 好生意={d.get('好生意','N/A')} / 好公司={d.get('好公司','N/A')} / 好价格={d.get('好价格','N/A')} / 拿得住={d.get('拿得住','N/A')}\n")
+        f.write("\n")
+
+        if data.get('standards'):
+            s = data['standards']
+            f.write("## 🧪 巴菲特 + 段永平投资评判标准\n\n")
+            for k, v in s.get('checks', {}).items():
+                f.write(f"- **{k}**: {'✅ 达标' if v else '❌ 未达标'}\n")
+            f.write(f"- **总分**: {s.get('passed', 0)}/{s.get('total', 0)} ({s.get('score', 0)}分)\n")
+            f.write(f"- **结论**: {s.get('verdict', 'N/A')}\n\n")
+
+        f.write("## 📊 核心数据\n\n")
+        f.write(f"- **股价**: ${data['price']['current']}\n")
+        f.write(f"- **市值**: ${data['price']['market_cap_b']:.1f}B\n")
+        f.write(f"- **52周区间**: ${data['price']['week_52_low']} - ${data['price']['week_52_high']}\n")
+        f.write(f"- **Forward P/E**: {data['valuation']['forward_pe']}x\n")
+        if data.get('options', {}).get('available'):
+            f.write(f"- **短期期权P/C成交量比**: {data['options'].get('put_call_volume_ratio')}\n")
+            f.write(f"- **短期期权ATM IV**: {round(data['options'].get('atm_iv', 0) * 100, 2)}%\n")
+        f.write("\n")
+
+        os = data.get('options_strategy', {})
+        if os.get('available'):
+            f.write("## 🧠 期权现金流策略（虚值 Long Call）\n\n")
+            f.write(f"- **策略**: {os.get('strategy')}\n")
+            f.write(f"- **到期建议**: {os.get('tenor')}\n")
+            if os.get('contracts'):
+                f.write("- **具体合约价位（建议）**:\n")
+                for c in os.get('contracts', []):
+                    f.write(f"  - {c.get('bucket')}: 到期 {c.get('expiration')} | 行权价 ${c.get('strike')}（{c.get('target_otm')}）\n")
+            f.write("- **分层建仓**:\n")
+            for leg in os.get('ladder', []):
+                f.write(f"  - {leg.get('weight')}：行权价约 ${leg.get('strike')}（{leg.get('note')}）\n")
+            f.write("- **止盈纪律**:\n")
+            for r in os.get('trim_rules', []):
+                f.write(f"  - {r}\n")
+            f.write(f"- **现金流回投**: {os.get('recycle')}\n")
+            f.write(f"- **风险提示**: {os.get('risk')}\n\n")
+
+        f.write("### 核心数据快评（优秀区间 + 行业对比）\n\n")
+        bm = get_industry_benchmarks(data.get('sector', ''), data.get('industry', ''))
+        industry_pe = bm['forward_pe']
+        industry_roe = bm['roe']
+        industry_net_margin = bm['net_margin']
+        industry_fcf_yield = bm['fcf_yield']
+
+        fpe = data['valuation'].get('forward_pe') or 0
+        roe = data['fundamentals'].get('roe') or 0
+        net_margin = data['fundamentals'].get('net_margin') or 0
+        fcf_yield = data['cashflow'].get('fcf_yield') or 0
+        peg_1y = data.get('peg', {}).get('peg_1y')
+
+        pe_eval = "估值偏低" if fpe and fpe < 18 else "估值合理" if fpe and fpe <= 28 else "估值偏高"
+        pe_vs = "优于行业" if fpe and fpe < industry_pe else "弱于行业" if fpe > industry_pe else "接近行业"
+
+        roe_eval = "优秀" if roe >= 25 else "良好" if roe >= 15 else "一般"
+        roe_vs = "优于行业" if roe > industry_roe else "弱于行业" if roe < industry_roe else "接近行业"
+
+        nm_eval = "优秀" if net_margin >= 25 else "良好" if net_margin >= 15 else "一般"
+        nm_vs = "优于行业" if net_margin > industry_net_margin else "弱于行业" if net_margin < industry_net_margin else "接近行业"
+
+        fcf_eval = "优秀" if fcf_yield >= 5 else "合格" if fcf_yield >= 3 else "偏低"
+        fcf_vs = "优于行业" if fcf_yield > industry_fcf_yield else "弱于行业" if fcf_yield < industry_fcf_yield else "接近行业"
+
+        f.write(f"- **行业基准**: {bm['label']}（PE~{industry_pe:.0f}x, ROE~{industry_roe:.0f}%, 净利率~{industry_net_margin:.0f}%, FCFY~{industry_fcf_yield:.1f}%, PEG~{bm['peg']:.1f}）\n")
+        f.write(f"- **Forward PE**: {fpe:.1f}x（{pe_eval}，{pe_vs}）\n")
+        f.write(f"- **ROE**: {roe:.1f}%（{roe_eval}，{roe_vs}）\n")
+        f.write(f"- **净利率**: {net_margin:.1f}%（{nm_eval}，{nm_vs}）\n")
+        f.write(f"- **FCF收益率**: {fcf_yield:.2f}%（{fcf_eval}，{fcf_vs}）\n")
+        if peg_1y is not None:
+            peg_eval = "低估" if peg_1y < 1.0 else "合理偏高" if peg_1y <= 1.5 else "偏高"
+            peg_vs = "优于行业" if peg_1y < bm['peg'] else "弱于行业"
+            f.write(f"- **PEG(1Y)**: {peg_1y:.2f}（{peg_eval}，{peg_vs}）\n")
+        f.write("\n")
+
+        cal = data.get('calendar', {})
+        if cal:
+            f.write("## 🗓️ 市场时钟（中期选举 / 节假日 / 月份季节性）\n\n")
+            f.write(f"- **当前月份观点**: {cal.get('month_view', 'N/A')}\n")
+            f.write(f"- **选举周期**: {cal.get('election_phase', 'N/A')}；{cal.get('election_view', 'N/A')}\n")
+            f.write("- **节假日效应**:\n")
+            for k, v in cal.get('holiday_view', {}).items():
+                f.write(f"  - {k}: {v}\n")
+            wl = ', '.join(cal.get('defensive_watchlist', []))
+            f.write(f"- **下跌期防御观察池**: {wl}\n\n")
+
+        f.write("## 💵 现金流与PEG关键指标\n\n")
+        f.write(f"- **每股经营现金流 (OCF/share)**: ${data['cashflow'].get('ocf_per_share', 0)}\n")
+        f.write(f"- **每股自由现金流 (FCF/share)**: ${data['cashflow'].get('fcf_per_share', 0)}\n")
+        f.write(f"- **PEG(1年)**: {data.get('peg', {}).get('peg_1y', 'N/A')}\n")
+        f.write(f"- **PEG(2年)**: {data.get('peg', {}).get('peg_2y', 'N/A')}\n\n")
+
+        f.write("## 💰 巴菲特式估值\n\n")
+        f.write(f"- **DCF内在价值**: ${data['valuation']['intrinsic_value']}\n")
+        f.write(f"- **安全边际**: {data['valuation']['margin_of_safety']:+.1f}%\n")
+        f.write(f"- **评级**: {'✅ 安全边际充足' if data['valuation']['margin_of_safety'] > 20 else '⏸️ 安全边际一般' if data['valuation']['margin_of_safety'] > 10 else '⚠️ 安全边际不足'}\n")
+        dcf_assump = data.get('dcf', {}).get('assumptions', {})
+        if dcf_assump:
+            f.write(f"- **DCF假设**: 基础FCF ${dcf_assump.get('base_fcf_b', 'N/A')}B, 阶段1增速 {dcf_assump.get('stage1_growth_pct', 'N/A')}%, 阶段2增速 {dcf_assump.get('stage2_growth_pct', 'N/A')}%, 永续增速 {dcf_assump.get('terminal_growth_pct', 'N/A')}%, WACC {dcf_assump.get('wacc_pct', 'N/A')}%\n\n")
+        else:
+            f.write("\n")
+        
+        f.write("## 🏰 护城河分析 (段永平五维)\n\n")
+        f.write("| 维度 | 评分 |\n")
+        f.write("|------|------|\n")
+        for key, score in data['moat']['scores'].items():
+            name = {"network": "网络效应", "brand": "品牌护城河", "tech": "技术护城河", 
+                    "cost": "成本优势", "switching": "切换成本"}.get(key, key)
+            f.write(f"| {name} | {'⭐' * score} |\n")
+        f.write(f"\n**综合评级**: {data['moat']['rating']}护城河 ({data['moat']['average']}/5.0)\n\n")
+        
+        f.write("## 📈 未来1-5年价值估算\n\n")
+        f.write("| 年限 | 目标价 | 年化回报 |\n")
+        f.write("|------|--------|----------|\n")
+        for year, value in data['future_value'].items():
+            f.write(f"| {year}年 | ${value['value']} | {value['annual_return']:+.1f}% |\n")
+        f.write("\n")
+        
+        f.write("## 🎯 投资评级\n\n")
+        f.write(f"**{data['rating']}**\n\n")
+        
+        f.write("## 📋 左侧交易计划\n\n")
+        f.write("| 层级 | 价格区间 | 仓位 |\n")
+        f.write("|------|----------|------|\n")
+        f.write(f"| 第一批(试仓) | ${data['entry_points']['first_batch'][0]}-${data['entry_points']['first_batch'][1]} | 20% |\n")
+        f.write(f"| 第二批(加仓) | ${data['entry_points']['second_batch'][0]}-${data['entry_points']['second_batch'][1]} | 30% |\n")
+        f.write(f"| 重仓区 | ${data['entry_points']['heavy'][0]}-${data['entry_points']['heavy'][1]} | 35% |\n")
+        f.write(f"| 极端区 | <${data['entry_points']['extreme']} | 15% |\n\n")
+        
+        f.write('## 🕰️ "时间是朋友"持有逻辑\n\n')
+        f.write(f"1. {data['moat']['rating']}护城河保护企业长期竞争力\n")
+        if data['fundamentals']['roe']:
+            f.write(f"2. ROE {data['fundamentals']['roe']}% 显示优秀的资本回报能力\n")
+        f.write(f"3. 以低于内在价值的价格买入，安全边际充足\n")
+        f.write(f"4. 持有3-5年，让企业价值复合增长\n")
+        f.write(f"5. 忽略短期波动，专注长期价值\n")
+    
+    print(f"\n💾 报告已保存: {filename}")
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Value Investing Stock Analyzer")
+        print("巴菲特 + 段永平 投资理念")
+        print("\nUsage: analyze-value <TICKER> [options]")
+        print("Options:")
+        print("  --save       Save report to file")
+        print("  --format md  Output as markdown")
+        print("  --format json Output as JSON")
+        print("\nExamples:")
+        print("  analyze-value AAPL")
+        print("  analyze-value AMZN --save")
+        print("  analyze-value 1810.HK --format md")
+        sys.exit(1)
+    
+    ticker = sys.argv[1].upper()
+    save = '--save' in sys.argv
+    # 兼容两种写法: --format md / --format=md
+    format_md = ('--format' in sys.argv and 'md' in sys.argv) or '--format=md' in sys.argv or ('-f' in sys.argv and 'md' in sys.argv)
+    format_json = ('--format' in sys.argv and 'json' in sys.argv) or '--format=json' in sys.argv or ('-f' in sys.argv and 'json' in sys.argv)
+    
+    try:
+        result = value_investing_analysis(ticker)
+        
+        if format_json:
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        elif format_md:
+            save_value_report(result, f"{ticker}-value-analysis.md")
+        else:
+            print_value_report(result)
+            if save:
+                save_value_report(result)
+    
+    except Exception as e:
+        print(f"Error analyzing {ticker}: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

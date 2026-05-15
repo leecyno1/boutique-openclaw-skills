@@ -3,3 +3,6 @@ reports/*.md
 !reports/.gitkeep
 dist/*.tar.gz
 .DS_Store
+
+__pycache__/
+*.pyc

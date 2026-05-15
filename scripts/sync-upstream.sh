@@ -13,10 +13,11 @@ if ! command -v clawhub >/dev/null 2>&1; then
   exit 1
 fi
 
-mapfile -t SKILLS < <(python3 - <<'PY'
+mapfile -t SKILLS < <(python3 - <<'PY' "$REPO_ROOT/catalog/skills.json"
 import json
+import sys
 from pathlib import Path
-p=Path('/Users/lichengyin/Desktop/Projects/boutique-openclaw-skills/catalog/skills.json')
+p=Path(sys.argv[1])
 data=json.loads(p.read_text(encoding='utf-8'))
 seen=[]
 for s in data.get('skills',[]):

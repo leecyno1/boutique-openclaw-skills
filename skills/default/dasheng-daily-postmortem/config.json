@@ -1,0 +1,31 @@
+{
+  "name": "dasheng-daily-postmortem",
+  "description": "发布后复盘，反馈评分准确性",
+  "version": "1.0.0",
+  "trigger": {
+    "keyword": "复盘",
+    "manual_trigger": true
+  },
+  "chat_id": "oc_975d43c5704bf8c755bb9e32bf7c3922",
+  "postmortem": {
+    "metrics": [
+      "views",
+      "likes",
+      "shares",
+      "comments",
+      "engagement_rate"
+    ],
+    "scoring_feedback": {
+      "article_value": "成稿价值分准确性",
+      "viral_potential": "爆款视频潜力分准确性"
+    }
+  },
+  "output": {
+    "type": "feishu_doc",
+    "doc_name": "复盘报告"
+  },
+  "feishu": {
+    "folder_naming": "YYYY-MM-DD",
+    "auto_create_folder": true
+  }
+}

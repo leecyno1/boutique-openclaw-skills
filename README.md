@@ -8,35 +8,36 @@
 
 | 参数 | 值 |
 |---|---|
-| Curation 模式 | One Capability = One Skill |
-| 精选能力数 | 41 |
-| 行业档数量 | 7 |
-| 更新策略 | 每周上游同步（可手动触发） |
-| 审计策略 | 更新后本地审计（风险/依赖/冲突） |
+| Curation 模式 | Default Skills Tier Registry + Boutique Profiles |
+| 默认技能数 | 318 |
+| 默认三档 | low `67` / medium `74` / high `179` |
+| 行业档数量 | 7（兼容保留） |
+| 更新策略 | 从安装器或上游源导入后生成三档与手册 |
+| 审计策略 | 本地审计（风险/依赖/冲突） |
 | 打包格式 | `dist/*.tar.gz` |
-| 目标 | 降低 token 浪费，减少技能冲突，提升稳定性 |
+| 目标 | 让安装器仓库瘦身，并集中维护默认 skills |
 
 ## 快捷导航（Quick Navigation）
 
 - [快速开始](#2-快速开始)
-- [行业档（Profiles）](#3-行业档profiles)
-- [更新与审计机制](#5-更新与审计机制)
-- [安全与质量原则](#6-安全与质量原则)
-- [打包发布](#7-打包发布)
-- [设计说明](#8-设计说明)
-- [Skills 目录（推荐在前）](#10-skills-目录推荐在前)
+- [默认 Skills 三档](#3-默认-skills-三档default-skill-tiers)
+- [更新与审计机制](#6-更新与审计机制)
+- [安全与质量原则](#7-安全与质量原则)
+- [打包发布](#8-打包发布)
+- [设计说明](#9-设计说明)
+- [默认技能手册索引](docs/SKILL_MANUALS.md)
 - [精选策略文档](docs/CURATION_POLICY.md)
 - [更新与审计SOP](docs/UPDATE_AND_AUDIT.md)
 - [行业映射说明](docs/INDUSTRY_MAP.md)
 
-**精选店模式（Boutique Mode）** 的 OpenClaw skills 集合：
+**Boutique Skills Registry** 是 OpenClaw 默认 skills 的独立维护仓库：
 
-- 每个功能只精选 1 个 skill（不重复、不混装）
-- 面向稳定生产，不追求“装得多”
-- 定期上游更新 + 本地安全审计
-- 按行业提供可直接安装的配置档（profiles）
+- 安装器仓库不再 vendoring 默认 skills 大包，只负责安装、网站接线、注册表与测试。
+- 本仓库维护 `skills/default`、`tiers/low|medium|high.json`、三档说明、使用手册和原仓库链接。
+- 低/中/高三档作为安装主线；原行业 profiles 作为兼容/附加精选能力保留。
+- 更新后本地审计，发布 bundle 给安装器或用户同步。
 
-> 核心目标：降低 token 浪费、减少工具冲突、避免版本混乱。
+> 核心目标：集中维护默认技能，降低安装器体积，并让技能分档、说明和来源可审计。
 
 ---
 
@@ -49,7 +50,7 @@
 3. 版本混乱：更新后行为漂移，定位问题成本高。
 4. 安全不可控：第三方 skill 更新后引入风险不易感知。
 
-**Boutique 模式**通过“一功能一技能”把这些问题压到最低。
+**Boutique 模式**通过独立仓库和三档清单把这些问题压到最低。
 
 ---
 
@@ -58,33 +59,53 @@
 ### 前置
 
 - 已安装 OpenClaw
-- 已安装 ClawHub CLI：
+- 如由安装器调用，无需手动执行本仓库脚本；安装器默认从 Gitee `OPENCLAW_SKILLS_REPO_URL=https://gitee.com/leecyno1/boutique-openclaw-skills.git` 拉取，GitHub 作为回退。
+
+### 安装默认三档
 
 ```bash
-npm i -g clawhub
+./scripts/install-tier.sh low --dry-run
+./scripts/install-tier.sh medium
+./scripts/install-tier.sh high
 ```
 
-### 查看可用行业档
+### 查看兼容行业档
 
 ```bash
 ./scripts/list-profiles.sh
-```
-
-### 安装某个行业档（示例：core）
-
-```bash
-./scripts/install-profile.sh core
-```
-
-### 仅预览安装命令
-
-```bash
 ./scripts/install-profile.sh finance --dry-run
 ```
 
 ---
 
-## 3) 行业档（Profiles）
+
+## 3) 默认 Skills 三档（Default Skill Tiers）
+
+本仓库现在是 OpenClaw 默认 skills 的维护源。安装器仓库只保留安装器、网站接线、注册表和测试逻辑；需要同步 skills 时，从本仓库生成或拉取。
+
+| 档位 | 适用场景 | 技能数 | 清单 | 使用手册 |
+|---|---|---:|---|---|
+| low | 首次安装、轻量生产、低 token 噪声 | 67 | [`tiers/low.json`](tiers/low.json) | [`docs/tiers/low.md`](docs/tiers/low.md) |
+| medium | 标准生产、常用扩展、MiniMax/文档/规划 | 74 | [`tiers/medium.json`](tiers/medium.json) | [`docs/tiers/medium.md`](docs/tiers/medium.md) |
+| high | 完整专家包、金融交易、创作套件、AlphaEar | 179 | [`tiers/high.json`](tiers/high.json) | [`docs/tiers/high.md`](docs/tiers/high.md) |
+
+安装示例：
+
+```bash
+./scripts/install-tier.sh low --dry-run
+./scripts/install-tier.sh medium
+./scripts/install-tier.sh high
+```
+
+完整默认技能手册索引：[`docs/SKILL_MANUALS.md`](docs/SKILL_MANUALS.md)。每个条目包含详细技能说明、使用手册路径和原仓库链接。
+
+同步来源说明：
+
+```bash
+python3 scripts/import_installer_default_skills.py --installer-root /path/to/OpenClawInstaller
+```
+
+## 4) 行业档（Profiles，兼容保留）
 
 - `core`：通用必装基线
 - `finance`：金融研究与报告
@@ -98,12 +119,14 @@ npm i -g clawhub
 
 ---
 
-## 4) 目录结构
+## 5) 目录结构
 
 ```text
 boutique-openclaw-skills/
-├─ catalog/             # 唯一能力映射（one capability -> one skill）
-├─ profiles/            # 行业安装档
+├─ skills/default/      # 默认 skills 源
+├─ tiers/               # low / medium / high 三档 JSON
+├─ catalog/             # 默认技能 catalog 与兼容精选能力映射
+├─ profiles/            # 行业安装档（兼容保留）
 ├─ scripts/             # 安装、同步、审计、打包脚本
 ├─ docs/                # 规范、运维与说明
 ├─ assets/              # logo 与配图
@@ -113,7 +136,7 @@ boutique-openclaw-skills/
 
 ---
 
-## 5) 更新与审计机制
+## 6) 更新与审计机制
 
 ### 手动执行
 
@@ -121,10 +144,12 @@ boutique-openclaw-skills/
 ./scripts/sync-upstream.sh
 ```
 
-该命令会：
-1. 逐个执行 `clawhub update <skill>`
-2. 运行本地审计 `scripts/audit_skills.py`
-3. 输出报告到 `reports/`
+默认三档主线使用：
+1. `scripts/import_installer_default_skills.py` 导入或刷新 `skills/default`
+2. 生成 `tiers/*.json`、`docs/tiers/*.md`、`docs/SKILL_MANUALS.md`
+3. 运行本地审计 `scripts/audit_skills.py` 并输出报告到 `reports/`
+
+兼容精选 profiles 仍可使用 `scripts/sync-upstream.sh` 调用 ClawHub 更新。
 
 ### 定时执行
 
@@ -138,7 +163,7 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 
 ---
 
-## 6) 安全与质量原则
+## 7) 安全与质量原则
 
 - 一功能一技能（禁止重复能力）
 - 每个 skill 必须标注风险等级与依赖
@@ -149,7 +174,7 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 
 ---
 
-## 7) 打包发布
+## 8) 打包发布
 
 ```bash
 ./scripts/build-bundle.sh
@@ -157,9 +182,25 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 
 输出：`dist/boutique-openclaw-skills-<timestamp>.tar.gz`
 
+### 国内源发布
+
+安装器默认使用 Gitee 技能源，因此发布顺序应先推送 Gitee，再推送 GitHub：
+
+```bash
+git push gitee-leecyno1 main
+git push origin main
+```
+
+如果首次配置远端：
+
+```bash
+git remote add gitee-leecyno1 https://gitee.com/leecyno1/boutique-openclaw-skills.git
+```
+
+
 ---
 
-## 8) 设计说明
+## 9) 设计说明
 
 项目 logo 与配图遵循「Boutique Reliability」视觉哲学：
 
@@ -170,20 +211,20 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 
 ---
 
-## 9) License
+## 10) License
 
 [MIT](LICENSE)
 
 ---
 
-## 10) Skills 目录（推荐在前）
+## 11) Skills 目录（兼容精选 + 默认索引）
 
 <!-- SKILLS_INDEX:START -->
-- 推荐 skills：`41`
-- OpenClaw 官方默认 skills：`58`（core `52` + extension `6`）
-- 首页可查看总条目：`99`
+- 兼容精选 skills：`41`
+- 默认 low / medium / high：`67` / `74` / `179`
+- 默认 skills 维护源：`skills/default` + `tiers/*.json`
 
-> 默认 skills 来源：`openclaw` npm 包目录（`skills/` 与 `extensions/*/skills/`），不是本机会话导出。
+> 默认 skills 由本仓库维护；安装器仓库只保留 manifest 兼容缓存和同步入口。
 
 ## Table of Contents
 
@@ -193,8 +234,8 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 | [搜索/研究/情报](#research-intel) (6) | [分类文件](categories/research-intel.md) | [设计/前端/UI](#design-ui) (3) | [分类文件](categories/design-ui.md) |
 | [内容/营销/增长](#content-growth) (5) | [分类文件](categories/content-growth.md) | [图像/音频/多媒体生成处理](#media-generation) (4) | [分类文件](categories/media-generation.md) |
 | [文档/办公生产力](#docs-office) (4) | [分类文件](categories/docs-office.md) | [Baoyu 系列内容产出与分发](#baoyu-suite) (0) | [分类文件](categories/baoyu-suite.md) |
-| [其他集成能力](#other-integrations) (4) | [分类文件](categories/other-integrations.md) | [OpenClaw 默认 Skills（Core）](#openclaw-default-core) | [分类文件](categories/openclaw-default-core.md) |
-| [OpenClaw 默认 Skills（Extensions）](#openclaw-default-extensions) | [分类文件](categories/openclaw-default-extensions.md) |  |  |
+| [其他集成能力](#other-integrations) (4) | [分类文件](categories/other-integrations.md) | [默认 Skills 低档](#default-tier-low) | [文档](docs/tiers/low.md) |
+| [默认 Skills 中档](#default-tier-medium) | [文档](docs/tiers/medium.md) | [默认 Skills 高档](#default-tier-high) | [文档](docs/tiers/high.md) |
 
 <a id="agent-automation"></a>
 <details open><summary><h3 style="display:inline">Agent/自动化与能力进化</h3></summary>
@@ -300,75 +341,256 @@ GitHub Actions: `.github/workflows/sync-audit.yml`
 > **[查看该分类完整列表 →](categories/other-integrations.md)**
 </details>
 
-<a id="openclaw-default-core"></a>
-<details open><summary><h3 style="display:inline">OpenClaw 默认 Skills（Core）</h3></summary>
+<a id="default-tier-low"></a>
+<details open><summary><h3 style="display:inline">默认 Skills 低档</h3></summary>
 
-- `1password` - Set up and use 1Password CLI (op). Use when installing the CLI, enabling desktop app integration, signing in (single or multi-account), or reading/injecting/running secrets via op.
-- `apple-notes` - Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.
-- `apple-reminders` - Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.
-- `bear-notes` - Create, search, and manage Bear notes via grizzly CLI.
-- `blogwatcher` - Monitor blogs and RSS/Atom feeds for updates using the blogwatcher CLI.
-- `blucli` - BluOS CLI (blu) for discovery, playback, grouping, and volume.
-- `bluebubbles` - Use when you need to send or manage iMessages via BlueBubbles (recommended iMessage integration). Calls go through the generic message tool with channel="bluebubbles".
-- `camsnap` - Capture frames or clips from RTSP/ONVIF cameras.
-- `canvas` - No description.
-- `clawhub` - Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.
-- `coding-agent` - Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"), or any work in ~/clawd workspace (never spawn agents here). Requires a bash tool that supports pty:true.
-- `discord` - Discord ops via the message tool (channel=discord).
-- `eightctl` - Control Eight Sleep pods (status, temperature, alarms, schedules).
-- `gemini` - Gemini CLI for one-shot Q&A, summaries, and generation.
-- `gh-issues` - Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]
-- `gifgrep` - Search GIF providers with CLI/TUI, download results, and extract stills/sheets.
-- `github` - GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.
-- `gog` - Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.
-- `goplaces` - Query Google Places API (New) via the goplaces CLI for text search, place details, resolve, and reviews. Use for human-friendly place lookup or JSON output for scripts.
-- `healthcheck` - Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).
-- `himalaya` - CLI to manage emails via IMAP/SMTP. Use `himalaya` to list, read, write, reply, forward, search, and organize emails from the terminal. Supports multiple accounts and message composition with MML (MIME Meta Language).
-- `imsg` - iMessage/SMS CLI for listing chats, history, and sending messages via Messages.app.
-- `mcporter` - Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.
-- `model-usage` - Use CodexBar CLI local cost usage to summarize per-model usage for Codex or Claude, including the current (most recent) model or a full model breakdown. Trigger when asked for model-level usage/cost data from codexbar, or when you need a scriptable per-model summary from codexbar cost JSON.
-- `nano-banana-pro` - Generate or edit images via Gemini 3 Pro Image (Nano Banana Pro).
+- Skills count: `67`
+- JSON: [`tiers/low.json`](tiers/low.json)
+- Manual: [`docs/tiers/low.md`](docs/tiers/low.md)
+
+- `agent-browser` - Headless browser automation CLI for AI agents.
+- `agentmail` - Give AI agents their own email inboxes using the AgentMail API.
+- `agentmail-cli` - Send and receive emails programmatically using the AgentMail CLI.
+- `agentmail-mcp` - AgentMail MCP server for email tools in AI assistants.
+- `agentmail-toolkit` - Add email capabilities to AI agents using popular frameworks.
+- `ai-image-generation` - Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.
+- `akshare-stock` - A股量化数据分析工具，基于AkShare库获取A股行情、财务数据、板块信息等。
+- `android-native-dev` - Android native application development and UI design guide.
+- `brainstorming` - Use before creative feature, component, behavior, or product design work.
+- `buddy-sings` - Use when user wants their Claude Code pet (/buddy) to sing a song.
+- `capability-evolver` - A self-evolution engine for AI agents.
+- `chrome-devtools-mcp` - Chrome DevTools MCP — Google's official browser automation and testing server.
+- `content-strategy` - When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover.
+- `data-analyst` - Data visualization, report generation, SQL queries, and spreadsheet automation.
+- `docx` - Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction.
+- `finance-data` - Comprehensive financial data retrieval from OpenBB MCP and AKShare API.
+- `find-skills` - Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can.
+- `flutter-dev` - Flutter cross-platform development guide covering widget patterns, Riverpod/Bloc state management, GoRouter navigation, performance optimization, and platform-specific implementations.
+- `frontend-dev` - Use when building or improving high-quality frontend pages, components, dashboards, or apps.
+- `fullstack-dev` - Full-stack backend architecture and frontend-backend integration guide.
+- `gif-sticker-maker` - Convert photos (people, pets, objects, logos) into 4 animated GIF stickers with captions.
+- `github` - Interact with GitHub using the `gh` CLI.
+- `inference-skills` - Inference Skills Hub（上游: inference-sh/skills）- 用于索引与选择 inference-sh 的工具型技能。
+- `ios-application-dev` - Use for iOS development, signing, TestFlight, App Store, privacy, or China-region release tasks.
+- `lark-calendar` - Create, update, and delete calendar events and tasks in Lark (Feishu).
+- `marketingskills` - Marketing Skills Hub（上游: coreyhaines31/marketingskills）- 用于索引与选择营销类子技能（如 content-strategy、social-content）。
+- `mcp-builder` - Use when building MCP servers or tools for external APIs and services.
+- `media-downloader` - |-
+- `minimax-docx` - Professional DOCX document creation, editing, and formatting using OpenXML SDK (.
+- `minimax-image-understanding` - Analyze images using AI with the understand_image tool (priority)
+- `minimax-multimodal-toolkit` - Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform.
+- `minimax-music-gen` - Use when user wants to generate music, songs, or audio tracks.
+- `minimax-music-playlist` - Generate personalized music playlists by analyzing the user's music taste and generation feedback history.
+- `minimax-pdf` - Use this skill when visual quality and design identity matter for a PDF.
+- `minimax-web-search` - 使用 MiniMax MCP 进行网络搜索。触发条件：(1) 用户要求进行网络搜索、在线搜索、查找信息 (2) 需要查询最新资讯、新闻、资料 (3) 使用 MiniMax 的 web_search 功能
+- `minimax-xlsx` - Open, create, read, analyze, edit, or validate Excel/spreadsheet files (.
+- `model-usage` - Use CodexBar CLI local cost usage to summarize per-model usage for Codex or Claude, including the current (most recent) model or a full model breakdown.
+- `multi-search-engine` - Multi search engine integration with 16 engines (7 CN + 9 Global).
 - `nano-pdf` - Edit PDFs with natural-language instructions using the nano-pdf CLI.
-- `notion` - Notion API for creating and managing pages, databases, and blocks.
-- `obsidian` - Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.
-- `openai-image-gen` - Batch-generate images via OpenAI Images API. Random prompt sampler + `index.html` gallery.
-- `openai-whisper` - Local speech-to-text with the Whisper CLI (no API key).
-- `openai-whisper-api` - Transcribe audio via OpenAI Audio Transcriptions API (Whisper).
-- `openhue` - Control Philips Hue lights and scenes via the OpenHue CLI.
-- `oracle` - Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).
-- `ordercli` - Foodora-only CLI for checking past orders and active order status (Deliveroo WIP).
-- `peekaboo` - Capture and automate macOS UI with the Peekaboo CLI.
-- `sag` - ElevenLabs text-to-speech with mac-style say UX.
-- `session-logs` - Search and analyze your own session logs (older/parent conversations) using jq.
-- `sherpa-onnx-tts` - Local text-to-speech via sherpa-onnx (offline, no cloud)
-- `skill-creator` - Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.
-- `slack` - Use when you need to control Slack from OpenClaw via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.
-- `songsee` - Generate spectrograms and feature-panel visualizations from audio with the songsee CLI.
-- `sonoscli` - Control Sonos speakers (discover/status/play/volume/group).
-- `spotify-player` - Terminal Spotify playback/search via spogo (preferred) or spotify_player.
-- `summarize` - Summarize or extract text/transcripts from URLs, podcasts, and local files (great fallback for “transcribe this YouTube/video”).
-- `things-mac` - Manage Things 3 via the `things` CLI on macOS (add/update projects+todos via URL scheme; read/search/list from the local Things database). Use when a user asks OpenClaw to add a task to Things, list inbox/today/upcoming, search tasks, or inspect projects/areas/tags.
-- `tmux` - Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.
-- `trello` - Manage Trello boards, lists, and cards via the Trello REST API.
-- `video-frames` - Extract frames or short clips from videos using ffmpeg.
-- `voice-call` - Start voice calls via the OpenClaw voice-call plugin.
-- `wacli` - Send WhatsApp messages to other people or search/sync WhatsApp history via the wacli CLI (not for normal user chats).
-- `weather` - Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.
-- `xurl` - A CLI tool for making authenticated requests to the X (Twitter) API. Use this skill when you need to post tweets, reply, quote, search, read posts, manage followers, send DMs, upload media, or interact with any X API v2 endpoint.
+- `news-radar` - Comprehensive news aggregation from TrendRadar MCP server with focus on high-frequency international data sources.
+- `notebooklm-skill` - Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-grounded, citation-backed answers from Gemini.
+- `openclaw-cron-setup` - OpenClaw Gateway 内置定时任务调度器。
+- `pdf` - Use when extracting, creating, merging, splitting, filling, or analyzing PDF files.
+- `pptx` - Presentation creation, editing, and analysis.
+- `pptx-generator` - Generate, edit, and read PowerPoint presentations.
+- `proactive-agent` - Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve.
+- `react-native-dev` - React Native and Expo development guide covering components, styling, animations, navigation, state management, forms, networking, performance optimization, testing, native capabilities, and engineering (project structur
+- `reflection` - Learns when to stop and review.
+- `self-improving-agent-cn` - AI自我改进与记忆系统 - 解决'同类错误反复犯、用户纠正不长记性'的痛点。
+- `shader-dev` - Comprehensive GLSL shader techniques for creating stunning visual effects — ray marching, SDF modeling, fluid simulation, particle systems, procedural generation, lighting, post-processing, and more.
+- `shell` - Use shell commands for file operations, scripts, process management, diagnostics, and automation.
+- `skill-creator` - Guide for creating effective skills.
+- `skill-security-auditor` - Command-line security analyzer for ClawHub skills.
+- `social-content` - When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.
+- `stock-monitor-skill` - 全功能智能股票监控预警系统。支持成本百分比、均线金叉死叉、RSI超买超卖、成交量异动、跳空缺口、动态止盈等7大预警规则。符合中国投资者习惯（红涨绿跌）。
+- `subagent-driven-development` - Use when executing implementation plans with independent subagent tasks.
+- `task` - Tasker docstore task management via tool-dispatch.
+- `tavily-search` - Search the web using Tavily's LLM-optimized search API.
+- `todo` - This skill provides instructions for interacting with Todoist using the td CLI tool.
+- `url-to-markdown` - Fetch any URL and convert to markdown using Chrome CDP.
+- `using-superpowers` - Use when starting any conversation to check and apply relevant skills.
+- `verification-before-completion` - Use before claiming work is complete, fixed, or passing.
+- `vision-analysis` - Analyze, describe, and extract information from images using the MiniMax vision MCP tool.
+- `weather` - Get current weather and forecasts (no API key required).
+- `web-search` - This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos.
+- `writing-skills` - Use when creating, editing, or verifying Codex skills.
+- `xlsx` - Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization.
 
-> **[查看 Core 默认 skills 全列表 →](categories/openclaw-default-core.md)**
 </details>
 
-<a id="openclaw-default-extensions"></a>
-<details open><summary><h3 style="display:inline">OpenClaw 默认 Skills（Extensions）</h3></summary>
+<a id="default-tier-medium"></a>
+<details open><summary><h3 style="display:inline">默认 Skills 中档</h3></summary>
 
-- `acpx/acp-router` - Route plain-language requests for Pi, Claude Code, Codex, OpenCode, Gemini CLI, or ACP harness work into either OpenClaw ACP runtime sessions or direct acpx-driven sessions ("telephone game" flow). For coding-agent thread requests, read this skill first, then use only `sessions_spawn` for thread creation.
-- `feishu/feishu-doc` - Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.
-- `feishu/feishu-drive` - Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.
-- `feishu/feishu-perm` - Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.
-- `feishu/feishu-wiki` - Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.
-- `open-prose/prose` - OpenProse VM skill pack. Activate on any `prose` command, .prose files, or OpenProse mentions; orchestrates multi-agent workflows.
+- Skills count: `74`
+- JSON: [`tiers/medium.json`](tiers/medium.json)
+- Manual: [`docs/tiers/medium.md`](docs/tiers/medium.md)
 
-> **[查看 Extension 默认 skills 全列表 →](categories/openclaw-default-extensions.md)**
+- `agent-browser` - Headless browser automation CLI for AI agents.
+- `agentmail` - Give AI agents their own email inboxes using the AgentMail API.
+- `agentmail-cli` - Send and receive emails programmatically using the AgentMail CLI.
+- `agentmail-mcp` - AgentMail MCP server for email tools in AI assistants.
+- `agentmail-toolkit` - Add email capabilities to AI agents using popular frameworks.
+- `ai-image-generation` - Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.
+- `akshare-stock` - A股量化数据分析工具，基于AkShare库获取A股行情、财务数据、板块信息等。
+- `android-native-dev` - Android native application development and UI design guide.
+- `animation` - Generate CSS and SVG animation code snippets using bash and Python.
+- `brainstorming` - Use before creative feature, component, behavior, or product design work.
+- `buddy-sings` - Use when user wants their Claude Code pet (/buddy) to sing a song.
+- `capability-evolver` - A self-evolution engine for AI agents.
+- `chrome-devtools-mcp` - Chrome DevTools MCP — Google's official browser automation and testing server.
+- `content-strategy` - When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover.
+- `data-analyst` - Data visualization, report generation, SQL queries, and spreadsheet automation.
+- `docx` - Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction.
+- `finance-data` - Comprehensive financial data retrieval from OpenBB MCP and AKShare API.
+- `find-skills` - Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can.
+- `flutter-dev` - Flutter cross-platform development guide covering widget patterns, Riverpod/Bloc state management, GoRouter navigation, performance optimization, and platform-specific implementations.
+- `frontend-dev` - Use when building or improving high-quality frontend pages, components, dashboards, or apps.
+- `fullstack-dev` - Full-stack backend architecture and frontend-backend integration guide.
+- `gemini-image-service` - 使用 Gemini 第三方服务生成图片。读取 GEMINI_API_KEY/GEMINI_BASE_URL/GEMINI_IMAGE_MODEL。
+- `gif-sticker-maker` - Convert photos (people, pets, objects, logos) into 4 animated GIF stickers with captions.
+- `github` - Interact with GitHub using the `gh` CLI.
+- `inference-skills` - Inference Skills Hub（上游: inference-sh/skills）- 用于索引与选择 inference-sh 的工具型技能。
+- `ios-application-dev` - Use for iOS development, signing, TestFlight, App Store, privacy, or China-region release tasks.
+- `lark-calendar` - Create, update, and delete calendar events and tasks in Lark (Feishu).
+- `marketingskills` - Marketing Skills Hub（上游: coreyhaines31/marketingskills）- 用于索引与选择营销类子技能（如 content-strategy、social-content）。
+- `mcp-builder` - Use when building MCP servers or tools for external APIs and services.
+- `media-downloader` - |-
+- `minimax-docx` - Professional DOCX document creation, editing, and formatting using OpenXML SDK (.
+- `minimax-image-understanding` - Analyze images using AI with the understand_image tool (priority)
+- `minimax-multimodal-toolkit` - Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform.
+- `minimax-music-gen` - Use when user wants to generate music, songs, or audio tracks.
+- `minimax-music-playlist` - Generate personalized music playlists by analyzing the user's music taste and generation feedback history.
+- `minimax-pdf` - Use this skill when visual quality and design identity matter for a PDF.
+- `minimax-web-search` - 使用 MiniMax MCP 进行网络搜索。触发条件：(1) 用户要求进行网络搜索、在线搜索、查找信息 (2) 需要查询最新资讯、新闻、资料 (3) 使用 MiniMax 的 web_search 功能
+- `minimax-xlsx` - Open, create, read, analyze, edit, or validate Excel/spreadsheet files (.
+- `model-usage` - Use CodexBar CLI local cost usage to summarize per-model usage for Codex or Claude, including the current (most recent) model or a full model breakdown.
+- `multi-search-engine` - Multi search engine integration with 16 engines (7 CN + 9 Global).
+- `nano-pdf` - Edit PDFs with natural-language instructions using the nano-pdf CLI.
+- `news-radar` - Comprehensive news aggregation from TrendRadar MCP server with focus on high-frequency international data sources.
+- `notebooklm-skill` - Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-grounded, citation-backed answers from Gemini.
+- `openclaw-cron-setup` - OpenClaw Gateway 内置定时任务调度器。
+- `oracle` - Use the @steipete/oracle CLI to bundle a prompt plus the right files and get a second-model review (API or browser) for debugging, refactors, design checks, or cross-validation.
+- `paperless-docs` - Manage documents in Paperless-ngx - search, upload, tag, and retrieve.
+- `paperless-ngx-tools` - Manage documents in Paperless-ngx - search, upload, tag, and retrieve.
+- `pdf` - Use when extracting, creating, merging, splitting, filling, or analyzing PDF files.
+- `planning-with-files` - Use for complex multi-step tasks that need file-based plans and progress tracking.
+- `pptx` - Presentation creation, editing, and analysis.
+- `pptx-generator` - Generate, edit, and read PowerPoint presentations.
+- `proactive-agent` - Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve.
+- `react-native-dev` - React Native and Expo development guide covering components, styling, animations, navigation, state management, forms, networking, performance optimization, testing, native capabilities, and engineering (project structur
+- `reflection` - Learns when to stop and review.
+- `self-improving-agent-cn` - AI自我改进与记忆系统 - 解决'同类错误反复犯、用户纠正不长记性'的痛点。
+- `shader-dev` - Comprehensive GLSL shader techniques for creating stunning visual effects — ray marching, SDF modeling, fluid simulation, particle systems, procedural generation, lighting, post-processing, and more.
+- `shell` - Use shell commands for file operations, scripts, process management, diagnostics, and automation.
+- `skill-creator` - Guide for creating effective skills.
+- `skill-security-auditor` - Command-line security analyzer for ClawHub skills.
+- `social-content` - When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.
+- `stock-monitor-skill` - 全功能智能股票监控预警系统。支持成本百分比、均线金叉死叉、RSI超买超卖、成交量异动、跳空缺口、动态止盈等7大预警规则。符合中国投资者习惯（红涨绿跌）。
+- `subagent-driven-development` - Use when executing implementation plans with independent subagent tasks.
+- `task` - Tasker docstore task management via tool-dispatch.
+- `tavily-search` - Search the web using Tavily's LLM-optimized search API.
+- `todo` - This skill provides instructions for interacting with Todoist using the td CLI tool.
+- `url-to-markdown` - Fetch any URL and convert to markdown using Chrome CDP.
+- `using-superpowers` - Use when starting any conversation to check and apply relevant skills.
+- `verification-before-completion` - Use before claiming work is complete, fixed, or passing.
+- `vision-analysis` - Analyze, describe, and extract information from images using the MiniMax vision MCP tool.
+- `weather` - Get current weather and forecasts (no API key required).
+- `web-search` - This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos.
+- `writing-plans` - Use when writing implementation plans from specs before editing code.
+- `writing-skills` - Use when creating, editing, or verifying Codex skills.
+- `xlsx` - Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization.
+
 </details>
+
+<a id="default-tier-high"></a>
+<details open><summary><h3 style="display:inline">默认 Skills 高档</h3></summary>
+
+- Skills count: `179`
+- JSON: [`tiers/high.json`](tiers/high.json)
+- Manual: [`docs/tiers/high.md`](docs/tiers/high.md)
+
+- `agent-browser` - Headless browser automation CLI for AI agents.
+- `agentmail` - Give AI agents their own email inboxes using the AgentMail API.
+- `agentmail-cli` - Send and receive emails programmatically using the AgentMail CLI.
+- `agentmail-mcp` - AgentMail MCP server for email tools in AI assistants.
+- `agentmail-toolkit` - Add email capabilities to AI agents using popular frameworks.
+- `ai-image-generation` - Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.
+- `akshare-stock` - A股量化数据分析工具，基于AkShare库获取A股行情、财务数据、板块信息等。
+- `alphaear-deepear-lite` - Fetch the latest financial signals and transmission-chain analyses from DeepEar Lite.
+- `alphaear-logic-visualizer` - Create visualize finance logic diagrams (e.
+- `alphaear-news` - Fetch hot finance news, unified trends, and prediction financial market data.
+- `alphaear-predictor` - Market prediction skill using Kronos.
+- `alphaear-reporter` - Plan, write, and edit professional financial reports; generate finance chart configurations.
+- `alphaear-search` - Perform finance web searches and local context searches.
+- `alphaear-sentiment` - Analyze finance text sentiment using FinBERT or LLM.
+- `alphaear-signal-tracker` - Track finance investment signal evolution and update logic based on new finance market information.
+- `alphaear-stock` - Search A-Share/HK/US finance stock tickers and retrieve finance stock price history.
+- `android-native-dev` - Android native application development and UI design guide.
+- `animation` - Generate CSS and SVG animation code snippets using bash and Python.
+- `backtest-expert` - Expert guidance for systematic backtesting of trading strategies.
+- `baoyu-article-illustrator` - Use when adding article illustrations or visual aids to markdown or long-form writing.
+- `baoyu-comic` - Knowledge comic creator supporting multiple art styles and tones.
+- `baoyu-compress-image` - Compresses images to WebP (default) or PNG with automatic tool selection.
+- `baoyu-cover-image` - Use when generating article cover images in cinematic, widescreen, or square formats.
+- `baoyu-danger-gemini-web` - Generates images and text via reverse-engineered Gemini Web API.
+- `baoyu-danger-x-to-markdown` - Converts X (Twitter) tweets and articles to markdown with YAML front matter.
+- `baoyu-format-markdown` - Use when formatting plain text or markdown articles with headings, summaries, lists, and polish.
+- `baoyu-image-gen` - [Deprecated: use baoyu-imagine] AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, Z.
+- `baoyu-infographic` - Use when turning content into professional infographics or visual summaries.
+- `baoyu-markdown-to-html` - Use when converting Markdown to styled HTML, especially WeChat-compatible article HTML.
+- `baoyu-post-to-wechat` - Use when posting articles or image-text content to WeChat Official Account.
+- `baoyu-post-to-weibo` - Posts content to Weibo (微博).
+- `baoyu-post-to-x` - Posts content and articles to X (Twitter).
+- `baoyu-skills` - Baoyu 内容产出与分发技能包入口。用于在本地仓库中索引并路由 baoyu 系列子技能。
+- `baoyu-slide-deck` - Generates professional slide deck images from content.
+- `baoyu-translate` - Use when translating articles or documents with terminology consistency or review polish.
+- `baoyu-url-to-markdown` - Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome CDP with site-specific adapters).
+- `baoyu-xhs-images` - Use when creating Xiaohongshu/RedNote infographic image series from content.
+- `baoyu-youtube-transcript` - Downloads YouTube video transcripts/subtitles and cover images by URL or video ID.
+- `brainstorming` - Use before creative feature, component, behavior, or product design work.
+- `breadth-chart-analyst` - This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadth Index (200-Day MA based) and the US Stock Market Uptrend Stock Ratio charts.
+- `breakout-trade-planner` - Generate Minervini-style breakout trade plans from VCP screener output with worst-case risk calculation, portfolio heat management, and Alpaca-compatible order templates (stop-limit bracket for pre-placement, limit brack
+- `buddy-sings` - Use when user wants their Claude Code pet (/buddy) to sing a song.
+- `canslim-screener` - Screen US stocks using William O'Neil's CANSLIM growth stock methodology.
+- `capability-evolver` - A self-evolution engine for AI agents.
+- `chrome-devtools-mcp` - Chrome DevTools MCP — Google's official browser automation and testing server.
+- `company-valuation` - Estimate the intrinsic value of a public company using DCF, relative (peer multiple) and sum-of-parts (SOTP) methods, then triangulate to an implied share price with upside/downside versus the current market price.
+- `content-strategy` - When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover.
+- `data-analyst` - Data visualization, report generation, SQL queries, and spreadsheet automation.
+- `data-quality-checker` - Validate data quality in market analysis documents and blog articles before publication.
+- `discord-reader` - Read Discord for financial research using opencli (read-only).
+- `dividend-growth-pullback-screener` - Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.
+- `docx` - Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction.
+- `downtrend-duration-analyzer` - Analyze historical downtrend durations and generate interactive HTML histograms showing typical correction lengths by sector and market cap.
+- `dual-axis-skill-reviewer` - Review skills in any project using a dual-axis method: (1) deterministic code-based checks (structure, scripts, tests, execution safety) and (2) LLM deep review findings.
+- `earnings-calendar` - This skill retrieves upcoming earnings announcements for US stocks using the Financial Modeling Prep (FMP) API.
+- `earnings-preview` - Generate a pre-earnings briefing for any stock using Yahoo Finance data.
+- `earnings-recap` - Generate a post-earnings analysis for any stock using Yahoo Finance data.
+- `earnings-trade-analyzer` - Analyze recent post-earnings stocks using a 5-factor scoring system (Gap Size, Pre-Earnings Trend, Volume Trend, MA200 Position, MA50 Position).
+- `economic-calendar-fetcher` - Fetch upcoming economic events and data releases using FMP API.
+- `edge-candidate-agent` - Generate and prioritize US equity long-side edge research tickets from EOD observations, then export pipeline-ready candidate specs for trade-strategy-pipeline Phase I.
+- `edge-concept-synthesizer` - Abstract detector tickets and hints into reusable edge concepts with thesis, invalidation signals, and strategy playbooks before strategy design/export.
+- `edge-hint-extractor` - Extract edge hints from daily market observations and news reactions, with optional LLM ideation, and output canonical hints.
+- `edge-pipeline-orchestrator` - Orchestrate the full edge research pipeline from candidate detection through strategy design, review, revision, and export.
+- `edge-signal-aggregator` - Aggregate and rank signals from multiple edge-finding skills (edge-candidate-agent, theme-detector, sector-analyst, institutional-flow-tracker) into a prioritized conviction dashboard with weighted scoring, deduplication
+- `edge-strategy-designer` - Convert abstract edge concepts into strategy draft variants and optional exportable ticket YAMLs for edge-candidate-agent export/validation.
+- `edge-strategy-reviewer` - Critically review strategy drafts from edge-strategy-designer for edge plausibility, overfitting risk, sample size adequacy, and execution realism.
+- `estimate-analysis` - Deep-dive into analyst estimates and revision trends for any stock using Yahoo Finance data.
+- `etf-premium` - Calculate ETF premium/discount vs NAV via Yahoo Finance, and decompose single-day surges into NAV-driven vs structural components (gamma squeeze, dealer hedging, blocked AP arbitrage).
+- `exposure-coach` - Generate a one-page Market Posture summary with net exposure ceiling, growth-vs-value bias, participation breadth, and new-entry-allowed vs cash-priority recommendation by integrating signals from breadth, regime, and fl
+- `finance-data` - Comprehensive financial data retrieval from OpenBB MCP and AKShare API.
+- `finance-sentiment` - Fetch structured stock sentiment across Reddit, X.
+- `finance-skill-creator` - Create new skills, modify and improve existing skills, and measure skill performance.
+- `find-skills` - Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can.
+- `finviz-screener` - Build and open FinViz screener URLs from natural language requests.
+- `flutter-dev` - Flutter cross-platform development guide covering widget patterns, Riverpod/Bloc state management, GoRouter navigation, performance optimization, and platform-specific implementations.
+- `frontend-dev` - Use when building or improving high-quality frontend pages, components, dashboards, or apps.
+- `ftd-detector` - Detects Follow-Through Day (FTD) signals for market bottom confirmation using William O'Neil's methodology.
+- `fullstack-dev` - Full-stack backend architecture and frontend-backend integration guide.
+- `funda-data` - Fetch financial data from the Funda AI API (https://api.
+- `gemini-image-service` - 使用 Gemini 第三方服务生成图片。读取 GEMINI_API_KEY/GEMINI_BASE_URL/GEMINI_IMAGE_MODEL。
+- ... 99 more; see `docs/tiers/high.md`
+
+</details>
+
 <!-- SKILLS_INDEX:END -->

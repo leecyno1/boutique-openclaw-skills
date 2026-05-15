@@ -1,0 +1,9 @@
+{
+  "schema_version": "1",
+  "name": "github-actions-generator",
+  "version": "1.0.0",
+  "description": "生成 GitHub Actions 工作流",
+  "author": {"name": "Sunshine-del-ux"},
+  "keywords": ["github", "actions", "ci", "cd", "automation"],
+  "license": "MIT"
+}

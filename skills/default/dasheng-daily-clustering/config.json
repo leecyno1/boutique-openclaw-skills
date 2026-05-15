@@ -1,0 +1,23 @@
+{
+  "name": "dasheng-daily-clustering",
+  "description": "大圣工作流第二环节总入口：接收 intake 底稿，完成聚类+强化brief",
+  "version": "3.0.0",
+  "trigger": {
+    "keyword": "下一步",
+    "previous_step": "dasheng-daily-intake"
+  },
+  "aliases": [
+    "clustering",
+    "phase2",
+    "第二环节",
+    "聚类brief"
+  ],
+  "delegate": {
+    "skill": "dasheng-daily-phase2"
+  },
+  "output": {
+    "format": "json+markdown",
+    "location": "runtime_artifacts",
+    "step": "phase2"
+  }
+}

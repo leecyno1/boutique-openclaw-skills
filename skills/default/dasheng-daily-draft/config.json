@@ -1,0 +1,99 @@
+{
+  "name": "dasheng-daily-draft",
+  "description": "大圣工作流初稿环节：按冻结标准生成公众号纯正文长稿（含数据、表格、论据与来源）",
+  "version": "3.1.0",
+  "trigger": {
+    "keyword": "进入初稿环节",
+    "aliases": [
+      "生成初稿",
+      "写初稿",
+      "初稿",
+      "draft"
+    ],
+    "previous_step": "dasheng-daily-outline"
+  },
+  "draft_policy": {
+    "standard_version": "draft-standard-v2",
+    "style": "standard_article",
+    "article_style_mode": "standard_article",
+    "disable_style_dna": true,
+    "min_chars": 5000,
+    "required_sections": [
+      "开篇立论",
+      "核心论证",
+      "数据证据与论据",
+      "关键数据表",
+      "策略与执行建议",
+      "数据与素材来源"
+    ],
+    "required_tables": 2,
+    "required_sources": 3,
+    "require_real_source_urls": true,
+    "allow_source_placeholders": false,
+    "forbid_intake_internal_data": true,
+    "internal_data_terms": [
+      "intake",
+      "intake统计",
+      "底稿统计",
+      "流程统计",
+      "工作流统计",
+      "内部统计",
+      "跨平台扩散",
+      "S/A占比"
+    ],
+    "external_data_channels": [
+      "akshare",
+      "tushare",
+      "新浪财经",
+      "人民网",
+      "cnn"
+    ],
+    "must_include_data": true,
+    "must_include_outline_alignment": true,
+    "pure_prose_only": true,
+    "max_paragraphs_per_section": 5,
+    "min_numeric_points": 8,
+    "banned_terms": [
+      "brief",
+      "第二环节",
+      "run_id",
+      "提示词",
+      "模型参数",
+      "质检器",
+      "采集流程",
+      "SOP群",
+      "lemon_dna",
+      "风格DNA"
+    ],
+    "rewrite_model_mode": "bm",
+    "auto_rewrite_for_copy_and_voice": true
+  },
+  "delivery_policy": {
+    "write_local_markdown": true,
+    "feishu_publish": true,
+    "sop_group_sync": true,
+    "send_report": true
+  },
+  "freeze_policy": {
+    "format_locked": true,
+    "drift_allowed": false,
+    "change_requires_user_confirmation": true,
+    "locked_fields": [
+      "min_chars>=5000",
+      "pure_prose_only=true",
+      "max_paragraphs_per_section<=5",
+      "required_sections",
+      "required_tables>=2",
+      "required_sources>=3",
+      "data_evidence_required",
+      "rewrite_model_mode=bm",
+      "delivery_to_sop_with_report"
+    ]
+  },
+  "output": {
+    "artifact_step": "draft",
+    "draft_packages_file": "draft-packages.json",
+    "quality_report_file": "draft-quality-report.json",
+    "next_step": "dasheng-daily-final"
+  }
+}

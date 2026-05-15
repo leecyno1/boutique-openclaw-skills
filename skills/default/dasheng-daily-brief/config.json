@@ -1,0 +1,39 @@
+{
+  "name": "dasheng-daily-brief",
+  "description": "接收聚类结果，生成 Brief 和多维评分",
+  "version": "2.0.0",
+  "trigger": {
+    "keyword": "下一步",
+    "previous_step": "dasheng-daily-clustering"
+  },
+  "chat_id": "oc_975d43c5704bf8c755bb9e32bf7c3922",
+  "brief": {
+    "format": "markdown",
+    "max_length": 500
+  },
+  "scoring": {
+    "dimensions": [
+      {
+        "name": "成稿价值分",
+        "key": "article_value",
+        "description": "文章/播客/口播适配度",
+        "weight": 0.5
+      },
+      {
+        "name": "爆款视频潜力分",
+        "key": "viral_potential",
+        "description": "短视频火爆程度、传播力",
+        "weight": 0.5
+      }
+    ],
+    "scale": 100
+  },
+  "output": {
+    "type": "feishu_doc",
+    "doc_name": "Brief 库"
+  },
+  "feishu": {
+    "folder_naming": "YYYY-MM-DD",
+    "auto_create_folder": true
+  }
+}

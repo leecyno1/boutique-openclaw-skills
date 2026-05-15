@@ -3,12 +3,13 @@
 ## Manual run
 
 ```bash
-./scripts/sync-upstream.sh
+./scripts/import_installer_default_skills.py --installer-root /path/to/OpenClawInstaller
+./scripts/sync-upstream.sh  # optional compatibility-profile sync
 ```
 
 This does:
 1. Iterate all curated skills.
-2. Pull latest upstream from ClawHub (`clawhub update <skill>`).
+2. For default tiers, refresh `skills/default` with `scripts/import_installer_default_skills.py`; for compatibility profiles, pull latest upstream from ClawHub (`clawhub update <skill>`).
 3. Run local audit (`scripts/audit_skills.py`).
 4. Write reports to `reports/`.
 

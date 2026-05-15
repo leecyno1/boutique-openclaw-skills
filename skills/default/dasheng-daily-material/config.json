@@ -1,0 +1,52 @@
+{
+  "name": "dasheng-daily-material",
+  "description": "第三环节默认技能：接收确认的选题并补全素材，统一入口到可复用素材工作流",
+  "version": "3.2.0",
+  "trigger": {
+    "keyword": "下一步",
+    "previous_step": "dasheng-daily-brief"
+  },
+  "chat_id": "oc_975d43c5704bf8c755bb9e32bf7c3922",
+  "material": {
+    "types": ["images", "videos", "quotes", "data", "references"],
+    "max_items_per_topic": 20,
+    "default_entry": true,
+    "unified_entry": "dasheng-daily-material"
+  },
+  "workflow_v2": {
+    "enabled": true,
+    "python_bin": "/Users/lichengyin/clawd/.venv-material/bin/python",
+    "phase2_editorial_briefs_file": "",
+    "cookie_mode": "cdp",
+    "cookie_file": "/Users/lichengyin/clawd/.runtime/cookies/cdp-cookies.txt",
+    "timeout_ms": 5400000
+  },
+  "quality_policy": {
+    "goal": "prefer documentary/archive footage and avoid talking-head/dialogue/large subtitles",
+    "min_related_raw": 3,
+    "min_search_raw": 3,
+    "min_related_clips": 3,
+    "min_search_clips": 5,
+    "filename_reject_keywords": [
+      "podcast",
+      "interview",
+      "talking",
+      "talk",
+      "vlog",
+      "dialog",
+      "reaction",
+      "访谈",
+      "口播",
+      "对谈",
+      "字幕"
+    ]
+  },
+  "output": {
+    "type": "feishu_doc",
+    "doc_name": "素材补全"
+  },
+  "feishu": {
+    "folder_naming": "YYYY-MM-DD",
+    "auto_create_folder": true
+  }
+}

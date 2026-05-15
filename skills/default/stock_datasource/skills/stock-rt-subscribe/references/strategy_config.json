@@ -1,0 +1,120 @@
+{
+  "_comment": "告警策略配置文件 — 供 AlertEngine 使用，纯条件匹配，不生成买卖信号",
+  "global": {
+    "alert_cooldown_seconds": 300,
+    "notify": {
+      "console": true,
+      "log_file": true,
+      "log_path": "alert_log.json",
+      "webhook": {
+        "enabled": false,
+        "url": "",
+        "_comment": "飞书/钉钉 Webhook URL，enabled=true 时推送"
+      }
+    }
+  },
+  "strategies": [
+    {
+      "id": "limit_up_down",
+      "name": "涨停板/跌停板监控",
+      "enabled": true,
+      "symbols": "*",
+      "cooldown_seconds": 600,
+      "conditions": {
+        "logic": "OR",
+        "items": [
+          {"field": "pct_chg", "op": ">=", "value": 9.5},
+          {"field": "pct_chg", "op": "<=", "value": -9.5}
+        ]
+      },
+      "alert_message": "🚨 {name}({ts_code}) 触及涨跌停！涨跌幅={pct_chg}%  现价={close}  昨收={pre_close}",
+      "mcp_assist": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "vol_spike",
+      "name": "成交量异动（≥近5日均量3倍）",
+      "enabled": true,
+      "symbols": "*",
+      "cooldown_seconds": 300,
+      "conditions": {
+        "logic": "AND",
+        "items": [
+          {"field": "vol_ratio", "op": ">=", "value": 3.0}
+        ]
+      },
+      "alert_message": "📊 {name}({ts_code}) 成交量异动！量比={vol_ratio}x  当前量={vol}  均量={mcp_avg_vol_5d}  现价={close}",
+      "mcp_assist": {
+        "enabled": true,
+        "source": "tushare_daily",
+        "fields": ["vol"],
+        "lookback_days": 5,
+        "compute": "avg_vol_5d"
+      }
+    },
+    {
+      "id": "price_breakout",
+      "name": "价格突破近20日高点",
+      "enabled": true,
+      "symbols": "*",
+      "cooldown_seconds": 600,
+      "conditions": {
+        "logic": "AND",
+        "items": [
+          {"field": "close", "op": ">", "value": "mcp_high_20d"}
+        ]
+      },
+      "alert_message": "🔼 {name}({ts_code}) 突破近20日高点！现价={close}  20日高点={mcp_high_20d}  涨跌幅={pct_chg}%",
+      "mcp_assist": {
+        "enabled": true,
+        "source": "tushare_daily",
+        "fields": ["high"],
+        "lookback_days": 20,
+        "compute": "high_20d"
+      }
+    },
+    {
+      "id": "big_move",
+      "name": "大幅波动（涨跌幅 ≥ ±5%）",
+      "enabled": true,
+      "symbols": "*",
+      "cooldown_seconds": 300,
+      "conditions": {
+        "logic": "OR",
+        "items": [
+          {"field": "pct_chg", "op": ">=", "value": 5.0},
+          {"field": "pct_chg", "op": "<=", "value": -5.0}
+        ]
+      },
+      "alert_message": "⚠️ {name}({ts_code}) 大幅波动！涨跌幅={pct_chg}%  现价={close}",
+      "mcp_assist": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "vol_price_diverge",
+      "name": "量价背离（量大价不涨）",
+      "enabled": false,
+      "_comment": "量比 ≥ 2 但涨跌幅 < 1%，说明放量滞涨，可能是出货信号",
+      "symbols": "*",
+      "cooldown_seconds": 600,
+      "conditions": {
+        "logic": "AND",
+        "items": [
+          {"field": "vol_ratio", "op": ">=", "value": 2.0},
+          {"field": "pct_chg",  "op": "<",  "value": 1.0},
+          {"field": "pct_chg",  "op": ">",  "value": -1.0}
+        ]
+      },
+      "alert_message": "🔍 {name}({ts_code}) 量价背离！量比={vol_ratio}x  涨跌幅={pct_chg}%  现价={close}",
+      "mcp_assist": {
+        "enabled": true,
+        "source": "tushare_daily",
+        "fields": ["vol"],
+        "lookback_days": 5,
+        "compute": "avg_vol_5d"
+      }
+    }
+  ]
+}

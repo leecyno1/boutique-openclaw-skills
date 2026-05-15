@@ -1,0 +1,41 @@
+{
+  "name": "dasheng-daily-final",
+  "description": "接收初稿，进行复审、生成标题、打包强化版",
+  "version": "2.1.0",
+  "trigger": {
+    "keyword": "下一步",
+    "previous_step": "dasheng-daily-draft"
+  },
+  "chat_id": "oc_975d43c5704bf8c755bb9e32bf7c3922",
+  "final": {
+    "review_checklist": [
+      "逻辑清晰",
+      "数据准确",
+      "表达流畅",
+      "标题吸引"
+    ],
+    "title_style": "lemon_dna",
+    "enhancement": true,
+    "media_formats": [
+      "article",
+      "podcast",
+      "video"
+    ],
+    "rewrite_policy": {
+      "auto_rewrite": true,
+      "model_mode": "bm",
+      "targets": [
+        "copywriting",
+        "voiceover"
+      ]
+    }
+  },
+  "output": {
+    "type": "feishu_doc",
+    "doc_name": "强化版"
+  },
+  "feishu": {
+    "folder_naming": "YYYY-MM-DD",
+    "auto_create_folder": true
+  }
+}

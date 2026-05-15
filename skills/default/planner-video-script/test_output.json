@@ -1,0 +1,333 @@
+{
+  "structure_id": "video-struct-20260315-732f92f9",
+  "request_id": "video-script-20260315-abc123",
+  "input_digest": {
+    "brief_summary": "AI 在量化交易中已从理论进入实践，但仍需警惕过度拟合和黑箱风险",
+    "material_count": 2,
+    "visual_assets_count": 2,
+    "evidence_gaps": [
+      "补充失败案例",
+      "补充监管政策背景"
+    ]
+  },
+  "hook": {
+    "hook_id": "hook-c6f65312",
+    "hook_type": "question",
+    "hook_text": "你知道吗？AI 在量化交易中已从理论进入实践，但仍需警惕过度拟合和黑箱风险今天我们来看看这背后的故事。",
+    "visual_suggestion": "屏幕上显示关键视觉元素，然后切换到主题",
+    "duration_seconds": 8,
+    "emotional_tone": "好奇、引人入胜",
+    "why_this_hook": "用问句或故事吸引注意力，同时暗示内容的核心价值"
+  },
+  "sections": [
+    {
+      "section_id": "sec-cf4542f4",
+      "section_number": 1,
+      "section_title": "AI 模型在特征工程中的优势",
+      "section_objective": "解释和论证：AI 模型在特征工程中的优势",
+      "core_argument": "AI 模型在特征工程中的优势",
+      "duration_seconds": 154,
+      "narration": {
+        "narration_id": "nar-ae1b4663",
+        "main_text": "AI 模型在特征工程中的优势。根据行业访谈，该基金在 2024 年引入 AI 模型，收益率提升 15%。",
+        "key_phrases": [
+          "AI 模型在特征工程中的优势"
+        ],
+        "pause_points": [
+          "AI 模型在特征工程中的优势。"
+        ],
+        "tone": "平稳、专业",
+        "pacing": "中等"
+      },
+      "shots": [
+        {
+          "shot_id": "shot-455dce9c",
+          "shot_number": 1,
+          "shot_type": "全景",
+          "shot_description": "展示第 1 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "切换"
+        },
+        {
+          "shot_id": "shot-49e07101",
+          "shot_number": 2,
+          "shot_type": "中景",
+          "shot_description": "展示第 1 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "切换"
+        },
+        {
+          "shot_id": "shot-b231f6e7",
+          "shot_number": 3,
+          "shot_type": "特写",
+          "shot_description": "展示第 1 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "淡出"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev-6e2ddf7f",
+          "evidence_type": "case_study",
+          "evidence_text": "该基金在 2024 年引入 AI 模型，收益率提升 15%",
+          "source": "行业访谈",
+          "visual_format": "数据图表或文字标注"
+        },
+        {
+          "evidence_id": "ev-75635b55",
+          "evidence_type": "data",
+          "evidence_text": "2024 年 AI 量化基金平均收益 12%，波动率提升 20%",
+          "source": "公开数据",
+          "visual_format": "数据图表或文字标注"
+        }
+      ],
+      "transition_logic": "但这还不是全部。还有更重要的一点需要注意。"
+    },
+    {
+      "section_id": "sec-a5104d41",
+      "section_number": 2,
+      "section_title": "高频交易中的实际应用案例",
+      "section_objective": "解释和论证：高频交易中的实际应用案例",
+      "core_argument": "高频交易中的实际应用案例",
+      "duration_seconds": 154,
+      "narration": {
+        "narration_id": "nar-cd417600",
+        "main_text": "高频交易中的实际应用案例。根据行业访谈，该基金在 2024 年引入 AI 模型，收益率提升 15%。",
+        "key_phrases": [
+          "高频交易中的实际应用案例"
+        ],
+        "pause_points": [
+          "高频交易中的实际应用案例。"
+        ],
+        "tone": "平稳、专业",
+        "pacing": "中等"
+      },
+      "shots": [
+        {
+          "shot_id": "shot-a7d63917",
+          "shot_number": 1,
+          "shot_type": "全景",
+          "shot_description": "展示第 2 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "切换"
+        },
+        {
+          "shot_id": "shot-8800f096",
+          "shot_number": 2,
+          "shot_type": "中景",
+          "shot_description": "展示第 2 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "切换"
+        },
+        {
+          "shot_id": "shot-97222084",
+          "shot_number": 3,
+          "shot_type": "特写",
+          "shot_description": "展示第 2 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "淡出"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev-9ce3fb0f",
+          "evidence_type": "case_study",
+          "evidence_text": "该基金在 2024 年引入 AI 模型，收益率提升 15%",
+          "source": "行业访谈",
+          "visual_format": "数据图表或文字标注"
+        },
+        {
+          "evidence_id": "ev-2f756237",
+          "evidence_type": "data",
+          "evidence_text": "2024 年 AI 量化基金平均收益 12%，波动率提升 20%",
+          "source": "公开数据",
+          "visual_format": "数据图表或文字标注"
+        }
+      ],
+      "transition_logic": "综合以上分析，我们可以得出什么结论呢？"
+    },
+    {
+      "section_id": "sec-36a7e9ac",
+      "section_number": 3,
+      "section_title": "过度拟合与风险控制",
+      "section_objective": "解释和论证：过度拟合与风险控制",
+      "core_argument": "过度拟合与风险控制",
+      "duration_seconds": 154,
+      "narration": {
+        "narration_id": "nar-fe76df38",
+        "main_text": "过度拟合与风险控制。根据行业访谈，该基金在 2024 年引入 AI 模型，收益率提升 15%。",
+        "key_phrases": [
+          "过度拟合与风险控制"
+        ],
+        "pause_points": [
+          "过度拟合与风险控制。"
+        ],
+        "tone": "平稳、专业",
+        "pacing": "中等"
+      },
+      "shots": [
+        {
+          "shot_id": "shot-b6e91a2a",
+          "shot_number": 1,
+          "shot_type": "全景",
+          "shot_description": "展示第 3 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "切换"
+        },
+        {
+          "shot_id": "shot-a5576d67",
+          "shot_number": 2,
+          "shot_type": "中景",
+          "shot_description": "展示第 3 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "切换"
+        },
+        {
+          "shot_id": "shot-91c09df7",
+          "shot_number": 3,
+          "shot_type": "特写",
+          "shot_description": "展示第 3 段的关键内容",
+          "visual_elements": [
+            "数据可视化",
+            "文字标注",
+            "动画效果"
+          ],
+          "duration_seconds": 51,
+          "transition": "淡出"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev-070dc2d5",
+          "evidence_type": "case_study",
+          "evidence_text": "该基金在 2024 年引入 AI 模型，收益率提升 15%",
+          "source": "行业访谈",
+          "visual_format": "数据图表或文字标注"
+        },
+        {
+          "evidence_id": "ev-81d23f1f",
+          "evidence_type": "data",
+          "evidence_text": "2024 年 AI 量化基金平均收益 12%，波动率提升 20%",
+          "source": "公开数据",
+          "visual_format": "数据图表或文字标注"
+        }
+      ],
+      "transition_logic": "既然我们了解了这一点，那么接下来的问题是什么呢？"
+    }
+  ],
+  "cta": {
+    "cta_id": "cta-79d5f472",
+    "cta_type": "multi",
+    "cta_text": "如果你觉得这个内容有价值，欢迎订阅我们的频道，获取更多深度洞察。同时，在评论区分享你的想法。",
+    "visual_suggestion": "展示订阅按钮、点赞按钮、评论框",
+    "duration_seconds": 8,
+    "emotional_tone": "邀请、友好",
+    "call_to_action_buttons": [
+      "订阅",
+      "点赞",
+      "评论",
+      "分享"
+    ]
+  },
+  "production_notes": {
+    "total_duration_seconds": 478,
+    "total_duration_minutes": 7.97,
+    "scene_count": 9,
+    "speaker_count": 1,
+    "background_music_style": "现代、科技感、节奏感强",
+    "subtitle_strategy": "全程字幕，关键数字和概念加粗或高亮",
+    "animation_needs": [
+      "数据流动画",
+      "图表动画",
+      "转场动画",
+      "文字动画"
+    ],
+    "color_palette": [
+      "深蓝",
+      "科技绿",
+      "金色",
+      "白色"
+    ],
+    "visual_style": "现代科技风格，配合数据可视化",
+    "equipment_needs": [
+      "4K 摄像机",
+      "麦克风",
+      "绿幕",
+      "灯光"
+    ]
+  },
+  "quality_checklist": [
+    {
+      "item": "开场钩子是否能在 5-10 秒内吸引注意力",
+      "status": "required",
+      "description": "钩子必须在前 10 秒内建立观众的兴趣"
+    },
+    {
+      "item": "每个段落是否有清晰的论点和证据支撑",
+      "status": "required",
+      "description": "每个段落必须有核心论点和至少一个证据"
+    },
+    {
+      "item": "分镜建议是否可行",
+      "status": "required",
+      "description": "分镜建议必须考虑实际拍摄的可行性"
+    },
+    {
+      "item": "口播逻辑是否流畅",
+      "status": "required",
+      "description": "口播文案必须自然流畅，避免生硬"
+    },
+    {
+      "item": "CTA 是否清晰有力",
+      "status": "required",
+      "description": "CTA 必须明确指导观众的下一步行动"
+    },
+    {
+      "item": "总时长是否符合媒介计划",
+      "status": "required",
+      "description": "总时长必须在媒介计划的范围内"
+    }
+  ],
+  "created_at": "2026-03-15T21:23:45.706654Z",
+  "updated_at": "2026-03-15T21:23:45.706658Z"
+}

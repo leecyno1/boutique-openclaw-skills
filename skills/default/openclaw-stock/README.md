@@ -1,0 +1,1048 @@
+# 🦞 OpenClaw - AI-Driven Automated Trading System
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Security: Updated](https://img.shields.io/badge/security-updated-green.svg)](SECURITY.md)
+
+An advanced AI-powered automated trading system supporting both **long-term** and **short-term (intraday/swing)** trading strategies for stocks and cryptocurrencies.
+
+## 🎯 Key Features
+
+### 🔥 NEW: Finnhub Integration (2026-02-18)
+- **Replaced Yahoo Finance** with Finnhub API for reliable stock data
+- **60 requests/minute** (vs Yahoo's 5-10/min)
+- **Real-time data** with official API support
+- **Zero cost** - completely free tier
+- **Professional grade** data quality
+- **No IP-based rate limiting** - stable and predictable performance
+
+### Short-Term Trading Mode
+- **Ultra-Fast Monitoring** (5s intervals): Real-time price action tracking
+- **5 Specialized Short-Term Strategies**:
+  - 🚀 Intraday Breakout (1-24 hour holds)
+  - 📊 Minute MA Cross (scalping/swing)
+  - 💫 Momentum Reversal (oversold bounces)
+  - 📈 Order Flow Anomaly (large order detection)
+  - 📰 News Momentum (event-driven trades)
+- **Tight Risk Management**: 1-3% stop loss, 1.5-5% take profit targets
+- **Tiered Profit Taking**: Quick (1.5%), Main (2.5%), Max (5%) exits
+- **Intraday Limits**: Max trades/day, consecutive loss protection
+- **Order Flow Analysis**: Real-time order book imbalance, large order detection
+
+### Intelligent Architecture
+- **Dual-Mode Operation**: Switch between short-term (5s) and long-term (15s) monitoring
+- **Anomaly-Triggered Deep Analysis**: LLM-based analysis (Phi-3.5 Mini) activated only when anomalies are detected
+- **Multi-Asset Support**: Stocks (Finnhub API) + Cryptocurrencies (Upbit WebSocket)
+- **Zero-Cost Operation**: $0/month using free APIs and open-source models
+- **Multi-source Architecture**: Automatic failover between Finnhub (primary) and Alpha Vantage (backup)
+
+### AI Models Integration
+
+#### Dedicated Models (High-Frequency, <500ms)
+- **FinBERT**: Sentiment analysis for financial news (ProsusAI/finbert)
+- **CryptoBERT**: Cryptocurrency market sentiment (ElKulako/cryptobert)
+- **Chronos**: Time series price prediction (amazon/chronos-t5-small)
+- **Isolation Forest**: Real-time anomaly detection
+
+#### LLM (Anomaly-Triggered, 1-3s)
+- **2026 Simplified Edition**: Gemini 3 Flash (primary, 100%) + DeepSeek-R1 (emergency backup)
+- **Dual-Model Architecture**: Simple, reliable, cost-effective
+- **Smart Fallback**: Automatic failover if primary model unavailable
+- **Global News Context**: Analysis includes 100+ global news sources
+- **Korean Won Display**: All prices in ₩ KRW for unified reporting
+- **Smart Prompt Engineering**: Optimized for 2026 model capabilities
+- **Risk Assessment**: Automated risk scoring and recommendations
+
+### Trading Capabilities
+- **Short-Term Strategies**: Intraday Breakout, Minute MA Cross, Momentum Reversal, Order Flow Anomaly, News Momentum
+- **Long-Term Strategies**: Trend Following, Mean Reversion, Momentum
+- **Advanced Risk Management**: Position sizing, tiered take profits, trailing stop loss
+- **Real-time Execution**: Order management with dry-run mode
+- **Portfolio Tracking**: P&L, win rate, Sharpe ratio, max drawdown
+- **Backtesting**: Minute-level backtesting with realistic slippage and fees
+
+### Data Sources
+
+| Source | Type | Rate Limit | Cost | Status |
+|--------|------|------------|------|--------|
+| **Finnhub** | Stocks | 60/min | Free | ✅ Primary |
+| **pykrx** | Korean Stocks | Unlimited | Free | ✅ Primary (KR) |
+| Alpha Vantage | Stocks | 5/min | Free | 🔄 Backup |
+| Yahoo Finance | Stocks | Variable | Free | 📦 Legacy |
+| Upbit WebSocket | Crypto | Unlimited | Free | ✅ Active |
+| Naver News | News | ~20/day | Free | ✅ Active |
+| CryptoPanic | Crypto News | Limited | Free | ✅ Active |
+| DART | Announcements | 240/day | Free | ✅ Active |
+
+### 🇰🇷 Korean Stock Data Architecture (V2 - pykrx Dominant)
+
+OpenClaw uses a **pykrx-dominant architecture** for Korean stock data, optimized for high-frequency monitoring without rate limits.
+
+#### Data Source Priority
+
+| Priority | Source | Usage | Purpose |
+|----------|--------|-------|---------|
+| **1** | **pykrx** | **99%+** | All price queries, most name queries |
+| **2** | Redis Cache | High | 30s for prices, 24h for names |
+| **3** | Local Mapping | Low | 25+ major stocks as fallback |
+| **4** | Yahoo Finance | **<1%** | Only for unknown stock names (one-time) |
+
+#### Why pykrx?
+
+- ✅ **No API Key Required**: Direct access to KRX (Korean Exchange) data
+- ✅ **No Rate Limits**: Safe for high-frequency monitoring (30-second intervals)
+- ✅ **Accurate Data**: Direct from Korean Exchange (KRX)
+- ✅ **Korean Names**: Native 한글 stock names (삼성전자, SK하이닉스, etc.)
+- ✅ **Complete OHLCV**: Full market data (Open, High, Low, Close, Volume)
+- ✅ **Zero Latency**: Real-time data without 15-second Yahoo delays
+
+#### Yahoo Finance Restrictions
+
+Yahoo Finance is **intentionally restricted** in V2:
+
+- ❌ **Never used for price queries** (only pykrx)
+- ⚠️ **Only used for stock names** when both pykrx and local mapping fail
+- ⚠️ **Each stock queries Yahoo at most once** (then permanently cached)
+- 📊 **Target usage: <1% of all queries**
+
+This eliminates Yahoo's ~2,000 requests/hour rate limit issues.
+
+#### Expected Statistics
+
+After running for 1 hour with 6 stocks monitored at 30-second intervals:
+
+```
+📊 Statistics:
+   pykrx calls: 720 (120 cycles × 6 stocks)
+   pykrx success rate: 99.7%
+   Cache hit rate: 45.2%
+   Local fallback: 2 times (0.3%)
+   Yahoo fallback: 0 times (0.0%) ✅
+
+Data Source Distribution:
+   pykrx: 99.7%
+   Local mapping: 0.3%
+   Yahoo Finance: 0.0% ✅
+```
+
+#### Usage Example
+
+```python
+from openclaw.skills.monitoring.korean_stock_fetcher_v2 import KoreanStockFetcherV2
+from openclaw.core.database import DatabaseManager
+
+db = DatabaseManager()
+fetcher = KoreanStockFetcherV2(db)
+
+# Get stock price (100% pykrx)
+price_data = await fetcher.get_stock_price('005930')
+print(f"Price: ₩{price_data['price']:,} (Source: {price_data['source']})")
+# Output: Price: ₩73,500 (Source: pykrx)
+
+# Get stock name (pykrx > local > yahoo)
+name = await fetcher.get_stock_name('005930')
+print(f"Name: {name}")
+# Output: Name: 삼성전자
+
+# Check statistics
+stats = fetcher.get_stats()
+print(f"Yahoo usage: {stats['yahoo_usage_rate']:.1f}%")
+# Output: Yahoo usage: 0.0%
+```
+
+#### High-Frequency Monitoring
+
+```python
+from openclaw.skills.monitoring.korean_stock_monitor_v2 import KoreanStockMonitorV2
+
+monitor = KoreanStockMonitorV2(
+    db_manager=db,
+    watch_list=['005930', '035420', '000660'],  # Samsung, NAVER, SK Hynix
+    threshold=2.0,   # Alert on ±2% change
+    interval=30      # 30-second polling
+)
+
+# Start monitoring (30-second intervals, 100% pykrx)
+await monitor.start()
+
+# Output:
+# 🚀 Starting Korean Stock Monitor V2
+#    Data source: pykrx (100% for prices)
+#    Yahoo: Disabled for high-frequency (names only, <1%)
+#    Polling interval: 30s
+#    Threshold: ±2%
+```
+
+#### Local Stock Mapping (25+ Major Stocks)
+
+Built-in fallback for 25+ major Korean stocks:
+
+- 삼성전자 (Samsung Electronics) - 005930
+- SK하이닉스 (SK Hynix) - 000660
+- NAVER - 035420
+- 카카오 (Kakao) - 035720
+- LG화학 (LG Chem) - 051910
+- 삼성바이오로직스 (Samsung Biologics) - 207940
+- And 19+ more...
+
+## ✨ 2026 Edition Upgrades
+
+### 🤖 Dual-Model LLM Architecture
+OpenClaw uses a simplified 2026 LLM architecture focused on reliability and cost-effectiveness:
+
+#### Primary Model: Gemini 3 Flash
+- **Usage**: 100% of daily anomaly analysis
+- **Speed**: 1-3 seconds response time
+- **Cost**: FREE (5000 requests/month)
+- **Context**: 1M tokens (can analyze all news at once)
+- **Features**: Google Search Grounding, multilingual support
+- **Perfect for**: All trading decisions - fast and powerful
+
+#### Emergency Backup: DeepSeek-R1
+- **Usage**: Only when Gemini fails
+- **Strength**: Cost-effective, reliable
+- **Features**: Reinforcement learning reasoning
+- **Cost**: ~¥0.5/month for emergency usage
+
+**Why This Architecture?**
+- ✅ **Simpler**: Only 2 models to configure (vs 3 previously)
+- ✅ **Cheaper**: $0/month vs $1.84/month (100% free tier)
+- ✅ **No Credit Card**: Gemini is completely free, no payment required
+- ✅ **Powerful Enough**: Gemini 3 Flash handles all scenarios excellently
+
+**What Changed?**
+- ❌ **Removed**: Claude Opus 4.6 (required credit card, added complexity)
+- ✅ **Kept**: Gemini 3 Flash (free, powerful, 1M context)
+- ✅ **Kept**: DeepSeek-R1 (emergency backup only)
+
+**Smart Fallback**: If Gemini fails, automatically uses DeepSeek → Ensures 99.9% uptime
+
+### 🌍 Global News Integration (100+ Sources)
+
+OpenClaw now monitors **100+ news sources** from **7 continents** in **8 languages**:
+
+#### Coverage by Region
+- **Asia** (25+ sources): Korea, Japan, China, India, Singapore, Hong Kong
+- **Europe** (15+ sources): UK, Germany, France, Switzerland
+- **North America** (25+ sources): US (Bloomberg, Reuters, CNBC, WSJ, etc.), Canada
+- **South America** (9+ sources): Brazil, Argentina, Chile
+- **Africa** (8+ sources): South Africa, Nigeria, Egypt
+- **Oceania** (7+ sources): Australia, New Zealand
+- **Crypto Specialized** (13+ sources): CoinDesk, CoinTelegraph, The Block, etc.
+
+#### Features
+- **Real-time RSS Monitoring**: Concurrent fetching from all sources
+- **Relevance Scoring**: Automatic keyword matching for each asset
+- **Deduplication**: Remove duplicate stories across sources
+- **Time Filtering**: Only news from last 1 hour
+- **Multi-language**: Korean, English, Japanese, Chinese, German, French, Spanish, Portuguese
+- **Categorization**: Business, finance, markets, crypto
+
+### 💱 Korean Won (KRW) Currency Unification
+
+All prices are now displayed in **Korean Won (₩)** with real-time exchange rate conversion:
+
+#### Features
+- **Auto-Detection**: Automatically detects asset's native currency
+  - `.KS` / `.KQ` symbols → Already in KRW
+  - US stocks → USD converted to KRW
+  - Crypto → USD converted to KRW
+- **Real-Time Rates**: Updated hourly from free exchange rate APIs
+- **Fallback Rates**: Uses backup rates if API unavailable
+- **Clean Formatting**: `₩89,445,000` (no decimals, thousand separators)
+
+#### Example Conversions
+```
+AAPL $178.50 → ₩238,298
+BTC-USD $89,445 → ₩119,409,075
+005930.KS ₩75,000 → ₩75,000 (already KRW)
+```
+
+#### Alert Messages (Now in KRW)
+```
+🔥 SHORT-TERM OPPORTUNITY: BTC-USD
+
+Strategy: Momentum Reversal
+Action: BUY
+Entry Price: ₩89,400,000
+Stop Loss: ₩87,612,000 (-2.0%)
+Take Profit: ₩93,180,000 (+4.2%)
+Confidence: 8/10
+```
+
+### 📊 Cost Efficiency
+
+**2026 Total Operating Cost: ₩0/month ($0)**
+
+Breakdown:
+- Gemini 3 Flash: ₩0 (free tier, 5000 requests/month)
+- DeepSeek-R1: ₩0-₩670 (~$0.50, emergency usage only)
+- Global News: ₩0 (RSS feeds)
+- Exchange Rates: ₩0 (free API)
+
+**Compared to alternatives:**
+- GPT-4o (all calls): ~₩120,150/month
+- Old architecture (with Claude): ~₩2,456/month
+- **New architecture: ₩0/month** 🎉
+- **Savings: 100%** while maintaining excellent quality
+
+## 📊 Architecture Design
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   OpenClaw Trading Engine                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │   High-Frequency Loop (15s) - Dedicated Models       │  │
+│  ├──────────────────────────────────────────────────────┤  │
+│  │  1. Market Data Fetch (Stocks + Crypto)              │  │
+│  │  2. Technical Indicators (50ms)                      │  │
+│  │  3. Anomaly Detection (10ms) ─────┐                  │  │
+│  │  4. Trading Signals (100ms)       │                  │  │
+│  └───────────────────────────────────┼──────────────────┘  │
+│                                      │                      │
+│                         ┌────────────▼─────────────┐        │
+│                         │   Anomaly Detected?      │        │
+│                         └────────────┬─────────────┘        │
+│                                      │ YES                  │
+│                         ┌────────────▼─────────────┐        │
+│                         │  LLM Deep Analysis (3s)  │        │
+│                         │  - Context gathering     │        │
+│                         │  - Root cause analysis   │        │
+│                         │  - Risk assessment       │        │
+│                         │  - Action recommendation │        │
+│                         └──────────────────────────┘        │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │   News Monitoring Loop (1h)                          │  │
+│  │   - Aggregate news from multiple sources             │  │
+│  │   - Sentiment analysis                               │  │
+│  │   - Store for context                                │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.10 or higher
+- Redis (optional, for caching)
+- 8GB RAM minimum
+- Internet connection
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Superandyfre/Openclaw-stock.git
+cd Openclaw-stock
+```
+
+2. **Install dependencies**
+```bash
+# Core dependencies
+pip install -r requirements.txt
+
+# AI models (optional, for full functionality)
+pip install -r requirements-ai.txt
+```
+
+3. **Configure environment**
+```bash
+cp .env.example .env
+# Edit .env with your API keys
+```
+
+**Required API Keys (2026 Simplified Edition):**
+```bash
+# Stock Data (Primary) - REQUIRED
+FINNHUB_API_KEY=your_key  # Get at: https://finnhub.io/register
+# Free tier: 60 requests/minute, no credit card required
+
+# Primary LLM (Free, 5000 requests/month) - REQUIRED
+GOOGLE_AI_API_KEY=your_key  # Get at: https://aistudio.google.com/apikey
+
+# Emergency Backup LLM (Optional but recommended)
+DEEPSEEK_API_KEY=your_key   # Get at: https://platform.deepseek.com/
+
+# Data sources (Optional for basic testing)
+NAVER_CLIENT_ID=your_id
+NAVER_CLIENT_SECRET=your_secret
+CRYPTOPANIC_API_KEY=your_key
+
+# Telegram notifications (Optional)
+TELEGRAM_BOT_TOKEN=your_token
+TELEGRAM_CHAT_ID=your_chat_id
+```
+
+**Getting Finnhub API Key (30 seconds):**
+1. Visit https://finnhub.io/register
+2. Sign up with email (no credit card required)
+3. Copy API key from dashboard
+4. Add to `.env`: `FINNHUB_API_KEY=your_key`
+
+**Note**: The system works with just Finnhub + Gemini API keys (both free, no credit card). DeepSeek is optional for emergency backup. Other keys are optional for enhanced functionality.
+
+4. **Run the system**
+```bash
+python main.py
+```
+
+## ⚙️ Configuration
+
+### Switching Between Trading Modes
+
+Edit `openclaw/config/strategy_config.yaml`:
+
+```yaml
+# Set trading mode: "short_term" or "long_term"
+trading_mode: "short_term"  # Change to "long_term" for swing/position trading
+
+# Short-term timeframes
+timeframes:
+  primary: "5m"      # 5-minute charts
+  secondary: "15m"   # 15-minute charts
+  tick: "1m"         # 1-minute tick data
+```
+
+### Short-Term Strategy Configuration
+
+```yaml
+strategies:
+  - name: "Intraday Breakout"
+    enabled: true
+    weight: 0.3
+    parameters:
+      breakout_threshold: 0.005  # 0.5% breakout
+      volume_multiplier: 2.0      # 2x volume confirmation
+      stop_loss: 0.01             # 1% stop loss
+      take_profit: 0.02           # 2% take profit
+      
+  - name: "Minute MA Cross"
+    enabled: true
+    weight: 0.25
+    parameters:
+      fast_ma: 5
+      slow_ma: 15
+      rsi_threshold: 70
+      take_profit: 0.025          # 2.5% target
+```
+
+### Short-Term Risk Management (`openclaw/config/risk_config.yaml`)
+
+```yaml
+risk_management:
+  max_position_size: 0.2          # 20% per position (higher for short-term)
+  max_daily_loss: 0.03            # 3% max daily loss
+  min_risk_reward_ratio: 2.0      # 2:1 minimum
+
+stop_loss:
+  type: "trailing"                # Trailing stop
+  initial_percentage: 0.01        # 1% initial stop
+  trailing_step: 0.005            # Move up 0.5% per step
+
+take_profit:
+  type: "tiered"                  # Tiered exits
+  quick_profit: 0.015             # 1.5% - sell 33%
+  main_profit: 0.025              # 2.5% - sell 33%
+  max_profit: 0.05                # 5% - sell remaining
+
+intraday_limits:
+  max_trades_per_day: 5           # Max 5 trades/day
+  max_consecutive_losses: 3       # Stop after 3 losses
+  min_time_between_trades_minutes: 30
+```
+
+### API Configuration (`openclaw/config/api_config.yaml`)
+
+```yaml
+# Primary Stock Data Source
+finnhub:
+  enabled: true
+  api_key_env: "FINNHUB_API_KEY"
+  rate_limit: 60  # requests per minute
+  stocks:
+    - AAPL    # Apple
+    - TSLA    # Tesla
+    - NVDA    # NVIDIA
+    - MSFT    # Microsoft
+    - GOOGL   # Google
+  request_interval: 1  # seconds between requests
+
+# Backup Stock Data Source
+alpha_vantage:
+  enabled: false
+  api_key_env: "ALPHA_VANTAGE_API_KEY"
+  rate_limit: 5
+  
+# Legacy (for fallback only)
+yahoo_finance:
+  enabled: false
+  stocks:
+    - AAPL
+    - MSFT
+    - GOOGL
+
+upbit:
+  cryptocurrencies:
+    - KRW-BTC    # Bitcoin
+    - KRW-ETH    # Ethereum
+    # ... more cryptos
+```
+
+### Legacy Long-Term Strategy Configuration
+
+```yaml
+trading_mode: "long_term"
+
+legacy_strategies:
+  - name: "Trend Following"
+    enabled: true
+    parameters:
+      ma_short: 20
+      ma_long: 50
+```
+
+### Risk Configuration (`openclaw/config/risk_config.yaml`)
+
+```yaml
+risk_management:
+  max_position_size: 0.1      # 10% max per position
+  max_loss_per_trade: 0.02    # 2% max loss per trade
+  max_daily_loss: 0.05        # 5% max daily loss
+  max_drawdown: 0.15          # 15% max drawdown
+```
+
+## 📈 Performance Metrics
+
+### Resource Usage
+- **CPU**: <15% (short-term mode), <10% (long-term mode)
+- **Memory**: <2GB (without AI models), <8GB (with all models)
+- **Network**: Minimal (<100KB/s average)
+
+### Real-World Performance (5-Stock Portfolio)
+- **Monitoring Interval**: 15 seconds (optimized for Finnhub rate limits)
+- **Data Fetch Time**: 8-12 seconds for 5 stocks
+- **Cycle Completion**: ~14s (within 15s target)
+- **API Success Rate**: >99% (Finnhub's reliable infrastructure)
+- **No IP Bans**: Eliminated Yahoo Finance rate limiting issues
+
+### Processing Speed
+- **Short-term cycle**: <200ms target (5s interval)
+- **Long-term cycle**: <500ms target (15s interval)
+- **Anomaly detection**: ~10ms
+- **Sentiment analysis**: ~50ms
+- **LLM deep analysis**: 2-3s (only on anomalies)
+
+### Short-Term Trading Performance Expectations
+- **Holding Period**: Minutes to 24 hours
+- **Target Win Rate**: 55-65%
+- **Average R:R Ratio**: 2:1 (risk $1 to make $2)
+- **Daily Trades**: 1-5 per day (limited by risk management)
+- **Expected Slippage**: 0.1-0.2% per trade
+- **Commission**: ~0.1% per trade
+
+### API Cost Analysis
+| Service | Free Tier | Usage | Monthly Cost |
+|---------|-----------|-------|--------------|
+| **Finnhub** | 60 req/min | ~1440/day | **$0** |
+| Upbit WebSocket | Unlimited | Real-time | **$0** |
+| Naver News | N/A | ~20/day | **$0** |
+| CryptoPanic | Limited | ~20/day | **$0** |
+| DART | 240/day | ~24/day | **$0** |
+| Gemini 3 Flash | 5000 req/month | ~150/day | **$0** |
+| **Total** | | | **$0/month** |
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+# Run all tests
+pytest openclaw/tests/
+
+# Run specific test file
+pytest openclaw/tests/test_engine.py -v
+
+# Run with coverage
+pytest --cov=openclaw openclaw/tests/
+```
+
+## 📝 Usage Examples
+
+### Basic Usage - Short-Term Mode
+
+```python
+from openclaw.core.engine import OpenClawEngine
+from openclaw.utils.logger import setup_logger
+
+async def main():
+    logger = setup_logger()
+    
+    # Initialize engine (reads trading_mode from config)
+    engine = OpenClawEngine()
+    
+    await engine.start()
+    # Engine will monitor every 5 seconds in short-term mode
+    # Generates signals from 5 short-term strategies
+```
+
+### Short-Term Strategy Example
+
+```python
+from openclaw.skills.analysis import TechnicalAnalysis
+
+# Calculate short-term indicators
+ta = TechnicalAnalysis()
+
+# Fast RSI for quick entries
+fast_rsi = ta.calculate_fast_rsi(prices, period=5)
+
+# Minute-level moving averages
+minute_mas = ta.calculate_minute_mas(minute_prices)
+print(f"MA5: {minute_mas['ma_5']}, MA15: {minute_mas['ma_15']}")
+
+# Detect intraday breakouts
+breakout = ta.detect_intraday_high_low(
+    prices=intraday_prices,
+    current_price=current,
+    threshold=0.005  # 0.5%
+)
+
+# Volume anomaly detection
+volume_spike = ta.detect_volume_anomaly(
+    current_volume=current_vol,
+    historical_volumes=hist_vols,
+    threshold=2.5  # 2.5x average
+)
+```
+
+### Order Flow Analysis
+
+```python
+from openclaw.skills.analysis.order_flow_analysis import OrderFlowAnalysis
+
+analyzer = OrderFlowAnalysis(large_order_threshold=100000)
+
+# Analyze order book imbalance
+order_book_analysis = analyzer.analyze_order_book(
+    bids=bid_orders,
+    asks=ask_orders,
+    depth_levels=10
+)
+
+# Detect large orders
+large_orders = analyzer.detect_large_orders(
+    recent_trades=trades,
+    time_window_seconds=60
+)
+
+# Calculate overall order flow strength
+strength = analyzer.calculate_order_flow_strength(
+    order_book_data=order_book_analysis,
+    large_order_data=large_orders,
+    tape_data=tape_analysis
+)
+```
+
+### Short-Term Risk Management
+
+```python
+from openclaw.skills.analysis import RiskManagement
+
+# Initialize with short-term config
+risk_mgr = RiskManagement(risk_config)
+
+risk_mgr = RiskManagement(risk_config)
+
+# Calculate position size
+position_size = risk_mgr.calculate_position_size(
+    portfolio_value=100000,
+    entry_price=150.0
+)
+
+# Calculate stop loss
+stop_loss = risk_mgr.calculate_stop_loss(entry_price=150.0)
+```
+
+## 🤖 Telegram Bot Integration
+
+OpenClaw now includes a comprehensive Telegram bot for portfolio management and trading.
+
+### Features
+
+- **Real-time Asset Names**: All stock and cryptocurrency names fetched via APIs
+  - Korean Stocks: Yahoo Finance API
+  - Cryptocurrencies: CoinGecko API
+  - 24-hour Redis caching for efficiency
+
+- **Portfolio Management**:
+  - View positions with full asset names
+  - Track stocks and crypto separately
+  - Real-time P&L calculations
+  - Portfolio breakdown by asset type
+
+- **AI Recommendations**:
+  - Stock recommendations (Gemini Flash / DeepSeek-V3)
+  - Cryptocurrency recommendations
+  - Natural language support (Korean/English)
+  - Market analysis and insights
+
+- **Trading Commands**:
+  - Manual buy/sell recording
+  - Trading history with full names
+  - Interactive signal confirmations
+
+### Setup
+
+1. **Create a Telegram bot via [@BotFather](https://t.me/botfather)**
+   - Send `/newbot` to @BotFather
+   - Follow prompts to name your bot
+   - Save the bot token
+
+2. **Get your chat ID**
+   - Message your bot
+   - Visit: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
+   - Find `"chat":{"id":...}` and save the ID
+
+3. **Configure `.env`**:
+   ```bash
+   TELEGRAM_BOT_TOKEN=your_token_here
+   TELEGRAM_CHAT_ID=your_chat_id_here
+   ENABLE_TELEGRAM_BOT=true
+   ```
+
+4. **Run the bot**:
+   ```python
+   from openclaw.skills.monitoring import EnhancedTelegramBot
+   from openclaw.core.portfolio_manager import PortfolioManager
+   from openclaw.skills.execution.position_tracker import PositionTracker
+   
+   # Initialize components
+   tracker = PositionTracker(initial_capital=100000.0)
+   portfolio = PortfolioManager(tracker)
+   
+   # Create and start bot
+   bot = EnhancedTelegramBot(
+       token=os.getenv('TELEGRAM_BOT_TOKEN'),
+       chat_id=os.getenv('TELEGRAM_CHAT_ID'),
+       portfolio_manager=portfolio
+   )
+   
+   await bot.start()
+   ```
+
+### Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `/start` | Welcome message with command list |
+| `/stocks` | View Korean stocks with real-time names |
+| `/crypto` | View cryptocurrencies with real-time names |
+| `/positions` | View all positions with full asset details |
+| `/portfolio` | Portfolio breakdown (stocks vs crypto) |
+| `/recommend` | AI stock recommendations |
+| `/recommend_crypto` | AI cryptocurrency recommendations |
+| `/buy <symbol> <qty> <price>` | Record manual buy transaction |
+| `/sell <symbol> <qty> <price>` | Record manual sell transaction |
+| `/trades` | View trading history with full names |
+
+### Usage Examples
+
+**Korean Stocks:**
+```
+/stocks
+```
+Output:
+```
+📈 모니터링 중인 한국 주식
+
+🟢 **005930.KS** (Samsung Electronics Co., Ltd.)
+   가격: ₩73,500 (+2.15%)
+   수량: 10주
+   평가액: ₩735,000
+```
+
+**Cryptocurrency:**
+```
+/crypto
+```
+Output:
+```
+🪙 모니터링 중인 암호화폐
+
+🟢 **KRW-BTC** (Bitcoin)
+   가격: ₩60,250,000 (+3.24%)
+   수량: 0.5000
+   평가액: ₩30,125,000
+```
+
+**Portfolio Breakdown:**
+```
+/portfolio
+```
+Output:
+```
+💼 포트폴리오 현황
+
+📈 **한국 주식** (3개)
+   평가액: ₩15,000,000
+   투자금: ₩14,200,000
+   수익률: +5.63%
+
+🪙 **암호화폐** (2개)
+   평가액: ₩30,125,000
+   투자금: ₩29,000,000
+   수익률: +3.88%
+
+💰 **전체 포트폴리오**
+   총 평가액: ₩45,125,000
+   보유 현금: ₩50,000,000
+   총 투자금: ₩43,200,000
+   총 수익률: +4.46%
+```
+
+**Natural Language Support:**
+
+Users can interact naturally in Korean or English:
+```
+나는 0.5 BTC를 60,000,000원에 샀어
+→ Bot will parse and record the transaction
+
+위 추천 암호화폐
+→ Bot will provide crypto recommendations
+
+포트폴리오 보여줘
+→ Bot will show portfolio breakdown
+```
+
+**AI Recommendations:**
+```
+/recommend
+```
+Output:
+```
+🤖 **AI 종목 추천**
+
+1. **005930.KS** (삼성전자)
+   진입가: ₩72,000-73,000
+   목표가: ₩78,000
+   손절가: ₩70,000
+   분석: 반도체 업황 개선 기대. 중장기 상승 전망.
+
+2. **035420.KS** (NAVER)
+   진입가: ₩195,000-198,000
+   목표가: ₩210,000
+   손절가: ₩190,000
+   분석: AI 서비스 확대로 성장 기대.
+
+3. **000660.KS** (SK하이닉스)
+   진입가: ₩145,000-148,000
+   목표가: ₩160,000
+   손절가: ₩140,000
+   분석: HBM 수요 증가로 실적 개선 예상.
+```
+
+### Interactive Features
+
+When trading signals are sent, users can click:
+- ✅ **즉시 체결** - Execute the trade immediately
+- ❌ **무시** - Ignore the signal
+
+Example:
+```python
+# Send interactive trade signal
+await bot.send_trade_signal(
+    symbol='005930.KS',
+    action='BUY',
+    price=73500,
+    reason='Strong breakout above resistance with high volume'
+)
+```
+
+Output in Telegram:
+```
+🟢 **거래 시그널**
+
+종목: 005930.KS (Samsung Electronics Co., Ltd.)
+액션: BUY
+가격: ₩73,500
+
+분석:
+Strong breakout above resistance with high volume
+
+[✅ 즉시 체결] [❌ 무시]
+```
+
+### API Rate Limits
+
+The bot implements intelligent caching to minimize API calls:
+
+- **Yahoo Finance**: No strict limits, reasonable delays
+- **CoinGecko**: 10-50 requests/minute (free tier)
+- **Redis Caching**: 24-hour TTL for asset names
+- **Cache Hit Rate**: Expected 90%+ after warm-up
+
+### Error Handling
+
+The bot includes comprehensive error handling:
+
+1. **API Failures**: Falls back to local mappings
+2. **Unknown Assets**: Returns "Unknown Asset (SYMBOL)"
+3. **LLM Unavailable**: Clear message about configuration
+4. **Network Issues**: Automatic retry with backoff
+5. **Invalid Commands**: Helpful error messages
+
+All errors are logged for debugging while providing user-friendly messages.
+
+## 🔒 Security & Safety
+
+### Security Measures
+
+All dependencies are regularly updated to patch known vulnerabilities. See [SECURITY.md](SECURITY.md) for details.
+
+**Recent Security Updates** (2026-02-17):
+- ✅ aiohttp 3.9.1 → 3.13.3 (Fixed zip bomb, DoS, directory traversal)
+- ✅ torch 2.1.2 → 2.6.0 (Fixed buffer overflow, use-after-free, RCE)
+- ✅ transformers 4.36.2 → 4.48.0 (Fixed deserialization attacks)
+
+### Built-in Safety Features
+- **Dry Run Mode**: Default mode simulates trading without real execution
+- **Short-Term Risk Limits**: 
+  - Maximum trades per day (default: 5)
+  - Consecutive loss protection (stops after 3 losses)
+  - Position time limits (auto-close after max hold time)
+  - Daily loss limits (3% for short-term mode)
+- **Risk Limits**: Multiple layers of risk management
+- **Position Sizing**: Automatic calculation based on portfolio value
+- **Tiered Stop Loss**: Trailing stops that move with profit
+- **Input Validation**: All external inputs validated
+- **Secure Defaults**: No hardcoded secrets, environment-based configuration
+
+### Important Warnings
+⚠️ **This system is for educational purposes only**
+⚠️ **Short-term trading is HIGH RISK and not suitable for everyone**
+⚠️ **Always test thoroughly in dry-run mode before live trading**
+⚠️ **Start with small position sizes (10-20% max)**
+⚠️ **Never trade during high-impact news without understanding the risks**
+⚠️ **Never invest more than you can afford to lose**
+⚠️ **Past performance does not guarantee future results**
+⚠️ **Review [SECURITY.md](SECURITY.md) before deployment**
+⚠️ **Short-term strategies require constant monitoring**
+⚠️ **Slippage and fees can significantly impact short-term profitability**
+
+## 📚 Project Structure
+
+```
+openclaw/
+├── config/                 # Configuration files
+│   ├── api_config.yaml     # API endpoints and symbols
+│   ├── strategy_config.yaml # Trading mode and strategies
+│   └── risk_config.yaml    # Risk parameters
+├── skills/                 # Modular skills
+│   ├── data_collection/   # Market data & news
+│   ├── analysis/          # AI models & strategies
+│   │   ├── strategy_engine.py       # 5 short-term + 3 long-term strategies
+│   │   ├── technical_analysis.py    # Fast indicators for short-term
+│   │   ├── risk_management.py       # Tiered exits, intraday limits
+│   │   ├── order_flow_analysis.py   # Order book & large orders (NEW)
+│   │   └── ai_models.py             # Short-term LLM prompts
+│   ├── backtesting/       # Backtesting framework (NEW)
+│   │   └── short_term_backtest.py   # Minute-level backtesting
+│   ├── execution/         # Order & position management
+│   └── monitoring/        # System health & alerts
+│       └── alert_manager.py         # Short-term signal alerts
+├── core/                  # Core engine
+│   ├── engine.py         # Main orchestration
+│   ├── scheduler.py      # Task scheduling
+│   └── database.py       # Data persistence
+├── utils/                 # Utilities
+│   ├── logger.py
+│   ├── api_client.py
+│   └── helpers.py
+└── tests/                 # Unit tests
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Setup
+
+```bash
+# Install development dependencies
+pip install -r requirements.txt -r requirements-ai.txt
+pip install pytest pytest-asyncio black flake8
+
+# Run code formatting
+black openclaw/
+
+# Run linting
+flake8 openclaw/
+
+# Run tests
+pytest
+```
+
+## 🐛 Known Issues & Limitations
+
+- AI models require significant memory (8GB+ recommended)
+- Some API keys required for full functionality
+- Backtesting framework not yet implemented
+- Limited exchange integration (Upbit only for crypto)
+
+## 🗺️ Roadmap
+
+- [ ] Add more exchange integrations (Binance, Coinbase)
+- [ ] Implement backtesting framework
+- [ ] Add web dashboard for monitoring
+- [ ] Enhance LLM prompts for better decision-making
+- [ ] Add more technical indicators
+- [ ] Implement paper trading mode with realistic slippage
+- [ ] Add support for options and futures
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **FinBERT**: ProsusAI for financial sentiment analysis
+- **Chronos**: Amazon Science for time series forecasting
+- **Transformers**: HuggingFace for the amazing library
+- **yfinance**: For easy Yahoo Finance API access
+- **Upbit**: For cryptocurrency market data
+
+## 📝 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+
+### Recent Updates (v0.2.0 - 2026-02-18)
+- ✨ **Finnhub API Integration**: Professional stock data source with 60 req/min
+- ⚡ **Primary Data Source**: Replaced Yahoo Finance with Finnhub
+- 🐛 **Fixed Yahoo Finance Issues**: Eliminated IP-based rate limiting problems
+- ⚡ **Monitoring Interval**: Optimized to 15 seconds for 5-stock portfolio
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/Superandyfre/Openclaw-stock/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Superandyfre/Openclaw-stock/discussions)
+
+## ⚖️ Disclaimer
+
+This software is provided "as is", without warranty of any kind. Trading stocks and cryptocurrencies involves substantial risk of loss. The authors and contributors are not responsible for any financial losses incurred through the use of this software.
+
+**USE AT YOUR OWN RISK**
+
+---
+
+Made with ❤️ by the OpenClaw Team | Star ⭐ this repo if you find it useful!

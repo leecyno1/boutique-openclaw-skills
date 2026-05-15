@@ -10,7 +10,7 @@ README_PATH = ROOT / "README.md"
 CATALOG_PATH = ROOT / "catalog" / "skills.json"
 DOCS_PATH = ROOT / "docs" / "SKILLS_DIRECTORY.md"
 CATEGORIES_DIR = ROOT / "categories"
-OPENCLAW_DEFAULT_PATH = Path.home() / ".npm-global" / "lib" / "node_modules" / "openclaw"
+TIERS_DIR = ROOT / "tiers"
 
 MARKER_START = "<!-- SKILLS_INDEX:START -->"
 MARKER_END = "<!-- SKILLS_INDEX:END -->"
@@ -121,32 +121,15 @@ def load_recommended() -> list[dict]:
     return out
 
 
-def load_default_skills() -> tuple[list[dict], list[dict]]:
-    core_dir = OPENCLAW_DEFAULT_PATH / "skills"
-    ext_dir = OPENCLAW_DEFAULT_PATH / "extensions"
-
-    core = []
-    if core_dir.exists():
-        for p in sorted(core_dir.iterdir(), key=lambda x: x.name):
-            if p.is_dir():
-                core.append({"name": p.name, "description": parse_skill_description(p / "SKILL.md")})
-
-    ext = []
-    if ext_dir.exists():
-        for e in sorted(ext_dir.iterdir(), key=lambda x: x.name):
-            skills_root = e / "skills"
-            if not skills_root.exists():
-                continue
-            for p in sorted(skills_root.iterdir(), key=lambda x: x.name):
-                if p.is_dir():
-                    ext.append(
-                        {
-                            "extension": e.name,
-                            "name": p.name,
-                            "description": parse_skill_description(p / "SKILL.md"),
-                        }
-                    )
-    return core, ext
+def load_default_tiers() -> dict:
+    tiers = {}
+    for tier in ["low", "medium", "high"]:
+        path = TIERS_DIR / f"{tier}.json"
+        if path.exists():
+            tiers[tier] = json.loads(path.read_text(encoding="utf-8"))
+        else:
+            tiers[tier] = {"id": tier, "title": tier, "description": "", "skills": []}
+    return tiers
 
 
 def build_data() -> dict:
@@ -157,12 +140,11 @@ def build_data() -> dict:
     for key in grouped:
         grouped[key].sort(key=lambda x: x["skill"])
 
-    core, ext = load_default_skills()
+    tiers = load_default_tiers()
     return {
         "recommended": recommended,
         "grouped_recommended": grouped,
-        "core_defaults": core,
-        "ext_defaults": ext,
+        "tiers": tiers,
     }
 
 
@@ -172,8 +154,9 @@ def render_table_of_contents(data: dict) -> str:
         count = len(data["grouped_recommended"][cfg["key"]])
         items.append((f"[{cfg['label']}](#{cfg['anchor']}) ({count})", f"[分类文件](categories/{cfg['file']})"))
 
-    items.append(("[OpenClaw 默认 Skills（Core）](#openclaw-default-core)", "[分类文件](categories/openclaw-default-core.md)"))
-    items.append(("[OpenClaw 默认 Skills（Extensions）](#openclaw-default-extensions)", "[分类文件](categories/openclaw-default-extensions.md)"))
+    items.append(("[默认 Skills 低档](#default-tier-low)", "[文档](docs/tiers/low.md)"))
+    items.append(("[默认 Skills 中档](#default-tier-medium)", "[文档](docs/tiers/medium.md)"))
+    items.append(("[默认 Skills 高档](#default-tier-high)", "[文档](docs/tiers/high.md)"))
 
     rows = []
     for i in range(0, len(items), 2):
@@ -185,17 +168,17 @@ def render_table_of_contents(data: dict) -> str:
 
 def render_readme_block(data: dict) -> str:
     rec_total = len(data["recommended"])
-    core_total = len(data["core_defaults"])
-    ext_total = len(data["ext_defaults"])
-    default_total = core_total + ext_total
-    total = rec_total + default_total
+    tiers = data["tiers"]
+    low_total = len(tiers["low"].get("skills", []))
+    medium_total = len(tiers["medium"].get("skills", []))
+    high_total = len(tiers["high"].get("skills", []))
 
     lines = [
-        f"- 推荐 skills：`{rec_total}`",
-        f"- OpenClaw 官方默认 skills：`{default_total}`（core `{core_total}` + extension `{ext_total}`）",
-        f"- 首页可查看总条目：`{total}`",
+        f"- 兼容精选 skills：`{rec_total}`",
+        f"- 默认 low / medium / high：`{low_total}` / `{medium_total}` / `{high_total}`",
+        f"- 默认 skills 维护源：`skills/default` + `tiers/*.json`",
         "",
-        "> 默认 skills 来源：`openclaw` npm 包目录（`skills/` 与 `extensions/*/skills/`），不是本机会话导出。",
+        "> 默认 skills 由本仓库维护；安装器仓库只保留 manifest 兼容缓存和同步入口。",
         "",
         "## Table of Contents",
         "",
@@ -220,32 +203,22 @@ def render_readme_block(data: dict) -> str:
             "",
         ]
 
-    lines += [
-        '<a id="openclaw-default-core"></a>',
-        '<details open><summary><h3 style="display:inline">OpenClaw 默认 Skills（Core）</h3></summary>',
-        "",
-    ]
-    for item in data["core_defaults"]:
-        lines.append(f"- `{item['name']}` - {item['description']}")
-    lines += [
-        "",
-        "> **[查看 Core 默认 skills 全列表 →](categories/openclaw-default-core.md)**",
-        "</details>",
-        "",
-    ]
-
-    lines += [
-        '<a id="openclaw-default-extensions"></a>',
-        '<details open><summary><h3 style="display:inline">OpenClaw 默认 Skills（Extensions）</h3></summary>',
-        "",
-    ]
-    for item in data["ext_defaults"]:
-        lines.append(f"- `{item['extension']}/{item['name']}` - {item['description']}")
-    lines += [
-        "",
-        "> **[查看 Extension 默认 skills 全列表 →](categories/openclaw-default-extensions.md)**",
-        "</details>",
-    ]
+    for tier, anchor, label in [("low", "default-tier-low", "默认 Skills 低档"), ("medium", "default-tier-medium", "默认 Skills 中档"), ("high", "default-tier-high", "默认 Skills 高档")]:
+        payload = tiers[tier]
+        lines += [
+            f'<a id="{anchor}"></a>',
+            f'<details open><summary><h3 style="display:inline">{label}</h3></summary>',
+            "",
+            f"- Skills count: `{len(payload.get('skills', []))}`",
+            f"- JSON: [`tiers/{tier}.json`](tiers/{tier}.json)",
+            f"- Manual: [`docs/tiers/{tier}.md`](docs/tiers/{tier}.md)",
+            "",
+        ]
+        for item in payload.get("skills", [])[:80]:
+            lines.append(f"- `{item['id']}` - {item.get('description', '')}")
+        if len(payload.get("skills", [])) > 80:
+            lines.append(f"- ... {len(payload.get('skills', [])) - 80} more; see `docs/tiers/{tier}.md`")
+        lines += ["", "</details>", ""]
     return "\n".join(lines)
 
 
@@ -277,47 +250,22 @@ def write_categories(data: dict) -> None:
             lines.append(f"| `{item['skill']}` | {item['description']} | [repo]({item['github']}) |")
         (CATEGORIES_DIR / cfg["file"]).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    core_lines = [
-        "# OpenClaw 默认 Skills（Core）",
-        "",
-        f"- Skills count: `{len(data['core_defaults'])}`",
-        "",
-        "| Skill | 简介 |",
-        "|---|---|",
-    ]
-    for item in data["core_defaults"]:
-        core_lines.append(f"| `{item['name']}` | {item['description']} |")
-    (CATEGORIES_DIR / "openclaw-default-core.md").write_text("\n".join(core_lines) + "\n", encoding="utf-8")
-
-    ext_lines = [
-        "# OpenClaw 默认 Skills（Extensions）",
-        "",
-        f"- Skills count: `{len(data['ext_defaults'])}`",
-        "",
-        "| Extension | Skill | 简介 |",
-        "|---|---|---|",
-    ]
-    for item in data["ext_defaults"]:
-        ext_lines.append(f"| `{item['extension']}` | `{item['name']}` | {item['description']} |")
-    (CATEGORIES_DIR / "openclaw-default-extensions.md").write_text("\n".join(ext_lines) + "\n", encoding="utf-8")
 
 
 def write_docs_directory(data: dict) -> None:
     rec_total = len(data["recommended"])
-    core_total = len(data["core_defaults"])
-    ext_total = len(data["ext_defaults"])
-    total = rec_total + core_total + ext_total
-
+    tiers = data["tiers"]
     lines = [
         "# Skills Directory",
         "",
         "该文档与 README 同步，便于离线查阅。",
         "",
-        f"- 推荐 skills：`{rec_total}`",
-        f"- OpenClaw 官方默认 skills：`{core_total + ext_total}`（core `{core_total}` + extension `{ext_total}`）",
-        f"- 可查看总条目：`{total}`",
+        f"- 兼容精选 skills：`{rec_total}`",
+        f"- 默认 low：`{len(tiers['low'].get('skills', []))}`",
+        f"- 默认 medium：`{len(tiers['medium'].get('skills', []))}`",
+        f"- 默认 high：`{len(tiers['high'].get('skills', []))}`",
         "",
-        "完整目录请看仓库首页 `README.md` 的 Skills 章节。",
+        "默认 skills 详细说明请看 `docs/tiers/*.md` 与 `docs/SKILL_MANUALS.md`。",
     ]
     DOCS_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

@@ -1,0 +1,4 @@
+# requirements.txt for News Radar Skill
+
+# No additional dependencies required
+# Uses standard library: subprocess, json, argparse, datetime

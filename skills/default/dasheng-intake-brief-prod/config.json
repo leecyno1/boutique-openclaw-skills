@@ -1,0 +1,21 @@
+{
+  "name": "dasheng-intake-brief-prod",
+  "description": "复用型生产技能：重跑采集+第二环节强化brief输出",
+  "version": "2.1.0",
+  "workflow": {
+    "collector": "/Users/lichengyin/clawd/scripts/dasheng_skill_v11.py",
+    "phase2": "/Users/lichengyin/clawd/scripts/phase2_rebuilder.py",
+    "topic_spec": "/Users/lichengyin/clawd/configs/phase2/topic_specs.v1.json",
+    "runner": "/Users/lichengyin/clawd/skills/dasheng-intake-brief-prod/scripts/run_pipeline.py"
+  },
+  "outputs": [
+    "phase2-clusters-summary.json",
+    "phase2-brief-library.md",
+    "phase2-topn-for-confirmation.json",
+    "phase2-topic-index.json",
+    "phase2-editorial-briefs.json",
+    "phase2-bitable-rows.json",
+    "phase2-sync-contract.json",
+    "phase2-unmatched.json"
+  ]
+}

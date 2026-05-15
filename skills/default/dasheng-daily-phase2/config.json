@@ -1,0 +1,54 @@
+{
+  "name": "dasheng-daily-phase2",
+  "description": "大圣工作流第二环节：接收 intake 底稿，输出 8~10 个可执行详细 Brief（含衍生话题+大纲）",
+  "version": "2.0.0",
+  "freeze_policy": {
+    "format_locked": true,
+    "drift_allowed": false,
+    "change_requires_user_confirmation": true,
+    "lock_scope": [
+      "topic_count_8_10",
+      "derived_topics_3",
+      "outline_sections_5",
+      "evidence_items_3",
+      "next_actions_max_3"
+    ]
+  },
+  "trigger": {
+    "keyword": "第二环节",
+    "previous_step": "dasheng-daily-intake"
+  },
+  "aliases": [
+    "phase2",
+    "daily phase2",
+    "clustering+brief",
+    "第二环节",
+    "聚类brief",
+    "详细brief"
+  ],
+  "phase2": {
+    "script": "/Users/lichengyin/clawd/scripts/phase2_rebuilder.py",
+    "topic_spec_file": "/Users/lichengyin/clawd/configs/phase2/topic_specs.v1.json",
+    "domain_taxonomy": "/Users/lichengyin/clawd/configs/phase2/domain_taxonomy.v8.json",
+    "cluster_mode": "semantic",
+    "contract_version": "v8",
+    "cluster_target_min": 8,
+    "cluster_target_max": 10,
+    "min_count": 1,
+    "max_clusters": 10,
+    "top_n": 10,
+    "sa_only": false
+  },
+  "detailed_brief": {
+    "script": "/Users/lichengyin/clawd/skills/dasheng-daily-phase2/scripts/build_detailed_brief.py",
+    "topic_count_min": 8,
+    "topic_count_max": 10
+  },
+  "output": {
+    "subdir": "phase2",
+    "brief_markdown": "phase2-brief-library.md",
+    "topic_index": "phase2-topic-index.json",
+    "editorial_briefs": "phase2-editorial-briefs.json",
+    "detailed_brief_markdown": "phase2-detailed-briefs.md"
+  }
+}

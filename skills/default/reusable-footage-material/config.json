@@ -1,0 +1,34 @@
+{
+  "name": "reusable-footage-material",
+  "description": "可复用素材工作流：优先资料片/纪录片/历史影像，规避口播与对话类素材",
+  "version": "1.0.0",
+  "workflow_v2": {
+    "script": "/Users/lichengyin/clawd/scripts/run_topic_material_workflow_v2.py",
+    "python_bin": "/Users/lichengyin/clawd/.venv-material/bin/python",
+    "default_brief_json": "/Users/lichengyin/clawd/logs/daily-intake-20260325-094811/phase2-prod-v8-8to10/phase2-editorial-briefs.json",
+    "default_topic_rank": 8,
+    "cookie_mode": "cdp",
+    "cookie_file": "/Users/lichengyin/clawd/.runtime/cookies/cdp-cookies.txt",
+    "timeout_ms": 5400000
+  },
+  "quality_policy": {
+    "goal": "prefer documentary/archive footage and avoid talking-head/dialogue/large subtitles",
+    "min_related_raw": 3,
+    "min_search_raw": 3,
+    "min_related_clips": 3,
+    "min_search_clips": 5,
+    "filename_reject_keywords": [
+      "podcast",
+      "interview",
+      "talking",
+      "talk",
+      "vlog",
+      "dialog",
+      "reaction",
+      "访谈",
+      "口播",
+      "对谈",
+      "字幕"
+    ]
+  }
+}

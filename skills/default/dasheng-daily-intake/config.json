@@ -1,0 +1,38 @@
+{
+  "name": "dasheng-daily-intake",
+  "description": "大圣自媒体工作流的 Intake 环节：统一按过去24小时窗口采集；18080仅采集微信公众号文章；条目不足不补量。输出采集报告并发送到自媒体SOP创作群。",
+  "version": "3.2.0",
+  "trigger": {
+    "cron": "0 10 * * *",
+    "keyword": "daily intake"
+  },
+  "aliases": ["intake", "caiji", "dasheng-caiji", "大圣采集", "第一环节"],
+  "chat_id": "oc_975d43c5704bf8c755bb9e32bf7c3922",
+  "data_sources": [
+    "5173_recommended_notes_content_research_24h",
+    "18080_wechat_only_24h",
+    "8001_or_8090_wechat_articles_24h",
+    "web_search_hotspots_24h_optional"
+  ],
+  "output": {
+    "format": "feishu_doc+message",
+    "location": "feishu_folder",
+    "doc_name": "Intake 采集报告"
+  },
+  "feishu": {
+    "folder_token": "SpRqfe0VKlTUWzd313KczxKHngd",
+    "folder_naming": "YYYY-MM-DD",
+    "auto_create_folder": false
+  },
+  "requirements": {
+    "within_last_24h_only": true,
+    "allow_insufficient_count": true,
+    "18080_wechat_only": true,
+    "must_include_original_links": true,
+    "must_write_5173_content": true,
+    "must_write_18080_reports_content": true,
+    "must_write_wechat_article_list": true,
+    "must_send_doc_to_group": true,
+    "must_attach_screenshots": true
+  }
+}
