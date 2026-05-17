@@ -9,6 +9,7 @@ from typing import Dict, List
 
 REPO = Path(__file__).resolve().parents[1]
 CATALOG = REPO / "catalog" / "skills.json"
+ENRICHED_CATALOG = REPO / "catalog" / "skills.enriched.json"
 SKILL_DIRS = [
     Path.home() / ".openclaw" / "skills",
     Path.home() / "Desktop" / "Projects" / "clawdbot" / "skills",
@@ -25,6 +26,12 @@ HIGH_RISK_PATTERNS = [
 
 def load_catalog() -> dict:
     return json.loads(CATALOG.read_text(encoding="utf-8"))
+
+
+def load_enriched_catalog() -> dict:
+    if not ENRICHED_CATALOG.exists():
+        return {"skills": []}
+    return json.loads(ENRICHED_CATALOG.read_text(encoding="utf-8"))
 
 
 def find_skill_path(skill: str) -> Path | None:
@@ -67,7 +74,9 @@ def main() -> int:
     args = parser.parse_args()
 
     catalog = load_catalog()
+    enriched = load_enriched_catalog()
     skills = catalog.get("skills", [])
+    enriched_skills = enriched.get("skills", [])
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     dup_caps = {}
@@ -83,6 +92,27 @@ def main() -> int:
     env_missing = []
     risky = []
     resolved = []
+    missing_origins = [
+        {
+            "skill": item.get("id"),
+            "mirror_source_url": (item.get("origin") or {}).get("mirror_source_url"),
+        }
+        for item in enriched_skills
+        if (item.get("origin") or {}).get("needs_origin_review")
+    ]
+    standard_bundle_issues = []
+    standard_bundle_path = REPO / "catalog" / "standard-bundle.json"
+    if standard_bundle_path.exists():
+        bundle = json.loads(standard_bundle_path.read_text(encoding="utf-8"))
+        bundle_items = bundle.get("skills", [])
+        capabilities = [item.get("capability") for item in bundle_items]
+        conflicts = [item.get("conflict_group") for item in bundle_items]
+        if len(bundle_items) > 30:
+            standard_bundle_issues.append("standard bundle has more than 30 skills")
+        if len(set(capabilities)) != len(capabilities):
+            standard_bundle_issues.append("standard bundle has duplicate capabilities")
+        if len(set(conflicts)) != len(conflicts):
+            standard_bundle_issues.append("standard bundle has duplicate conflict groups")
 
     for s in skills:
         skill = s["skill"]
@@ -97,9 +127,9 @@ def main() -> int:
         risky.extend([{"skill": skill, **f} for f in scan_text_files(p)])
 
     status = "PASS"
-    if dup_caps or risky:
+    if dup_caps or risky or standard_bundle_issues:
         status = "FAIL"
-    elif missing or env_missing:
+    elif missing or env_missing or missing_origins:
         status = "WARN"
 
     result = {
@@ -112,8 +142,12 @@ def main() -> int:
             "missing_env": len(env_missing),
             "duplicate_capabilities": len(dup_caps),
             "risky_hits": len(risky),
+            "missing_native_origins": len(missing_origins),
+            "standard_bundle_issues": len(standard_bundle_issues),
         },
         "duplicates": dup_caps,
+        "missing_native_origins": missing_origins,
+        "standard_bundle_issues": standard_bundle_issues,
         "missing": missing,
         "missing_env": env_missing,
         "risky": risky,
@@ -131,6 +165,8 @@ def main() -> int:
         f"- Missing env vars: {len(env_missing)}",
         f"- Duplicate capabilities: {len(dup_caps)}",
         f"- Risk hits: {len(risky)}",
+        f"- Missing native origins: {len(missing_origins)}",
+        f"- Standard bundle issues: {len(standard_bundle_issues)}",
         "",
         "## Missing Skills",
     ]
@@ -145,6 +181,18 @@ def main() -> int:
             report_lines.append(f"- {cap}: {', '.join(owners)}")
     else:
         report_lines.append("- None")
+    report_lines.append("")
+    report_lines.append("## Missing Native Origins")
+    if missing_origins:
+        for item in missing_origins[:120]:
+            report_lines.append(f"- {item['skill']}: {item.get('mirror_source_url') or 'no mirror source'}")
+        if len(missing_origins) > 120:
+            report_lines.append(f"- ... {len(missing_origins)-120} more missing native origins")
+    else:
+        report_lines.append("- None")
+    report_lines.append("")
+    report_lines.append("## Standard Bundle Issues")
+    report_lines.extend([f"- {issue}" for issue in standard_bundle_issues] or ["- None"])
     report_lines.append("")
     report_lines.append("## Risk Findings")
     if risky:

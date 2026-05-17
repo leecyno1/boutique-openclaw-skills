@@ -1,35 +1,84 @@
-# Boutique Skills Repository Migration Plan
+# Task Plan: Skill Origin, Index, Scoring, and README Upgrade
 
 ## Goal
-Move default OpenClaw skills ownership from `OpenClawInstaller` into `boutique-openclaw-skills`, split skills into low / medium / high tiers, and make the installer treat this repo as the skills source of truth.
+Upgrade the repository from copied installer-source metadata to a maintainable enriched registry that supports native upstream URLs, horizontal tiers, vertical categories, dependency labels, scoring, monthly review, and a non-duplicated standard bundle.
 
 ## Phases
-- [completed] Phase 1: Inspect installer and boutique skill structures.
-- [completed] Phase 2: Add boutique tier catalog tests.
-- [completed] Phase 3: Import installer default skills into boutique.
-- [completed] Phase 4: Generate tier docs, manuals, and source links.
-- [completed] Phase 5: Update installer sync scripts/docs to use boutique.
-- [completed] Phase 6: Run targeted validations in both repos.
 
-## Constraints
-- Do not delete installer skills until sync path and tests are updated.
-- Keep installer focused on installer, website, registry, and tests.
-- Boutique owns skill curation and default skill docs going forward.
-- Preserve existing dirty work in OpenClawInstaller; do not revert unrelated changes.
+| Phase | Status | Output |
+|---|---|---|
+| 1. Audit current metadata shape | complete | Current catalog gaps and script inputs identified |
+| 2. Define enriched catalog schema | complete | Machine-readable schema and generated enriched catalog |
+| 3. Generate indexes and README sections | complete | Tier/type/dependency/standard bundle Markdown generated |
+| 4. Update monthly automation docs | complete | GitHub Action and update SOP changed to monthly review |
+| 5. Run verification checks | complete | JSON validity, generator output, audit command results |
+
+## Decisions
+- Treat existing installer URLs as mirror sources, not native origins.
+- Preserve existing skill files; add metadata/index generation rather than editing hundreds of skill directories manually.
+- Use deterministic heuristic classification as a first pass, with explicit `origin_confidence` and `needs_origin_review` flags.
+- Exclude Open/Hermes preset skills from the standard install bundle via a preset exclusion list.
 
 ## Errors Encountered
 | Error | Attempt | Resolution |
 |---|---|---|
 
-## Validation
+## Continuation Phases
 
-- `python3 -m unittest discover -s tests` passed.
-- `./scripts/install-tier.sh high --dry-run` passed.
-- `./scripts/build-bundle.sh` includes `tiers/`, `skills/`, and generated manuals.
+| Phase | Status | Output |
+|---|---|---|
+| 6. Review installer and audit scripts | complete | Identify where standard bundle and origin gate fit |
+| 7. Add origin audit gate | complete | Audit reports missing native origin counts |
+| 8. Add standard bundle installer | complete | Install the no-duplicate standard bundle |
+| 9. Refresh README usage docs | complete | Usage command documented on README home |
+| 10. Run verification checks | complete | JSON/script/audit/install dry-run verified |
 
-## Final Validation
+## Origin Refill Batch 1
 
-- Boutique README/docs regenerated for default-tier-first messaging.
-- `python3 -m unittest discover -s tests` passed.
-- `./scripts/install-tier.sh high --dry-run` passed.
-- OpenClawInstaller `./scripts/release-check.sh` passed after installer slim-down.
+| Phase | Status | Output |
+|---|---|---|
+| 11. Identify priority missing origins | complete | Standard bundle and L1 missing origins listed |
+| 12. Verify first-party source URLs | complete | Confirmed reachable first-party URLs only |
+| 13. Update origin overrides | complete | Added verified overrides for priority skills |
+| 14. Regenerate indexes | complete | Enriched catalog and README refreshed |
+| 15. Run verification checks | complete | JSON/audit/install checks rerun |
+
+## Origin Refill Batch 2
+
+| Phase | Status | Output |
+|---|---|---|
+| 16. List next missing candidates | complete | Standard leftovers and high-value category gaps listed |
+| 17. Search and verify sources | complete | Reachable sources checked for batch 2 |
+| 18. Patch origin overrides | complete | Added second batch of verified origin URLs |
+| 19. Regenerate catalog outputs | complete | Enriched catalog and README refreshed |
+| 20. Run final checks | complete | JSON/audit/install checks rerun |
+
+## Origin Refill Batch 3
+
+| Phase | Status | Output |
+|---|---|---|
+| 21. List finance missing origins | complete | Remaining finance-trading gaps identified |
+| 22. Find matching upstream sources | complete | TraderMonty, finance-skills, AlphaEar, ClawHub candidates matched |
+| 23. Patch verified finance origins | complete | Added verified finance origin URLs in bulk |
+| 24. Regenerate registry outputs | complete | Enriched catalog and README refreshed |
+| 25. Run verification checks | complete | JSON/audit/install checks rerun |
+
+## Origin Refill Batch 4
+
+| Phase | Status | Output |
+|---|---|---|
+| 26. List remaining missing origins | complete | Remaining 31 gaps listed |
+| 27. Verify remaining source candidates | complete | Workflow, AgentMail, Paperless, MiniMax, finance leftovers checked |
+| 28. Patch final origin overrides | complete | Added final verified batch |
+| 29. Regenerate all outputs | complete | Enriched catalog and README refreshed |
+| 30. Run completion checks | complete | JSON/audit/install checks rerun |
+
+## Goal Completion Cleanup
+
+| Phase | Status | Output |
+|---|---|---|
+| 31. Resolve final four origins | complete | animation, writing-plans, finance-data sourced; shell excluded as preset |
+| 32. Patch source policy metadata | complete | Preset exclusions do not count as missing origins |
+| 33. Regenerate registry outputs | complete | Enriched catalog and README refreshed |
+| 34. Run full verification | complete | JSON/audit/install checks rerun |
+| 35. Mark goal complete | in_progress | Goal marked complete after verification |

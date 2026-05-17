@@ -39,6 +39,9 @@ for skill in "${SKILLS[@]}"; do
   fi
 done
 
+echo "[INFO] generating enriched catalog" | tee -a "$LOG"
+python3 "$REPO_ROOT/scripts/generate_enriched_catalog.py" | tee -a "$LOG"
+
 echo "[INFO] running audit" | tee -a "$LOG"
 python3 "$REPO_ROOT/scripts/audit_skills.py" --report "$REPORT_DIR/audit-$TS.md" --json "$REPORT_DIR/audit-$TS.json" | tee -a "$LOG"
 

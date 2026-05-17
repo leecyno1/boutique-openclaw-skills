@@ -3,7 +3,7 @@ name: Sync and Audit Skills
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "15 2 * * 1" # weekly Monday UTC
+    - cron: "15 2 1 * *" # monthly on the 1st UTC
 
 jobs:
   sync-audit:
@@ -25,7 +25,7 @@ jobs:
       - name: Install clawhub
         run: npm i -g clawhub
 
-      - name: Run sync + audit
+      - name: Run monthly sync + enrichment + audit
         run: |
           chmod +x scripts/*.sh scripts/*.py
           ./scripts/sync-upstream.sh

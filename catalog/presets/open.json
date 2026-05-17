@@ -1,0 +1,14 @@
+{
+  "agent": "open",
+  "preset_skills": [
+    "browser",
+    "computer-use",
+    "documents",
+    "imagegen",
+    "openai-docs",
+    "presentations",
+    "remotion",
+    "shell",
+    "spreadsheets"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "agent": "hermes",
+  "preset_skills": [
+    "browser",
+    "computer-use",
+    "docx",
+    "pdf",
+    "pptx",
+    "shell",
+    "web-search",
+    "xlsx"
+  ]
+}
