@@ -583,13 +583,29 @@ def readme_origin(item: dict[str, Any]) -> str:
 
 def render_badges(summary: dict[str, Any], bundle: dict[str, Any]) -> str:
     badges = [
-        "![Curated](https://img.shields.io/badge/curated-boutique-gold)",
-        f"![Skills](https://img.shields.io/badge/skills-{summary['skills']}-blue)",
-        f"![Origins](https://img.shields.io/badge/native%20origins-{summary['needs_origin_review']}%20missing-brightgreen)",
-        f"![Standard Bundle](https://img.shields.io/badge/standard%20bundle-{len(bundle['skills'])}%20skills-purple)",
-        "![License](https://img.shields.io/badge/license-MIT-lightgrey)",
+        "[![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)",
+        f"[![Skills](https://img.shields.io/badge/Skills-{summary['skills']}-2ea44f)](#all-skills)",
+        "[![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)",
+        f"[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-{len(bundle['skills'])}%20skills-7c3aed)](catalog/standard-bundle.json)",
+        "[![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)",
+        "[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)",
     ]
     return "\n".join(badges)
+
+
+def render_tech_stack_badges() -> str:
+    return "\n".join([
+        '<p align="center">',
+        '  <img src="https://skillicons.dev/icons?i=python,fastapi,pydantic,postgres,redis,docker,githubactions&theme=dark" alt="Core technology stack" />',
+        '</p>',
+        '<p align="center">',
+        '  <img src="https://img.shields.io/badge/OpenAI-Model%20Support-111827?logo=openai&logoColor=white" alt="OpenAI" />',
+        '  <img src="https://img.shields.io/badge/Anthropic-Claude%20Ready-111827" alt="Anthropic" />',
+        '  <img src="https://img.shields.io/badge/ModelScope-Model%20Ecosystem-111827" alt="ModelScope" />',
+        '  <img src="https://img.shields.io/badge/UV-Python%20Packaging-111827" alt="UV" />',
+        '  <img src="https://img.shields.io/badge/SQLAlchemy-ORM-111827" alt="SQLAlchemy" />',
+        '</p>',
+    ])
 
 
 def render_stats(summary: dict[str, Any], bundle: dict[str, Any]) -> str:
@@ -630,13 +646,33 @@ def render_standard_bundle_table(bundle: dict[str, Any]) -> str:
 def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
     summary = enriched["summary"]
     return "\n".join([
+        '<div align="center">',
+        "",
+        '<img src="assets/boutique-openclaw-skills-hero.png" alt="Boutique OpenClaw Skills hero" width="100%" />',
+        "",
         "# Boutique OpenClaw Skills",
         "",
-        "![Boutique OpenClaw Skills](assets/boutique-openclaw-skills-hero.png)",
+        "**Curated skills for capable OpenClaw, Open, and Hermes agents.**",
+        "",
+        "**面向智能体的精品技能仓库：原生来源可审计、能力不重复、安装可控、持续月评。**",
         "",
         render_badges(summary, bundle),
         "",
-        "A curated, source-audited skill registry for building capable OpenClaw, Open, and Hermes agents without duplicate tools or noisy installs.",
+        render_tech_stack_badges(),
+        "",
+        '<img src="assets/boutique-logo-tech-card.png" alt="Boutique OpenClaw Skills logo and technology card" width="86%" />',
+        "",
+        "</div>",
+        "",
+        "## 中文说明",
+        "",
+        "Boutique OpenClaw Skills 是一个面向 AI Agent 的精品技能合集。仓库把默认技能、标准配置组、横向分级、纵向分类、API Key/工具依赖、风险等级、冲突组和原生上游来源统一整理成可审计的注册表，目标是让用户安装后即获得一套少重复、低噪声、生产可用的能力组合。",
+        "",
+        "本仓库强调三件事：一是每个活跃 skill 都必须能追溯到 GitHub、ClawHub/CL.Up、skills.h 或官方项目站点；二是同一能力只推荐一个最佳 skill，避免 Web Search、PDF、Email、Finance Data 等能力重复安装；三是每月自动重建索引和审计报告，让 README、JSON Catalog 与安装包保持一致。",
+        "",
+        "## Overview",
+        "",
+        "Boutique OpenClaw Skills is a source-audited skill registry for building capable OpenClaw, Open, and Hermes agents without duplicate tools or noisy installs. It keeps a full machine-readable catalog, a recommended no-duplicate bundle, generated indexes, and monthly audit automation in one place.",
         "",
         "## Quick Start",
         "",
