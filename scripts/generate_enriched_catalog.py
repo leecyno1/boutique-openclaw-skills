@@ -494,41 +494,6 @@ def md_link(url: str | None, label: str = "origin") -> str:
     return f"[{label}]({url})" if url else "待补"
 
 
-def render_standard_table(bundle: dict[str, Any]) -> str:
-    lines = [
-        "## 标准技能配置组（≤30，无重复能力）",
-        "",
-        "安装原则：每个能力只选择一个评分最高且未被 Open/Hermes 预置的 skill，避免重复安装导致冲突或 token 浪费。",
-        "",
-        "```bash",
-        "./scripts/install-standard-bundle.sh --dry-run",
-        "./scripts/install-standard-bundle.sh",
-        "```",
-        "",
-        "| 能力 | 推荐 Skill | 星级 | 使用条件 | 原生来源 |",
-        "|---|---|---:|---|---|",
-    ]
-    for item in bundle["skills"]:
-        lines.append(
-            f"| `{item['capability']}` | `{item['skill']}` | {item['stars']}★ | `{item['access_mode']}` | {md_link(item['origin_url'])} |"
-        )
-    return "\n".join(lines)
-
-
-def render_summary(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
-    summary = enriched["summary"]
-    lines = [
-        "- 默认 skill 去重数：`{}`".format(summary["skills"]),
-        "- 已有原生来源或本地来源线索：`{}`".format(summary["native_origin_verified_or_referenced"]),
-        "- 仍需人工确认原生来源：`{}`".format(summary["needs_origin_review"]),
-        "- Open/Hermes 预置排除：`{}`".format(summary["preset_excluded"]),
-        "- 标准配置组：`{}` / `30`".format(len(bundle["skills"])),
-        "",
-        "> `source` 中的安装器仓库路径仅视为镜像来源；`origin.origin_url` 才是一手原生来源。缺失原生来源的 skill 最高只能获得 2★。",
-    ]
-    return "\n".join(lines)
-
-
 def render_horizontal_index(skills: list[dict[str, Any]]) -> str:
     grouped = defaultdict(list)
     for item in skills:
@@ -610,55 +575,144 @@ def render_scoring_model() -> str:
 """
 
 
-def render_readme_block(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
-    top_foundation = [s for s in enriched["skills"] if s["horizontal_tier"] == "L1 Foundation"][:15]
-    top_missing = [s for s in enriched["skills"] if s["origin"].get("needs_origin_review")][:20]
+def readme_origin(item: dict[str, Any]) -> str:
+    if item["preset_excluded"]:
+        return "Preset"
+    return md_link(item["origin"].get("origin_url"), "Source")
+
+
+def render_badges(summary: dict[str, Any], bundle: dict[str, Any]) -> str:
+    badges = [
+        "![Curated](https://img.shields.io/badge/curated-boutique-gold)",
+        f"![Skills](https://img.shields.io/badge/skills-{summary['skills']}-blue)",
+        f"![Origins](https://img.shields.io/badge/native%20origins-{summary['needs_origin_review']}%20missing-brightgreen)",
+        f"![Standard Bundle](https://img.shields.io/badge/standard%20bundle-{len(bundle['skills'])}%20skills-purple)",
+        "![License](https://img.shields.io/badge/license-MIT-lightgrey)",
+    ]
+    return "\n".join(badges)
+
+
+def render_stats(summary: dict[str, Any], bundle: dict[str, Any]) -> str:
+    return "\n".join([
+        "| Metric | Value |",
+        "|---|---:|",
+        f"| Curated skills | {summary['skills']} |",
+        f"| Native sources verified or referenced | {summary['native_origin_verified_or_referenced']} |",
+        f"| Agent preset exclusions | {summary['preset_excluded']} |",
+        f"| Missing native origins | {summary['needs_origin_review']} |",
+        f"| Standard bundle size | {len(bundle['skills'])} / 30 |",
+    ])
+
+
+def render_all_skills_table(skills: list[dict[str, Any]]) -> str:
     lines = [
-        "## Registry Snapshot",
-        "",
-        render_summary(enriched, bundle),
-        "",
-        render_standard_table(bundle),
-        "",
-        "## 双索引",
-        "",
-        "| 索引 | 说明 | 文件 |",
-        "|---|---|---|",
-        "| 横向分级 | L1 Foundation / L2 Professional / L3 Specialist | [`docs/generated/horizontal-index.md`](docs/generated/horizontal-index.md) |",
-        "| 纵向类型 | 按用途分类，如 coding、design、finance、writing 等 | [`docs/generated/type-index.md`](docs/generated/type-index.md) |",
-        "| 使用条件 | API key、额外 tools、运行方式、风险 | [`docs/generated/dependency-index.md`](docs/generated/dependency-index.md) |",
-        "| 评分体系 | 五星评分规则和月评增强方向 | [`docs/generated/scoring-model.md`](docs/generated/scoring-model.md) |",
-        "",
-        "## L1 Foundation Top Skills",
-        "",
-        "| Skill | 类型 | 星级 | 原生来源 |",
-        "|---|---|---:|---|",
+        "| Skill | Tier | Type | Stars | Use | Origin |",
+        "|---|---|---|---:|---|---|",
     ]
-    for item in top_foundation:
-        lines.append(f"| `{item['id']}` | {item['category_label']} | {item['rating']['stars']}★ | {md_link(item['origin']['origin_url'])} |")
-    lines += [
-        "",
-        "## 原生来源待补清单（前 20）",
-        "",
-        "这些 skill 当前只有镜像来源或缺少一手来源，月评时需要优先补齐。",
-        "",
-        "| Skill | 类型 | 镜像来源 |",
-        "|---|---|---|",
-    ]
-    for item in top_missing:
-        mirror = item["origin"].get("mirror_source_url") or ""
-        lines.append(f"| `{item['id']}` | {item['category_label']} | {md_link(mirror, 'mirror')} |")
+    for item in sorted(skills, key=lambda s: (s["primary_category"], s["id"])):
+        lines.append(
+            f"| `{item['id']}` | `{item['horizontal_tier']}` | `{item['primary_category']}` | "
+            f"{item['rating']['stars']}★ | `{item['dependencies']['access_mode']}` | {readme_origin(item)} |"
+        )
     return "\n".join(lines)
 
 
-def update_readme(block: str) -> None:
-    text = README_PATH.read_text(encoding="utf-8")
-    start = text.find(MARKER_START)
-    end = text.find(MARKER_END)
-    if start == -1 or end == -1 or end < start:
-        raise RuntimeError("README markers not found")
-    new_text = text[: start + len(MARKER_START)] + "\n" + block + "\n" + text[end:]
-    README_PATH.write_text(new_text, encoding="utf-8")
+def render_standard_bundle_table(bundle: dict[str, Any]) -> str:
+    lines = [
+        "| Capability | Skill | Stars | Use |",
+        "|---|---|---:|---|",
+    ]
+    for item in bundle["skills"]:
+        lines.append(f"| `{item['capability']}` | `{item['skill']}` | {item['stars']}★ | `{item['access_mode']}` |")
+    return "\n".join(lines)
+
+
+def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
+    summary = enriched["summary"]
+    return "\n".join([
+        "# Boutique OpenClaw Skills",
+        "",
+        "![Boutique OpenClaw Skills](assets/boutique-openclaw-skills-hero.png)",
+        "",
+        render_badges(summary, bundle),
+        "",
+        "A curated, source-audited skill registry for building capable OpenClaw, Open, and Hermes agents without duplicate tools or noisy installs.",
+        "",
+        "## Quick Start",
+        "",
+        "Install the recommended no-duplicate bundle:",
+        "",
+        "```bash",
+        "./scripts/install-standard-bundle.sh --dry-run",
+        "./scripts/install-standard-bundle.sh",
+        "```",
+        "",
+        "Or install a tier:",
+        "",
+        "```bash",
+        "./scripts/install-tier.sh low",
+        "./scripts/install-tier.sh medium",
+        "./scripts/install-tier.sh high",
+        "```",
+        "",
+        "## At A Glance",
+        "",
+        render_stats(summary, bundle),
+        "",
+        "## Standard Bundle",
+        "",
+        "The standard bundle keeps one best skill per capability and excludes skills already built into Open or Hermes.",
+        "",
+        render_standard_bundle_table(bundle),
+        "",
+        "## All Skills",
+        "",
+        render_all_skills_table(enriched["skills"]),
+        "",
+        "## Indexes",
+        "",
+        "| Document | What it shows |",
+        "|---|---|",
+        "| [Horizontal index](docs/generated/horizontal-index.md) | L1 Foundation, L2 Professional, L3 Specialist |",
+        "| [Type index](docs/generated/type-index.md) | Coding, design, finance, writing, research, media, docs, and more |",
+        "| [Dependency index](docs/generated/dependency-index.md) | API keys, tools, runtime mode, and risk |",
+        "| [Scoring model](docs/generated/scoring-model.md) | How star ratings are calculated |",
+        "| [Update and audit SOP](docs/UPDATE_AND_AUDIT.md) | Monthly review process and risk gates |",
+        "",
+        "## Curation Rules",
+        "",
+        "- Every active skill must have a native upstream source; mirrors and copied installer paths are not treated as origins.",
+        "- The standard bundle avoids duplicate capabilities by using conflict groups such as `web-search`, `document-pdf`, `email-agent`, and `finance-data`.",
+        "- Open and Hermes preset skills are excluded from bundle installs because the target agent already provides them.",
+        "- Monthly automation regenerates the registry, indexes, README, standard bundle, and audit reports.",
+        "",
+        "## Repository Map",
+        "",
+        "| Path | Purpose |",
+        "|---|---|",
+        "| `skills/default/` | Local skill sources |",
+        "| `catalog/skills.enriched.json` | Full machine-readable registry |",
+        "| `catalog/standard-bundle.json` | Recommended no-duplicate install set |",
+        "| `catalog/native-origin-overrides.json` | Verified native upstream source map |",
+        "| `catalog/presets/` | Open and Hermes preset exclusions |",
+        "| `docs/generated/` | Generated human-readable indexes |",
+        "| `scripts/` | Install, sync, enrich, audit, and bundle tools |",
+        "",
+        "## Maintenance",
+        "",
+        "```bash",
+        "python3 scripts/generate_enriched_catalog.py",
+        "python3 scripts/audit_skills.py",
+        "./scripts/build-bundle.sh",
+        "```",
+        "",
+        "The scheduled workflow runs monthly from `.github/workflows/sync-audit.yml`.",
+        "",
+        "## License",
+        "",
+        "[MIT](LICENSE)",
+        "",
+    ])
 
 
 def write_outputs(enriched: dict[str, Any], bundle: dict[str, Any]) -> None:
@@ -668,7 +722,7 @@ def write_outputs(enriched: dict[str, Any], bundle: dict[str, Any]) -> None:
     TYPE_PATH.write_text(render_type_index(enriched["skills"]), encoding="utf-8")
     DEPENDENCY_PATH.write_text(render_dependency_index(enriched["skills"]), encoding="utf-8")
     SCORING_PATH.write_text(render_scoring_model(), encoding="utf-8")
-    update_readme(render_readme_block(enriched, bundle))
+    README_PATH.write_text(render_readme(enriched, bundle), encoding="utf-8")
 
 
 def main() -> int:

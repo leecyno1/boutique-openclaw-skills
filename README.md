@@ -1,317 +1,300 @@
-# boutique-openclaw-skills
+# Boutique OpenClaw Skills
 
-![Boutique OpenClaw Skills](assets/logo.png)
-![Boutique Hero](assets/hero.png)
-![Profiles Matrix](assets/profiles.png)
+![Boutique OpenClaw Skills](assets/boutique-openclaw-skills-hero.png)
 
-## 仓库参数（Repository Parameters）
+![Curated](https://img.shields.io/badge/curated-boutique-gold)
+![Skills](https://img.shields.io/badge/skills-179-blue)
+![Origins](https://img.shields.io/badge/native%20origins-0%20missing-brightgreen)
+![Standard Bundle](https://img.shields.io/badge/standard%20bundle-28%20skills-purple)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-| 参数 | 值 |
-|---|---|
-| Curation 模式 | Default Skills Tier Registry + Boutique Profiles |
-| 默认技能数 | 318 |
-| 默认三档 | low `67` / medium `74` / high `179` |
-| 行业档数量 | 7（兼容保留） |
-| 更新策略 | 从安装器或上游源导入后生成三档与手册 |
-| 审计策略 | 本地审计（风险/依赖/冲突） |
-| 打包格式 | `dist/*.tar.gz` |
-| 目标 | 让安装器仓库瘦身，并集中维护默认 skills |
+A curated, source-audited skill registry for building capable OpenClaw, Open, and Hermes agents without duplicate tools or noisy installs.
 
-## 快捷导航（Quick Navigation）
+## Quick Start
 
-- [快速开始](#2-快速开始)
-- [默认 Skills 三档](#3-默认-skills-三档default-skill-tiers)
-- [更新与审计机制](#6-更新与审计机制)
-- [安全与质量原则](#7-安全与质量原则)
-- [打包发布](#8-打包发布)
-- [设计说明](#9-设计说明)
-- [默认技能手册索引](docs/SKILL_MANUALS.md)
-- [精选策略文档](docs/CURATION_POLICY.md)
-- [更新与审计SOP](docs/UPDATE_AND_AUDIT.md)
-- [行业映射说明](docs/INDUSTRY_MAP.md)
-
-**Boutique Skills Registry** 是 OpenClaw 默认 skills 的独立维护仓库：
-
-- 安装器仓库不再 vendoring 默认 skills 大包，只负责安装、网站接线、注册表与测试。
-- 本仓库维护 `skills/default`、`tiers/low|medium|high.json`、三档说明、使用手册和原仓库链接。
-- 低/中/高三档作为安装主线；原行业 profiles 作为兼容/附加精选能力保留。
-- 更新后本地审计，发布 bundle 给安装器或用户同步。
-
-> 核心目标：集中维护默认技能，降低安装器体积，并让技能分档、说明和来源可审计。
-
----
-
-## 1) 为什么做这个项目
-
-在大量 skills 混装场景中，常见问题包括：
-
-1. 能力重复：同一功能有多个 skill，导致 agent 选错工具。
-2. Token 浪费：重复工具都被检索/评估，推理链变长。
-3. 版本混乱：更新后行为漂移，定位问题成本高。
-4. 安全不可控：第三方 skill 更新后引入风险不易感知。
-
-**Boutique 模式**通过独立仓库和三档清单把这些问题压到最低。
-
----
-
-## 2) 快速开始
-
-### 前置
-
-- 已安装 OpenClaw
-- 如由安装器调用，无需手动执行本仓库脚本；安装器默认从 Gitee `OPENCLAW_SKILLS_REPO_URL=https://gitee.com/leecyno1/boutique-openclaw-skills.git` 拉取，GitHub 作为回退。
-
-### 安装标准配置组（推荐）
-
-标准配置组最多 30 个 skill，每个能力只安装一个评分最高且未被 Open/Hermes 预置的选择。
+Install the recommended no-duplicate bundle:
 
 ```bash
 ./scripts/install-standard-bundle.sh --dry-run
 ./scripts/install-standard-bundle.sh
 ```
 
-### 安装默认三档
+Or install a tier:
 
 ```bash
-./scripts/install-tier.sh low --dry-run
+./scripts/install-tier.sh low
 ./scripts/install-tier.sh medium
 ./scripts/install-tier.sh high
 ```
 
-### 查看兼容行业档
+## At A Glance
+
+| Metric | Value |
+|---|---:|
+| Curated skills | 179 |
+| Native sources verified or referenced | 173 |
+| Agent preset exclusions | 6 |
+| Missing native origins | 0 |
+| Standard bundle size | 28 / 30 |
+
+## Standard Bundle
+
+The standard bundle keeps one best skill per capability and excludes skills already built into Open or Hermes.
+
+| Capability | Skill | Stars | Use |
+|---|---|---:|---|
+| `agent-method` | `brainstorming` | 5★ | `direct` |
+| `skill-discovery` | `find-skills` | 5★ | `direct` |
+| `web-search` | `multi-search-engine` | 5★ | `direct` |
+| `url-extraction` | `url-to-markdown` | 4★ | `browser-required` |
+| `browser-automation` | `agent-browser` | 4★ | `browser-required` |
+| `code-hosting` | `github` | 4★ | `api-key` |
+| `task-tracking` | `task` | 5★ | `direct` |
+| `planning` | `planning-with-files` | 5★ | `direct` |
+| `verification` | `verification-before-completion` | 5★ | `direct` |
+| `skill-authoring` | `skill-creator` | 5★ | `direct` |
+| `security-review` | `skill-security-auditor` | 5★ | `direct` |
+| `data-analysis` | `data-analyst` | 5★ | `direct` |
+| `docs` | `minimax-docx` | 4★ | `direct` |
+| `spreadsheet` | `minimax-xlsx` | 4★ | `direct` |
+| `slides` | `pptx-generator` | 4★ | `direct` |
+| `pdf` | `nano-pdf` | 5★ | `direct` |
+| `frontend` | `generative-ui` | 5★ | `direct` |
+| `fullstack` | `fullstack-dev` | 3★ | `api-key` |
+| `mcp` | `mcp-builder` | 4★ | `mcp-required` |
+| `media-download` | `media-downloader` | 3★ | `api-key` |
+| `image-generation` | `gemini-image-service` | 3★ | `api-key` |
+| `research-news` | `news-radar` | 4★ | `mcp-required` |
+| `finance-data` | `finance-data` | 4★ | `mcp-required` |
+| `content-strategy` | `content-strategy` | 4★ | `direct` |
+| `writing` | `writing-skills` | 5★ | `direct` |
+| `automation-followup` | `proactive-agent` | 5★ | `direct` |
+| `cost-observability` | `model-usage` | 5★ | `direct` |
+| `weather` | `weather` | 5★ | `direct` |
+
+## All Skills
+
+| Skill | Tier | Type | Stars | Use | Origin |
+|---|---|---|---:|---|---|
+| `capability-evolver` | `L3 Specialist` | `agent-orchestration` | 4★ | `direct` | [Source](https://mcp.directory/skills/details/1368/capability-evolver) |
+| `openclaw-cron-setup` | `L2 Professional` | `agent-orchestration` | 4★ | `browser-required` | [Source](https://clawhub.ai/skills/openclaw-cron-setup) |
+| `self-improving-agent-cn` | `L2 Professional` | `agent-orchestration` | 5★ | `direct` | [Source](https://clawhub.ai/zhengxinjipai/self-improving-agent-cn) |
+| `notebooklm-skill` | `L2 Professional` | `browser-automation` | 3★ | `api-key` | [Source](https://github.com/PleasePrompto/notebooklm-skill) |
+| `oracle` | `L3 Specialist` | `browser-automation` | 3★ | `api-key` | [Source](https://github.com/steipete/oracle) |
+| `agentmail-mcp` | `L2 Professional` | `coding-devtools` | 4★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-mcp) |
+| `android-native-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/android-native-dev) |
+| `backtest-expert` | `L2 Professional` | `coding-devtools` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/backtest-expert) |
+| `baoyu-image-gen` | `L2 Professional` | `coding-devtools` | 4★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-image-gen) |
+| `flutter-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/flutter-dev) |
+| `frontend-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev) |
+| `fullstack-dev` | `L2 Professional` | `coding-devtools` | 3★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/fullstack-dev) |
+| `ios-application-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/ios-application-dev) |
+| `react-native-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/react-native-dev) |
+| `shader-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/shader-dev) |
+| `estimate-analysis` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
+| `hormuz-strait` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
+| `inference-skills` | `L3 Specialist` | `commerce-ops` | 3★ | `api-key` | [Source](https://github.com/inference-sh/skills) |
+| `scenario-analyzer` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills) |
+| `sepa-strategy` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
+| `skill-idea-miner` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-idea-miner) |
+| `startup-analysis` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/startup-tools/skills/startup-analysis) |
+| `agent-browser` | `L1 Foundation` | `core-agent` | 4★ | `browser-required` | [Source](https://openclawdoc.com/docs/skills/clawhub/) |
+| `brainstorming` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/baz-scm/agentskills/tree/main/skills/brainstorming) |
+| `chrome-devtools-mcp` | `L1 Foundation` | `core-agent` | 4★ | `mcp-required` | [Source](https://github.com/ChromeDevTools/chrome-devtools-mcp) |
+| `find-skills` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/vercel-labs/skills/tree/main/skills/find-skills) |
+| `github` | `L1 Foundation` | `core-agent` | 4★ | `api-key` | [Source](https://github.com/github/github-mcp-server) |
+| `mcp-builder` | `L1 Foundation` | `core-agent` | 4★ | `mcp-required` | [Source](https://modelcontextprotocol.io/docs/getting-started/intro) |
+| `model-usage` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://clawhub.ai/steipete/model-usage) |
+| `planning-with-files` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/OthmanAdi/planning-with-files) |
+| `shell` | `L1 Foundation` | `core-agent` | 1★ | `direct` | Preset |
+| `skill-creator` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/anthropics/skills/tree/main/skills/skill-creator) |
+| `skill-security-auditor` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://clawhub.ai/akhmittra/skill-security-auditor) |
+| `subagent-driven-development` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development) |
+| `task` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/openclaw/skills/tree/main/skills/amirbrooks/task) |
+| `todo` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/sachaos/todoist) |
+| `url-to-markdown` | `L1 Foundation` | `core-agent` | 4★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
+| `using-superpowers` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/obra/superpowers/tree/main/skills/using-superpowers) |
+| `verification-before-completion` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/obra/superpowers/tree/main/skills/verification-before-completion) |
+| `weather` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://open-meteo.com/) |
+| `web-search` | `L1 Foundation` | `core-agent` | 1★ | `browser-required` | Preset |
+| `writing-skills` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/obra/superpowers/tree/main/skills/writing-skills) |
+| `baoyu-youtube-transcript` | `L2 Professional` | `data-analysis` | 5★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-youtube-transcript) |
+| `data-analyst` | `L2 Professional` | `data-analysis` | 5★ | `direct` | [Source](https://github.com/openclaw/skills/blob/main/skills/oyi77/data-analyst/SKILL.md) |
+| `dual-axis-skill-reviewer` | `L2 Professional` | `data-analysis` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dual-axis-skill-reviewer) |
+| `edge-signal-aggregator` | `L2 Professional` | `data-analysis` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-signal-aggregator) |
+| `minimax-xlsx` | `L2 Professional` | `data-analysis` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-xlsx) |
+| `skill-integration-tester` | `L2 Professional` | `data-analysis` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-integration-tester) |
+| `xlsx` | `L2 Professional` | `data-analysis` | 1★ | `direct` | Preset |
+| `agentmail` | `L2 Professional` | `design-ui` | 3★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-skills) |
+| `agentmail-toolkit` | `L2 Professional` | `design-ui` | 4★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-toolkit) |
+| `animation` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/bytesagain/ai-skills) |
+| `baoyu-danger-x-to-markdown` | `L2 Professional` | `design-ui` | 2★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills#baoyu-danger-x-to-markdown) |
+| `edge-concept-synthesizer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-concept-synthesizer) |
+| `edge-strategy-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-designer) |
+| `generative-ui` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui) |
+| `skill-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-designer) |
+| `strategy-pivot-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/strategy-pivot-designer) |
+| `docx` | `L2 Professional` | `docs-office` | 1★ | `direct` | Preset |
+| `lark-calendar` | `L2 Professional` | `docs-office` | 4★ | `api-key` | [Source](https://github.com/larksuite/oapi-sdk-nodejs) |
+| `minimax-docx` | `L2 Professional` | `docs-office` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-docx) |
+| `minimax-pdf` | `L2 Professional` | `docs-office` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-pdf) |
+| `nano-pdf` | `L2 Professional` | `docs-office` | 5★ | `direct` | [Source](https://github.com/steipete/clawdis/tree/main/skills/nano-pdf) |
+| `pdf` | `L2 Professional` | `docs-office` | 1★ | `direct` | Preset |
+| `pptx` | `L2 Professional` | `docs-office` | 1★ | `direct` | Preset |
+| `pptx-generator` | `L2 Professional` | `docs-office` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator) |
+| `social-content` | `L2 Professional` | `docs-office` | 4★ | `direct` | [Source](https://github.com/coreyhaines31/marketingskills/tree/main/skills/social-content) |
+| `ai-image-generation` | `L2 Professional` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/inference-sh/skills/tree/main/tools/image/ai-image-generation) |
+| `akshare-stock` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://clawhub.ai/skills/new-akshare-stock) |
+| `alphaear-deepear-lite` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-deepear-lite) |
+| `alphaear-logic-visualizer` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-logic-visualizer) |
+| `alphaear-news` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-news) |
+| `alphaear-predictor` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-predictor) |
+| `alphaear-reporter` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-reporter) |
+| `alphaear-search` | `L3 Specialist` | `finance-trading` | 3★ | `browser-required` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-search) |
+| `alphaear-sentiment` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-sentiment) |
+| `alphaear-signal-tracker` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-signal-tracker) |
+| `alphaear-stock` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-stock) |
+| `breadth-chart-analyst` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/breadth-chart-analyst) |
+| `breakout-trade-planner` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/breakout-trade-planner) |
+| `canslim-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/canslim-screener) |
+| `company-valuation` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
+| `content-strategy` | `L2 Professional` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy) |
+| `data-quality-checker` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/data-quality-checker) |
+| `dividend-growth-pullback-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dividend-growth-pullback-screener) |
+| `downtrend-duration-analyzer` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/downtrend-duration-analyzer) |
+| `earnings-calendar` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/earnings-calendar) |
+| `earnings-preview` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills) |
+| `earnings-recap` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills) |
+| `earnings-trade-analyzer` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/earnings-trade-analyzer) |
+| `economic-calendar-fetcher` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/economic-calendar-fetcher) |
+| `edge-candidate-agent` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-candidate-agent) |
+| `edge-hint-extractor` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-hint-extractor) |
+| `etf-premium` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills) |
+| `exposure-coach` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/exposure-coach) |
+| `finance-data` | `L2 Professional` | `finance-trading` | 4★ | `mcp-required` | [Source](https://github.com/OpenBB-finance/OpenBB) |
+| `finance-sentiment` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/finance-sentiment) |
+| `finance-skill-creator` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/skill-creator/skills/finance-skill-creator) |
+| `finviz-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/finviz-screener) |
+| `ftd-detector` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/ftd-detector) |
+| `funda-data` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data) |
+| `ibd-distribution-day-monitor` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/ibd-distribution-day-monitor) |
+| `institutional-flow-tracker` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/institutional-flow-tracker) |
+| `kanchi-dividend-review-monitor` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-review-monitor) |
+| `kanchi-dividend-sop` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-sop) |
+| `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-us-tax-accounting) |
+| `macro-regime-detector` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/macro-regime-detector) |
+| `market-breadth-analyzer` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-breadth-analyzer) |
+| `market-environment-analysis` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-environment-analysis) |
+| `market-news-analyst` | `L3 Specialist` | `finance-trading` | 3★ | `browser-required` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-news-analyst) |
+| `market-top-detector` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-top-detector) |
+| `marketingskills` | `L3 Specialist` | `finance-trading` | 3★ | `direct` | [Source](https://github.com/coreyhaines31/marketingskills) |
+| `options-payoff` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
+| `options-strategy-advisor` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/options-strategy-advisor) |
+| `pair-trade-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/pair-trade-screener) |
+| `parabolic-short-trade-planner` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/parabolic-short-trade-planner) |
+| `pead-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/pead-screener) |
+| `portfolio-manager` | `L3 Specialist` | `finance-trading` | 3★ | `mcp-required` | [Source](https://mcp.directory/skills/portfolio-manager) |
+| `position-sizer` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/position-sizer) |
+| `saas-valuation-compression` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
+| `sector-analyst` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/sector-analyst) |
+| `signal-postmortem` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/signal-postmortem) |
+| `stanley-druckenmiller-investment` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/stanley-druckenmiller-investment) |
+| `stock-correlation` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/stock-correlation) |
+| `stock-liquidity` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/stock-liquidity) |
+| `stock-monitor-skill` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://clawhub.ai/THIRTYFANG/stock-monitor-skill) |
+| `technical-analyst` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/technical-analyst) |
+| `theme-detector` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/theme-detector) |
+| `trade-hypothesis-ideator` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trade-hypothesis-ideator) |
+| `trader-memory-core` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trader-memory-core) |
+| `uptrend-analyzer` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/uptrend-analyzer) |
+| `us-market-bubble-detector` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-market-bubble-detector) |
+| `us-stock-analysis` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-stock-analysis) |
+| `value-dividend-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/value-dividend-screener) |
+| `vcp-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/vcp-screener) |
+| `yfinance-data` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data) |
+| `baoyu-comic` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic) |
+| `baoyu-compress-image` | `L3 Specialist` | `media-generation` | 3★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-compress-image) |
+| `baoyu-cover-image` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image) |
+| `baoyu-danger-gemini-web` | `L3 Specialist` | `media-generation` | 2★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills#baoyu-danger-gemini-web) |
+| `baoyu-post-to-wechat` | `L3 Specialist` | `media-generation` | 3★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat) |
+| `baoyu-post-to-weibo` | `L3 Specialist` | `media-generation` | 3★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-weibo) |
+| `baoyu-post-to-x` | `L3 Specialist` | `media-generation` | 3★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-x) |
+| `baoyu-slide-deck` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck) |
+| `baoyu-xhs-images` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images) |
+| `buddy-sings` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/buddy-sings) |
+| `gemini-image-service` | `L3 Specialist` | `media-generation` | 3★ | `api-key` | [Source](https://ai.google.dev/gemini-api/docs/image-generation) |
+| `gif-sticker-maker` | `L3 Specialist` | `media-generation` | 3★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/gif-sticker-maker) |
+| `media-downloader` | `L2 Professional` | `media-generation` | 3★ | `api-key` | [Source](https://github.com/yizhiyanhua-ai/media-downloader.git) |
+| `minimax-image-understanding` | `L3 Specialist` | `media-generation` | 3★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-image-understanding) |
+| `minimax-music-gen` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-gen) |
+| `minimax-music-playlist` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-playlist) |
+| `reflection` | `L2 Professional` | `media-generation` | 5★ | `direct` | [Source](https://playbooks.com/skills/openclaw/skills/reflection) |
+| `vision-analysis` | `L2 Professional` | `media-generation` | 3★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/vision-analysis) |
+| `proactive-agent` | `L2 Professional` | `productivity-pkm` | 5★ | `direct` | [Source](https://clawhub.ai/halthelobster/proactive-agent) |
+| `baoyu-url-to-markdown` | `L2 Professional` | `search-research` | 4★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
+| `discord-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/discord-reader) |
+| `edge-pipeline-orchestrator` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-pipeline-orchestrator) |
+| `linkedin-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/linkedin-reader) |
+| `minimax-multimodal-toolkit` | `L2 Professional` | `search-research` | 3★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-multimodal-toolkit) |
+| `minimax-web-search` | `L2 Professional` | `search-research` | 4★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-web-search) |
+| `multi-search-engine` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://clawhub.ai/gpyAngyoujun/multi-search-engine) |
+| `news-radar` | `L2 Professional` | `search-research` | 4★ | `mcp-required` | [Source](https://github.com/airinghost/TrendRadar) |
+| `opencli-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/opencli-reader) |
+| `paperless-docs` | `L2 Professional` | `search-research` | 4★ | `api-key` | [Source](https://github.com/paperless-ngx/paperless-ngx) |
+| `paperless-ngx-tools` | `L2 Professional` | `search-research` | 4★ | `api-key` | [Source](https://github.com/paperless-ngx/paperless-ngx) |
+| `tavily-search` | `L2 Professional` | `search-research` | 4★ | `api-key` | [Source](https://github.com/tavily-ai/tavily-python) |
+| `telegram-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/telegram-reader) |
+| `twitter-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/twitter-reader) |
+| `yc-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/yc-reader) |
+| `edge-strategy-reviewer` | `L3 Specialist` | `security-audit` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-reviewer) |
+| `agentmail-cli` | `L3 Specialist` | `writing-content` | 3★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-cli) |
+| `baoyu-article-illustrator` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
+| `baoyu-format-markdown` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-format-markdown) |
+| `baoyu-infographic` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic) |
+| `baoyu-markdown-to-html` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html) |
+| `baoyu-skills` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills) |
+| `baoyu-translate` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
+| `writing-plans` | `L2 Professional` | `writing-content` | 5★ | `direct` | [Source](https://skills.sh/obra/superpowers/writing-plans) |
+
+## Indexes
+
+| Document | What it shows |
+|---|---|
+| [Horizontal index](docs/generated/horizontal-index.md) | L1 Foundation, L2 Professional, L3 Specialist |
+| [Type index](docs/generated/type-index.md) | Coding, design, finance, writing, research, media, docs, and more |
+| [Dependency index](docs/generated/dependency-index.md) | API keys, tools, runtime mode, and risk |
+| [Scoring model](docs/generated/scoring-model.md) | How star ratings are calculated |
+| [Update and audit SOP](docs/UPDATE_AND_AUDIT.md) | Monthly review process and risk gates |
+
+## Curation Rules
+
+- Every active skill must have a native upstream source; mirrors and copied installer paths are not treated as origins.
+- The standard bundle avoids duplicate capabilities by using conflict groups such as `web-search`, `document-pdf`, `email-agent`, and `finance-data`.
+- Open and Hermes preset skills are excluded from bundle installs because the target agent already provides them.
+- Monthly automation regenerates the registry, indexes, README, standard bundle, and audit reports.
+
+## Repository Map
+
+| Path | Purpose |
+|---|---|
+| `skills/default/` | Local skill sources |
+| `catalog/skills.enriched.json` | Full machine-readable registry |
+| `catalog/standard-bundle.json` | Recommended no-duplicate install set |
+| `catalog/native-origin-overrides.json` | Verified native upstream source map |
+| `catalog/presets/` | Open and Hermes preset exclusions |
+| `docs/generated/` | Generated human-readable indexes |
+| `scripts/` | Install, sync, enrich, audit, and bundle tools |
+
+## Maintenance
 
 ```bash
-./scripts/list-profiles.sh
-./scripts/install-profile.sh finance --dry-run
-```
-
----
-
-
-## 3) 默认 Skills 三档（Default Skill Tiers）
-
-本仓库现在是 OpenClaw 默认 skills 的维护源。安装器仓库只保留安装器、网站接线、注册表和测试逻辑；需要同步 skills 时，从本仓库生成或拉取。
-
-| 档位 | 适用场景 | 技能数 | 清单 | 使用手册 |
-|---|---|---:|---|---|
-| low | 首次安装、轻量生产、低 token 噪声 | 67 | [`tiers/low.json`](tiers/low.json) | [`docs/tiers/low.md`](docs/tiers/low.md) |
-| medium | 标准生产、常用扩展、MiniMax/文档/规划 | 74 | [`tiers/medium.json`](tiers/medium.json) | [`docs/tiers/medium.md`](docs/tiers/medium.md) |
-| high | 完整专家包、金融交易、创作套件、AlphaEar | 179 | [`tiers/high.json`](tiers/high.json) | [`docs/tiers/high.md`](docs/tiers/high.md) |
-
-安装示例：
-
-```bash
-./scripts/install-tier.sh low --dry-run
-./scripts/install-tier.sh medium
-./scripts/install-tier.sh high
-```
-
-完整默认技能手册索引：[`docs/SKILL_MANUALS.md`](docs/SKILL_MANUALS.md)。每个条目包含详细技能说明、使用手册路径和原仓库链接。
-
-同步来源说明：
-
-```bash
-python3 scripts/import_installer_default_skills.py --installer-root /path/to/OpenClawInstaller
-```
-
-## 4) 行业档（Profiles，兼容保留）
-
-- `core`：通用必装基线
-- `finance`：金融研究与报告
-- `software_saas`：工程研发与运维
-- `media_marketing`：内容营销与增长
-- `consulting_research`：咨询研究与交付
-- `operations_support`：运营支持与任务闭环
-- `creator_cn`：中文创作者工作流（含 Baoyu 扩展）
-
-详见：[`docs/INDUSTRY_MAP.md`](docs/INDUSTRY_MAP.md)
-
----
-
-## 5) 目录结构
-
-```text
-boutique-openclaw-skills/
-├─ skills/default/      # 默认 skills 源
-├─ tiers/               # low / medium / high 三档 JSON
-├─ catalog/             # 默认技能 catalog 与兼容精选能力映射
-├─ profiles/            # 行业安装档（兼容保留）
-├─ scripts/             # 安装、同步、审计、打包脚本
-├─ docs/                # 规范、运维与说明
-├─ assets/              # logo 与配图
-├─ reports/             # 审计与更新报告输出
-└─ .github/workflows/   # 定时更新 + 审计流水线
-```
-
----
-
-## 6) 更新与审计机制
-
-### 手动执行
-
-```bash
-./scripts/sync-upstream.sh
-```
-
-默认三档主线使用：
-1. `scripts/import_installer_default_skills.py` 导入或刷新 `skills/default`
-2. 生成 `tiers/*.json`、`docs/tiers/*.md`、`docs/SKILL_MANUALS.md`
-3. 运行本地审计 `scripts/audit_skills.py` 并输出报告到 `reports/`
-
-兼容精选 profiles 仍可使用 `scripts/sync-upstream.sh` 调用 ClawHub 更新。
-
-### 定时执行
-
-GitHub Actions: `.github/workflows/sync-audit.yml`
-
-- 每周自动更新与审计
-- 可手动触发
-- 自动上传报告产物
-
-详见：[`docs/UPDATE_AND_AUDIT.md`](docs/UPDATE_AND_AUDIT.md)
-
----
-
-## 7) 安全与质量原则
-
-- 一功能一技能（禁止重复能力）
-- 每个 skill 必须标注风险等级与依赖
-- 高风险命令模式（例如 `curl|sh`, `rm -rf /`, `sudo`）自动审计
-- 更新后必须有审计记录，才允许发布 bundle
-
-详见：[`docs/CURATION_POLICY.md`](docs/CURATION_POLICY.md)
-
----
-
-## 8) 打包发布
-
-```bash
+python3 scripts/generate_enriched_catalog.py
+python3 scripts/audit_skills.py
 ./scripts/build-bundle.sh
 ```
 
-输出：`dist/boutique-openclaw-skills-<timestamp>.tar.gz`
+The scheduled workflow runs monthly from `.github/workflows/sync-audit.yml`.
 
-### 国内源发布
-
-安装器默认使用 Gitee 技能源，因此发布顺序应先推送 Gitee，再推送 GitHub：
-
-```bash
-git push gitee-leecyno1 main
-git push origin main
-```
-
-如果首次配置远端：
-
-```bash
-git remote add gitee-leecyno1 https://gitee.com/leecyno1/boutique-openclaw-skills.git
-```
-
-
----
-
-## 9) 设计说明
-
-项目 logo 与配图遵循「Boutique Reliability」视觉哲学：
-
-- 低噪声、强结构、有限高亮
-- 表达“精选而非堆叠”的产品价值
-
-详见：[`docs/VISUAL_PHILOSOPHY.md`](docs/VISUAL_PHILOSOPHY.md)
-
----
-
-## 10) License
+## License
 
 [MIT](LICENSE)
-
----
-
-## 11) Skills 目录（兼容精选 + 默认索引）
-
-<!-- SKILLS_INDEX:START -->
-## Registry Snapshot
-
-- 默认 skill 去重数：`179`
-- 已有原生来源或本地来源线索：`173`
-- 仍需人工确认原生来源：`0`
-- Open/Hermes 预置排除：`6`
-- 标准配置组：`28` / `30`
-
-> `source` 中的安装器仓库路径仅视为镜像来源；`origin.origin_url` 才是一手原生来源。缺失原生来源的 skill 最高只能获得 2★。
-
-## 标准技能配置组（≤30，无重复能力）
-
-安装原则：每个能力只选择一个评分最高且未被 Open/Hermes 预置的 skill，避免重复安装导致冲突或 token 浪费。
-
-```bash
-./scripts/install-standard-bundle.sh --dry-run
-./scripts/install-standard-bundle.sh
-```
-
-| 能力 | 推荐 Skill | 星级 | 使用条件 | 原生来源 |
-|---|---|---:|---|---|
-| `agent-method` | `brainstorming` | 5★ | `direct` | [origin](https://github.com/baz-scm/agentskills/tree/main/skills/brainstorming) |
-| `skill-discovery` | `find-skills` | 5★ | `direct` | [origin](https://github.com/vercel-labs/skills/tree/main/skills/find-skills) |
-| `web-search` | `multi-search-engine` | 5★ | `direct` | [origin](https://clawhub.ai/gpyAngyoujun/multi-search-engine) |
-| `url-extraction` | `url-to-markdown` | 4★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
-| `browser-automation` | `agent-browser` | 4★ | `browser-required` | [origin](https://openclawdoc.com/docs/skills/clawhub/) |
-| `code-hosting` | `github` | 4★ | `api-key` | [origin](https://github.com/github/github-mcp-server) |
-| `task-tracking` | `task` | 5★ | `direct` | [origin](https://github.com/openclaw/skills/tree/main/skills/amirbrooks/task) |
-| `planning` | `planning-with-files` | 5★ | `direct` | [origin](https://github.com/OthmanAdi/planning-with-files) |
-| `verification` | `verification-before-completion` | 5★ | `direct` | [origin](https://github.com/obra/superpowers/tree/main/skills/verification-before-completion) |
-| `skill-authoring` | `skill-creator` | 5★ | `direct` | [origin](https://github.com/anthropics/skills/tree/main/skills/skill-creator) |
-| `security-review` | `skill-security-auditor` | 5★ | `direct` | [origin](https://clawhub.ai/akhmittra/skill-security-auditor) |
-| `data-analysis` | `data-analyst` | 5★ | `direct` | [origin](https://github.com/openclaw/skills/blob/main/skills/oyi77/data-analyst/SKILL.md) |
-| `docs` | `minimax-docx` | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-docx) |
-| `spreadsheet` | `minimax-xlsx` | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-xlsx) |
-| `slides` | `pptx-generator` | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator) |
-| `pdf` | `nano-pdf` | 5★ | `direct` | [origin](https://github.com/steipete/clawdis/tree/main/skills/nano-pdf) |
-| `frontend` | `generative-ui` | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui) |
-| `fullstack` | `fullstack-dev` | 3★ | `api-key` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/fullstack-dev) |
-| `mcp` | `mcp-builder` | 4★ | `mcp-required` | [origin](https://modelcontextprotocol.io/docs/getting-started/intro) |
-| `media-download` | `media-downloader` | 3★ | `api-key` | [origin](https://github.com/yizhiyanhua-ai/media-downloader.git) |
-| `image-generation` | `gemini-image-service` | 3★ | `api-key` | [origin](https://ai.google.dev/gemini-api/docs/image-generation) |
-| `research-news` | `news-radar` | 4★ | `mcp-required` | [origin](https://github.com/airinghost/TrendRadar) |
-| `finance-data` | `finance-data` | 4★ | `mcp-required` | [origin](https://github.com/OpenBB-finance/OpenBB) |
-| `content-strategy` | `content-strategy` | 4★ | `direct` | [origin](https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy) |
-| `writing` | `writing-skills` | 5★ | `direct` | [origin](https://github.com/obra/superpowers/tree/main/skills/writing-skills) |
-| `automation-followup` | `proactive-agent` | 5★ | `direct` | [origin](https://clawhub.ai/halthelobster/proactive-agent) |
-| `cost-observability` | `model-usage` | 5★ | `direct` | [origin](https://clawhub.ai/steipete/model-usage) |
-| `weather` | `weather` | 5★ | `direct` | [origin](https://open-meteo.com/) |
-
-## 双索引
-
-| 索引 | 说明 | 文件 |
-|---|---|---|
-| 横向分级 | L1 Foundation / L2 Professional / L3 Specialist | [`docs/generated/horizontal-index.md`](docs/generated/horizontal-index.md) |
-| 纵向类型 | 按用途分类，如 coding、design、finance、writing 等 | [`docs/generated/type-index.md`](docs/generated/type-index.md) |
-| 使用条件 | API key、额外 tools、运行方式、风险 | [`docs/generated/dependency-index.md`](docs/generated/dependency-index.md) |
-| 评分体系 | 五星评分规则和月评增强方向 | [`docs/generated/scoring-model.md`](docs/generated/scoring-model.md) |
-
-## L1 Foundation Top Skills
-
-| Skill | 类型 | 星级 | 原生来源 |
-|---|---|---:|---|
-| `brainstorming` | 核心 Agent 能力 | 5★ | [origin](https://github.com/baz-scm/agentskills/tree/main/skills/brainstorming) |
-| `find-skills` | 核心 Agent 能力 | 5★ | [origin](https://github.com/vercel-labs/skills/tree/main/skills/find-skills) |
-| `model-usage` | 核心 Agent 能力 | 5★ | [origin](https://clawhub.ai/steipete/model-usage) |
-| `planning-with-files` | 核心 Agent 能力 | 5★ | [origin](https://github.com/OthmanAdi/planning-with-files) |
-| `skill-creator` | 核心 Agent 能力 | 5★ | [origin](https://github.com/anthropics/skills/tree/main/skills/skill-creator) |
-| `skill-security-auditor` | 核心 Agent 能力 | 5★ | [origin](https://clawhub.ai/akhmittra/skill-security-auditor) |
-| `subagent-driven-development` | 核心 Agent 能力 | 5★ | [origin](https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development) |
-| `task` | 核心 Agent 能力 | 5★ | [origin](https://github.com/openclaw/skills/tree/main/skills/amirbrooks/task) |
-| `todo` | 核心 Agent 能力 | 5★ | [origin](https://github.com/sachaos/todoist) |
-| `using-superpowers` | 核心 Agent 能力 | 5★ | [origin](https://github.com/obra/superpowers/tree/main/skills/using-superpowers) |
-| `verification-before-completion` | 核心 Agent 能力 | 5★ | [origin](https://github.com/obra/superpowers/tree/main/skills/verification-before-completion) |
-| `weather` | 核心 Agent 能力 | 5★ | [origin](https://open-meteo.com/) |
-| `writing-skills` | 核心 Agent 能力 | 5★ | [origin](https://github.com/obra/superpowers/tree/main/skills/writing-skills) |
-| `agent-browser` | 核心 Agent 能力 | 4★ | [origin](https://openclawdoc.com/docs/skills/clawhub/) |
-| `chrome-devtools-mcp` | 核心 Agent 能力 | 4★ | [origin](https://github.com/ChromeDevTools/chrome-devtools-mcp) |
-
-## 原生来源待补清单（前 20）
-
-这些 skill 当前只有镜像来源或缺少一手来源，月评时需要优先补齐。
-
-| Skill | 类型 | 镜像来源 |
-|---|---|---|
-<!-- SKILLS_INDEX:END -->
