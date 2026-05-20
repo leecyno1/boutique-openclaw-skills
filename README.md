@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/boutique-openclaw-skills-hero.png" alt="Boutique OpenClaw Skills hero" width="100%" />
+<img src="assets/boutique-openclaw-skills-hero.png" alt="OpenClaw x Dashengzhinu x Hermes logo" width="76%" />
 
 # Boutique OpenClaw Skills
 
@@ -26,7 +26,7 @@
   <img src="https://img.shields.io/badge/SQLAlchemy-ORM-111827" alt="SQLAlchemy" />
 </p>
 
-<img src="assets/boutique-logo-tech-card.png" alt="Boutique OpenClaw Skills logo and technology card" width="86%" />
+<img src="assets/boutique-logo-tech-card.png" alt="Boutique OpenClaw Skills technology card" width="86%" />
 
 </div>
 
