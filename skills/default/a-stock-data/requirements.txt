@@ -1,0 +1,4 @@
+mootdx
+requests
+pandas
+stockstats

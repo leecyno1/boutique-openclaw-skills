@@ -1,6 +1,6 @@
 {
   "schema_version": "2026.05.17",
-  "generated_at": "2026-05-18",
+  "generated_at": "2026-05-31",
   "max_skills": 30,
   "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
   "skills": [
@@ -248,14 +248,14 @@
     },
     {
       "capability": "finance-data",
-      "skill": "finance-data",
-      "category": "finance-trading",
+      "skill": "a-stock-data",
+      "category": "finance-data",
       "stars": 4,
-      "score": 81,
-      "access_mode": "mcp-required",
+      "score": 86,
+      "access_mode": "direct",
       "conflict_group": "finance-data",
-      "origin_url": "https://github.com/OpenBB-finance/OpenBB",
-      "note": "Comprehensive financial data retrieval from OpenBB MCP and AKShare API. Query stock prices, financial statements, indices, ETFs, and perform data validation across multiple sources. Use when you need Chinese or US stock market data, fundamental analysis, technical indicators, or cross-validation between data providers. Supports real-time quotes, historical data, company financials, and market indices."
+      "origin_url": "https://github.com/simonlin1212/a-stock-data",
+      "note": "Use when the user needs China A-share data, A股行情/估值/研报/题材/北向资金/龙虎榜/解禁/两融/大宗交易/股东户数/分红/新闻/公告, batch stock comparison, or A-share research workflows."
     },
     {
       "capability": "content-strategy",

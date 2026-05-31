@@ -2,7 +2,7 @@
 
 稳定基础档，适合首次安装和轻量生产环境。只包含通用协作、搜索、文档、基础媒体和安全工作流。
 
-- 技能数量：`67`
+- 技能数量：`68`
 - 安装命令：`./scripts/install-tier.sh low`
 - JSON 清单：`tiers/low.json`
 
@@ -10,6 +10,7 @@
 
 | Skill | 说明 | 使用手册 | 原仓库链接 |
 |---|---|---|---|
+| `a-stock-data` | A 股全栈数据工具包，覆盖行情、研报、题材归因、北向资金、龙虎榜、解禁、两融、大宗交易、股东户数、分红、新闻、基础数据和公告。 | [skills/default/a-stock-data/GUIDE.md](../../skills/default/a-stock-data/GUIDE.md) | [source](https://github.com/simonlin1212/a-stock-data) |
 | `agent-browser` | Headless browser automation CLI for AI agents. | [skills/default/agent-browser/GUIDE.md](../../skills/default/agent-browser/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agent-browser) |
 | `agentmail` | Give AI agents their own email inboxes using the AgentMail API. | [skills/default/agentmail/GUIDE.md](../../skills/default/agentmail/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agentmail) |
 | `agentmail-cli` | Send and receive emails programmatically using the AgentMail CLI. | [skills/default/agentmail-cli/GUIDE.md](../../skills/default/agentmail-cli/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agentmail-cli) |
@@ -25,7 +26,6 @@
 | `content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. | [skills/default/content-strategy/GUIDE.md](../../skills/default/content-strategy/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/content-strategy) |
 | `data-analyst` | Data visualization, report generation, SQL queries, and spreadsheet automation. | [skills/default/data-analyst/GUIDE.md](../../skills/default/data-analyst/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/data-analyst) |
 | `docx` | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. | [skills/default/docx/GUIDE.md](../../skills/default/docx/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/docx) |
-| `finance-data` | Comprehensive financial data retrieval from OpenBB MCP and AKShare API. | [skills/default/finance-data/GUIDE.md](../../skills/default/finance-data/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-data) |
 | `find-skills` | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can. | [skills/default/find-skills/GUIDE.md](../../skills/default/find-skills/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/find-skills) |
 | `flutter-dev` | Flutter cross-platform development guide covering widget patterns, Riverpod/Bloc state management, GoRouter navigation, performance optimization, and platform-specific implementations. | [skills/default/flutter-dev/GUIDE.md](../../skills/default/flutter-dev/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/flutter-dev) |
 | `frontend-dev` | Use when building or improving high-quality frontend pages, components, dashboards, or apps. | [skills/default/frontend-dev/GUIDE.md](../../skills/default/frontend-dev/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/frontend-dev) |
@@ -63,6 +63,7 @@
 | `shell` | Use shell commands for file operations, scripts, process management, diagnostics, and automation. | [skills/default/shell/GUIDE.md](../../skills/default/shell/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/shell) |
 | `skill-creator` | Guide for creating effective skills. | [skills/default/skill-creator/GUIDE.md](../../skills/default/skill-creator/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-creator) |
 | `skill-security-auditor` | Command-line security analyzer for ClawHub skills. | [skills/default/skill-security-auditor/GUIDE.md](../../skills/default/skill-security-auditor/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-security-auditor) |
+| `skill-vetter` | Multi-scanner security gate for auditing external AI agent skills before installation. | [skills/default/skill-vetter/GUIDE.md](../../skills/default/skill-vetter/GUIDE.md) | [source](https://github.com/app-incubator-xyz/skill-vetter) |
 | `social-content` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. | [skills/default/social-content/GUIDE.md](../../skills/default/social-content/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/social-content) |
 | `stock-monitor-skill` | 全功能智能股票监控预警系统。支持成本百分比、均线金叉死叉、RSI超买超卖、成交量异动、跳空缺口、动态止盈等7大预警规则。符合中国投资者习惯（红涨绿跌）。 | [skills/default/stock-monitor-skill/GUIDE.md](../../skills/default/stock-monitor-skill/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/stock-monitor-skill) |
 | `subagent-driven-development` | Use when executing implementation plans with independent subagent tasks. | [skills/default/subagent-driven-development/GUIDE.md](../../skills/default/subagent-driven-development/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/subagent-driven-development) |

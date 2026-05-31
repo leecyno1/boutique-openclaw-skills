@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "source": "OpenClawInstaller skills/manifest.json",
+  "source": "OpenClawInstaller skills/manifest.json + curated native additions",
   "tiers": {
     "low": {
       "id": "low",
@@ -9,6 +9,21 @@
       "source_bundle": "basic",
       "install_command": "./scripts/install-tier.sh low",
       "skills": [
+        {
+          "id": "a-stock-data",
+          "name": "a-stock-data",
+          "description": "A 股全栈数据工具包，覆盖行情、研报、题材归因、北向资金、龙虎榜、解禁、两融、大宗交易、股东户数、分红、新闻、基础数据和公告。",
+          "manual": "skills/default/a-stock-data/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/a-stock-data/GUIDE.md",
+          "source": "https://github.com/simonlin1212/a-stock-data",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "a-share",
+            "standard"
+          ]
+        },
         {
           "id": "agent-browser",
           "name": "agent-browser",
@@ -199,19 +214,6 @@
           "requires_api_keys": false,
           "api_keys": [],
           "groups": []
-        },
-        {
-          "id": "finance-data",
-          "name": "finance-data",
-          "description": "Comprehensive financial data retrieval from OpenBB MCP and AKShare API.",
-          "manual": "skills/default/finance-data/GUIDE.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/finance-data/GUIDE.md",
-          "source": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-data",
-          "requires_api_keys": false,
-          "api_keys": [],
-          "groups": [
-            "default_sentinel"
-          ]
         },
         {
           "id": "find-skills",
@@ -695,6 +697,20 @@
           ]
         },
         {
+          "id": "skill-vetter",
+          "name": "skill-vetter",
+          "description": "Multi-scanner security gate for auditing external AI agent skills before installation.",
+          "manual": "skills/default/skill-vetter/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/skill-vetter/GUIDE.md",
+          "source": "https://github.com/app-incubator-xyz/skill-vetter",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "security",
+            "standard"
+          ]
+        },
+        {
           "id": "social-content",
           "name": "social-content",
           "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.",
@@ -880,6 +896,21 @@
       "source_bundle": "extended",
       "install_command": "./scripts/install-tier.sh medium",
       "skills": [
+        {
+          "id": "a-stock-data",
+          "name": "a-stock-data",
+          "description": "A 股全栈数据工具包，覆盖行情、研报、题材归因、北向资金、龙虎榜、解禁、两融、大宗交易、股东户数、分红、新闻、基础数据和公告。",
+          "manual": "skills/default/a-stock-data/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/a-stock-data/GUIDE.md",
+          "source": "https://github.com/simonlin1212/a-stock-data",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "a-share",
+            "standard"
+          ]
+        },
         {
           "id": "agent-browser",
           "name": "agent-browser",
@@ -1081,19 +1112,6 @@
           "requires_api_keys": false,
           "api_keys": [],
           "groups": []
-        },
-        {
-          "id": "finance-data",
-          "name": "finance-data",
-          "description": "Comprehensive financial data retrieval from OpenBB MCP and AKShare API.",
-          "manual": "skills/default/finance-data/GUIDE.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/finance-data/GUIDE.md",
-          "source": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-data",
-          "requires_api_keys": false,
-          "api_keys": [],
-          "groups": [
-            "default_sentinel"
-          ]
         },
         {
           "id": "find-skills",
@@ -1640,6 +1658,20 @@
           ]
         },
         {
+          "id": "skill-vetter",
+          "name": "skill-vetter",
+          "description": "Multi-scanner security gate for auditing external AI agent skills before installation.",
+          "manual": "skills/default/skill-vetter/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/skill-vetter/GUIDE.md",
+          "source": "https://github.com/app-incubator-xyz/skill-vetter",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "security",
+            "standard"
+          ]
+        },
+        {
           "id": "social-content",
           "name": "social-content",
           "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.",
@@ -1832,10 +1864,25 @@
     "high": {
       "id": "high",
       "title": "高档 / High",
-      "description": "完整专家档，包含中档全部能力，并加入 Baoyu 创作套件、金融交易研究、AlphaEar 与高级分析技能。",
+      "description": "完整专家档，包含中档全部能力，并加入默认生图、Baoyu 创作套件、金融交易研究、AlphaEar 与高级分析技能。",
       "source_bundle": "super",
       "install_command": "./scripts/install-tier.sh high",
       "skills": [
+        {
+          "id": "a-stock-data",
+          "name": "a-stock-data",
+          "description": "A 股全栈数据工具包，覆盖行情、研报、题材归因、北向资金、龙虎榜、解禁、两融、大宗交易、股东户数、分红、新闻、基础数据和公告。",
+          "manual": "skills/default/a-stock-data/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/a-stock-data/GUIDE.md",
+          "source": "https://github.com/simonlin1212/a-stock-data",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "a-share",
+            "standard"
+          ]
+        },
         {
           "id": "agent-browser",
           "name": "agent-browser",
@@ -2438,6 +2485,20 @@
           "groups": []
         },
         {
+          "id": "codex-responses-tooling",
+          "name": "codex-responses-tooling",
+          "description": "高级版默认生图技能：读取本机 Codex Responses API 配置，流式调用 image_generation 并保存图片结果。",
+          "manual": "skills/default/codex-responses-tooling/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/codex-responses-tooling/GUIDE.md",
+          "source": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/codex-responses-tooling",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "high_default",
+            "media_generation"
+          ]
+        },
+        {
           "id": "company-valuation",
           "name": "company-valuation",
           "description": "Estimate the intrinsic value of a public company using DCF, relative (peer multiple) and sum-of-parts (SOTP) methods, then triangulate to an implied share price with upside/downside versus the current market price.",
@@ -2758,19 +2819,6 @@
           ],
           "groups": [
             "trading_finance"
-          ]
-        },
-        {
-          "id": "finance-data",
-          "name": "finance-data",
-          "description": "Comprehensive financial data retrieval from OpenBB MCP and AKShare API.",
-          "manual": "skills/default/finance-data/GUIDE.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/finance-data/GUIDE.md",
-          "source": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-data",
-          "requires_api_keys": false,
-          "api_keys": [],
-          "groups": [
-            "default_sentinel"
           ]
         },
         {
@@ -3388,6 +3436,38 @@
           "groups": []
         },
         {
+          "id": "openclaw-stock-data-skill",
+          "name": "openclaw-stock-data-skill",
+          "description": "使用 data.diemeng.chat 查询 A 股日线、分钟线、可转债、ETF、指数和财务指标等高频数据。",
+          "manual": "skills/default/openclaw-stock-data-skill/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/openclaw-stock-data-skill/GUIDE.md",
+          "source": "https://github.com/1018466411/openclaw-stock-data-skill",
+          "requires_api_keys": true,
+          "api_keys": [
+            "STOCK_API_KEY"
+          ],
+          "groups": [
+            "finance",
+            "data",
+            "a-share",
+            "high-frequency"
+          ]
+        },
+        {
+          "id": "openclaw-stock-kb",
+          "name": "openclaw-stock-kb",
+          "description": "开源股票研究知识库，包含量化策略、技术指标、社媒情绪分析、风控模型和回测资料。",
+          "manual": "skills/default/openclaw-stock-kb/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/openclaw-stock-kb/GUIDE.md",
+          "source": "https://github.com/freestylefly/openclaw-stock-kb",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "knowledge"
+          ]
+        },
+        {
           "id": "opencli-reader",
           "name": "opencli-reader",
           "description": "Generic read-only fallback for any source opencli covers but this repo has no dedicated reader for — Yahoo Finance, Bloomberg, Reuters, Barchart, Eastmoney, Xueqiu, Sinafinance, Reddit, HackerNews, Substack, Medium, Weib",
@@ -3536,6 +3616,22 @@
           "groups": []
         },
         {
+          "id": "policy-monitor",
+          "name": "policy-monitor",
+          "description": "监控央行、证监会、发改委、财政部、统计局等官方渠道，生成政策分类摘要、影响解读和跟踪事项。",
+          "manual": "skills/default/policy-monitor/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor/GUIDE.md",
+          "source": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "policy",
+            "monitor",
+            "original"
+          ]
+        },
+        {
           "id": "portfolio-manager",
           "name": "portfolio-manager",
           "description": "Comprehensive portfolio analysis using Alpaca MCP Server integration to fetch holdings and positions, then analyze asset allocation, risk metrics, individual stock positions, diversification, and generate rebalancing rec",
@@ -3596,6 +3692,21 @@
           "requires_api_keys": false,
           "api_keys": [],
           "groups": []
+        },
+        {
+          "id": "pybroker-backtest-skill",
+          "name": "pybroker-backtest-skill",
+          "description": "基于 PyBroker 的算法交易回测实验技能，支持技术指标策略、机器学习策略、收益/回撤/稳定性评估和参数验证。",
+          "manual": "skills/default/pybroker-backtest-skill/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/pybroker-backtest-skill/GUIDE.md",
+          "source": "https://github.com/gaaiyun/pybroker-backtest-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "backtesting",
+            "experimental"
+          ]
         },
         {
           "id": "react-native-dev",
@@ -3659,6 +3770,21 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
+          ]
+        },
+        {
+          "id": "seedance2-skill",
+          "name": "seedance2-skill",
+          "description": "Seedance 2.0 / 即梦视频生成提示词技能，用于文生视频、图生视频、视频延展、视频编辑、电商广告、短剧、AI MV 和科普视频提示词。",
+          "manual": "skills/default/seedance2-skill/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/seedance2-skill/GUIDE.md",
+          "source": "https://github.com/dexhunter/seedance2-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "media",
+            "video",
+            "prompt"
           ]
         },
         {
@@ -3789,6 +3915,20 @@
           ]
         },
         {
+          "id": "skill-vetter",
+          "name": "skill-vetter",
+          "description": "Multi-scanner security gate for auditing external AI agent skills before installation.",
+          "manual": "skills/default/skill-vetter/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/skill-vetter/GUIDE.md",
+          "source": "https://github.com/app-incubator-xyz/skill-vetter",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "security",
+            "standard"
+          ]
+        },
+        {
           "id": "social-content",
           "name": "social-content",
           "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.",
@@ -3828,6 +3968,21 @@
           ]
         },
         {
+          "id": "stock-analysis",
+          "name": "stock-analysis",
+          "description": "Yahoo Finance 股票与加密资产分析，支持 8 维评分、热门扫描、谣言检测、组合管理和价格提醒。",
+          "manual": "skills/default/stock-analysis/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/stock-analysis/GUIDE.md",
+          "source": "https://github.com/moinsen-dev/stock-analysis",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "analysis",
+            "watchlist"
+          ]
+        },
+        {
           "id": "stock-correlation",
           "name": "stock-correlation",
           "description": "Analyze stock correlations to find related companies and trading pairs.",
@@ -3838,6 +3993,23 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
+          ]
+        },
+        {
+          "id": "stock-daily-analysis-skill",
+          "name": "stock-daily-analysis-skill",
+          "description": "LLM 驱动的 A 股、港股、美股每日复盘和技术面分析，生成操作建议与决策仪表盘。",
+          "manual": "skills/default/stock-daily-analysis-skill/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/stock-daily-analysis-skill/GUIDE.md",
+          "source": "https://github.com/chjm-ai/stock-daily-analysis-skill",
+          "requires_api_keys": true,
+          "api_keys": [
+            "OPENAI_API_KEY"
+          ],
+          "groups": [
+            "finance",
+            "analysis",
+            "daily-review"
           ]
         },
         {
@@ -3855,14 +4027,17 @@
         },
         {
           "id": "stock-monitor-skill",
-          "name": "stock-monitor",
-          "description": "全功能智能股票监控预警系统。支持成本百分比、均线金叉死叉、RSI超买超卖、成交量异动、跳空缺口、动态止盈等7大预警规则。符合中国投资者习惯（红涨绿跌）。",
+          "name": "stock-monitor-skill",
+          "description": "智能股票监控预警系统，支持价格、成本、均线、RSI、成交量、跳空缺口和动态止盈提醒。",
           "manual": "skills/default/stock-monitor-skill/GUIDE.md",
           "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/stock-monitor-skill/GUIDE.md",
-          "source": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/stock-monitor-skill",
+          "source": "https://github.com/chjm-ai/stock-monitor-skill",
           "requires_api_keys": false,
           "api_keys": [],
-          "groups": []
+          "groups": [
+            "finance",
+            "monitor"
+          ]
         },
         {
           "id": "strategy-pivot-designer",
@@ -3995,6 +4170,23 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
+          ]
+        },
+        {
+          "id": "tushare-openclaw-skill",
+          "name": "tushare-openclaw-skill",
+          "description": "Tushare Pro 金融数据 API 查询助手，覆盖 A 股行情、财务、基本面、分红、解禁等数据。",
+          "manual": "skills/default/tushare-openclaw-skill/GUIDE.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/tushare-openclaw-skill/GUIDE.md",
+          "source": "https://github.com/DayDreammy/tushare-openclaw-skill",
+          "requires_api_keys": true,
+          "api_keys": [
+            "TUSHARE_TOKEN"
+          ],
+          "groups": [
+            "finance",
+            "data",
+            "a-share"
           ]
         },
         {

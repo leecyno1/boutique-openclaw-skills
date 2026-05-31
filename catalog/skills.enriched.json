@@ -1,6 +1,6 @@
 {
   "schema_version": "2026.05.17",
-  "generated_at": "2026-05-18",
+  "generated_at": "2026-05-31",
   "source_catalog": "catalog/default-skills.json",
   "policy": {
     "native_origin_required": true,
@@ -13,15 +13,15 @@
     ]
   },
   "summary": {
-    "skills": 179,
-    "native_origin_verified_or_referenced": 173,
+    "skills": 189,
+    "native_origin_verified_or_referenced": 183,
     "native_origin_excluded_presets": 6,
     "needs_origin_review": 0,
     "preset_excluded": 6,
     "by_horizontal_tier": {
-      "L1 Foundation": 20,
-      "L2 Professional": 61,
-      "L3 Specialist": 98
+      "L1 Foundation": 21,
+      "L2 Professional": 68,
+      "L3 Specialist": 100
     },
     "by_category": {
       "agent-orchestration": 3,
@@ -32,25 +32,29 @@
       "data-analysis": 7,
       "design-ui": 9,
       "docs-office": 9,
-      "finance-trading": 69,
-      "media-generation": 18,
+      "finance-data": 6,
+      "finance-knowledge": 1,
+      "finance-monitor": 1,
+      "finance-trading": 67,
+      "media-generation": 20,
+      "policy-monitoring": 1,
       "productivity-pkm": 1,
       "search-research": 15,
-      "security-audit": 1,
+      "security-audit": 2,
       "writing-content": 8
     },
     "by_access_mode": {
-      "api-key": 49,
+      "api-key": 55,
       "browser-required": 10,
-      "direct": 115,
-      "mcp-required": 5
+      "direct": 120,
+      "mcp-required": 4
     },
     "by_stars": {
       "1★": 6,
       "2★": 2,
-      "3★": 45,
-      "4★": 88,
-      "5★": 38
+      "3★": 47,
+      "4★": 94,
+      "5★": 40
     }
   },
   "skills": [
@@ -69,7 +73,7 @@
         "origin_url": "https://github.com/baz-scm/agentskills/tree/main/skills/brainstorming",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/brainstorming",
         "needs_origin_review": false
       },
@@ -113,7 +117,7 @@
         "origin_url": "https://github.com/vercel-labs/skills/tree/main/skills/find-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/find-skills",
         "needs_origin_review": false
       },
@@ -157,7 +161,7 @@
         "origin_url": "https://clawhub.ai/steipete/model-usage",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/model-usage",
         "needs_origin_review": false
       },
@@ -202,7 +206,7 @@
         "origin_url": "https://github.com/OthmanAdi/planning-with-files",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/planning-with-files",
         "needs_origin_review": false
       },
@@ -246,7 +250,7 @@
         "origin_url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-creator",
         "needs_origin_review": false
       },
@@ -290,7 +294,7 @@
         "origin_url": "https://clawhub.ai/akhmittra/skill-security-auditor",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-security-auditor",
         "needs_origin_review": false
       },
@@ -322,6 +326,50 @@
       }
     },
     {
+      "id": "skill-vetter",
+      "name": "skill-vetter",
+      "description": "Multi-scanner security gate. TRIGGER when: user mentions installing, adding, or reviewing a skill to Claude Code, OpenClaw, or any other AI agent. Detects malicious code, vulnerabilities, and suspicious patterns.",
+      "manual": "skills/default/skill-vetter/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/skill-vetter/GUIDE.md",
+      "install_tiers": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/app-incubator-xyz/skill-vetter",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/app-incubator-xyz/skill-vetter",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L1 Foundation",
+      "primary_category": "security-audit",
+      "category_label": "安全 / 审计",
+      "tags": [
+        "direct",
+        "l1",
+        "offline",
+        "security-audit"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "skill-vetter",
+      "preset_excluded": false,
+      "rating": {
+        "score": 100,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
       "id": "subagent-driven-development",
       "name": "subagent-driven-development",
       "description": "Use when executing implementation plans with independent subagent tasks.",
@@ -336,7 +384,7 @@
         "origin_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/subagent-driven-development",
         "needs_origin_review": false
       },
@@ -380,7 +428,7 @@
         "origin_url": "https://github.com/openclaw/skills/tree/main/skills/amirbrooks/task",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/task",
         "needs_origin_review": false
       },
@@ -424,7 +472,7 @@
         "origin_url": "https://github.com/sachaos/todoist",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/todo",
         "needs_origin_review": false
       },
@@ -470,7 +518,7 @@
         "origin_url": "https://github.com/obra/superpowers/tree/main/skills/using-superpowers",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/using-superpowers",
         "needs_origin_review": false
       },
@@ -514,7 +562,7 @@
         "origin_url": "https://github.com/obra/superpowers/tree/main/skills/verification-before-completion",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/verification-before-completion",
         "needs_origin_review": false
       },
@@ -558,7 +606,7 @@
         "origin_url": "https://open-meteo.com/",
         "origin_type": "website",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/weather",
         "needs_origin_review": false
       },
@@ -602,7 +650,7 @@
         "origin_url": "https://github.com/obra/superpowers/tree/main/skills/writing-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/writing-skills",
         "needs_origin_review": false
       },
@@ -645,7 +693,7 @@
         "origin_url": "https://github.com/bytesagain/ai-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/animation",
         "needs_origin_review": false
       },
@@ -687,7 +735,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/backtest-expert",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/backtest-expert",
         "needs_origin_review": false
       },
@@ -729,7 +777,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-youtube-transcript",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-youtube-transcript",
         "needs_origin_review": false
       },
@@ -776,7 +824,7 @@
         "origin_url": "https://github.com/openclaw/skills/blob/main/skills/oyi77/data-analyst/SKILL.md",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/data-analyst",
         "needs_origin_review": false
       },
@@ -820,7 +868,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/discord-reader",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/discord-reader",
         "needs_origin_review": false
       },
@@ -850,48 +898,6 @@
       }
     },
     {
-      "id": "dual-axis-skill-reviewer",
-      "name": "dual-axis-skill-reviewer",
-      "description": "Review skills in any project using a dual-axis method: (1) deterministic code-based checks (structure, scripts, tests, execution safety) and (2) LLM deep review findings. Use when you need reproducible quality scoring for `skills/*/SKILL.md`, want to gate merges with a score threshold (for example 90+), or need concrete improvement items for low-scoring skills. Works across projects via --project-root.",
-      "manual": "skills/default/dual-axis-skill-reviewer/SKILL.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dual-axis-skill-reviewer/SKILL.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dual-axis-skill-reviewer",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/dual-axis-skill-reviewer",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L2 Professional",
-      "primary_category": "data-analysis",
-      "category_label": "数据分析",
-      "tags": [
-        "data-analysis",
-        "direct",
-        "l2",
-        "offline"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "low",
-      "conflict_group": "dual-axis-skill-reviewer",
-      "preset_excluded": false,
-      "rating": {
-        "score": 92,
-        "stars": 5,
-        "rating_label": "★★★★★"
-      }
-    },
-    {
       "id": "edge-concept-synthesizer",
       "name": "edge-concept-synthesizer",
       "description": "Abstract detector tickets and hints into reusable edge concepts with thesis, invalidation signals, and strategy playbooks before strategy design/export.",
@@ -904,7 +910,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-concept-synthesizer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-concept-synthesizer",
         "needs_origin_review": false
       },
@@ -946,7 +952,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-pipeline-orchestrator",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-pipeline-orchestrator",
         "needs_origin_review": false
       },
@@ -988,7 +994,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-signal-aggregator",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-signal-aggregator",
         "needs_origin_review": false
       },
@@ -1032,7 +1038,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-designer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-strategy-designer",
         "needs_origin_review": false
       },
@@ -1074,7 +1080,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/generative-ui",
         "needs_origin_review": false
       },
@@ -1116,7 +1122,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/linkedin-reader",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/linkedin-reader",
         "needs_origin_review": false
       },
@@ -1160,7 +1166,7 @@
         "origin_url": "https://clawhub.ai/gpyAngyoujun/multi-search-engine",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/multi-search-engine",
         "needs_origin_review": false
       },
@@ -1204,7 +1210,7 @@
         "origin_url": "https://github.com/steipete/clawdis/tree/main/skills/nano-pdf",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/nano-pdf",
         "needs_origin_review": false
       },
@@ -1234,6 +1240,50 @@
       }
     },
     {
+      "id": "openclaw-stock-kb",
+      "name": "openclaw-stock-kb",
+      "description": "开源股票研究知识库封装技能。内含量化策略、技术指标、社媒情绪分析、风控模板和回测工具文档。适用于让 Agent 在本地检索股票研究方法、设计分析框架、撰写策略说明、整理指标解释和风控规则时引用。",
+      "manual": "skills/default/openclaw-stock-kb/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/openclaw-stock-kb/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/freestylefly/openclaw-stock-kb",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/freestylefly/openclaw-stock-kb",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-knowledge",
+      "category_label": "金融 / 知识库",
+      "tags": [
+        "direct",
+        "finance-knowledge",
+        "l2",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "openclaw-stock-kb",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
       "id": "opencli-reader",
       "name": "opencli-reader",
       "description": ">",
@@ -1246,7 +1296,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/opencli-reader",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/opencli-reader",
         "needs_origin_review": false
       },
@@ -1290,7 +1340,7 @@
         "origin_url": "https://clawhub.ai/halthelobster/proactive-agent",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/proactive-agent",
         "needs_origin_review": false
       },
@@ -1334,7 +1384,7 @@
         "origin_url": "https://playbooks.com/skills/openclaw/skills/reflection",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/reflection",
         "needs_origin_review": false
       },
@@ -1364,6 +1414,48 @@
       }
     },
     {
+      "id": "seedance2-skill",
+      "name": "seedance2-skill",
+      "description": "Use when the user needs Seedance 2.0 / Jimeng video generation prompts, video prompt engineering, multimodal @ reference prompts, camera language, video extension/editing prompts, e-commerce video ads, short drama prompts, AI MV prompts, or educational video generation prompts.",
+      "manual": "skills/default/seedance2-skill/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/seedance2-skill/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/dexhunter/seedance2-skill",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/dexhunter/seedance2-skill",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "media-generation",
+      "category_label": "媒体生成 / 处理",
+      "tags": [
+        "direct",
+        "l2",
+        "media-generation",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "seedance2-skill",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
       "id": "self-improving-agent-cn",
       "name": "self-improving-agent",
       "description": "AI自我改进与记忆系统 - 解决'同类错误反复犯、用户纠正不长记性'的痛点。自动捕获错误、用户纠正、最佳实践，并转化为长期记忆。",
@@ -1378,7 +1470,7 @@
         "origin_url": "https://clawhub.ai/zhengxinjipai/self-improving-agent-cn",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/self-improving-agent-cn",
         "needs_origin_review": false
       },
@@ -1420,7 +1512,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-designer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-designer",
         "needs_origin_review": false
       },
@@ -1462,7 +1554,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-integration-tester",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-integration-tester",
         "needs_origin_review": false
       },
@@ -1506,7 +1598,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/strategy-pivot-designer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/strategy-pivot-designer",
         "needs_origin_review": false
       },
@@ -1548,7 +1640,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/telegram-reader",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/telegram-reader",
         "needs_origin_review": false
       },
@@ -1590,7 +1682,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/twitter-reader",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/twitter-reader",
         "needs_origin_review": false
       },
@@ -1633,7 +1725,7 @@
         "origin_url": "https://skills.sh/obra/superpowers/writing-plans",
         "origin_type": "website",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/writing-plans",
         "needs_origin_review": false
       },
@@ -1675,7 +1767,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/yc-reader",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/yc-reader",
         "needs_origin_review": false
       },
@@ -1719,7 +1811,7 @@
         "origin_url": "https://openclawdoc.com/docs/skills/clawhub/",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agent-browser",
         "needs_origin_review": false
       },
@@ -1766,7 +1858,7 @@
         "origin_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/chrome-devtools-mcp",
         "needs_origin_review": false
       },
@@ -1813,7 +1905,7 @@
         "origin_url": "https://modelcontextprotocol.io/docs/getting-started/intro",
         "origin_type": "website",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/mcp-builder",
         "needs_origin_review": false
       },
@@ -1859,7 +1951,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/url-to-markdown",
         "needs_origin_review": false
       },
@@ -1891,6 +1983,98 @@
       }
     },
     {
+      "id": "a-stock-data",
+      "name": "a-stock-data",
+      "description": "Use when the user needs China A-share data, A股行情/估值/研报/题材/北向资金/龙虎榜/解禁/两融/大宗交易/股东户数/分红/新闻/公告, batch stock comparison, or A-share research workflows.",
+      "manual": "skills/default/a-stock-data/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/a-stock-data/GUIDE.md",
+      "install_tiers": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/simonlin1212/a-stock-data",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/simonlin1212/a-stock-data",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-data",
+      "category_label": "金融 / 数据源",
+      "tags": [
+        "direct",
+        "finance-data",
+        "l2",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-data",
+      "preset_excluded": false,
+      "rating": {
+        "score": 86,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "akshare-stock",
+      "name": "akshare-stock",
+      "description": "A股量化数据分析工具，基于AkShare库获取A股行情、财务数据、板块信息等。用于回答关于A股股票查询、行情数据、财务分析、选股等问题。",
+      "manual": "skills/default/akshare-stock/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/akshare-stock/GUIDE.md",
+      "install_tiers": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://clawhub.ai/skills/new-akshare-stock",
+        "origin_type": "clawhub",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/akshare-stock",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-data",
+      "category_label": "金融 / 数据源",
+      "tags": [
+        "direct",
+        "finance-data",
+        "l2",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-data",
+      "preset_excluded": false,
+      "rating": {
+        "score": 86,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "github",
       "name": "github",
       "description": "Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and advanced queries.",
@@ -1905,7 +2089,7 @@
         "origin_url": "https://github.com/github/github-mcp-server",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/github",
         "needs_origin_review": false
       },
@@ -1940,6 +2124,50 @@
       }
     },
     {
+      "id": "yfinance-data",
+      "name": "yfinance-data",
+      "description": ">",
+      "manual": "skills/default/yfinance-data/README.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/yfinance-data/README.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/yfinance-data",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-data",
+      "category_label": "金融 / 数据源",
+      "tags": [
+        "direct",
+        "finance-data",
+        "l2",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-data",
+      "preset_excluded": false,
+      "rating": {
+        "score": 86,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "baoyu-article-illustrator",
       "name": "baoyu-article-illustrator",
       "description": "Use when adding article illustrations or visual aids to markdown or long-form writing.",
@@ -1952,7 +2180,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-article-illustrator",
         "needs_origin_review": false
       },
@@ -1994,7 +2222,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-comic",
         "needs_origin_review": false
       },
@@ -2036,7 +2264,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-cover-image",
         "needs_origin_review": false
       },
@@ -2078,7 +2306,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-format-markdown",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-format-markdown",
         "needs_origin_review": false
       },
@@ -2120,7 +2348,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-infographic",
         "needs_origin_review": false
       },
@@ -2162,7 +2390,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-markdown-to-html",
         "needs_origin_review": false
       },
@@ -2204,7 +2432,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-skills",
         "needs_origin_review": false
       },
@@ -2246,7 +2474,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-slide-deck",
         "needs_origin_review": false
       },
@@ -2288,7 +2516,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-translate",
         "needs_origin_review": false
       },
@@ -2330,7 +2558,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-xhs-images",
         "needs_origin_review": false
       },
@@ -2374,7 +2602,7 @@
         "origin_url": "https://mcp.directory/skills/details/1368/capability-evolver",
         "origin_type": "website",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/capability-evolver",
         "needs_origin_review": false
       },
@@ -2416,7 +2644,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-reviewer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-strategy-reviewer",
         "needs_origin_review": false
       },
@@ -2458,7 +2686,7 @@
         "origin_url": "https://github.com/himself65/finance-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/estimate-analysis",
         "needs_origin_review": false
       },
@@ -2500,7 +2728,7 @@
         "origin_url": "https://github.com/himself65/finance-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/hormuz-strait",
         "needs_origin_review": false
       },
@@ -2542,7 +2770,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/scenario-analyzer",
         "needs_origin_review": false
       },
@@ -2584,7 +2812,7 @@
         "origin_url": "https://github.com/himself65/finance-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/sepa-strategy",
         "needs_origin_review": false
       },
@@ -2626,7 +2854,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-idea-miner",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/skill-idea-miner",
         "needs_origin_review": false
       },
@@ -2668,7 +2896,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/startup-tools/skills/startup-analysis",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/startup-analysis",
         "needs_origin_review": false
       },
@@ -2712,7 +2940,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/android-native-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/android-native-dev",
         "needs_origin_review": false
       },
@@ -2756,7 +2984,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/flutter-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/flutter-dev",
         "needs_origin_review": false
       },
@@ -2800,7 +3028,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/frontend-dev",
         "needs_origin_review": false
       },
@@ -2846,7 +3074,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/ios-application-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/ios-application-dev",
         "needs_origin_review": false
       },
@@ -2890,7 +3118,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-docx",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-docx",
         "needs_origin_review": false
       },
@@ -2934,7 +3162,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-pdf",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-pdf",
         "needs_origin_review": false
       },
@@ -2978,7 +3206,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-xlsx",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-xlsx",
         "needs_origin_review": false
       },
@@ -3025,7 +3253,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/pptx-generator",
         "needs_origin_review": false
       },
@@ -3071,7 +3299,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/react-native-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/react-native-dev",
         "needs_origin_review": false
       },
@@ -3117,7 +3345,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/shader-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/shader-dev",
         "needs_origin_review": false
       },
@@ -3161,7 +3389,7 @@
         "origin_url": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/social-content",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/social-content",
         "needs_origin_review": false
       },
@@ -3205,7 +3433,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-url-to-markdown",
         "needs_origin_review": false
       },
@@ -3237,53 +3465,6 @@
       }
     },
     {
-      "id": "finance-data",
-      "name": "finance-data",
-      "description": "Comprehensive financial data retrieval from OpenBB MCP and AKShare API. Query stock prices, financial statements, indices, ETFs, and perform data validation across multiple sources. Use when you need Chinese or US stock market data, fundamental analysis, technical indicators, or cross-validation between data providers. Supports real-time quotes, historical data, company financials, and market indices.",
-      "manual": "skills/default/finance-data/GUIDE.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/finance-data/GUIDE.md",
-      "install_tiers": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/OpenBB-finance/OpenBB",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-data",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L2 Professional",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
-      "tags": [
-        "finance-trading",
-        "l2",
-        "mcp-required",
-        "online"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [
-          "mcp",
-          "python"
-        ],
-        "access_mode": "mcp-required",
-        "runtime": "online"
-      },
-      "risk_level": "medium",
-      "conflict_group": "finance-data",
-      "preset_excluded": false,
-      "rating": {
-        "score": 81,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "news-radar",
       "name": "news-radar",
       "description": "Comprehensive news aggregation from TrendRadar MCP server with focus on high-frequency international data sources. Retrieve trending topics, breaking news, sentiment analysis, and source diversity metrics. Use when you need global news coverage, trend analysis, or news monitoring across multiple international sources. Supports filtering by topic, region, time range, and source reliability.",
@@ -3298,7 +3479,7 @@
         "origin_url": "https://github.com/airinghost/TrendRadar",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/news-radar",
         "needs_origin_review": false
       },
@@ -3345,7 +3526,7 @@
         "origin_url": "https://clawhub.ai/skills/openclaw-cron-setup",
         "origin_type": "clawhub",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/openclaw-cron-setup",
         "needs_origin_review": false
       },
@@ -3377,52 +3558,6 @@
       }
     },
     {
-      "id": "akshare-stock",
-      "name": "akshare-stock",
-      "description": "A股量化数据分析工具，基于AkShare库获取A股行情、财务数据、板块信息等。用于回答关于A股股票查询、行情数据、财务分析、选股等问题。",
-      "manual": "skills/default/akshare-stock/GUIDE.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/akshare-stock/GUIDE.md",
-      "install_tiers": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://clawhub.ai/skills/new-akshare-stock",
-        "origin_type": "clawhub",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/akshare-stock",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
-      "tags": [
-        "direct",
-        "finance-trading",
-        "l3",
-        "offline"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [
-          "python"
-        ],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "medium",
-      "conflict_group": "finance-data",
-      "preset_excluded": false,
-      "rating": {
-        "score": 79,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "alphaear-deepear-lite",
       "name": "alphaear-deepear-lite",
       "description": "Fetch the latest financial signals and transmission-chain analyses from DeepEar Lite. Use when the user needs immediate insights into financial market trends, stock performance factors, and reasoning from the DeepEar Lite dashboard.",
@@ -3435,7 +3570,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-deepear-lite",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-deepear-lite",
         "needs_origin_review": false
       },
@@ -3479,7 +3614,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-logic-visualizer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-logic-visualizer",
         "needs_origin_review": false
       },
@@ -3523,7 +3658,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-news",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-news",
         "needs_origin_review": false
       },
@@ -3567,7 +3702,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-predictor",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-predictor",
         "needs_origin_review": false
       },
@@ -3611,7 +3746,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-reporter",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-reporter",
         "needs_origin_review": false
       },
@@ -3643,50 +3778,6 @@
       }
     },
     {
-      "id": "alphaear-sentiment",
-      "name": "alphaear-sentiment",
-      "description": "Analyze finance text sentiment using FinBERT or LLM. Use when the user needs to determine the sentiment (positive/negative/neutral) and score of financial text markets.",
-      "manual": "skills/default/alphaear-sentiment/SKILL.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/alphaear-sentiment/SKILL.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-sentiment",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-sentiment",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
-      "tags": [
-        "direct",
-        "finance-trading",
-        "l3",
-        "offline"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [
-          "python"
-        ],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "medium",
-      "conflict_group": "finance-specialist:alphaear-sentiment",
-      "preset_excluded": false,
-      "rating": {
-        "score": 79,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "alphaear-signal-tracker",
       "name": "alphaear-signal-tracker",
       "description": "Track finance investment signal evolution and update logic based on new finance market information. Use when monitoring finance signals and determining if they are strengthened, weakened, or falsified.",
@@ -3699,7 +3790,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-signal-tracker",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-signal-tracker",
         "needs_origin_review": false
       },
@@ -3743,7 +3834,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-stock",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-stock",
         "needs_origin_review": false
       },
@@ -3787,7 +3878,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/breadth-chart-analyst",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/breadth-chart-analyst",
         "needs_origin_review": false
       },
@@ -3831,7 +3922,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/breakout-trade-planner",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/breakout-trade-planner",
         "needs_origin_review": false
       },
@@ -3873,7 +3964,7 @@
         "origin_url": "https://github.com/himself65/finance-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/company-valuation",
         "needs_origin_review": false
       },
@@ -3915,7 +4006,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/data-quality-checker",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/data-quality-checker",
         "needs_origin_review": false
       },
@@ -3959,7 +4050,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/earnings-preview",
         "needs_origin_review": false
       },
@@ -4001,7 +4092,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/earnings-recap",
         "needs_origin_review": false
       },
@@ -4043,7 +4134,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-candidate-agent",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-candidate-agent",
         "needs_origin_review": false
       },
@@ -4075,50 +4166,6 @@
       }
     },
     {
-      "id": "edge-hint-extractor",
-      "name": "edge-hint-extractor",
-      "description": "Extract edge hints from daily market observations and news reactions, with optional LLM ideation, and output canonical hints.yaml for downstream concept synthesis and auto detection.",
-      "manual": "skills/default/edge-hint-extractor/SKILL.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/edge-hint-extractor/SKILL.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-hint-extractor",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-hint-extractor",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
-      "tags": [
-        "direct",
-        "finance-trading",
-        "l3",
-        "online"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [
-          "node"
-        ],
-        "access_mode": "direct",
-        "runtime": "online"
-      },
-      "risk_level": "medium",
-      "conflict_group": "finance-specialist:edge-hint-extractor",
-      "preset_excluded": false,
-      "rating": {
-        "score": 79,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "etf-premium",
       "name": "etf-premium",
       "description": ">",
@@ -4131,7 +4178,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/etf-premium",
         "needs_origin_review": false
       },
@@ -4173,7 +4220,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/skill-creator/skills/finance-skill-creator",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-skill-creator",
         "needs_origin_review": false
       },
@@ -4217,7 +4264,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-review-monitor",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/kanchi-dividend-review-monitor",
         "needs_origin_review": false
       },
@@ -4259,7 +4306,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-us-tax-accounting",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/kanchi-dividend-us-tax-accounting",
         "needs_origin_review": false
       },
@@ -4301,7 +4348,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-breadth-analyzer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/market-breadth-analyzer",
         "needs_origin_review": false
       },
@@ -4345,7 +4392,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-environment-analysis",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/market-environment-analysis",
         "needs_origin_review": false
       },
@@ -4389,7 +4436,7 @@
         "origin_url": "https://github.com/himself65/finance-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/options-payoff",
         "needs_origin_review": false
       },
@@ -4419,6 +4466,48 @@
       }
     },
     {
+      "id": "policy-monitor",
+      "name": "policy-monitor",
+      "description": "监控央行、证监会、发改委、财政部、统计局等官方政策渠道，并对宏观、货币、资本市场、产业、财政和监管政策进行分类摘要、影响解读和风险提示。适用于政策追踪、每日/每周政策简报、金融市场政策影响分析。",
+      "manual": "skills/default/policy-monitor/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "policy-monitoring",
+      "category_label": "政策 / 宏观监控",
+      "tags": [
+        "direct",
+        "l3",
+        "offline",
+        "policy-monitoring"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "medium",
+      "conflict_group": "policy-monitor",
+      "preset_excluded": false,
+      "rating": {
+        "score": 79,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "position-sizer",
       "name": "position-sizer",
       "description": "Calculate risk-based position sizes for long stock trades. Use when user asks about position sizing, how many shares to buy, risk per trade, Kelly criterion, ATR-based sizing, or portfolio risk allocation. Supports stop-loss distance calculation, volatility scaling, and sector concentration checks.",
@@ -4431,7 +4520,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/position-sizer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/position-sizer",
         "needs_origin_review": false
       },
@@ -4463,6 +4552,48 @@
       }
     },
     {
+      "id": "pybroker-backtest-skill",
+      "name": "pybroker-backtest-skill",
+      "description": "基于 PyBroker 的算法交易回测实验技能。用于历史数据模拟、收益/回撤/稳定性评估、参数优化、技术指标策略和机器学习策略验证。",
+      "manual": "skills/default/pybroker-backtest-skill/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/pybroker-backtest-skill/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/gaaiyun/pybroker-backtest-skill",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/gaaiyun/pybroker-backtest-skill",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "finance-trading",
+      "category_label": "金融 / 交易",
+      "tags": [
+        "direct",
+        "finance-trading",
+        "l3",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-specialist:pybroker-backtest-skill",
+      "preset_excluded": false,
+      "rating": {
+        "score": 79,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "saas-valuation-compression",
       "name": "saas-valuation-compression",
       "description": ">",
@@ -4475,7 +4606,7 @@
         "origin_url": "https://github.com/himself65/finance-skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/saas-valuation-compression",
         "needs_origin_review": false
       },
@@ -4517,7 +4648,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/sector-analyst",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/sector-analyst",
         "needs_origin_review": false
       },
@@ -4561,7 +4692,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/stanley-druckenmiller-investment",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/stanley-druckenmiller-investment",
         "needs_origin_review": false
       },
@@ -4591,6 +4722,51 @@
       }
     },
     {
+      "id": "stock-analysis",
+      "name": "stock-analysis",
+      "description": "Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management, watchlists with alerts, dividend analysis, 8-dimension stock scoring, viral trend detection (Hot Scanner), and rumor/early signal detection. Use for stock analysis, portfolio tracking, earnings reactions, crypto monitoring, trending stocks, or finding rumors before they hit mainstream.",
+      "manual": "skills/default/stock-analysis/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/stock-analysis/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/moinsen-dev/stock-analysis",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/moinsen-dev/stock-analysis",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "finance-trading",
+      "category_label": "金融 / 交易",
+      "tags": [
+        "direct",
+        "finance-trading",
+        "l3",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "node",
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-specialist:stock-analysis",
+      "preset_excluded": false,
+      "rating": {
+        "score": 79,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "stock-correlation",
       "name": "stock-correlation",
       "description": ">",
@@ -4603,7 +4779,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/stock-correlation",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/stock-correlation",
         "needs_origin_review": false
       },
@@ -4647,7 +4823,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/stock-liquidity",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/stock-liquidity",
         "needs_origin_review": false
       },
@@ -4690,19 +4866,19 @@
         "high"
       ],
       "origin": {
-        "origin_url": "https://clawhub.ai/THIRTYFANG/stock-monitor-skill",
-        "origin_type": "clawhub",
+        "origin_url": "https://github.com/chjm-ai/stock-monitor-skill",
+        "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/stock-monitor-skill",
         "needs_origin_review": false
       },
       "horizontal_tier": "L3 Specialist",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
+      "primary_category": "finance-monitor",
+      "category_label": "金融 / 监控预警",
       "tags": [
         "direct",
-        "finance-trading",
+        "finance-monitor",
         "l3",
         "offline"
       ],
@@ -4716,7 +4892,7 @@
         "runtime": "offline"
       },
       "risk_level": "medium",
-      "conflict_group": "finance-specialist:stock-monitor-skill",
+      "conflict_group": "stock-monitor-skill",
       "preset_excluded": false,
       "rating": {
         "score": 79,
@@ -4737,7 +4913,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/technical-analyst",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/technical-analyst",
         "needs_origin_review": false
       },
@@ -4781,7 +4957,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trade-hypothesis-ideator",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/trade-hypothesis-ideator",
         "needs_origin_review": false
       },
@@ -4823,7 +4999,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trader-memory-core",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/trader-memory-core",
         "needs_origin_review": false
       },
@@ -4865,7 +5041,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/uptrend-analyzer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/uptrend-analyzer",
         "needs_origin_review": false
       },
@@ -4909,7 +5085,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-market-bubble-detector",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/us-market-bubble-detector",
         "needs_origin_review": false
       },
@@ -4953,7 +5129,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-stock-analysis",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/us-stock-analysis",
         "needs_origin_review": false
       },
@@ -4985,50 +5161,6 @@
       }
     },
     {
-      "id": "yfinance-data",
-      "name": "yfinance-data",
-      "description": ">",
-      "manual": "skills/default/yfinance-data/README.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/yfinance-data/README.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/yfinance-data",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
-      "tags": [
-        "direct",
-        "finance-trading",
-        "l3",
-        "offline"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [
-          "python"
-        ],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "medium",
-      "conflict_group": "finance-data",
-      "preset_excluded": false,
-      "rating": {
-        "score": 79,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "agentmail-mcp",
       "name": "agentmail-mcp",
       "description": "AgentMail MCP server for email tools in AI assistants. Use when setting up AgentMail with Claude Desktop, Cursor, VS Code, Windsurf, or other MCP-compatible clients. Provides tools for inbox management, sending/receiving emails, and thread handling.",
@@ -5043,7 +5175,7 @@
         "origin_url": "https://github.com/agentmail-to/agentmail-mcp",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agentmail-mcp",
         "needs_origin_review": false
       },
@@ -5091,7 +5223,7 @@
         "origin_url": "https://github.com/agentmail-to/agentmail-toolkit",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agentmail-toolkit",
         "needs_origin_review": false
       },
@@ -5136,7 +5268,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-image-gen",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-image-gen",
         "needs_origin_review": false
       },
@@ -5177,6 +5309,96 @@
       }
     },
     {
+      "id": "dual-axis-skill-reviewer",
+      "name": "dual-axis-skill-reviewer",
+      "description": "Review skills in any project using a dual-axis method: (1) deterministic code-based checks (structure, scripts, tests, execution safety) and (2) LLM deep review findings. Use when you need reproducible quality scoring for `skills/*/SKILL.md`, want to gate merges with a score threshold (for example 90+), or need concrete improvement items for low-scoring skills. Works across projects via --project-root.",
+      "manual": "skills/default/dual-axis-skill-reviewer/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dual-axis-skill-reviewer/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dual-axis-skill-reviewer",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/dual-axis-skill-reviewer",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "data-analysis",
+      "category_label": "数据分析",
+      "tags": [
+        "api-key",
+        "data-analysis",
+        "l2",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "OPENAI_API_KEY"
+        ],
+        "required_tools": [],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "dual-axis-skill-reviewer",
+      "preset_excluded": false,
+      "rating": {
+        "score": 78,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "funda-data",
+      "name": "funda-data",
+      "description": ">",
+      "manual": "skills/default/funda-data/README.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/funda-data/README.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/funda-data",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-data",
+      "category_label": "金融 / 数据源",
+      "tags": [
+        "api-key",
+        "finance-data",
+        "l2",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "FUNDA_API_KEY"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-data",
+      "preset_excluded": false,
+      "rating": {
+        "score": 78,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "lark-calendar",
       "name": "lark-calendar",
       "description": "Create, update, and delete calendar events and tasks in Lark (Feishu). Includes employee directory for automatic name-to-user_id resolution.",
@@ -5191,7 +5413,7 @@
         "origin_url": "https://github.com/larksuite/oapi-sdk-nodejs",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/lark-calendar",
         "needs_origin_review": false
       },
@@ -5237,7 +5459,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-web-search",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-web-search",
         "needs_origin_review": false
       },
@@ -5272,6 +5494,52 @@
       }
     },
     {
+      "id": "openclaw-stock-data-skill",
+      "name": "openclaw-stock-data-skill",
+      "description": "使用 data.diemeng.chat 提供的接口查询股票日线、分钟线、财务指标等数据，支持 A 股等市场。",
+      "manual": "skills/default/openclaw-stock-data-skill/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/openclaw-stock-data-skill/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/1018466411/openclaw-stock-data-skill",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/1018466411/openclaw-stock-data-skill",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-data",
+      "category_label": "金融 / 数据源",
+      "tags": [
+        "api-key",
+        "finance-data",
+        "l2",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "STOCK_API_KEY"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-data",
+      "preset_excluded": false,
+      "rating": {
+        "score": 78,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "paperless-docs",
       "name": "paperless-ngx",
       "description": "Manage documents in Paperless-ngx - search, upload, tag, and retrieve.",
@@ -5285,7 +5553,7 @@
         "origin_url": "https://github.com/paperless-ngx/paperless-ngx",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/paperless-docs",
         "needs_origin_review": false
       },
@@ -5330,7 +5598,7 @@
         "origin_url": "https://github.com/paperless-ngx/paperless-ngx",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/paperless-ngx-tools",
         "needs_origin_review": false
       },
@@ -5376,7 +5644,7 @@
         "origin_url": "https://github.com/tavily-ai/tavily-python",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/tavily-search",
         "needs_origin_review": false
       },
@@ -5392,6 +5660,7 @@
       "dependencies": {
         "requires_api_keys": true,
         "api_keys": [
+          "OPENAI_API_KEY",
           "TAVILY_API_KEY"
         ],
         "required_tools": [
@@ -5403,6 +5672,50 @@
       },
       "risk_level": "medium",
       "conflict_group": "web-search",
+      "preset_excluded": false,
+      "rating": {
+        "score": 78,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "tushare-openclaw-skill",
+      "name": "tushare-openclaw-skill",
+      "description": "Tushare Pro 金融数据 API 查询助手。用于帮助用户查询中国股票、基金、期货、债券等金融数据。当用户需要获取股票行情、财务数据、基础信息、宏观经济数据时使用此 skill。",
+      "manual": "skills/default/tushare-openclaw-skill/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/tushare-openclaw-skill/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/DayDreammy/tushare-openclaw-skill",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/DayDreammy/tushare-openclaw-skill",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "finance-data",
+      "category_label": "金融 / 数据源",
+      "tags": [
+        "api-key",
+        "finance-data",
+        "l2",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-data",
       "preset_excluded": false,
       "rating": {
         "score": 78,
@@ -5425,7 +5738,7 @@
         "origin_url": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/content-strategy",
         "needs_origin_review": false
       },
@@ -5469,7 +5782,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/buddy-sings",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/buddy-sings",
         "needs_origin_review": false
       },
@@ -5499,6 +5812,48 @@
       }
     },
     {
+      "id": "codex-responses-tooling",
+      "name": "codex-responses-tooling",
+      "description": "Use when generating images through the local Codex Responses API, especially when the agent should reuse ~/.codex/config.toml base_url and decode streamed image_generation results.",
+      "manual": "skills/default/codex-responses-tooling/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/codex-responses-tooling/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/codex-responses-tooling",
+        "origin_type": "github",
+        "origin_confidence": "local_reference",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/codex-responses-tooling",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "media-generation",
+      "category_label": "媒体生成 / 处理",
+      "tags": [
+        "direct",
+        "l3",
+        "media-generation",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "online"
+      },
+      "risk_level": "low",
+      "conflict_group": "codex-responses-tooling",
+      "preset_excluded": false,
+      "rating": {
+        "score": 75,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
       "id": "minimax-music-gen",
       "name": "minimax-music-gen",
       "description": ">",
@@ -5513,7 +5868,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-gen",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-music-gen",
         "needs_origin_review": false
       },
@@ -5559,7 +5914,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-playlist",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-music-playlist",
         "needs_origin_review": false
       },
@@ -5603,7 +5958,7 @@
         "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-search",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-search",
         "needs_origin_review": false
       },
@@ -5648,7 +6003,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-compress-image",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-compress-image",
         "needs_origin_review": false
       },
@@ -5692,7 +6047,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-weibo",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-post-to-weibo",
         "needs_origin_review": false
       },
@@ -5737,7 +6092,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-x",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-post-to-x",
         "needs_origin_review": false
       },
@@ -5782,7 +6137,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-news-analyst",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/market-news-analyst",
         "needs_origin_review": false
       },
@@ -5828,7 +6183,7 @@
         "origin_url": "https://mcp.directory/skills/portfolio-manager",
         "origin_type": "website",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/portfolio-manager",
         "needs_origin_review": false
       },
@@ -5875,7 +6230,7 @@
         "origin_url": "https://github.com/agentmail-to/agentmail-cli",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agentmail-cli",
         "needs_origin_review": false
       },
@@ -5909,6 +6264,52 @@
       }
     },
     {
+      "id": "alphaear-sentiment",
+      "name": "alphaear-sentiment",
+      "description": "Analyze finance text sentiment using FinBERT or LLM. Use when the user needs to determine the sentiment (positive/negative/neutral) and score of financial text markets.",
+      "manual": "skills/default/alphaear-sentiment/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/alphaear-sentiment/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-sentiment",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/alphaear-sentiment",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "finance-trading",
+      "category_label": "金融 / 交易",
+      "tags": [
+        "api-key",
+        "finance-trading",
+        "l3",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "OPENAI_API_KEY"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-specialist:alphaear-sentiment",
+      "preset_excluded": false,
+      "rating": {
+        "score": 71,
+        "stars": 3,
+        "rating_label": "★★★☆☆"
+      }
+    },
+    {
       "id": "baoyu-post-to-wechat",
       "name": "baoyu-post-to-wechat",
       "description": "Use when posting articles or image-text content to WeChat Official Account.",
@@ -5921,7 +6322,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-post-to-wechat",
         "needs_origin_review": false
       },
@@ -5968,7 +6369,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/canslim-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/canslim-screener",
         "needs_origin_review": false
       },
@@ -6014,7 +6415,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dividend-growth-pullback-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/dividend-growth-pullback-screener",
         "needs_origin_review": false
       },
@@ -6061,7 +6462,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/downtrend-duration-analyzer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/downtrend-duration-analyzer",
         "needs_origin_review": false
       },
@@ -6105,7 +6506,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/earnings-calendar",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/earnings-calendar",
         "needs_origin_review": false
       },
@@ -6152,7 +6553,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/earnings-trade-analyzer",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/earnings-trade-analyzer",
         "needs_origin_review": false
       },
@@ -6199,7 +6600,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/economic-calendar-fetcher",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/economic-calendar-fetcher",
         "needs_origin_review": false
       },
@@ -6233,6 +6634,52 @@
       }
     },
     {
+      "id": "edge-hint-extractor",
+      "name": "edge-hint-extractor",
+      "description": "Extract edge hints from daily market observations and news reactions, with optional LLM ideation, and output canonical hints.yaml for downstream concept synthesis and auto detection.",
+      "manual": "skills/default/edge-hint-extractor/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/edge-hint-extractor/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-hint-extractor",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/edge-hint-extractor",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "finance-trading",
+      "category_label": "金融 / 交易",
+      "tags": [
+        "api-key",
+        "finance-trading",
+        "l3",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "OPENAI_API_KEY"
+        ],
+        "required_tools": [
+          "node"
+        ],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-specialist:edge-hint-extractor",
+      "preset_excluded": false,
+      "rating": {
+        "score": 71,
+        "stars": 3,
+        "rating_label": "★★★☆☆"
+      }
+    },
+    {
       "id": "exposure-coach",
       "name": "exposure-coach",
       "description": "Generate a one-page Market Posture summary with net exposure ceiling, growth-vs-value bias, participation breadth, and new-entry-allowed vs cash-priority recommendation by integrating signals from breadth, regime, and flow analysis skills.",
@@ -6245,7 +6692,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/exposure-coach",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/exposure-coach",
         "needs_origin_review": false
       },
@@ -6289,7 +6736,7 @@
         "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/finance-sentiment",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finance-sentiment",
         "needs_origin_review": false
       },
@@ -6335,7 +6782,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/finviz-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/finviz-screener",
         "needs_origin_review": false
       },
@@ -6381,7 +6828,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/ftd-detector",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/ftd-detector",
         "needs_origin_review": false
       },
@@ -6413,52 +6860,6 @@
       }
     },
     {
-      "id": "funda-data",
-      "name": "funda-data",
-      "description": ">",
-      "manual": "skills/default/funda-data/README.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/funda-data/README.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/funda-data",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "finance-trading",
-      "category_label": "金融 / 交易",
-      "tags": [
-        "api-key",
-        "finance-trading",
-        "l3",
-        "online"
-      ],
-      "dependencies": {
-        "requires_api_keys": true,
-        "api_keys": [
-          "FUNDA_API_KEY"
-        ],
-        "required_tools": [
-          "python"
-        ],
-        "access_mode": "api-key",
-        "runtime": "online"
-      },
-      "risk_level": "medium",
-      "conflict_group": "finance-data",
-      "preset_excluded": false,
-      "rating": {
-        "score": 71,
-        "stars": 3,
-        "rating_label": "★★★☆☆"
-      }
-    },
-    {
       "id": "gemini-image-service",
       "name": "gemini-image-service",
       "description": "使用 Gemini 第三方服务生成图片。读取 GEMINI_API_KEY/GEMINI_BASE_URL/GEMINI_IMAGE_MODEL。",
@@ -6472,7 +6873,7 @@
         "origin_url": "https://ai.google.dev/gemini-api/docs/image-generation",
         "origin_type": "website",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/gemini-image-service",
         "needs_origin_review": false
       },
@@ -6516,7 +6917,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/ibd-distribution-day-monitor",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/ibd-distribution-day-monitor",
         "needs_origin_review": false
       },
@@ -6562,7 +6963,7 @@
         "origin_url": "https://github.com/inference-sh/skills",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/inference-skills",
         "needs_origin_review": false
       },
@@ -6606,7 +7007,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/institutional-flow-tracker",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/institutional-flow-tracker",
         "needs_origin_review": false
       },
@@ -6652,7 +7053,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-sop",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/kanchi-dividend-sop",
         "needs_origin_review": false
       },
@@ -6698,7 +7099,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/macro-regime-detector",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/macro-regime-detector",
         "needs_origin_review": false
       },
@@ -6742,7 +7143,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-top-detector",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/market-top-detector",
         "needs_origin_review": false
       },
@@ -6790,7 +7191,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-image-understanding",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-image-understanding",
         "needs_origin_review": false
       },
@@ -6834,7 +7235,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/options-strategy-advisor",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/options-strategy-advisor",
         "needs_origin_review": false
       },
@@ -6879,7 +7280,7 @@
         "origin_url": "https://github.com/steipete/oracle",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/oracle",
         "needs_origin_review": false
       },
@@ -6925,7 +7326,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/pair-trade-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/pair-trade-screener",
         "needs_origin_review": false
       },
@@ -6971,7 +7372,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/parabolic-short-trade-planner",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/parabolic-short-trade-planner",
         "needs_origin_review": false
       },
@@ -7016,7 +7417,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/pead-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/pead-screener",
         "needs_origin_review": false
       },
@@ -7062,7 +7463,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/signal-postmortem",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/signal-postmortem",
         "needs_origin_review": false
       },
@@ -7094,6 +7495,52 @@
       }
     },
     {
+      "id": "stock-daily-analysis-skill",
+      "name": "stock-daily-analysis-skill",
+      "description": "LLM驱动的每日股票分析系统。支持A股/港股/美股自选股智能分析，生成决策仪表盘和大盘复盘报告。提供技术面分析（均线、MACD、RSI、乖离率）、趋势判断、买入信号评分。可与market-data skill集成获取更稳定的ETF数据。触发词：股票分析、分析股票、每日分析、技术面分析。",
+      "manual": "skills/default/stock-daily-analysis-skill/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/stock-daily-analysis-skill/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/chjm-ai/stock-daily-analysis-skill",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-05-31",
+        "mirror_source_url": "https://github.com/chjm-ai/stock-daily-analysis-skill",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "finance-trading",
+      "category_label": "金融 / 交易",
+      "tags": [
+        "api-key",
+        "finance-trading",
+        "l3",
+        "online"
+      ],
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "OPENAI_API_KEY"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "online"
+      },
+      "risk_level": "medium",
+      "conflict_group": "finance-specialist:stock-daily-analysis-skill",
+      "preset_excluded": false,
+      "rating": {
+        "score": 71,
+        "stars": 3,
+        "rating_label": "★★★☆☆"
+      }
+    },
+    {
       "id": "theme-detector",
       "name": "theme-detector",
       "description": "Detect and analyze trending market themes across sectors. Use when user asks about current market themes, trending sectors, sector rotation, thematic investing, what themes are hot or cold, or wants to identify bullish and bearish market narratives with lifecycle analysis.",
@@ -7106,7 +7553,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/theme-detector",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/theme-detector",
         "needs_origin_review": false
       },
@@ -7151,7 +7598,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/value-dividend-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/value-dividend-screener",
         "needs_origin_review": false
       },
@@ -7198,7 +7645,7 @@
         "origin_url": "https://github.com/tradermonty/claude-trading-skills/tree/main/skills/vcp-screener",
         "origin_type": "github",
         "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/vcp-screener",
         "needs_origin_review": false
       },
@@ -7246,7 +7693,7 @@
         "origin_url": "https://github.com/coreyhaines31/marketingskills",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/marketingskills",
         "needs_origin_review": false
       },
@@ -7290,7 +7737,7 @@
         "origin_url": "https://github.com/agentmail-to/agentmail-skills",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/agentmail",
         "needs_origin_review": false
       },
@@ -7338,7 +7785,7 @@
         "origin_url": "https://github.com/inference-sh/skills/tree/main/tools/image/ai-image-generation",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/ai-image-generation",
         "needs_origin_review": false
       },
@@ -7385,7 +7832,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/fullstack-dev",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/fullstack-dev",
         "needs_origin_review": false
       },
@@ -7433,7 +7880,7 @@
         "origin_url": "https://github.com/yizhiyanhua-ai/media-downloader.git",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/media-downloader",
         "needs_origin_review": false
       },
@@ -7479,7 +7926,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-multimodal-toolkit",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/minimax-multimodal-toolkit",
         "needs_origin_review": false
       },
@@ -7528,7 +7975,7 @@
         "origin_url": "https://github.com/PleasePrompto/notebooklm-skill",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/notebooklm-skill",
         "needs_origin_review": false
       },
@@ -7576,7 +8023,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/vision-analysis",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/vision-analysis",
         "needs_origin_review": false
       },
@@ -7622,7 +8069,7 @@
         "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/gif-sticker-maker",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/gif-sticker-maker",
         "needs_origin_review": false
       },
@@ -7668,7 +8115,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills#baoyu-danger-x-to-markdown",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-danger-x-to-markdown",
         "needs_origin_review": false
       },
@@ -7712,7 +8159,7 @@
         "origin_url": "https://github.com/JimLiu/baoyu-skills#baoyu-danger-gemini-web",
         "origin_type": "github",
         "origin_confidence": "local_reference",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-danger-gemini-web",
         "needs_origin_review": false
       },
@@ -7760,7 +8207,7 @@
         "origin_url": null,
         "origin_type": "agent-preset",
         "origin_confidence": "agent_preset_excluded",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/docx",
         "needs_origin_review": false,
         "excluded_reason": "Provided by target agent runtime; not installed from this registry."
@@ -7805,7 +8252,7 @@
         "origin_url": null,
         "origin_type": "agent-preset",
         "origin_confidence": "agent_preset_excluded",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/pdf",
         "needs_origin_review": false,
         "excluded_reason": "Provided by target agent runtime; not installed from this registry."
@@ -7850,7 +8297,7 @@
         "origin_url": null,
         "origin_type": "agent-preset",
         "origin_confidence": "agent_preset_excluded",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/pptx",
         "needs_origin_review": false,
         "excluded_reason": "Provided by target agent runtime; not installed from this registry."
@@ -7897,7 +8344,7 @@
         "origin_url": null,
         "origin_type": "agent-preset",
         "origin_confidence": "agent_preset_excluded",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/shell",
         "needs_origin_review": false,
         "excluded_reason": "Provided by target agent runtime; not installed from this registry."
@@ -7942,7 +8389,7 @@
         "origin_url": null,
         "origin_type": "agent-preset",
         "origin_confidence": "agent_preset_excluded",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/web-search",
         "needs_origin_review": false,
         "excluded_reason": "Provided by target agent runtime; not installed from this registry."
@@ -7990,7 +8437,7 @@
         "origin_url": null,
         "origin_type": "agent-preset",
         "origin_confidence": "agent_preset_excluded",
-        "origin_verified_at": "2026-05-18",
+        "origin_verified_at": "2026-05-31",
         "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/xlsx",
         "needs_origin_review": false,
         "excluded_reason": "Provided by target agent runtime; not installed from this registry."

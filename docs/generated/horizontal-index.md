@@ -2,9 +2,9 @@
 
 | 层级 | 定义 | 数量 |
 |---|---|---:|
-| `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 20 |
-| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 61 |
-| `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 98 |
+| `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 21 |
+| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 68 |
+| `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 100 |
 
 ## L1 Foundation
 
@@ -16,6 +16,7 @@
 | `planning-with-files` | 核心 Agent 能力 | 5★ | `direct` | [origin](https://github.com/OthmanAdi/planning-with-files) |
 | `skill-creator` | 核心 Agent 能力 | 5★ | `direct` | [origin](https://github.com/anthropics/skills/tree/main/skills/skill-creator) |
 | `skill-security-auditor` | 核心 Agent 能力 | 5★ | `direct` | [origin](https://clawhub.ai/akhmittra/skill-security-auditor) |
+| `skill-vetter` | 安全 / 审计 | 5★ | `direct` | [origin](https://github.com/app-incubator-xyz/skill-vetter) |
 | `subagent-driven-development` | 核心 Agent 能力 | 5★ | `direct` | [origin](https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development) |
 | `task` | 核心 Agent 能力 | 5★ | `direct` | [origin](https://github.com/openclaw/skills/tree/main/skills/amirbrooks/task) |
 | `todo` | 核心 Agent 能力 | 5★ | `direct` | [origin](https://github.com/sachaos/todoist) |
@@ -40,7 +41,6 @@
 | `baoyu-youtube-transcript` | 数据分析 | 5★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-youtube-transcript) |
 | `data-analyst` | 数据分析 | 5★ | `direct` | [origin](https://github.com/openclaw/skills/blob/main/skills/oyi77/data-analyst/SKILL.md) |
 | `discord-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/discord-reader) |
-| `dual-axis-skill-reviewer` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dual-axis-skill-reviewer) |
 | `edge-concept-synthesizer` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-concept-synthesizer) |
 | `edge-pipeline-orchestrator` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-pipeline-orchestrator) |
 | `edge-signal-aggregator` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-signal-aggregator) |
@@ -49,9 +49,11 @@
 | `linkedin-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/linkedin-reader) |
 | `multi-search-engine` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://clawhub.ai/gpyAngyoujun/multi-search-engine) |
 | `nano-pdf` | 文档 / 办公 | 5★ | `direct` | [origin](https://github.com/steipete/clawdis/tree/main/skills/nano-pdf) |
+| `openclaw-stock-kb` | 金融 / 知识库 | 5★ | `direct` | [origin](https://github.com/freestylefly/openclaw-stock-kb) |
 | `opencli-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/opencli-reader) |
 | `proactive-agent` | 效率 / 知识管理 | 5★ | `direct` | [origin](https://clawhub.ai/halthelobster/proactive-agent) |
 | `reflection` | 媒体生成 / 处理 | 5★ | `direct` | [origin](https://playbooks.com/skills/openclaw/skills/reflection) |
+| `seedance2-skill` | 媒体生成 / 处理 | 5★ | `direct` | [origin](https://github.com/dexhunter/seedance2-skill) |
 | `self-improving-agent-cn` | 多 Agent / 自动调度 | 5★ | `direct` | [origin](https://clawhub.ai/zhengxinjipai/self-improving-agent-cn) |
 | `skill-designer` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-designer) |
 | `skill-integration-tester` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-integration-tester) |
@@ -60,6 +62,9 @@
 | `twitter-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/twitter-reader) |
 | `writing-plans` | 写作 / 内容 | 5★ | `direct` | [origin](https://skills.sh/obra/superpowers/writing-plans) |
 | `yc-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/yc-reader) |
+| `a-stock-data` | 金融 / 数据源 | 4★ | `direct` | [origin](https://github.com/simonlin1212/a-stock-data) |
+| `akshare-stock` | 金融 / 数据源 | 4★ | `direct` | [origin](https://clawhub.ai/skills/new-akshare-stock) |
+| `yfinance-data` | 金融 / 数据源 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data) |
 | `android-native-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/android-native-dev) |
 | `flutter-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/flutter-dev) |
 | `frontend-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev) |
@@ -72,17 +77,20 @@
 | `shader-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/shader-dev) |
 | `social-content` | 文档 / 办公 | 4★ | `direct` | [origin](https://github.com/coreyhaines31/marketingskills/tree/main/skills/social-content) |
 | `baoyu-url-to-markdown` | 搜索 / 研究 / 情报 | 4★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
-| `finance-data` | 金融 / 交易 | 4★ | `mcp-required` | [origin](https://github.com/OpenBB-finance/OpenBB) |
 | `news-radar` | 搜索 / 研究 / 情报 | 4★ | `mcp-required` | [origin](https://github.com/airinghost/TrendRadar) |
 | `openclaw-cron-setup` | 多 Agent / 自动调度 | 4★ | `browser-required` | [origin](https://clawhub.ai/skills/openclaw-cron-setup) |
 | `agentmail-mcp` | 编程 / 工程工具 | 4★ | `api-key` | [origin](https://github.com/agentmail-to/agentmail-mcp) |
 | `agentmail-toolkit` | 设计 / UI | 4★ | `api-key` | [origin](https://github.com/agentmail-to/agentmail-toolkit) |
 | `baoyu-image-gen` | 编程 / 工程工具 | 4★ | `api-key` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-image-gen) |
+| `dual-axis-skill-reviewer` | 数据分析 | 4★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dual-axis-skill-reviewer) |
+| `funda-data` | 金融 / 数据源 | 4★ | `api-key` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data) |
 | `lark-calendar` | 文档 / 办公 | 4★ | `api-key` | [origin](https://github.com/larksuite/oapi-sdk-nodejs) |
 | `minimax-web-search` | 搜索 / 研究 / 情报 | 4★ | `api-key` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-web-search) |
+| `openclaw-stock-data-skill` | 金融 / 数据源 | 4★ | `api-key` | [origin](https://github.com/1018466411/openclaw-stock-data-skill) |
 | `paperless-docs` | 搜索 / 研究 / 情报 | 4★ | `api-key` | [origin](https://github.com/paperless-ngx/paperless-ngx) |
 | `paperless-ngx-tools` | 搜索 / 研究 / 情报 | 4★ | `api-key` | [origin](https://github.com/paperless-ngx/paperless-ngx) |
 | `tavily-search` | 搜索 / 研究 / 情报 | 4★ | `api-key` | [origin](https://github.com/tavily-ai/tavily-python) |
+| `tushare-openclaw-skill` | 金融 / 数据源 | 4★ | `api-key` | [origin](https://github.com/DayDreammy/tushare-openclaw-skill) |
 | `content-strategy` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy) |
 | `agentmail` | 设计 / UI | 3★ | `api-key` | [origin](https://github.com/agentmail-to/agentmail-skills) |
 | `ai-image-generation` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/inference-sh/skills/tree/main/tools/image/ai-image-generation) |
@@ -119,13 +127,11 @@
 | `sepa-strategy` | 商业运营 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills) |
 | `skill-idea-miner` | 商业运营 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-idea-miner) |
 | `startup-analysis` | 商业运营 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/startup-tools/skills/startup-analysis) |
-| `akshare-stock` | 金融 / 交易 | 4★ | `direct` | [origin](https://clawhub.ai/skills/new-akshare-stock) |
 | `alphaear-deepear-lite` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-deepear-lite) |
 | `alphaear-logic-visualizer` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-logic-visualizer) |
 | `alphaear-news` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-news) |
 | `alphaear-predictor` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-predictor) |
 | `alphaear-reporter` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-reporter) |
-| `alphaear-sentiment` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-sentiment) |
 | `alphaear-signal-tracker` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-signal-tracker) |
 | `alphaear-stock` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-stock) |
 | `breadth-chart-analyst` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/breadth-chart-analyst) |
@@ -135,7 +141,6 @@
 | `earnings-preview` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills) |
 | `earnings-recap` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills) |
 | `edge-candidate-agent` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-candidate-agent) |
-| `edge-hint-extractor` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-hint-extractor) |
 | `etf-premium` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills) |
 | `finance-skill-creator` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/skill-creator/skills/finance-skill-creator) |
 | `kanchi-dividend-review-monitor` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/kanchi-dividend-review-monitor) |
@@ -143,21 +148,24 @@
 | `market-breadth-analyzer` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-breadth-analyzer) |
 | `market-environment-analysis` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-environment-analysis) |
 | `options-payoff` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills) |
+| `policy-monitor` | 政策 / 宏观监控 | 4★ | `direct` | [origin](https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor) |
 | `position-sizer` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/position-sizer) |
+| `pybroker-backtest-skill` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/gaaiyun/pybroker-backtest-skill) |
 | `saas-valuation-compression` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills) |
 | `sector-analyst` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/sector-analyst) |
 | `stanley-druckenmiller-investment` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/stanley-druckenmiller-investment) |
+| `stock-analysis` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/moinsen-dev/stock-analysis) |
 | `stock-correlation` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/stock-correlation) |
 | `stock-liquidity` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/stock-liquidity) |
-| `stock-monitor-skill` | 金融 / 交易 | 4★ | `direct` | [origin](https://clawhub.ai/THIRTYFANG/stock-monitor-skill) |
+| `stock-monitor-skill` | 金融 / 监控预警 | 4★ | `direct` | [origin](https://github.com/chjm-ai/stock-monitor-skill) |
 | `technical-analyst` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/technical-analyst) |
 | `trade-hypothesis-ideator` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trade-hypothesis-ideator) |
 | `trader-memory-core` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trader-memory-core) |
 | `uptrend-analyzer` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/uptrend-analyzer) |
 | `us-market-bubble-detector` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-market-bubble-detector) |
 | `us-stock-analysis` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-stock-analysis) |
-| `yfinance-data` | 金融 / 交易 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data) |
 | `buddy-sings` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/buddy-sings) |
+| `codex-responses-tooling` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/codex-responses-tooling) |
 | `minimax-music-gen` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-gen) |
 | `minimax-music-playlist` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-playlist) |
 | `alphaear-search` | 金融 / 交易 | 3★ | `browser-required` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-search) |
@@ -167,6 +175,7 @@
 | `market-news-analyst` | 金融 / 交易 | 3★ | `browser-required` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-news-analyst) |
 | `portfolio-manager` | 金融 / 交易 | 3★ | `mcp-required` | [origin](https://mcp.directory/skills/portfolio-manager) |
 | `agentmail-cli` | 写作 / 内容 | 3★ | `api-key` | [origin](https://github.com/agentmail-to/agentmail-cli) |
+| `alphaear-sentiment` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-sentiment) |
 | `baoyu-post-to-wechat` | 媒体生成 / 处理 | 3★ | `api-key` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat) |
 | `canslim-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/canslim-screener) |
 | `dividend-growth-pullback-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/dividend-growth-pullback-screener) |
@@ -174,11 +183,11 @@
 | `earnings-calendar` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/earnings-calendar) |
 | `earnings-trade-analyzer` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/earnings-trade-analyzer) |
 | `economic-calendar-fetcher` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/economic-calendar-fetcher) |
+| `edge-hint-extractor` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-hint-extractor) |
 | `exposure-coach` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/exposure-coach) |
 | `finance-sentiment` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/finance-sentiment) |
 | `finviz-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/finviz-screener) |
 | `ftd-detector` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/ftd-detector) |
-| `funda-data` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data) |
 | `gemini-image-service` | 媒体生成 / 处理 | 3★ | `api-key` | [origin](https://ai.google.dev/gemini-api/docs/image-generation) |
 | `ibd-distribution-day-monitor` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/ibd-distribution-day-monitor) |
 | `inference-skills` | 商业运营 | 3★ | `api-key` | [origin](https://github.com/inference-sh/skills) |
@@ -193,6 +202,7 @@
 | `parabolic-short-trade-planner` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/parabolic-short-trade-planner) |
 | `pead-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/pead-screener) |
 | `signal-postmortem` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/signal-postmortem) |
+| `stock-daily-analysis-skill` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/chjm-ai/stock-daily-analysis-skill) |
 | `theme-detector` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/theme-detector) |
 | `value-dividend-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/value-dividend-screener) |
 | `vcp-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/vcp-screener) |

@@ -39,6 +39,10 @@ CATEGORY_LABELS = {
     "writing-content": "写作 / 内容",
     "marketing-growth": "营销 / 增长",
     "finance-trading": "金融 / 交易",
+    "finance-data": "金融 / 数据源",
+    "finance-knowledge": "金融 / 知识库",
+    "finance-monitor": "金融 / 监控预警",
+    "policy-monitoring": "政策 / 宏观监控",
     "legal-compliance": "法律 / 合规 / 税务",
     "productivity-pkm": "效率 / 知识管理",
     "communication": "通信 / 社交集成",
@@ -72,16 +76,17 @@ CATEGORY_KEYWORDS = [
 L1 = {
     "agent-browser", "brainstorming", "chrome-devtools-mcp", "find-skills", "github",
     "mcp-builder", "model-usage", "planning-with-files", "shell", "skill-creator",
+    "skill-vetter",
     "skill-security-auditor", "subagent-driven-development", "task", "todo",
     "url-to-markdown", "using-superpowers", "verification-before-completion", "web-search",
     "writing-skills", "weather",
 }
 L2_HINTS = {
     "data-analyst", "docx", "xlsx", "pptx", "pdf", "frontend-dev", "fullstack-dev",
-    "database", "finance-data", "media-downloader", "ai-image-generation", "news-radar",
+    "database", "a-stock-data", "media-downloader", "ai-image-generation", "news-radar",
     "tavily-search", "multi-search-engine", "notebooklm-skill", "content-strategy",
     "social-content", "vision-analysis", "openclaw-cron-setup", "proactive-agent",
-    "self-improving-agent-cn", "reflection", "writing-plans",
+    "self-improving-agent-cn", "reflection", "writing-plans", "seedance2-skill",
 }
 
 CONFLICT_GROUP_RULES = [
@@ -94,7 +99,7 @@ CONFLICT_GROUP_RULES = [
     ("image-generation", ["ai-image-generation", "gemini-image-service", "baoyu-image-gen"]),
     ("music-generation", ["ai-music-generation", "ai-music-prompts", "minimax-music-gen"]),
     ("email-agent", ["agentmail", "agentmail-cli", "agentmail-mcp", "agentmail-toolkit"]),
-    ("finance-data", ["finance-data", "akshare-stock", "yfinance-data", "funda-data"]),
+    ("finance-data", ["a-stock-data", "akshare-stock", "yfinance-data", "funda-data", "tushare-openclaw-skill", "openclaw-stock-data-skill"]),
 ]
 
 STANDARD_CAPABILITIES = [
@@ -118,7 +123,7 @@ CAPABILITY_RULES = [
     ("planning", ["planning-with-files", "writing-plans"]),
     ("verification", ["verification-before-completion"]),
     ("skill-authoring", ["skill-creator", "writing-skills"]),
-    ("security-review", ["skill-security-auditor"]),
+    ("security-review", ["skill-vetter", "skill-security-auditor"]),
     ("data-analysis", ["data-analyst", "data-quality-checker"]),
     ("docs", ["docx", "minimax-docx"]),
     ("spreadsheet", ["xlsx", "minimax-xlsx"]),
@@ -131,7 +136,7 @@ CAPABILITY_RULES = [
     ("media-download", ["media-downloader"]),
     ("image-generation", ["ai-image-generation", "gemini-image-service"]),
     ("research-news", ["news-radar", "notebooklm-skill"]),
-    ("finance-data", ["finance-data", "yfinance-data", "akshare-stock"]),
+    ("finance-data", ["a-stock-data", "openclaw-stock-data-skill", "tushare-openclaw-skill", "yfinance-data", "akshare-stock"]),
     ("content-strategy", ["content-strategy"]),
     ("writing", ["writing-skills", "baoyu-format-markdown"]),
     ("automation-followup", ["proactive-agent", "openclaw-cron-setup"]),
@@ -147,7 +152,9 @@ API_KEY_PATTERNS = {
     "GH_TOKEN": ["github"],
     "GEMINI_API_KEY": ["gemini"],
     "FMP_API_KEY": ["fmp", "earnings-calendar", "economic-calendar"],
-    "OPENAI_API_KEY": ["openai", "ai-image", "inference"],
+    "OPENAI_API_KEY": ["openai", "ai-image", "inference", "deepseek", "llm"],
+    "TUSHARE_TOKEN": ["tushare"],
+    "STOCK_API_KEY": ["stock_api_key", "data.diemeng", "diemeng"],
 }
 
 TOOL_PATTERNS = {
@@ -274,6 +281,23 @@ def extract_local_urls(skill_id: str) -> list[str]:
 
 
 def classify_category(skill_id: str, description: str) -> str:
+    explicit = {
+        "a-stock-data": "finance-data",
+        "akshare-stock": "finance-data",
+        "funda-data": "finance-data",
+        "openclaw-stock-data-skill": "finance-data",
+        "tushare-openclaw-skill": "finance-data",
+        "yfinance-data": "finance-data",
+        "openclaw-stock-kb": "finance-knowledge",
+        "stock-monitor-skill": "finance-monitor",
+        "stock-daily-analysis-skill": "finance-trading",
+        "stock-analysis": "finance-trading",
+        "pybroker-backtest-skill": "finance-trading",
+        "policy-monitor": "policy-monitoring",
+        "skill-vetter": "security-audit",
+    }
+    if skill_id in explicit:
+        return explicit[skill_id]
     haystack = f"{skill_id} {description}".lower()
     if skill_id in L1 or skill_id in {"task", "todo", "model-usage"}:
         return "core-agent"
@@ -286,7 +310,7 @@ def classify_category(skill_id: str, description: str) -> str:
 def classify_horizontal(skill_id: str, category: str, origin_confidence: str) -> str:
     if skill_id in L1:
         return "L1 Foundation"
-    if skill_id in L2_HINTS or category in {"coding-devtools", "data-analysis", "docs-office", "search-research", "design-ui"}:
+    if skill_id in L2_HINTS or category in {"coding-devtools", "data-analysis", "docs-office", "search-research", "design-ui", "finance-data", "finance-knowledge"}:
         return "L2 Professional"
     if origin_confidence == "missing":
         return "L3 Specialist"
@@ -303,6 +327,8 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     for tool, patterns in TOOL_PATTERNS.items():
         if any(pattern in haystack for pattern in patterns):
             tools.append(tool)
+    if skill_id == "seedance2-skill":
+        tools = []
     if api_keys:
         access_mode = "api-key"
     elif "mcp" in tools:
@@ -335,7 +361,7 @@ def risk_level(skill_id: str, deps: dict[str, Any], category: str) -> str:
         return "high"
     if deps["access_mode"] in {"api-key", "mcp-required", "browser-required"}:
         return "medium"
-    if category in {"finance-trading", "legal-compliance", "devops-cloud"}:
+    if category in {"finance-trading", "finance-data", "finance-monitor", "policy-monitoring", "legal-compliance", "devops-cloud"}:
         return "medium"
     return "low"
 

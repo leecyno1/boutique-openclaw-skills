@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # 测试只依赖标准库 + pytest（src/strategies.py 零第三方依赖）。
+          # 重模型/数据依赖（lib-pybroker、scikit-learn 等）仅 scripts/backtest.py 使用，
+          # tests/ 不触碰，CI 走轻路径不安装。
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          python -m pytest tests/ -o addopts="" -v

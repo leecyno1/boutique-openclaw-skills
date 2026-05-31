@@ -6,3 +6,10 @@ dist/*.tar.gz
 
 __pycache__/
 *.pyc
+
+# SkillOpt local runtime artifacts
+optimization/skillopt/.venv/
+optimization/skillopt-runs/*
+!optimization/skillopt-runs/.gitkeep
+optimization/datasets/skillopt/**/raw/
+optimization/datasets/skillopt/**/downloaded/
