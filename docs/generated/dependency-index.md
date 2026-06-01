@@ -2,7 +2,7 @@
 
 | 使用条件 | 数量 |
 |---|---:|
-| `api-key` | 55 |
+| `api-key` | 56 |
 | `browser-required` | 10 |
 | `direct` | 120 |
 | `mcp-required` | 4 |
@@ -11,6 +11,7 @@
 
 | Skill | API Key | Tools | 风险 |
 |---|---|---|---|
+| `claude-mem-plugin` | `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY` | 无 | `high` |
 | `github` | `GH_TOKEN`, `GITHUB_TOKEN` | `gh` | `medium` |
 | `agentmail-mcp` | `AGENTMAIL_API_KEY` | `mcp` | `medium` |
 | `agentmail-toolkit` | `AGENTMAIL_API_KEY`, `OPENAI_API_KEY` | 无 | `medium` |

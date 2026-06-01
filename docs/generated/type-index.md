@@ -19,6 +19,7 @@
 | 政策 / 宏观监控 (`policy-monitoring`) | 1 |
 | 法律 / 合规 / 税务 (`legal-compliance`) | 0 |
 | 效率 / 知识管理 (`productivity-pkm`) | 1 |
+| 记忆 / 上下文基础设施 (`memory-context`) | 1 |
 | 通信 / 社交集成 (`communication`) | 0 |
 | DevOps / 云 / 数据库 (`devops-cloud`) | 0 |
 | 安全 / 审计 (`security-audit`) | 2 |
@@ -278,6 +279,12 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `proactive-agent` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `productivity-pkm` |
+
+## 记忆 / 上下文基础设施
+
+| Skill | 横向层级 | 星级 | 标签 |
+|---|---|---:|---|
+| `claude-mem-plugin` | `L3 Specialist` | 5★ | `api-key`, `l3`, `memory-context`, `online` |
 
 ## 安全 / 审计
 

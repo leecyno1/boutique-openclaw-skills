@@ -1858,6 +1858,24 @@
           "requires_api_keys": false,
           "api_keys": [],
           "groups": []
+        },
+        {
+          "id": "claude-mem-plugin",
+          "name": "claude-mem-plugin",
+          "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
+          "manual": "skills/default/claude-mem-plugin/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
+          "source": "https://github.com/thedotmack/claude-mem",
+          "requires_api_keys": true,
+          "api_keys": [
+            "ANTHROPIC_API_KEY",
+            "OPENROUTER_API_KEY",
+            "GEMINI_API_KEY"
+          ],
+          "groups": [
+            "agent_infrastructure",
+            "memory_context"
+          ]
         }
       ]
     },
@@ -4408,6 +4426,24 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
+          ]
+        },
+        {
+          "id": "claude-mem-plugin",
+          "name": "claude-mem-plugin",
+          "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
+          "manual": "skills/default/claude-mem-plugin/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
+          "source": "https://github.com/thedotmack/claude-mem",
+          "requires_api_keys": true,
+          "api_keys": [
+            "ANTHROPIC_API_KEY",
+            "OPENROUTER_API_KEY",
+            "GEMINI_API_KEY"
+          ],
+          "groups": [
+            "agent_infrastructure",
+            "memory_context"
           ]
         }
       ]

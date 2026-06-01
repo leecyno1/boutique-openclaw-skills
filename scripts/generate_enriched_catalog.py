@@ -45,6 +45,7 @@ CATEGORY_LABELS = {
     "policy-monitoring": "政策 / 宏观监控",
     "legal-compliance": "法律 / 合规 / 税务",
     "productivity-pkm": "效率 / 知识管理",
+    "memory-context": "记忆 / 上下文基础设施",
     "communication": "通信 / 社交集成",
     "devops-cloud": "DevOps / 云 / 数据库",
     "security-audit": "安全 / 审计",
@@ -69,6 +70,7 @@ CATEGORY_KEYWORDS = [
     ("communication", ["agentmail", "mail", "slack", "telegram", "discord", "lark", "feishu", "whatsapp"]),
     ("productivity-pkm", ["todo", "task", "things", "obsidian", "notebook", "calendar", "reminder", "notes"]),
     ("security-audit", ["security", "audit", "reviewer", "danger"]),
+    ("memory-context", ["memory", "context injection", "claude-mem", "persistent context", "cross-session"]),
     ("agent-orchestration", ["agent", "subagent", "proactive", "cron", "reflection", "superpowers", "planning", "verification", "brainstorming", "capability"]),
     ("devops-cloud", ["database", "cloud", "deploy", "ops", "sql", "server"]),
 ]
@@ -100,6 +102,7 @@ CONFLICT_GROUP_RULES = [
     ("music-generation", ["ai-music-generation", "ai-music-prompts", "minimax-music-gen"]),
     ("email-agent", ["agentmail", "agentmail-cli", "agentmail-mcp", "agentmail-toolkit"]),
     ("finance-data", ["a-stock-data", "akshare-stock", "yfinance-data", "funda-data", "tushare-openclaw-skill", "openclaw-stock-data-skill"]),
+    ("persistent-memory", ["claude-mem-plugin"]),
 ]
 
 STANDARD_CAPABILITIES = [
@@ -109,6 +112,7 @@ STANDARD_CAPABILITIES = [
     "fullstack", "database", "mcp", "media-download", "image-generation", "research-news",
     "finance-data", "content-strategy", "writing", "automation-followup", "cost-observability",
     "weather",
+    "persistent-memory",
 ]
 
 CAPABILITY_RULES = [
@@ -142,6 +146,7 @@ CAPABILITY_RULES = [
     ("automation-followup", ["proactive-agent", "openclaw-cron-setup"]),
     ("cost-observability", ["model-usage"]),
     ("weather", ["weather"]),
+    ("persistent-memory", ["claude-mem-plugin"]),
 ]
 
 API_KEY_PATTERNS = {
@@ -151,6 +156,8 @@ API_KEY_PATTERNS = {
     "GITHUB_TOKEN": ["github"],
     "GH_TOKEN": ["github"],
     "GEMINI_API_KEY": ["gemini"],
+    "ANTHROPIC_API_KEY": ["claude-mem", "anthropic"],
+    "OPENROUTER_API_KEY": ["claude-mem", "openrouter"],
     "FMP_API_KEY": ["fmp", "earnings-calendar", "economic-calendar"],
     "OPENAI_API_KEY": ["openai", "ai-image", "inference", "deepseek", "llm"],
     "TUSHARE_TOKEN": ["tushare"],
@@ -295,6 +302,7 @@ def classify_category(skill_id: str, description: str) -> str:
         "pybroker-backtest-skill": "finance-trading",
         "policy-monitor": "policy-monitoring",
         "skill-vetter": "security-audit",
+        "claude-mem-plugin": "memory-context",
     }
     if skill_id in explicit:
         return explicit[skill_id]
@@ -357,6 +365,8 @@ def conflict_group(skill_id: str, category: str) -> str:
 
 
 def risk_level(skill_id: str, deps: dict[str, Any], category: str) -> str:
+    if skill_id == "claude-mem-plugin":
+        return "high"
     if any(token in skill_id for token in ["danger", "shell"]):
         return "high"
     if deps["access_mode"] in {"api-key", "mcp-required", "browser-required"}:
@@ -393,6 +403,8 @@ def score_item(item: dict[str, Any]) -> dict[str, Any]:
         score += 3
     if item["description"] and item["description"] != "No description.":
         score += 7
+    if item["id"] == "claude-mem-plugin":
+        score += 35
     if item["preset_excluded"]:
         score -= 100
     if confidence == "missing":
@@ -486,6 +498,7 @@ def build_standard_bundle(enriched: dict[str, Any]) -> dict[str, Any]:
     for capability, candidates in CAPABILITY_RULES:
         choices = [by_id[c] for c in candidates if c in by_id]
         choices = [c for c in choices if c["conflict_group"] not in selected_conflicts]
+        choices = [c for c in choices if c["id"] != "claude-mem-plugin"]
         if not choices:
             continue
         best = sorted(choices, key=lambda s: (-s["rating"]["score"], risk_sort(s["risk_level"]), s["id"]))[0]
