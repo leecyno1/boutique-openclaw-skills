@@ -4,6 +4,8 @@ description: "Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream,
 allowed-tools: Bash(belt *)
 ---
 
+> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
+
 # AI Image Generation
 
 Generate images with 50+ AI models via [inference.sh](https://inference.sh) CLI.
@@ -46,7 +48,7 @@ belt app run falai/flux-dev-lora --input '{"prompt": "a cat astronaut in space"}
 ## Browse All Image Apps
 
 ```bash
-belt app list --category image
+belt app store --category image
 ```
 
 ## Examples
@@ -159,7 +161,7 @@ npx skills add inference-sh/skills@ai-video-generation
 npx skills add inference-sh/skills@ai-avatar-video
 ```
 
-Browse all apps: `belt app list`
+Browse all apps: `belt app store`
 
 ## Documentation
 

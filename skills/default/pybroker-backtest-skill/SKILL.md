@@ -1,8 +1,3 @@
----
-name: pybroker-backtest-skill
-description: 基于 PyBroker 的算法交易回测实验技能。用于历史数据模拟、收益/回撤/稳定性评估、参数优化、技术指标策略和机器学习策略验证。
----
-
 # PyBroker Backtest - 算法交易回测框架
 
 ## 描述

@@ -765,6 +765,7 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
         "| [Type index](docs/generated/type-index.md) | Coding, design, finance, writing, research, media, docs, and more |",
         "| [Dependency index](docs/generated/dependency-index.md) | API keys, tools, runtime mode, and risk |",
         "| [Scoring model](docs/generated/scoring-model.md) | How star ratings are calculated |",
+        "| [Upstream status](docs/generated/upstream-status.md) | Latest GitHub-backed update check and manual-review items |",
         "| [Update and audit SOP](docs/UPDATE_AND_AUDIT.md) | Monthly review process and risk gates |",
         "",
         "## Curation Rules",

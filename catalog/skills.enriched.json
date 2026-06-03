@@ -20,17 +20,18 @@
     "preset_excluded": 6,
     "by_horizontal_tier": {
       "L1 Foundation": 21,
-      "L2 Professional": 69,
-      "L3 Specialist": 101
+      "L2 Professional": 71,
+      "L3 Specialist": 99
     },
     "by_category": {
       "agent-orchestration": 3,
       "browser-automation": 2,
       "coding-devtools": 10,
       "commerce-ops": 7,
+      "communication": 1,
       "core-agent": 20,
       "data-analysis": 7,
-      "design-ui": 9,
+      "design-ui": 11,
       "docs-office": 9,
       "finance-data": 6,
       "finance-knowledge": 1,
@@ -43,20 +44,20 @@
       "productivity-pkm": 1,
       "search-research": 15,
       "security-audit": 2,
-      "writing-content": 8
+      "writing-content": 5
     },
     "by_access_mode": {
       "api-key": 56,
-      "browser-required": 11,
-      "direct": 120,
+      "browser-required": 12,
+      "direct": 119,
       "mcp-required": 4
     },
     "by_stars": {
       "1★": 6,
       "2★": 2,
-      "3★": 47,
-      "4★": 94,
-      "5★": 42
+      "3★": 48,
+      "4★": 91,
+      "5★": 44
     }
   },
   "skills": [
@@ -240,7 +241,7 @@
     {
       "id": "skill-creator",
       "name": "skill-creator",
-      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
       "manual": "skills/default/skill-creator/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/skill-creator/GUIDE.md",
       "install_tiers": [
@@ -374,7 +375,7 @@
     {
       "id": "subagent-driven-development",
       "name": "subagent-driven-development",
-      "description": "Use when executing implementation plans with independent subagent tasks.",
+      "description": "Use when executing implementation plans with independent tasks in the current session",
       "manual": "skills/default/subagent-driven-development/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/subagent-driven-development/GUIDE.md",
       "install_tiers": [
@@ -508,7 +509,7 @@
     {
       "id": "using-superpowers",
       "name": "using-superpowers",
-      "description": "Use when starting any conversation to check and apply relevant skills.",
+      "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
       "manual": "skills/default/using-superpowers/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/using-superpowers/GUIDE.md",
       "install_tiers": [
@@ -552,7 +553,7 @@
     {
       "id": "verification-before-completion",
       "name": "verification-before-completion",
-      "description": "Use before claiming work is complete, fixed, or passing.",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
       "manual": "skills/default/verification-before-completion/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/verification-before-completion/GUIDE.md",
       "install_tiers": [
@@ -640,7 +641,7 @@
     {
       "id": "writing-skills",
       "name": "writing-skills",
-      "description": "Use when creating, editing, or verifying Codex skills.",
+      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
       "manual": "skills/default/writing-skills/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/writing-skills/GUIDE.md",
       "install_tiers": [
@@ -852,6 +853,90 @@
       },
       "risk_level": "low",
       "conflict_group": "backtest-expert",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
+      "id": "baoyu-article-illustrator",
+      "name": "baoyu-article-illustrator",
+      "description": "Analyzes article structure, identifies positions requiring visual aids, generates illustrations with Type × Style × Palette three-dimension approach. Use when user asks to \"illustrate article\", \"add images\", \"generate images for article\", or \"为文章配图\".",
+      "manual": "skills/default/baoyu-article-illustrator/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-article-illustrator/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-06-03",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-article-illustrator",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "design-ui",
+        "direct",
+        "l2",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "baoyu-article-illustrator",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
+      "id": "baoyu-translate",
+      "name": "baoyu-translate",
+      "description": "Translates articles and documents between languages with three modes - quick (direct), normal (analyze then translate), and refined (analyze, translate, review, polish). Supports custom glossaries and terminology consistency via EXTEND.md. Use when user asks to \"translate\", \"翻译\", \"精翻\", \"translate article\", \"translate to Chinese/English\", \"改成中文\", \"改成英文\", \"convert to Chinese\", \"localize\", \"本地化\", or needs any document translation. Also triggers for \"refined translation\", \"精细翻译\", \"proofread translation\", \"快速翻译\", \"快翻\", \"这篇文章翻译一下\", or when a URL or file is provided with translation intent.",
+      "manual": "skills/default/baoyu-translate/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-translate/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-06-03",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-translate",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "design-ui",
+        "direct",
+        "l2",
+        "offline"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "baoyu-translate",
       "preset_excluded": false,
       "rating": {
         "score": 92,
@@ -1511,7 +1596,7 @@
     {
       "id": "seedance2-skill",
       "name": "seedance2-skill",
-      "description": "Use when the user needs Seedance 2.0 / Jimeng video generation prompts, video prompt engineering, multimodal @ reference prompts, camera language, video extension/editing prompts, e-commerce video ads, short drama prompts, AI MV prompts, or educational video generation prompts.",
+      "description": "Write effective prompts for Jimeng Seedance 2.0 multimodal AI video generation. Use when users want to create video prompts using text, images, videos, and audio inputs with the @ reference system. Covers camera movements, effects replication, video extension, editing, music beat-matching, e-commerce ads, short dramas, and educational content.",
       "manual": "skills/default/seedance2-skill/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/seedance2-skill/GUIDE.md",
       "install_tiers": [
@@ -2034,7 +2119,7 @@
     {
       "id": "url-to-markdown",
       "name": "url-to-markdown",
-      "description": "Fetch any URL and convert to markdown using Chrome CDP. Supports two modes - auto-capture on page load, or wait for user signal (for pages requiring login). Use when user wants to save a webpage as markdown.",
+      "description": "Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome CDP with site-specific adapters). Built-in adapters for X/Twitter, YouTube transcripts, Hacker News threads, and generic pages via Defuddle. Handles login/CAPTCHA via interaction wait modes. Use when user wants to save a webpage as markdown.",
       "manual": "skills/default/url-to-markdown/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/url-to-markdown/GUIDE.md",
       "install_tiers": [
@@ -2080,7 +2165,7 @@
     {
       "id": "a-stock-data",
       "name": "a-stock-data",
-      "description": "Use when the user needs China A-share data, A股行情/估值/研报/题材/北向资金/龙虎榜/解禁/两融/大宗交易/股东户数/分红/新闻/公告, batch stock comparison, or A-share research workflows.",
+      "description": "A股全栈数据工具包 — 覆盖行情(mootdx+腾讯+百度K线)、研报(东财+同花顺+iwencai)、信号(同花顺热点+北向+龙虎榜+解禁+行业)、资金面(融资融券+大宗交易+股东户数+分红+资金流分钟级+资金流120日)、新闻(东财个股+全球资讯)、基础数据(mootdx财务/F10+东财+新浪三表)、公告(巨潮)七层数据源，内嵌全部调用代码，自包含零依赖外部文件。优先用通达信(mootdx)/腾讯(不封IP)，东财接口已内置限流防封。适用于个股估值、研报检索、题材归因、龙虎榜跟踪、解禁预警、行业轮动、融资融券跟踪、筹码分析、产业链调研、批量筛选等场景。",
       "manual": "skills/default/a-stock-data/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/a-stock-data/GUIDE.md",
       "install_tiers": [
@@ -2103,7 +2188,7 @@
         "direct",
         "finance-data",
         "l2",
-        "online"
+        "offline"
       ],
       "dependencies": {
         "requires_api_keys": false,
@@ -2112,7 +2197,7 @@
           "python"
         ],
         "access_mode": "direct",
-        "runtime": "online"
+        "runtime": "offline"
       },
       "risk_level": "medium",
       "conflict_group": "finance-data",
@@ -2263,51 +2348,9 @@
       }
     },
     {
-      "id": "baoyu-article-illustrator",
-      "name": "baoyu-article-illustrator",
-      "description": "Use when adding article illustrations or visual aids to markdown or long-form writing.",
-      "manual": "skills/default/baoyu-article-illustrator/GUIDE.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-article-illustrator/GUIDE.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-06-03",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-article-illustrator",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "writing-content",
-      "category_label": "写作 / 内容",
-      "tags": [
-        "direct",
-        "l3",
-        "offline",
-        "writing-content"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "low",
-      "conflict_group": "baoyu-article-illustrator",
-      "preset_excluded": false,
-      "rating": {
-        "score": 85,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "baoyu-comic",
       "name": "baoyu-comic",
-      "description": "Knowledge comic creator supporting multiple art styles and tones. Creates original educational comics with detailed panel layouts and sequential image generation. Use when user asks to create \"知识漫画\", \"教育漫画\", \"biography comic\", \"tutorial comic\", or \"Logicomix-style comic\".",
+      "description": "Knowledge comic creator supporting multiple art styles and tones. Creates original educational comics with detailed panel layouts and batch-capable image generation. Use when user asks to create \"知识漫画\", \"教育漫画\", \"biography comic\", \"tutorial comic\", or \"Logicomix-style comic\".",
       "manual": "skills/default/baoyu-comic/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-comic/GUIDE.md",
       "install_tiers": [
@@ -2349,7 +2392,7 @@
     {
       "id": "baoyu-cover-image",
       "name": "baoyu-cover-image",
-      "description": "Use when generating article cover images in cinematic, widescreen, or square formats.",
+      "description": "Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combining 11 color palettes and 7 rendering styles. Supports cinematic (2.35:1), widescreen (16:9), and square (1:1) aspects. Use when user asks to \"generate cover image\", \"create article cover\", or \"make cover\".",
       "manual": "skills/default/baoyu-cover-image/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-cover-image/GUIDE.md",
       "install_tiers": [
@@ -2391,7 +2434,7 @@
     {
       "id": "baoyu-format-markdown",
       "name": "baoyu-format-markdown",
-      "description": "Use when formatting plain text or markdown articles with headings, summaries, lists, and polish.",
+      "description": "Formats plain text or markdown files with frontmatter, titles, summaries, headings, bold, lists, and code blocks. Use when user asks to \"format markdown\", \"beautify article\", \"add formatting\", or improve article layout. Outputs to {filename}-formatted.md.",
       "manual": "skills/default/baoyu-format-markdown/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-format-markdown/GUIDE.md",
       "install_tiers": [
@@ -2433,7 +2476,7 @@
     {
       "id": "baoyu-infographic",
       "name": "baoyu-infographic",
-      "description": "Use when turning content into professional infographics or visual summaries.",
+      "description": "Generate professional infographics with 21 layout types and 22 visual styles. Analyzes content, recommends layout×style combinations, and generates publication-ready infographics. Use when user asks to create \"infographic\", \"信息图\", \"visual summary\", \"可视化\", or \"高密度信息大图\".",
       "manual": "skills/default/baoyu-infographic/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-infographic/GUIDE.md",
       "install_tiers": [
@@ -2465,48 +2508,6 @@
       },
       "risk_level": "low",
       "conflict_group": "baoyu-infographic",
-      "preset_excluded": false,
-      "rating": {
-        "score": 85,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
-      "id": "baoyu-markdown-to-html",
-      "name": "baoyu-markdown-to-html",
-      "description": "Use when converting Markdown to styled HTML, especially WeChat-compatible article HTML.",
-      "manual": "skills/default/baoyu-markdown-to-html/GUIDE.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-markdown-to-html/GUIDE.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-06-03",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-markdown-to-html",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "writing-content",
-      "category_label": "写作 / 内容",
-      "tags": [
-        "direct",
-        "l3",
-        "offline",
-        "writing-content"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "low",
-      "conflict_group": "html-publishing",
       "preset_excluded": false,
       "rating": {
         "score": 85,
@@ -2599,51 +2600,9 @@
       }
     },
     {
-      "id": "baoyu-translate",
-      "name": "baoyu-translate",
-      "description": "Use when translating articles or documents with terminology consistency or review polish.",
-      "manual": "skills/default/baoyu-translate/GUIDE.md",
-      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-translate/GUIDE.md",
-      "install_tiers": [
-        "high"
-      ],
-      "origin": {
-        "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate",
-        "origin_type": "github",
-        "origin_confidence": "verified_override",
-        "origin_verified_at": "2026-06-03",
-        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-translate",
-        "needs_origin_review": false
-      },
-      "horizontal_tier": "L3 Specialist",
-      "primary_category": "writing-content",
-      "category_label": "写作 / 内容",
-      "tags": [
-        "direct",
-        "l3",
-        "offline",
-        "writing-content"
-      ],
-      "dependencies": {
-        "requires_api_keys": false,
-        "api_keys": [],
-        "required_tools": [],
-        "access_mode": "direct",
-        "runtime": "offline"
-      },
-      "risk_level": "low",
-      "conflict_group": "baoyu-translate",
-      "preset_excluded": false,
-      "rating": {
-        "score": 85,
-        "stars": 4,
-        "rating_label": "★★★★☆"
-      }
-    },
-    {
       "id": "baoyu-xhs-images",
       "name": "baoyu-xhs-images",
-      "description": "Use when creating Xiaohongshu/RedNote infographic image series from content.",
+      "description": "Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes. Breaks content into 1-10 cartoon-style image cards optimized for social media engagement. Use when user mentions \"小红书图片\", \"小红书种草\", \"小绿书\", \"微信图文\", \"微信贴图\", \"image cards\", \"图片卡片\", baoyu-xhs-images, or wants social media infographic series.",
       "manual": "skills/default/baoyu-xhs-images/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-xhs-images/GUIDE.md",
       "install_tiers": [
@@ -3111,7 +3070,7 @@
     {
       "id": "frontend-dev",
       "name": "frontend-design",
-      "description": "Use when building or improving high-quality frontend pages, components, dashboards, or apps.",
+      "description": "|",
       "manual": "skills/default/frontend-dev/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/frontend-dev/GUIDE.md",
       "install_tiers": [
@@ -3120,7 +3079,7 @@
         "high"
       ],
       "origin": {
-        "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev",
+        "origin_url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
         "origin_type": "github",
         "origin_confidence": "local_reference",
         "origin_verified_at": "2026-06-03",
@@ -3157,7 +3116,7 @@
     {
       "id": "ios-application-dev",
       "name": "iosdev-cn",
-      "description": "Use for iOS development, signing, TestFlight, App Store, privacy, or China-region release tasks.",
+      "description": "|",
       "manual": "skills/default/ios-application-dev/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ios-application-dev/GUIDE.md",
       "install_tiers": [
@@ -4649,7 +4608,7 @@
     {
       "id": "pybroker-backtest-skill",
       "name": "pybroker-backtest-skill",
-      "description": "基于 PyBroker 的算法交易回测实验技能。用于历史数据模拟、收益/回撤/稳定性评估、参数优化、技术指标策略和机器学习策略验证。",
+      "description": "基于 PyBroker 的算法交易回测实验技能，支持技术指标策略、机器学习策略、收益/回撤/稳定性评估和参数验证。",
       "manual": "skills/default/pybroker-backtest-skill/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/pybroker-backtest-skill/GUIDE.md",
       "install_tiers": [
@@ -5353,7 +5312,7 @@
     {
       "id": "baoyu-image-gen",
       "name": "baoyu-image-gen",
-      "description": "[Deprecated: use baoyu-imagine] AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, Z.AI GLM-Image, MiniMax, Jimeng, Seedream and Replicate APIs. Supports text-to-image, reference images, aspect ratios, and batch generation from saved prompt files. Sequential by default; use batch parallel generation when the user already has multiple prompts or wants stable multi-image throughput. Use when user asks to generate, create, or draw images.",
+      "description": "AI image generation with OpenAI GPT Image 2, Azure OpenAI, Google, OpenRouter, DashScope, Z.AI GLM-Image, MiniMax, Jimeng, Seedream and Replicate APIs. Supports text-to-image, reference images, aspect ratios, and batch generation from saved prompt files. Sequential by default; use batch parallel generation when the user already has multiple prompts or wants stable multi-image throughput. Use when user asks to generate, create, or draw images.",
       "manual": "skills/default/baoyu-image-gen/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-image-gen/GUIDE.md",
       "install_tiers": [
@@ -5821,7 +5780,7 @@
     {
       "id": "content-strategy",
       "name": "content-strategy",
-      "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social-content.",
+      "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social.",
       "manual": "skills/default/content-strategy/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/content-strategy/GUIDE.md",
       "install_tiers": [
@@ -6130,6 +6089,50 @@
       }
     },
     {
+      "id": "baoyu-markdown-to-html",
+      "name": "baoyu-markdown-to-html",
+      "description": "Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, math, Mermaid (rendered to PNG via headless Chrome), PlantUML, footnotes, alerts, infographics, and optional bottom citations for external links. Use when user asks for \"markdown to html\", \"convert md to html\", \"md 转 html\", \"微信外链转底部引用\", or needs styled HTML output from markdown.",
+      "manual": "skills/default/baoyu-markdown-to-html/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-markdown-to-html/GUIDE.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-06-03",
+        "mirror_source_url": "https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/baoyu-markdown-to-html",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "writing-content",
+      "category_label": "写作 / 内容",
+      "tags": [
+        "browser-required",
+        "l3",
+        "offline",
+        "writing-content"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "browser"
+        ],
+        "access_mode": "browser-required",
+        "runtime": "offline"
+      },
+      "risk_level": "medium",
+      "conflict_group": "html-publishing",
+      "preset_excluded": false,
+      "rating": {
+        "score": 74,
+        "stars": 3,
+        "rating_label": "★★★☆☆"
+      }
+    },
+    {
       "id": "baoyu-post-to-weibo",
       "name": "baoyu-post-to-weibo",
       "description": "Posts content to Weibo (微博). Supports regular posts with text, images, and videos, and headline articles (头条文章) with Markdown input via Chrome CDP. Use when user asks to \"post to Weibo\", \"发微博\", \"发布微博\", \"publish to Weibo\", \"share on Weibo\", \"写微博\", or \"微博头条文章\".",
@@ -6177,7 +6180,7 @@
     {
       "id": "baoyu-post-to-x",
       "name": "baoyu-post-to-x",
-      "description": "Posts content and articles to X (Twitter). Supports regular posts with images/videos and X Articles (long-form Markdown). Uses real Chrome with CDP to bypass anti-automation. Use when user asks to \"post to X\", \"tweet\", \"publish to Twitter\", or \"share on X\".",
+      "description": "Posts content and articles to X (Twitter). Supports regular posts with images/videos and X Articles (long-form Markdown). In Codex, honor explicit requests for the Codex Chrome plugin/@chrome by using the Chrome Extension workflow; otherwise use Chrome Computer Use when available and fall back to real Chrome CDP scripts only when allowed. Use when user asks to \"post to X\", \"tweet\", \"publish to Twitter\", or \"share on X\".",
       "manual": "skills/default/baoyu-post-to-x/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-post-to-x/GUIDE.md",
       "install_tiers": [
@@ -6313,7 +6316,7 @@
     {
       "id": "agentmail-cli",
       "name": "agentmail-cli",
-      "description": "Send and receive emails programmatically using the AgentMail CLI. Use when agents need to manage inboxes, send/receive emails, handle threads, drafts, webhooks, and domains via command line.",
+      "description": "Send and receive emails programmatically using the AgentMail API via CLI",
       "manual": "skills/default/agentmail-cli/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/agentmail-cli/GUIDE.md",
       "install_tiers": [
@@ -6330,22 +6333,20 @@
         "needs_origin_review": false
       },
       "horizontal_tier": "L3 Specialist",
-      "primary_category": "writing-content",
-      "category_label": "写作 / 内容",
+      "primary_category": "communication",
+      "category_label": "通信 / 社交集成",
       "tags": [
         "api-key",
+        "communication",
         "l3",
-        "online",
-        "writing-content"
+        "online"
       ],
       "dependencies": {
         "requires_api_keys": true,
         "api_keys": [
           "AGENTMAIL_API_KEY"
         ],
-        "required_tools": [
-          "browser"
-        ],
+        "required_tools": [],
         "access_mode": "api-key",
         "runtime": "online"
       },
@@ -6407,7 +6408,7 @@
     {
       "id": "baoyu-post-to-wechat",
       "name": "baoyu-post-to-wechat",
-      "description": "Use when posting articles or image-text content to WeChat Official Account.",
+      "description": "Posts content to WeChat Official Account (微信公众号) via API or Chrome CDP. Supports article posting (文章) with HTML, markdown, or plain text input, and image-text posting (贴图, formerly 图文) with multiple images. Markdown article workflows default to converting ordinary external links into bottom citations for WeChat-friendly output. Use when user mentions \"发布公众号\", \"post to wechat\", \"微信公众号\", or \"贴图/图文/文章\".",
       "manual": "skills/default/baoyu-post-to-wechat/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/baoyu-post-to-wechat/GUIDE.md",
       "install_tiers": [
@@ -6438,7 +6439,9 @@
           "WECHAT_APP_SECRET",
           "WECHAT_BAOYU_APP_SECRET"
         ],
-        "required_tools": [],
+        "required_tools": [
+          "browser"
+        ],
         "access_mode": "api-key",
         "runtime": "online"
       },
@@ -7964,7 +7967,7 @@
     {
       "id": "media-downloader",
       "name": "media-downloader",
-      "description": "|-",
+      "description": "|",
       "manual": "skills/default/media-downloader/GUIDE.md",
       "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/media-downloader/GUIDE.md",
       "install_tiers": [

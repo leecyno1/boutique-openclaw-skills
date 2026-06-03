@@ -1,6 +1,6 @@
 ---
-name: agentmail-cli
-description: Send and receive emails programmatically using the AgentMail CLI. Use when agents need to manage inboxes, send/receive emails, handle threads, drafts, webhooks, and domains via command line.
+name: agentmail
+description: Send and receive emails programmatically using the AgentMail API via CLI
 ---
 
 # AgentMail CLI
@@ -18,9 +18,8 @@ npm install -g agentmail-cli
 ### Inboxes
 
 ```bash
-# Create an inbox (defaults to @agentmail.to;
-# pass --domain only if you have verified a custom domain)
-agentmail inboxes create --display-name "My Agent" --username myagent
+# Create an inbox
+agentmail inboxes create --display-name "My Agent" --username myagent --domain example.com
 
 # List inboxes
 agentmail inboxes list
@@ -113,10 +112,8 @@ agentmail webhooks list
 ### Domains
 
 ```bash
-# Add a custom domain. --feedback-enabled is REQUIRED:
-# pass the flag to route bounce/complaint notifications to your inboxes.
-# The CLI has no way to create a domain without this flag.
-agentmail domains create --domain example.com --feedback-enabled
+# Add a custom domain
+agentmail domains create --domain example.com --feedback-enabled false
 
 # Verify domain DNS
 agentmail domains verify --domain-id <domain_id>
@@ -127,8 +124,8 @@ agentmail domains get-zone-file --domain-id <domain_id>
 
 ## Global Flags
 
-All commands support: `--api-key`, `--base-url`, `--environment`, `--format`, `--format-error`, `--transform`, `--transform-error`, `--debug`.
+All commands support: `--api-key`, `--base-url`, `--environment`, `--format`, `--debug`.
 
 ## Output Formats
 
-Use `--format` to control output: `auto` (default), `pretty`, `json`, `jsonl`, `yaml`, `raw`, `explore`.
+Use `--format` to control output: `json` (default), `pretty`, `yaml`, `jsonl`, `raw`, `explore`.

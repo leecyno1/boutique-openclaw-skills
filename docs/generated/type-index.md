@@ -8,10 +8,10 @@
 | 编程 / 工程工具 (`coding-devtools`) | 10 |
 | 数据分析 (`data-analysis`) | 7 |
 | 文档 / 办公 (`docs-office`) | 9 |
-| 设计 / UI (`design-ui`) | 9 |
+| 设计 / UI (`design-ui`) | 11 |
 | HTML 发布 / 视觉出版 (`html-publishing`) | 1 |
 | 媒体生成 / 处理 (`media-generation`) | 20 |
-| 写作 / 内容 (`writing-content`) | 8 |
+| 写作 / 内容 (`writing-content`) | 5 |
 | 营销 / 增长 (`marketing-growth`) | 0 |
 | 金融 / 交易 (`finance-trading`) | 67 |
 | 金融 / 数据源 (`finance-data`) | 6 |
@@ -21,7 +21,7 @@
 | 法律 / 合规 / 税务 (`legal-compliance`) | 0 |
 | 效率 / 知识管理 (`productivity-pkm`) | 1 |
 | 记忆 / 上下文基础设施 (`memory-context`) | 1 |
-| 通信 / 社交集成 (`communication`) | 0 |
+| 通信 / 社交集成 (`communication`) | 1 |
 | DevOps / 云 / 数据库 (`devops-cloud`) | 0 |
 | 安全 / 审计 (`security-audit`) | 2 |
 | 本地 macOS / 桌面 (`local-macos`) | 0 |
@@ -127,6 +127,8 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `animation` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
+| `baoyu-article-illustrator` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
+| `baoyu-translate` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
 | `edge-concept-synthesizer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
 | `edge-strategy-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
 | `generative-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
@@ -172,13 +174,10 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `writing-plans` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
-| `baoyu-article-illustrator` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-format-markdown` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-infographic` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
-| `baoyu-markdown-to-html` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-skills` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
-| `baoyu-translate` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
-| `agentmail-cli` | `L3 Specialist` | 3★ | `api-key`, `l3`, `online`, `writing-content` |
+| `baoyu-markdown-to-html` | `L3 Specialist` | 3★ | `browser-required`, `l3`, `offline`, `writing-content` |
 
 ## 金融 / 交易
 
@@ -256,7 +255,7 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `a-stock-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `online` |
+| `a-stock-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
 | `akshare-stock` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
 | `yfinance-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
 | `funda-data` | `L2 Professional` | 4★ | `api-key`, `finance-data`, `l2`, `online` |
@@ -292,6 +291,12 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `claude-mem-plugin` | `L3 Specialist` | 5★ | `api-key`, `l3`, `memory-context`, `online` |
+
+## 通信 / 社交集成
+
+| Skill | 横向层级 | 星级 | 标签 |
+|---|---|---:|---|
+| `agentmail-cli` | `L3 Specialist` | 3★ | `api-key`, `communication`, `l3`, `online` |
 
 ## 安全 / 审计
 

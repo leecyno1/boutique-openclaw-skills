@@ -1,6 +1,6 @@
 ---
-name: seedance2-skill
-description: Use when the user needs Seedance 2.0 / Jimeng video generation prompts, video prompt engineering, multimodal @ reference prompts, camera language, video extension/editing prompts, e-commerce video ads, short drama prompts, AI MV prompts, or educational video generation prompts.
+name: seedance-prompt-en
+description: Write effective prompts for Jimeng Seedance 2.0 multimodal AI video generation. Use when users want to create video prompts using text, images, videos, and audio inputs with the @ reference system. Covers camera movements, effects replication, video extension, editing, music beat-matching, e-commerce ads, short dramas, and educational content.
 ---
 
 # Seedance 2.0 Video Prompt Writing Guide

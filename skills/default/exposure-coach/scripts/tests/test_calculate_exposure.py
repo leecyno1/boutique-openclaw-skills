@@ -12,6 +12,8 @@ from calculate_exposure import (
     determine_participation,
     determine_recommendation,
     extract_breadth_score,
+    extract_ftd_score,
+    extract_regime_name,
     extract_regime_score,
     extract_top_risk_score,
     extract_uptrend_score,
@@ -44,6 +46,19 @@ class TestExtractBreadthScore:
         data = {"ad_ratio": 0.5, "nh_nl_ratio": 0.3}
         assert extract_breadth_score(data) == 20
 
+    def test_nested_composite_score(self):
+        # market-breadth-analyzer nests its 0-100 health score under "composite"
+        data = {"composite": {"composite_score": 72}}
+        assert extract_breadth_score(data) == 72
+
+    def test_flat_takes_priority_over_nested(self):
+        data = {"breadth_score": 65, "composite": {"composite_score": 10}}
+        assert extract_breadth_score(data) == 65
+
+    def test_non_dict_composite_ignored(self):
+        data = {"composite": "n/a", "ad_ratio": 2.0, "nh_nl_ratio": 4.0}
+        assert extract_breadth_score(data) == 90
+
     def test_none_input(self):
         assert extract_breadth_score(None) is None
 
@@ -73,6 +88,30 @@ class TestExtractUptrendScore:
         score = extract_uptrend_score(data)
         assert score < 30
 
+    def test_nested_composite_score(self):
+        # uptrend-analyzer stores its score under "composite"
+        data = {"composite": {"composite_score": 72}}
+        assert extract_uptrend_score(data) == 72
+
+    def test_nested_composite_uptrend_pct(self):
+        data = {"composite": {"uptrend_pct": 60}}
+        assert extract_uptrend_score(data) >= 75
+
+    def test_flat_takes_priority_over_nested(self):
+        data = {"uptrend_score": 80, "composite": {"composite_score": 10}}
+        assert extract_uptrend_score(data) == 80
+
+    def test_non_dict_composite_ignored(self):
+        data = {"composite": "n/a", "uptrend_pct": 40}
+        score = extract_uptrend_score(data)
+        assert 50 <= score <= 80
+
+    def test_none_input(self):
+        assert extract_uptrend_score(None) is None
+
+    def test_empty_dict(self):
+        assert extract_uptrend_score({}) is None
+
 
 class TestExtractRegimeScore:
     """Tests for regime score extraction."""
@@ -92,6 +131,58 @@ class TestExtractRegimeScore:
     def test_direct_regime_score(self):
         data = {"regime_score": 65}
         assert extract_regime_score(data) == 65
+
+    def test_nested_regime_dict_current_regime(self):
+        # macro-regime-detector emits regime as a nested object
+        data = {"regime": {"current_regime": "Broadening"}}
+        assert extract_regime_score(data) == 80
+
+    def test_nested_regime_dict_unknown_defaults_50(self):
+        data = {"regime": {"current_regime": "Sideways"}}
+        assert extract_regime_score(data) == 50
+
+    def test_nested_regime_dict_no_current_regime(self):
+        data = {"regime": {"regime_label": "Risk-On"}}
+        assert extract_regime_score(data) is None
+
+    def test_none_input(self):
+        assert extract_regime_score(None) is None
+
+    def test_empty_dict(self):
+        assert extract_regime_score({}) is None
+
+
+class TestExtractRegimeName:
+    """Tests for regime name extraction (incl. nested dict regression)."""
+
+    def test_flat_string_regime(self):
+        assert extract_regime_name({"regime": "broadening"}) == "Broadening"
+
+    def test_flat_current_regime(self):
+        assert extract_regime_name({"current_regime": "contraction"}) == "Contraction"
+
+    def test_nested_label_preferred(self):
+        data = {"regime": {"regime_label": "Risk-On", "current_regime": "broadening"}}
+        assert extract_regime_name(data) == "Risk-on"
+
+    def test_nested_current_regime_fallback(self):
+        data = {"regime": {"current_regime": "transitional"}}
+        assert extract_regime_name(data) == "Transitional"
+
+    def test_nested_empty_dict_returns_unknown(self):
+        assert extract_regime_name({"regime": {}}) == "Unknown"
+
+    def test_dict_input_does_not_raise(self):
+        # Regression: previously data["regime"].capitalize() raised on dict
+        data = {"regime": {"current_regime": "broadening"}}
+        result = extract_regime_name(data)
+        assert isinstance(result, str)
+
+    def test_none_input(self):
+        assert extract_regime_name(None) == "Unknown"
+
+    def test_empty_dict(self):
+        assert extract_regime_name({}) == "Unknown"
 
 
 class TestExtractTopRiskScore:
@@ -118,6 +209,80 @@ class TestExtractTopRiskScore:
     def test_distribution_days_many(self):
         data = {"distribution_days": 8}
         assert extract_top_risk_score(data) == 15
+
+    def test_nested_composite_inverted_high_risk(self):
+        # market-top-detector composite=85 (Critical/Top Formation) -> low score
+        data = {"composite": {"composite_score": 85}}
+        assert extract_top_risk_score(data) == 15
+
+    def test_nested_composite_inverted_low_risk(self):
+        # composite=15 (Green/Normal) -> high (safe) score
+        data = {"composite": {"composite_score": 15}}
+        assert extract_top_risk_score(data) == 85
+
+    def test_flat_takes_priority_over_nested(self):
+        # explicit top_risk_score is already exposure-friendly; not inverted
+        data = {"top_risk_score": 40, "composite": {"composite_score": 85}}
+        assert extract_top_risk_score(data) == 40
+
+
+class TestExtractFtdScore:
+    """Tests for Follow-Through-Day score extraction (high = bullish, NOT inverted)."""
+
+    def test_direct_ftd_score(self):
+        assert extract_ftd_score({"ftd_score": 70}) == 70
+
+    def test_nested_quality_score_strong(self):
+        # ftd-detector real shape: strong FTD -> high score (bullish, direct)
+        data = {"quality_score": {"total_score": 82, "signal": "Strong FTD"}}
+        assert extract_ftd_score(data) == 82
+
+    def test_nested_quality_score_no_ftd(self):
+        data = {"quality_score": {"total_score": 0, "signal": "No FTD"}}
+        assert extract_ftd_score(data) == 0
+
+    def test_legacy_anomaly_level_still_supported(self):
+        assert extract_ftd_score({"anomaly_level": "none"}) == 90
+
+    def test_none_and_empty(self):
+        assert extract_ftd_score(None) is None
+        assert extract_ftd_score({}) is None
+
+
+class TestRealUpstreamShapesAllCount:
+    """Regression: the real upstream JSON shapes must all produce a score.
+
+    Reproduces the reported bug where breadth/top_risk/ftd silently returned
+    None (only regime + uptrend counted), forcing a missing-critical haircut
+    and a CASH_PRIORITY / LOW-confidence verdict.
+    """
+
+    def test_all_five_inputs_extracted(self):
+        breadth = {"composite": {"composite_score": 70}}  # market-breadth-analyzer
+        uptrend = {"composite": {"composite_score": 65}}  # uptrend-analyzer
+        regime = {"regime": {"current_regime": "broadening"}}  # macro-regime-detector
+        top_risk = {"composite": {"composite_score": 20}}  # market-top-detector (low risk)
+        ftd = {"quality_score": {"total_score": 75}}  # ftd-detector (strong FTD)
+
+        scores = {
+            "breadth": extract_breadth_score(breadth),
+            "uptrend": extract_uptrend_score(uptrend),
+            "regime": extract_regime_score(regime),
+            "top_risk": extract_top_risk_score(top_risk),
+            "ftd": extract_ftd_score(ftd),
+        }
+        # The bug: breadth/top_risk/ftd were None. All five must now resolve.
+        assert all(v is not None for v in scores.values()), scores
+        assert scores["breadth"] == 70
+        assert scores["top_risk"] == 80  # inverted: 100 - 20
+        assert scores["ftd"] == 75  # direct
+
+        composite, provided, missing = calculate_composite_score(
+            {**scores, "institutional": None, "sector": None, "theme": None}
+        )
+        # No critical input missing -> no haircut; healthy composite, not cash-priority
+        assert set(missing).isdisjoint(CRITICAL_INPUTS)
+        assert composite > 50
 
 
 class TestCalculateCompositeScore:

@@ -3,8 +3,8 @@
 | 层级 | 定义 | 数量 |
 |---|---|---:|
 | `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 21 |
-| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 69 |
-| `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 101 |
+| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 71 |
+| `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 99 |
 
 ## L1 Foundation
 
@@ -39,6 +39,8 @@
 | `html-anything` | HTML 发布 / 视觉出版 | 5★ | `browser-required` | [origin](https://github.com/nexu-io/html-anything) |
 | `animation` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/bytesagain/ai-skills) |
 | `backtest-expert` | 编程 / 工程工具 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/backtest-expert) |
+| `baoyu-article-illustrator` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
+| `baoyu-translate` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
 | `baoyu-youtube-transcript` | 数据分析 | 5★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-youtube-transcript) |
 | `data-analyst` | 数据分析 | 5★ | `direct` | [origin](https://github.com/openclaw/skills/blob/main/skills/oyi77/data-analyst/SKILL.md) |
 | `discord-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/discord-reader) |
@@ -68,7 +70,7 @@
 | `yfinance-data` | 金融 / 数据源 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data) |
 | `android-native-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/android-native-dev) |
 | `flutter-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/flutter-dev) |
-| `frontend-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev) |
+| `frontend-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/anthropics/skills/tree/main/skills/canvas-design) |
 | `ios-application-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/ios-application-dev) |
 | `minimax-docx` | 文档 / 办公 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-docx) |
 | `minimax-pdf` | 文档 / 办公 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-pdf) |
@@ -111,15 +113,12 @@
 | Skill | 类型 | 星级 | 使用条件 | 原生来源 |
 |---|---|---:|---|---|
 | `claude-mem-plugin` | 记忆 / 上下文基础设施 | 5★ | `api-key` | [origin](https://github.com/thedotmack/claude-mem) |
-| `baoyu-article-illustrator` | 写作 / 内容 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
 | `baoyu-comic` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic) |
 | `baoyu-cover-image` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image) |
 | `baoyu-format-markdown` | 写作 / 内容 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-format-markdown) |
 | `baoyu-infographic` | 写作 / 内容 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic) |
-| `baoyu-markdown-to-html` | 写作 / 内容 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html) |
 | `baoyu-skills` | 写作 / 内容 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills) |
 | `baoyu-slide-deck` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck) |
-| `baoyu-translate` | 写作 / 内容 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
 | `baoyu-xhs-images` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images) |
 | `capability-evolver` | 多 Agent / 自动调度 | 4★ | `direct` | [origin](https://mcp.directory/skills/details/1368/capability-evolver) |
 | `edge-strategy-reviewer` | 安全 / 审计 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-reviewer) |
@@ -172,11 +171,12 @@
 | `minimax-music-playlist` | 媒体生成 / 处理 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-music-playlist) |
 | `alphaear-search` | 金融 / 交易 | 3★ | `browser-required` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-search) |
 | `baoyu-compress-image` | 媒体生成 / 处理 | 3★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-compress-image) |
+| `baoyu-markdown-to-html` | 写作 / 内容 | 3★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html) |
 | `baoyu-post-to-weibo` | 媒体生成 / 处理 | 3★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-weibo) |
 | `baoyu-post-to-x` | 媒体生成 / 处理 | 3★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-x) |
 | `market-news-analyst` | 金融 / 交易 | 3★ | `browser-required` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/market-news-analyst) |
 | `portfolio-manager` | 金融 / 交易 | 3★ | `mcp-required` | [origin](https://mcp.directory/skills/portfolio-manager) |
-| `agentmail-cli` | 写作 / 内容 | 3★ | `api-key` | [origin](https://github.com/agentmail-to/agentmail-cli) |
+| `agentmail-cli` | 通信 / 社交集成 | 3★ | `api-key` | [origin](https://github.com/agentmail-to/agentmail-cli) |
 | `alphaear-sentiment` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-sentiment) |
 | `baoyu-post-to-wechat` | 媒体生成 / 处理 | 3★ | `api-key` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat) |
 | `canslim-screener` | 金融 / 交易 | 3★ | `api-key` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/canslim-screener) |

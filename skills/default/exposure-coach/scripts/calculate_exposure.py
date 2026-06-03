@@ -59,6 +59,11 @@ def extract_breadth_score(data: Optional[dict]) -> Optional[int]:
         return int(data["breadth_score"])
     if "composite_score" in data:
         return int(data["composite_score"])
+    # market-breadth-analyzer nests its 0-100 health score under "composite"
+    # (100 = healthy). High = bullish, so used directly (no inversion).
+    composite = data.get("composite")
+    if isinstance(composite, dict) and "composite_score" in composite:
+        return int(composite["composite_score"])
     if "ad_ratio" in data and "nh_nl_ratio" in data:
         ad = data["ad_ratio"]
         nh_nl = data["nh_nl_ratio"]
@@ -73,48 +78,82 @@ def extract_breadth_score(data: Optional[dict]) -> Optional[int]:
     return None
 
 
+def _uptrend_pct_to_score(pct: float) -> int:
+    """Convert an uptrend participation percentage to a 0-100 score."""
+    if pct > 50:
+        return min(100, int(50 + pct))
+    elif pct >= 35:
+        return int(35 + pct)
+    elif pct >= 20:
+        return int(20 + pct)
+    else:
+        return int(pct)
+
+
 def extract_uptrend_score(data: Optional[dict]) -> Optional[int]:
-    """Extract uptrend participation score."""
+    """Extract uptrend participation score.
+
+    Supports both the flat shape (``uptrend_score`` / ``uptrend_pct`` at the
+    top level) and the nested shape emitted by uptrend-analyzer, which stores
+    its result under a ``composite`` sub-object.
+    """
     if data is None:
         return None
     if "uptrend_score" in data:
         return int(data["uptrend_score"])
+    # uptrend-analyzer nests its score under "composite"
+    composite = data.get("composite")
+    if isinstance(composite, dict):
+        if "composite_score" in composite:
+            return int(composite["composite_score"])
+        if "uptrend_pct" in composite:
+            return _uptrend_pct_to_score(composite["uptrend_pct"])
     if "uptrend_pct" in data:
-        pct = data["uptrend_pct"]
-        if pct > 50:
-            return min(100, int(50 + pct))
-        elif pct >= 35:
-            return int(35 + pct)
-        elif pct >= 20:
-            return int(20 + pct)
-        else:
-            return int(pct)
+        return _uptrend_pct_to_score(data["uptrend_pct"])
     return None
 
 
 def extract_regime_score(data: Optional[dict]) -> Optional[int]:
-    """Extract regime score from macro-regime-detector output."""
+    """Extract regime score from macro-regime-detector output.
+
+    ``regime`` may be a flat string (legacy) or a nested object
+    (``{"regime": {"current_regime": ...}}``) as emitted by
+    macro-regime-detector.
+    """
     if data is None:
         return None
     if "regime_score" in data:
         return int(data["regime_score"])
-    if "regime" in data:
-        regime = data["regime"].lower().strip()
-        return REGIME_SCORES.get(regime, 50)
+    regime = data.get("regime")
+    if isinstance(regime, dict):
+        name = regime.get("current_regime")
+        if name:
+            return REGIME_SCORES.get(str(name).lower().strip(), 50)
+    elif isinstance(regime, str):
+        return REGIME_SCORES.get(regime.lower().strip(), 50)
     if "current_regime" in data:
-        regime = data["current_regime"].lower().strip()
-        return REGIME_SCORES.get(regime, 50)
+        return REGIME_SCORES.get(str(data["current_regime"]).lower().strip(), 50)
     return None
 
 
 def extract_regime_name(data: Optional[dict]) -> str:
-    """Extract regime name from data."""
+    """Extract regime name from data.
+
+    Handles the legacy flat string form and the nested object form
+    (``{"regime": {"regime_label": ..., "current_regime": ...}}``). For the
+    nested form ``regime_label`` is preferred, falling back to
+    ``current_regime``.
+    """
     if data is None:
         return "Unknown"
-    if "regime" in data:
-        return data["regime"].capitalize()
+    regime = data.get("regime")
+    if isinstance(regime, dict):
+        label = regime.get("regime_label") or regime.get("current_regime")
+        return str(label).capitalize() if label else "Unknown"
+    if isinstance(regime, str):
+        return regime.capitalize()
     if "current_regime" in data:
-        return data["current_regime"].capitalize()
+        return str(data["current_regime"]).capitalize()
     return "Unknown"
 
 
@@ -124,6 +163,12 @@ def extract_top_risk_score(data: Optional[dict]) -> Optional[int]:
         return None
     if "top_risk_score" in data:
         return int(data["top_risk_score"])
+    # market-top-detector nests its 0-100 score under "composite", where HIGH =
+    # higher top risk (>80 = Critical/Top Formation). Invert to the
+    # exposure-friendly convention (high = safe to be exposed).
+    composite = data.get("composite")
+    if isinstance(composite, dict) and "composite_score" in composite:
+        return max(0, min(100, int(100 - composite["composite_score"])))
     if "top_probability" in data:
         prob = data["top_probability"]
         # Invert: high probability = low score
@@ -142,11 +187,20 @@ def extract_top_risk_score(data: Optional[dict]) -> Optional[int]:
 
 
 def extract_ftd_score(data: Optional[dict]) -> Optional[int]:
-    """Extract FTD score (inverted - high FTD = low score)."""
+    """Extract Follow-Through-Day score (high = strong FTD = bullish bottom).
+
+    ftd-detector emits a 0-100 FTD quality score under ``quality_score``
+    (``total_score``); a confirmed Follow-Through Day is a bullish
+    bottom-confirmation signal, so the score is used directly (no inversion).
+    """
     if data is None:
         return None
     if "ftd_score" in data:
         return int(data["ftd_score"])
+    # ftd-detector real shape: {"quality_score": {"total_score": 0-100, ...}}
+    quality = data.get("quality_score")
+    if isinstance(quality, dict) and quality.get("total_score") is not None:
+        return max(0, min(100, int(quality["total_score"])))
     if "anomaly_level" in data:
         level = data["anomaly_level"].lower()
         mapping = {"none": 90, "low": 80, "moderate": 55, "elevated": 35, "critical": 15}

@@ -4,9 +4,11 @@ import path from "node:path";
 import process from "node:process";
 
 import {
+  cleanSummaryText,
   extractSummaryFromBody,
   extractTitleFromMarkdown,
   parseFrontmatter,
+  preprocessMermaidInMarkdown,
   renderMarkdownDocument,
   replaceMarkdownImagesWithPlaceholders,
   resolveColorToken,
@@ -14,11 +16,13 @@ import {
   serializeFrontmatter,
   stripWrappingQuotes,
 } from "baoyu-md";
+import { closeRenderer, renderMermaidToPng } from "baoyu-chrome-cdp/mermaid";
 
 interface ImageInfo {
   placeholder: string;
   localPath: string;
   originalPath: string;
+  alt?: string;
 }
 
 interface ParsedResult {
@@ -47,14 +51,34 @@ export async function convertMarkdown(
   }
 
   const author = stripWrappingQuotes(frontmatter.author ?? "");
-  let summary = stripWrappingQuotes(frontmatter.description ?? "")
+  const frontmatterSummary = stripWrappingQuotes(frontmatter.description ?? "")
     || stripWrappingQuotes(frontmatter.summary ?? "");
+  let summary = cleanSummaryText(frontmatterSummary);
   if (!summary) {
     summary = extractSummaryFromBody(body, 120);
   }
 
+  const { markdown: mermaidProcessedBody, images: mermaidImages } =
+    await preprocessMermaidInMarkdown(body, {
+      baseDir,
+      renderFn: renderMermaidToPng,
+      onError: (error, block) => {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error(
+          `[md-to-wechat] mermaid render failed (${block.code.slice(0, 40).replace(/\s+/g, " ")}…): ${message}`,
+        );
+      },
+    });
+
+  if (mermaidImages.length > 0) {
+    const fresh = mermaidImages.filter((image) => !image.cached).length;
+    console.error(
+      `[md-to-wechat] mermaid: ${mermaidImages.length} block(s), ${fresh} rendered, ${mermaidImages.length - fresh} cached`,
+    );
+  }
+
   const { images, markdown: rewrittenBody } = replaceMarkdownImagesWithPlaceholders(
-    body,
+    mermaidProcessedBody,
     "WECHATIMGPH_",
   );
   const rewrittenMarkdown = `${serializeFrontmatter(frontmatter)}${rewrittenBody}`;
@@ -164,7 +188,11 @@ async function main(): Promise<void> {
   console.log(JSON.stringify(result, null, 2));
 }
 
-await main().catch((error) => {
+try {
+  await main();
+} catch (error) {
   console.error(`Error: ${error instanceof Error ? error.message : String(error)}`);
-  process.exit(1);
-});
+  process.exitCode = 1;
+} finally {
+  await closeRenderer();
+}

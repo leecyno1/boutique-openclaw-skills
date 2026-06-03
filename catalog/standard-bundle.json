@@ -46,7 +46,7 @@
       "access_mode": "browser-required",
       "conflict_group": "url-to-markdown",
       "origin_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown",
-      "note": "Fetch any URL and convert to markdown using Chrome CDP. Supports two modes - auto-capture on page load, or wait for user signal (for pages requiring login). Use when user wants to save a webpage as markdown."
+      "note": "Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome CDP with site-specific adapters). Built-in adapters for X/Twitter, YouTube transcripts, Hacker News threads, and generic pages via Defuddle. Handles login/CAPTCHA via interaction wait modes. Use when user wants to save a webpage as markdown."
     },
     {
       "capability": "browser-automation",
@@ -101,7 +101,7 @@
       "access_mode": "direct",
       "conflict_group": "verification-before-completion",
       "origin_url": "https://github.com/obra/superpowers/tree/main/skills/verification-before-completion",
-      "note": "Use before claiming work is complete, fixed, or passing."
+      "note": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always"
     },
     {
       "capability": "skill-authoring",
@@ -112,7 +112,7 @@
       "access_mode": "direct",
       "conflict_group": "skill-creator",
       "origin_url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
-      "note": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations."
+      "note": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy."
     },
     {
       "capability": "security-review",
@@ -222,7 +222,7 @@
       "access_mode": "api-key",
       "conflict_group": "media-downloader",
       "origin_url": "https://github.com/yizhiyanhua-ai/media-downloader.git",
-      "note": "|-"
+      "note": "|"
     },
     {
       "capability": "image-generation",
@@ -266,7 +266,7 @@
       "access_mode": "direct",
       "conflict_group": "finance-data",
       "origin_url": "https://github.com/simonlin1212/a-stock-data",
-      "note": "Use when the user needs China A-share data, A股行情/估值/研报/题材/北向资金/龙虎榜/解禁/两融/大宗交易/股东户数/分红/新闻/公告, batch stock comparison, or A-share research workflows."
+      "note": "A股全栈数据工具包 — 覆盖行情(mootdx+腾讯+百度K线)、研报(东财+同花顺+iwencai)、信号(同花顺热点+北向+龙虎榜+解禁+行业)、资金面(融资融券+大宗交易+股东户数+分红+资金流分钟级+资金流120日)、新闻(东财个股+全球资讯)、基础数据(mootdx财务/F10+东财+新浪三表)、公告(巨潮)七层数据源，内嵌全部调用代码，自包含零依赖外部文件。优先用通达信(mootdx)/腾讯(不封IP)，东财接口已内置限流防封。适用于个股估值、研报检索、题材归因、龙虎榜跟踪、解禁预警、行业轮动、融资融券跟踪、筹码分析、产业链调研、批量筛选等场景。"
     },
     {
       "capability": "content-strategy",
@@ -277,7 +277,7 @@
       "access_mode": "direct",
       "conflict_group": "finance-specialist:content-strategy",
       "origin_url": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy",
-      "note": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social-content."
+      "note": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social."
     },
     {
       "capability": "writing",
@@ -288,7 +288,7 @@
       "access_mode": "direct",
       "conflict_group": "writing-skills",
       "origin_url": "https://github.com/obra/superpowers/tree/main/skills/writing-skills",
-      "note": "Use when creating, editing, or verifying Codex skills."
+      "note": "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
     },
     {
       "capability": "automation-followup",

@@ -1,7 +1,7 @@
 ---
 name: baoyu-markdown-to-html
-description: Use when converting Markdown to styled HTML, especially WeChat-compatible article HTML.
-version: 1.56.1
+description: Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, math, Mermaid (rendered to PNG via headless Chrome), PlantUML, footnotes, alerts, infographics, and optional bottom citations for external links. Use when user asks for "markdown to html", "convert md to html", "md 转 html", "微信外链转底部引用", or needs styled HTML output from markdown.
+version: 1.117.3
 metadata:
   openclaw:
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-markdown-to-html
@@ -15,6 +15,16 @@ metadata:
 
 Converts Markdown files to beautifully styled HTML with inline CSS, optimized for WeChat Official Account and other platforms.
 
+## User Input Tools
+
+When this skill prompts the user, follow this tool-selection rule (priority order):
+
+1. **Prefer built-in user-input tools** exposed by the current agent runtime — e.g., `AskUserQuestion`, `request_user_input`, `clarify`, `ask_user`, or any equivalent.
+2. **Fallback**: if no such tool exists, emit a numbered plain-text message and ask the user to reply with the chosen number/answer for each question.
+3. **Batching**: if the tool supports multiple questions per call, combine all applicable questions into a single call; if only single-question, ask them one at a time in priority order.
+
+Concrete `AskUserQuestion` references below are examples — substitute the local equivalent in other runtimes.
+
 ## Script Directory
 
 **Agent Execution**: Determine this SKILL.md directory as `{baseDir}`. Resolve `${BUN_X}` runtime: if `bun` installed → `bun`; if `npx` available → `npx -y bun`; else suggest installing bun. Replace `{baseDir}` and `${BUN_X}` with actual values.
@@ -25,40 +35,17 @@ Converts Markdown files to beautifully styled HTML with inline CSS, optimized fo
 
 ## Preferences (EXTEND.md)
 
-Check EXTEND.md existence (priority order):
+Check EXTEND.md in priority order — the first one found wins:
 
-```bash
-# macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/baoyu-markdown-to-html/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/baoyu-markdown-to-html/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/baoyu-markdown-to-html/EXTEND.md" && echo "user"
-```
+| Priority | Path | Scope |
+|----------|------|-------|
+| 1 | `.baoyu-skills/baoyu-markdown-to-html/EXTEND.md` | Project |
+| 2 | `${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/baoyu-markdown-to-html/EXTEND.md` | XDG |
+| 3 | `$HOME/.baoyu-skills/baoyu-markdown-to-html/EXTEND.md` | User home |
 
-```powershell
-# PowerShell (Windows)
-if (Test-Path .baoyu-skills/baoyu-markdown-to-html/EXTEND.md) { "project" }
-$xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/baoyu-markdown-to-html/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/baoyu-markdown-to-html/EXTEND.md") { "user" }
-```
+If none found, use defaults.
 
-┌──────────────────────────────────────────────────────────────┬───────────────────┐
-│                             Path                             │     Location      │
-├──────────────────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/baoyu-markdown-to-html/EXTEND.md               │ Project directory │
-├──────────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/baoyu-markdown-to-html/EXTEND.md         │ User home         │
-└──────────────────────────────────────────────────────────────┴───────────────────┘
-
-┌───────────┬───────────────────────────────────────────────────────────────────────────┐
-│  Result   │                                  Action                                   │
-├───────────┼───────────────────────────────────────────────────────────────────────────┤
-│ Found     │ Read, parse, apply settings                                               │
-├───────────┼───────────────────────────────────────────────────────────────────────────┤
-│ Not found │ Use defaults                                                              │
-└───────────┴───────────────────────────────────────────────────────────────────────────┘
-
-**EXTEND.md Supports**: Default theme | Custom CSS variables | Code block style
+**EXTEND.md supports**: default theme, custom CSS variables, code block style, mermaid defaults (`mermaid_theme`, `mermaid_scale`, `mermaid_background`).
 
 ## Workflow
 
@@ -93,26 +80,11 @@ Use `AskUserQuestion` to ask whether to format first. Formatting can fix:
 
 **Cross-skill EXTEND.md check** (only if this skill's EXTEND.md has no `default_theme`):
 
-```bash
-# Check baoyu-post-to-wechat EXTEND.md for default_theme
-test -f "$HOME/.baoyu-skills/baoyu-post-to-wechat/EXTEND.md" && grep -o 'default_theme:.*' "$HOME/.baoyu-skills/baoyu-post-to-wechat/EXTEND.md"
-```
-
-```powershell
-# PowerShell (Windows)
-if (Test-Path "$HOME/.baoyu-skills/baoyu-post-to-wechat/EXTEND.md") { Select-String -Pattern 'default_theme:.*' -Path "$HOME/.baoyu-skills/baoyu-post-to-wechat/EXTEND.md" | ForEach-Object { $_.Matches.Value } }
-```
+Read `$HOME/.baoyu-skills/baoyu-post-to-wechat/EXTEND.md` if it exists and look for a `default_theme:` line. Use the value if present; otherwise fall through.
 
 **If theme is resolved from EXTEND.md**: Use it directly, do NOT ask the user.
 
-**If no default found**: Use AskUserQuestion to confirm:
-
-| Theme | Description |
-|-------|-------------|
-| `default` (Recommended) | Classic - traditional layout, centered title with bottom border, H2 with white text on colored background |
-| `grace` | Elegant - text shadow, rounded cards, refined blockquotes |
-| `simple` | Minimal - modern minimalist, asymmetric rounded corners, clean whitespace |
-| `modern` | Modern - large radius, pill-shaped titles, relaxed line height (pair with `--color red` for traditional red-gold style) |
+**If no default found**: use `AskUserQuestion` to confirm a theme from the [Themes](#themes) table below.
 
 ### Step 1.5: Determine Citation Mode
 
@@ -152,6 +124,11 @@ ${BUN_X} {baseDir}/scripts/main.ts <markdown_file> [options]
 | `--title <title>` | Override title from frontmatter | |
 | `--cite` | Convert external links to bottom citations, append `引用链接` section | false (off) |
 | `--keep-title` | Keep the first heading in content | false (removed) |
+| `--mermaid-theme <name>` | Mermaid theme: `default`, `forest`, `dark`, `neutral`, `base` | default |
+| `--mermaid-scale <N>` | Mermaid render scale (positive number ≤ 4) | 2 |
+| `--mermaid-width <N>` | Mermaid target display width in CSS px; PNG is rendered at `width × scale` pixels when the diagram is narrower than this | 860 |
+| `--mermaid-bg <value>` | Mermaid background: `white`, `transparent`, or `#hex` | white |
+| `--no-mermaid` | Skip Mermaid PNG rendering; emit `<pre class="mermaid">` fallback | false |
 | `--help` | Show help | |
 
 **Color Presets:**
@@ -218,9 +195,18 @@ ${BUN_X} {baseDir}/scripts/main.ts article.md --title "My Article"
       "localPath": "/path/to/img.png",
       "originalPath": "imgs/image.png"
     }
+  ],
+  "mermaidImages": [
+    {
+      "hash": "a1b2c3d4e5f6",
+      "localPath": "/path/to/imgs/.mermaid-cache/mermaid-a1b2c3d4e5f6.png",
+      "cached": false
+    }
   ]
 }
 ```
+
+**Mermaid rendering**: Code blocks fenced as ` ```mermaid ` are rendered to PNGs via headless Chrome (CDP) and cached at `imgs/.mermaid-cache/mermaid-<hash>.png`. The cache key includes the code, theme, scale, target width, background, and mermaid version. Add `imgs/.mermaid-cache/` to `.gitignore` if you do not want generated diagrams checked in. Requires Chrome/Chromium/Edge on the system; otherwise the block falls back to `<pre class="mermaid">…</pre>` and conversion still succeeds.
 
 ## Themes
 
@@ -247,7 +233,7 @@ ${BUN_X} {baseDir}/scripts/main.ts article.md --title "My Article"
 | Alerts | `> [!NOTE]`, `> [!WARNING]`, etc. |
 | Footnotes | `[^1]` references |
 | Ruby text | `{base|annotation}` |
-| Mermaid | ` ```mermaid ` diagrams |
+| Mermaid | ` ```mermaid ` blocks rendered to local PNG via headless Chrome (cached under `imgs/.mermaid-cache/`); falls back to `<pre class="mermaid">` if Chrome is unavailable or rendering fails |
 | PlantUML | ` ```plantuml ` diagrams |
 
 ## Frontmatter

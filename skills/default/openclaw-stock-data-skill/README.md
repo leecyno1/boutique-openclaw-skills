@@ -15,16 +15,16 @@ npx skills add https://github.com/1018466411/openclaw-stock-data-skill
 
 ## 📋 数据分类概览
 
-2. **股票实时数据**  
-   - 实时行情快照（价格、五档盘口等）、集合竞价、推送历史、停牌信息等  
+2. **股票实时数据**
+   - 实时行情快照（价格、五档盘口等）、集合竞价、推送历史、停牌信息等
    - 典型函数：`get_stock_snapshot_daily`（实时快照）、`get_call_auction`、`get_basic_snapshot`（集合竞价快照）、`get_stock_snapshot_push_history` 等
 
-3. **股票历史数据**  
-   - 日 K 线（前复权/不复权）、分钟级历史、日度财务因子、复权因子、历史快照等  
-   - 典型函数：`get_daily_data`、`get_history_data`、`get_finance_data`、`get_daily_adj_data`、`get_adj_factor` 等
+3. **股票历史数据**
+   - 日 K 线（前复权/不复权）、分钟级历史、日度财务因子、主力资金流向、复权因子、历史快照等
+  - 典型函数：`get_daily_data`、`get_history_data`、`get_finance_data`、`get_financial_indicator`、`get_main_fund_flow`、`get_main_fund_flow_overview`、`get_cyq_chips`、`get_daily_adj_data`、`get_adj_factor` 等
 
-3. **可转债历史和实时数据**  
-   - 可转债日线、分钟级行情、日度指标（纯债价值、转股溢价等）、收盘快照、基础列表等  
+3. **可转债历史和实时数据**
+   - 可转债日线、分钟级行情、日度指标（纯债价值、转股溢价等）、收盘快照、基础列表等
    - 典型函数：`get_bond_daily`、`get_bond_history`、`get_bond_indicator_daily`、`get_bond_closing_snapshot`、`get_bond_list` 等
 
 4. **ETF 数据**
@@ -32,13 +32,13 @@ npx skills add https://github.com/1018466411/openclaw-stock-data-skill
    - ETF 日线与分钟级历史行情
    - 典型函数：`get_etf_list`、`get_etf_daily`、`get_etf_history`
 
-5. **指数历史数据**  
-   - 指数分钟级历史行情（支持多种时间粒度）  
-   - 典型函数：`get_index_history`
+5. **指数历史数据**
+   - 指数分钟级历史行情（支持多种时间粒度）、同花顺指数日线数据等
+   - 典型函数：`get_index_history`、`get_index_realtime_history`、`get_ths_daily`、`get_ths_sector_categories`、`get_ths_constituent_stocks`、`get_dc_blocks`、`get_dc_block_stocks`、`get_dc_daily`
 
-6. **龙虎榜数据**  
-   - 龙虎榜机构明细数据  
-   - 典型函数：`get_dragon_tiger`
+6. **龙虎榜数据**
+   - 龙虎榜机构明细与每日明细数据
+   - 典型函数：`get_dragon_tiger`, `get_top_list`
 
 7. **WebSocket 实时快照**
    - 通过 WebSocket 协议实时推送全市场股票快照
@@ -49,11 +49,22 @@ npx skills add https://github.com/1018466411/openclaw-stock-data-skill
 
 ## 🚀 快速开始
 
-### 1. 注册账号并开通接口权限
+### 1. 获取正确的 API Key 并在 Header 中验证
 
-**重要：使用本 Skill 前，必须先注册账号并为需要使用的接口开通对应权限。**
+**【必须注意】：**
+1. **一定要获取到正确的 apiKey 才可以调用接口。**
+2. **获取途径：** 你可以通过 `config.json` 文件、系统环境变量（如 `STOCK_API_KEY`）或直接配置的参数中获取。
+3. **接口域名：** 默认接口的域名是 `data.diemeng.chat`，**如果是海外 IP 则访问 `mg.diemeng.chat`**。
+4. **Header 认证：** `apiKey` 必须放到请求的 header 里面进行验证，格式如下：
 
-1. 访问 [https://data.diemeng.chat/](https://data.diemeng.chat/)
+```python
+headers = {
+     "apiKey": "YOUR_API_KEY",
+     "Content-Type": "application/json"
+}
+```
+
+1. 访问 [https://data.diemeng.chat/](https://data.diemeng.chat/)（海外请访问 `https://mg.diemeng.chat/`）
 2. 注册新账号或登录现有账号
 3. 在 **个人中心 / 权限或套餐管理** 中，按需开通以下数据大类的访问权限：
    - 股票历史数据（行情、财务、估值等）
@@ -63,7 +74,7 @@ npx skills add https://github.com/1018466411/openclaw-stock-data-skill
    - 指数历史数据
 4. 在 **API 管理** 中创建并复制您的 **API Key**
 
-> 如果未为某一类接口开通权限，即使配置了 API Key，也会收到 403 或权限不足的错误。
+> 如果未为某一类接口开通权限或传入了错误的 apiKey，即使配置了 API Key，也会收到 403 或权限不足的错误。
 
 ### 2. 在 Skill 页面配置 API Key（推荐）
 
@@ -143,7 +154,8 @@ for stock in results:
 daily_data = get_daily_data(
     stock_code="600000.SH",
     start_time="2024-01-01",
-    end_time="2024-01-31"
+    end_time="2024-01-31",
+    vol_type="share"  # 可选: "share"(股，默认) / "lot"(手)
 )
 print(f"共 {daily_data['total']} 条数据")
 for record in daily_data['list'][:5]:
@@ -177,7 +189,9 @@ data = get_history_data(
 )
 ```
 
-### 获取当天分时数据（全市场实时）
+说明：`get_history_data` 的 `stock_code` 仅支持单个字符串，不支持数组。
+
+### 获取实时分时数据（支持最近7天内）
 
 ```python
 from stock_api import get_realtime_history
@@ -207,6 +221,57 @@ for record in finance['list']:
     print(f"PE百分位: {record.get('pe_ttm_percentile')}%")
     print(f"PB: {record['pb']}")
     print(f"总市值: {record['total_mv']}")
+```
+
+### 获取财务指标报表数据（stock_financial_indicator）
+
+```python
+from stock_api import get_financial_indicator
+
+indicator = get_financial_indicator(
+    stock_code="600000.SH",
+    end_date="2025-12-31",
+    page=0,
+    page_size=100
+)
+
+for record in indicator['list']:
+    print(f"代码: {record['stock_code']}")
+    print(f"公告日: {record['ann_date']}")
+    print(f"报告期: {record['end_date']}")
+    print(f"EPS: {record['eps']}")
+```
+
+### 获取主力资金流向数据
+
+```python
+from stock_api import get_main_fund_flow, get_main_fund_flow_overview, get_cyq_chips
+
+# 1. 获取大小单资金金流向
+detail = get_main_fund_flow(
+    start_time="2026-04-03",
+    end_time="2026-04-03",
+    stock_code=["600000.SH", "000001.SZ"],
+    page=0,
+    page_size=200
+)
+
+# 2. 获取主力资金流向总览
+overview = get_main_fund_flow_overview(
+    start_time="2026-04-03",
+    end_time="2026-04-03",
+    page=0,
+    page_size=200
+)
+
+# 3. 获取筹码峰分布
+chips = get_cyq_chips(
+    start_time="2026-04-03",
+    end_time="2026-04-03",
+    stock_code="600000.SH",
+    page=0,
+    page_size=200
+)
 ```
 
 ### 获取可转债数据
@@ -269,15 +334,21 @@ etf_history = get_etf_history(
 ### 获取指数历史数据
 
 ```python
-from stock_api import get_index_history
+from stock_api import get_index_history, get_index_realtime_history
 
-# 获取指数 1 分钟级历史数据
+# 1. 获取指数 1 分钟级历史数据
 index_history = get_index_history(
     index_code="000300.SH",  # 沪深 300 指数
     level="1min",
     start_time="2024-01-02 09:30:00",
     end_time="2024-01-02 15:00:00",
 )
+
+# 2. 获取实时 1 分钟级别分时数据（仅限当天）
+index_realtime = get_index_realtime_history(
+    index_code="000001.SH"
+)
+print("上证指数当天实时分时数据:", index_realtime)
 ```
 
 ## 🔧 API 接口说明
@@ -360,4 +431,4 @@ MIT License
 
 ---
 
-**重要提示**：使用本 Skill 前，请务必访问 [https://data.diemeng.chat/](https://data.diemeng.chat/) 注册并获取 API Key！
+**重要提示**：使用本 Skill 前，请务必访问 [https://data.diemeng.chat/](https://data.diemeng.chat/) 注册并获取 API Key！（海外请访问 `https://mg.diemeng.chat/`）

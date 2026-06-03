@@ -4,18 +4,21 @@
 
 ```bash
 ./scripts/import_installer_default_skills.py --installer-root /path/to/OpenClawInstaller
+python3 scripts/check_upstream_updates.py          # GitHub-backed upstream status report
+python3 scripts/check_upstream_updates.py --apply  # safe merge of changed upstream skill files
 ./scripts/sync-upstream.sh  # compatibility-profile sync and local audit
 python3 scripts/generate_enriched_catalog.py
 ```
 
 This does:
 1. Refresh local skill copies from the installer or upstream source.
-2. Preserve installer URLs as mirror sources, not native origins.
-3. Generate `catalog/skills.enriched.json` with native origin fields, horizontal tiers, vertical categories, dependency labels, risk, conflict groups, preset exclusions, and star ratings.
-4. Generate `catalog/standard-bundle.json` with at most 30 non-duplicated recommended skills.
-5. Regenerate `docs/generated/*.md` and the README index block.
-6. Validate the standard bundle uniqueness rules and native-origin review count in local audit (`scripts/audit_skills.py`).
-7. Write reports to `reports/`.
+2. Check GitHub-backed native origins and write `reports/upstream-check-latest.{json,md}`.
+3. Preserve installer URLs as mirror sources, not native origins.
+4. Generate `catalog/skills.enriched.json` with native origin fields, horizontal tiers, vertical categories, dependency labels, risk, conflict groups, preset exclusions, and star ratings.
+5. Generate `catalog/standard-bundle.json` with at most 30 non-duplicated recommended skills.
+6. Regenerate `docs/generated/*.md` and the README index block.
+7. Validate the standard bundle uniqueness rules and native-origin review count in local audit (`scripts/audit_skills.py`).
+8. Write reports to `reports/`.
 
 ## Native origin policy
 
@@ -68,6 +71,8 @@ Audit is **WARN** when:
 ## Monthly reviewer checklist
 
 - Confirm new or changed skills have a native `origin.origin_url`.
+- Run `python3 scripts/check_upstream_updates.py` and review `source_path_missing` entries.
+- Run `python3 scripts/check_upstream_updates.py --apply` only for safe GitHub skill directories; full application repositories remain metadata-only unless their root has `SKILL.md`.
 - Check whether Open or Hermes has added preset skills and update `catalog/presets/*.json`.
 - Review `catalog/standard-bundle.json` for duplicate capability or conflict-group overlap.
 - Update `catalog/native-origin-overrides.json` when first-party URLs are confirmed.

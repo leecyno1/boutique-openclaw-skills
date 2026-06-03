@@ -3,8 +3,8 @@
 | 使用条件 | 数量 |
 |---|---:|
 | `api-key` | 56 |
-| `browser-required` | 11 |
-| `direct` | 120 |
+| `browser-required` | 12 |
+| `direct` | 119 |
 | `mcp-required` | 4 |
 
 ## api-key
@@ -25,9 +25,9 @@
 | `paperless-ngx-tools` | `PAPERLESS_TOKEN` | 无 | `medium` |
 | `tavily-search` | `OPENAI_API_KEY`, `TAVILY_API_KEY` | `browser`, `python` | `medium` |
 | `tushare-openclaw-skill` | `TUSHARE_TOKEN` | 无 | `medium` |
-| `agentmail-cli` | `AGENTMAIL_API_KEY` | `browser` | `medium` |
+| `agentmail-cli` | `AGENTMAIL_API_KEY` | 无 | `medium` |
 | `alphaear-sentiment` | `OPENAI_API_KEY` | `python` | `medium` |
-| `baoyu-post-to-wechat` | `ACCESS_TOKEN`, `WECHAT_AI_TOOLS_APP_SECRET`, `WECHAT_APP_SECRET`, `WECHAT_BAOYU_APP_SECRET` | 无 | `medium` |
+| `baoyu-post-to-wechat` | `ACCESS_TOKEN`, `WECHAT_AI_TOOLS_APP_SECRET`, `WECHAT_APP_SECRET`, `WECHAT_BAOYU_APP_SECRET` | `browser` | `medium` |
 | `canslim-screener` | `FMP_API_KEY` | `python` | `medium` |
 | `dividend-growth-pullback-screener` | `FINVIZ_API_KEY`, `FMP_API_KEY` | `python` | `medium` |
 | `downtrend-duration-analyzer` | `FMP_API_KEY` | 无 | `medium` |
@@ -79,6 +79,7 @@
 | `openclaw-cron-setup` | 无 | `browser` | `medium` |
 | `alphaear-search` | 无 | `browser`, `python` | `medium` |
 | `baoyu-compress-image` | 无 | `browser` | `medium` |
+| `baoyu-markdown-to-html` | 无 | `browser` | `medium` |
 | `baoyu-post-to-weibo` | 无 | `browser`, `ffmpeg` | `medium` |
 | `baoyu-post-to-x` | 无 | `browser`, `ffmpeg` | `medium` |
 | `market-news-analyst` | 无 | `browser`, `node`, `python` | `medium` |
@@ -104,6 +105,8 @@
 | `writing-skills` | 无 | 无 | `low` |
 | `animation` | 无 | 无 | `low` |
 | `backtest-expert` | 无 | 无 | `low` |
+| `baoyu-article-illustrator` | 无 | 无 | `low` |
+| `baoyu-translate` | 无 | 无 | `low` |
 | `baoyu-youtube-transcript` | 无 | `ffmpeg`, `python` | `low` |
 | `data-analyst` | 无 | `python` | `low` |
 | `discord-reader` | 无 | 无 | `low` |
@@ -131,15 +134,12 @@
 | `a-stock-data` | 无 | `python` | `medium` |
 | `akshare-stock` | 无 | `python` | `medium` |
 | `yfinance-data` | 无 | `python` | `medium` |
-| `baoyu-article-illustrator` | 无 | 无 | `low` |
 | `baoyu-comic` | 无 | 无 | `low` |
 | `baoyu-cover-image` | 无 | 无 | `low` |
 | `baoyu-format-markdown` | 无 | 无 | `low` |
 | `baoyu-infographic` | 无 | 无 | `low` |
-| `baoyu-markdown-to-html` | 无 | 无 | `low` |
 | `baoyu-skills` | 无 | 无 | `low` |
 | `baoyu-slide-deck` | 无 | 无 | `low` |
-| `baoyu-translate` | 无 | 无 | `low` |
 | `baoyu-xhs-images` | 无 | 无 | `low` |
 | `capability-evolver` | 无 | 无 | `low` |
 | `edge-strategy-reviewer` | 无 | 无 | `low` |

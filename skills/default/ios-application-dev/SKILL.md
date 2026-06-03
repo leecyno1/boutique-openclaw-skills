@@ -1,30 +1,178 @@
 ---
-name: iosdev-cn
-description: Use for iOS development, signing, TestFlight, App Store, privacy, or China-region release tasks.
+name: ios-application-dev
+description: |
+  iOS application development guide covering UIKit, SnapKit, and SwiftUI. Includes touch targets, safe areas, navigation patterns, Dynamic Type, Dark Mode, accessibility, collection views, common UI components, and SwiftUI design guidelines. For detailed references on specific topics, see the reference files.
+  Use when: developing iOS apps, implementing UI, reviewing iOS code, working with UIKit/SnapKit/SwiftUI layouts, building iPhone interfaces, Swift mobile development, Apple HIG compliance, iOS accessibility implementation.
+license: MIT
+metadata:
+  author: MiniMax-OpenSource
+  version: "1.0.0"
+  category: mobile
+  sources:
+    - Apple Human Interface Guidelines
+    - Apple Developer Documentation
 ---
 
-# iOS 开发与上架技能（中国）
+# iOS Application Development Guide
 
-## 快速使用
-- 先确认：应用类型（个人/企业）、目标地区（中国区）、最低 iOS 版本、是否包含订阅/登录/UGC
-- 若只要流程清单，输出“开发 → 构建 → 签名 → 上传 → 审核 → 发布”六步
-- 需要细节时按需加载 references 中的对应文件
+A practical guide for building iOS applications using UIKit, SnapKit, and SwiftUI. Focuses on proven patterns and Apple platform conventions.
 
-## 工作流程（建议输出结构）
-1. 需求与约束确认（Bundle ID、Team、最低 iOS、功能敏感项）
-2. 开发与构建准备（依赖管理、配置、版本号）
-3. 签名与归档（证书、Provisioning、Archive）
-4. 测试与验证（真机、崩溃、功能清单）
-5. App Store Connect 准备（元数据、截图、隐私政策）
-6. 提交审核与后续处理（审核备注、拒审处理、版本迭代）
+## Quick Reference
 
-## 参考资料加载指引
-- 构建/签名/依赖与版本号 → `references/ios-development.md`
-- App Store 上架流程（中国） → `references/app-store-release-cn.md`
-- IAP/订阅配置与测试 → `references/iap-subscription.md`
-- 隐私、ATS、安全与合规 → `references/privacy-security.md`
+### UIKit
 
-## 输出约束
-- 仅输出通用流程，不引用项目私有信息
-- 避免提供真实密钥或账号，使用占位符
-- 引用官方链接时优先 Apple Developer / App Store Review Guidelines
+| Purpose | Component |
+|---------|-----------|
+| Main sections | `UITabBarController` |
+| Drill-down | `UINavigationController` |
+| Focused task | Sheet presentation |
+| Critical choice | `UIAlertController` |
+| Secondary actions | `UIContextMenuInteraction` |
+| List content | `UICollectionView` + `DiffableDataSource` |
+| Sectioned list | `DiffableDataSource` + `headerMode` |
+| Grid layout | `UICollectionViewCompositionalLayout` |
+| Search | `UISearchController` |
+| Share | `UIActivityViewController` |
+| Location (once) | `CLLocationButton` |
+| Feedback | `UIImpactFeedbackGenerator` |
+| Linear layout | `UIStackView` |
+| Custom shapes | `CAShapeLayer` + `UIBezierPath` |
+| Gradients | `CAGradientLayer` |
+| Modern buttons | `UIButton.Configuration` |
+| Dynamic text | `UIFontMetrics` + `preferredFont` |
+| Dark mode | Semantic colors (`.systemBackground`, `.label`) |
+| Permissions | Contextual request + `AVCaptureDevice` |
+| Lifecycle | `UIApplication` notifications |
+
+### SwiftUI
+
+| Purpose | Component |
+|---------|-----------|
+| Main sections | `TabView` + `tabItem` |
+| Drill-down | `NavigationStack` + `NavigationPath` |
+| Focused task | `.sheet` + `presentationDetents` |
+| Critical choice | `.alert` |
+| Secondary actions | `.contextMenu` |
+| List content | `List` + `.insetGrouped` |
+| Search | `.searchable` |
+| Share | `ShareLink` |
+| Location (once) | `LocationButton` |
+| Feedback | `UIImpactFeedbackGenerator` |
+| Progress (known) | `ProgressView(value:total:)` |
+| Progress (unknown) | `ProgressView()` |
+| Dynamic text | `.font(.body)` semantic styles |
+| Dark mode | `.primary`, `.secondary`, `Color(.systemBackground)` |
+| Scene lifecycle | `@Environment(\.scenePhase)` |
+| Reduce motion | `@Environment(\.accessibilityReduceMotion)` |
+| Dynamic type | `@Environment(\.dynamicTypeSize)` |
+
+## Core Principles
+
+### Layout
+- Touch targets >= 44pt
+- Content within safe areas (SwiftUI respects by default, use `.ignoresSafeArea()` only for backgrounds)
+- Use 8pt spacing increments (8, 16, 24, 32, 40, 48)
+- Primary actions in thumb zone
+- Support all screen sizes (iPhone SE 375pt to Pro Max 430pt)
+
+### Typography
+- UIKit: `preferredFont(forTextStyle:)` + `adjustsFontForContentSizeCategory = true`
+- SwiftUI: semantic text styles `.headline`, `.body`, `.caption`
+- Custom fonts: `UIFontMetrics` / `Font.custom(_:size:relativeTo:)`
+- Adapt layout at accessibility sizes (minimum 11pt)
+
+### Colors
+- Use semantic system colors (`.systemBackground`, `.label`, `.primary`, `.secondary`)
+- Asset catalog variants for custom colors (Any/Dark Appearance)
+- No color-only information (pair with icons or text)
+- Contrast ratio >= 4.5:1 for normal text, 3:1 for large text
+
+### Accessibility
+- Labels on icon buttons (`.accessibilityLabel()`)
+- Reduce motion respected (`@Environment(\.accessibilityReduceMotion)`)
+- Logical reading order (`.accessibilitySortPriority()`)
+- Support Bold Text, Increase Contrast preferences
+
+### Navigation
+- Tab bar (3-5 sections) stays visible during navigation
+- Back swipe works (never override system gestures)
+- State preserved across tabs (`@SceneStorage`, `@State`)
+- Never use hamburger menus
+
+### Privacy & Permissions
+- Request permissions in context (not at launch)
+- Custom explanation before system dialog
+- Support Sign in with Apple
+- Respect ATT denial
+
+## Checklist
+
+### Layout
+- [ ] Touch targets >= 44pt
+- [ ] Content within safe areas
+- [ ] Primary actions in thumb zone (bottom half)
+- [ ] Flexible widths for all screen sizes (SE to Pro Max)
+- [ ] Spacing aligns to 8pt grid
+
+### Typography
+- [ ] Semantic text styles or UIFontMetrics-scaled custom fonts
+- [ ] Dynamic Type supported up to accessibility sizes
+- [ ] Layouts reflow at large sizes (no truncation)
+- [ ] Minimum text size 11pt
+
+### Colors
+- [ ] Semantic system colors or light/dark asset variants
+- [ ] Dark Mode is intentional (not just inverted)
+- [ ] No color-only information
+- [ ] Text contrast >= 4.5:1 (normal) / 3:1 (large)
+- [ ] Single accent color for interactive elements
+
+### Accessibility
+- [ ] VoiceOver labels on all interactive elements
+- [ ] Logical reading order
+- [ ] Bold Text preference respected
+- [ ] Reduce Motion disables decorative animations
+- [ ] All gestures have alternative access paths
+
+### Navigation
+- [ ] Tab bar for 3-5 top-level sections
+- [ ] No hamburger/drawer menus
+- [ ] Tab bar stays visible during navigation
+- [ ] Back swipe works throughout
+- [ ] State preserved across tabs
+
+### Components
+- [ ] Alerts for critical decisions only
+- [ ] Sheets have dismiss path (button and/or swipe)
+- [ ] List rows >= 44pt tall
+- [ ] Destructive buttons use `.destructive` role
+
+### Privacy
+- [ ] Permissions requested in context (not at launch)
+- [ ] Custom explanation before system permission dialog
+- [ ] Sign in with Apple offered with other providers
+- [ ] Basic features usable without account
+- [ ] ATT prompt shown if tracking, denial respected
+
+### System Integration
+- [ ] App handles interruptions gracefully (calls, background, Siri)
+- [ ] App content indexed for Spotlight
+- [ ] Share Sheet available for shareable content
+
+## References
+
+| Topic | Reference |
+|-------|-----------|
+| Touch Targets, Safe Area, CollectionView | [Layout System](references/layout-system.md) |
+| TabBar, NavigationController, Modal | [Navigation Patterns](references/navigation-patterns.md) |
+| StackView, Button, Alert, Search, ContextMenu | [UIKit Components](references/uikit-components.md) |
+| CAShapeLayer, CAGradientLayer, Core Animation | [Graphics & Animation](references/graphics-animation.md) |
+| Dynamic Type, Semantic Colors, VoiceOver | [Accessibility](references/accessibility.md) |
+| Permissions, Location, Share, Lifecycle, Haptics | [System Integration](references/system-integration.md) |
+| Metal Shaders & GPU | [Metal Shader Reference](references/metal-shader.md) |
+| SwiftUI HIG, Components, Patterns, Anti-Patterns | [SwiftUI Design Guidelines](references/swiftui-design-guidelines.md) |
+| Optionals, Protocols, async/await, ARC, Error Handling | [Swift Coding Standards](references/swift-coding-standards.md) |
+
+---
+
+Swift, SwiftUI, UIKit, SF Symbols, Metal, and Apple are trademarks of Apple Inc. SnapKit is a trademark of its respective owners.

@@ -19,11 +19,11 @@ Read when the user picks `--provider minimax` or sets `default_model.minimax`. D
 
 - `--ref` files are sent as MiniMax `subject_reference`
 - `subject_reference[].type` is currently `character`
-- Official docs say `image_file` supports public URLs or Base64 Data URLs; baoyu-imagine sends local refs as Data URLs
+- Official docs say `image_file` supports public URLs or Base64 Data URLs; baoyu-image-gen sends local refs as Data URLs
 - Recommended refs: front-facing portraits, JPG/JPEG/PNG, under 10MB
 
 ## Official References
 
-- [Image Generation Guide](https://platform.minimax.io/docs/guides/image-generation)
-- [Text-to-Image API](https://platform.minimax.io/docs/api-reference/image-generation-t2i)
-- [Image-to-Image API](https://platform.minimax.io/docs/api-reference/image-generation-i2i)
+- [Image Generation Guide](https://platform.minimaxi.com/docs/guides/image-generation)
+- [Text-to-Image API](https://platform.minimaxi.com/docs/api-reference/image-generation-t2i)
+- [Image-to-Image API](https://platform.minimaxi.com/docs/api-reference/image-generation-i2i)

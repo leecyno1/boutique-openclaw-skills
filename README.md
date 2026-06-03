@@ -117,7 +117,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `backtest-expert` | `L2 Professional` | `coding-devtools` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/backtest-expert) |
 | `baoyu-image-gen` | `L2 Professional` | `coding-devtools` | 4★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-image-gen) |
 | `flutter-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/flutter-dev) |
-| `frontend-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev) |
+| `frontend-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/anthropics/skills/tree/main/skills/canvas-design) |
 | `fullstack-dev` | `L2 Professional` | `coding-devtools` | 3★ | `api-key` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/fullstack-dev) |
 | `ios-application-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/ios-application-dev) |
 | `react-native-dev` | `L2 Professional` | `coding-devtools` | 4★ | `direct` | [Source](https://github.com/MiniMax-AI/skills/tree/main/skills/react-native-dev) |
@@ -129,6 +129,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `sepa-strategy` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills) |
 | `skill-idea-miner` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-idea-miner) |
 | `startup-analysis` | `L3 Specialist` | `commerce-ops` | 4★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/startup-tools/skills/startup-analysis) |
+| `agentmail-cli` | `L3 Specialist` | `communication` | 3★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-cli) |
 | `agent-browser` | `L1 Foundation` | `core-agent` | 4★ | `browser-required` | [Source](https://openclawdoc.com/docs/skills/clawhub/) |
 | `brainstorming` | `L1 Foundation` | `core-agent` | 5★ | `direct` | [Source](https://github.com/baz-scm/agentskills/tree/main/skills/brainstorming) |
 | `chrome-devtools-mcp` | `L1 Foundation` | `core-agent` | 4★ | `mcp-required` | [Source](https://github.com/ChromeDevTools/chrome-devtools-mcp) |
@@ -159,7 +160,9 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `agentmail` | `L2 Professional` | `design-ui` | 3★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-skills) |
 | `agentmail-toolkit` | `L2 Professional` | `design-ui` | 4★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-toolkit) |
 | `animation` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/bytesagain/ai-skills) |
+| `baoyu-article-illustrator` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
 | `baoyu-danger-x-to-markdown` | `L2 Professional` | `design-ui` | 2★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills#baoyu-danger-x-to-markdown) |
+| `baoyu-translate` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
 | `edge-concept-synthesizer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-concept-synthesizer) |
 | `edge-strategy-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-designer) |
 | `generative-ui` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui) |
@@ -290,13 +293,10 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `yc-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/yc-reader) |
 | `edge-strategy-reviewer` | `L3 Specialist` | `security-audit` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-reviewer) |
 | `skill-vetter` | `L1 Foundation` | `security-audit` | 5★ | `direct` | [Source](https://github.com/app-incubator-xyz/skill-vetter) |
-| `agentmail-cli` | `L3 Specialist` | `writing-content` | 3★ | `api-key` | [Source](https://github.com/agentmail-to/agentmail-cli) |
-| `baoyu-article-illustrator` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
 | `baoyu-format-markdown` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-format-markdown) |
 | `baoyu-infographic` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic) |
-| `baoyu-markdown-to-html` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html) |
+| `baoyu-markdown-to-html` | `L3 Specialist` | `writing-content` | 3★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-markdown-to-html) |
 | `baoyu-skills` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills) |
-| `baoyu-translate` | `L3 Specialist` | `writing-content` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
 | `writing-plans` | `L2 Professional` | `writing-content` | 5★ | `direct` | [Source](https://skills.sh/obra/superpowers/writing-plans) |
 
 ## Indexes
@@ -307,6 +307,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | [Type index](docs/generated/type-index.md) | Coding, design, finance, writing, research, media, docs, and more |
 | [Dependency index](docs/generated/dependency-index.md) | API keys, tools, runtime mode, and risk |
 | [Scoring model](docs/generated/scoring-model.md) | How star ratings are calculated |
+| [Upstream status](docs/generated/upstream-status.md) | Latest GitHub-backed update check and manual-review items |
 | [Update and audit SOP](docs/UPDATE_AND_AUDIT.md) | Monthly review process and risk gates |
 
 ## Curation Rules
