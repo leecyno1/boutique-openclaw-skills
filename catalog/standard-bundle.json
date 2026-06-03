@@ -1,6 +1,6 @@
 {
   "schema_version": "2026.05.17",
-  "generated_at": "2026-06-01",
+  "generated_at": "2026-06-03",
   "max_skills": 30,
   "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
   "skills": [
@@ -245,6 +245,17 @@
       "conflict_group": "news-radar",
       "origin_url": "https://github.com/airinghost/TrendRadar",
       "note": "Comprehensive news aggregation from TrendRadar MCP server with focus on high-frequency international data sources. Retrieve trending topics, breaking news, sentiment analysis, and source diversity metrics. Use when you need global news coverage, trend analysis, or news monitoring across multiple international sources. Supports filtering by topic, region, time range, and source reliability."
+    },
+    {
+      "capability": "html-publishing",
+      "skill": "html-anything",
+      "category": "html-publishing",
+      "stars": 5,
+      "score": 96,
+      "access_mode": "browser-required",
+      "conflict_group": "html-publishing",
+      "origin_url": "https://github.com/nexu-io/html-anything",
+      "note": "Create publish-ready single-file HTML artifacts with the html-anything local agentic editor. Use when users need designed HTML articles, decks, posters, Xiaohongshu/X cards, web prototypes, data reports, or HTML/PNG export without a separate API key."
     },
     {
       "capability": "finance-data",

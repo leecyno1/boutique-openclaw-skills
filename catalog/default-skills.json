@@ -1876,6 +1876,22 @@
             "agent_infrastructure",
             "memory_context"
           ]
+        },
+        {
+          "id": "html-anything",
+          "name": "html-anything",
+          "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
+          "manual": "skills/default/html-anything/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
+          "source": "https://github.com/nexu-io/html-anything",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "html_publishing",
+            "design_ui",
+            "writing_content",
+            "media_generation"
+          ]
         }
       ]
     },
@@ -4444,6 +4460,22 @@
           "groups": [
             "agent_infrastructure",
             "memory_context"
+          ]
+        },
+        {
+          "id": "html-anything",
+          "name": "html-anything",
+          "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
+          "manual": "skills/default/html-anything/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
+          "source": "https://github.com/nexu-io/html-anything",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "html_publishing",
+            "design_ui",
+            "writing_content",
+            "media_generation"
           ]
         }
       ]

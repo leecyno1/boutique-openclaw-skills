@@ -35,6 +35,7 @@ CATEGORY_LABELS = {
     "data-analysis": "数据分析",
     "docs-office": "文档 / 办公",
     "design-ui": "设计 / UI",
+    "html-publishing": "HTML 发布 / 视觉出版",
     "media-generation": "媒体生成 / 处理",
     "writing-content": "写作 / 内容",
     "marketing-growth": "营销 / 增长",
@@ -63,6 +64,7 @@ CATEGORY_KEYWORDS = [
     ("coding-devtools", ["dev", "github", "mcp", "shell", "database", "prisma", "frontend", "fullstack", "flutter", "android", "ios", "react-native", "shader", "skill-creator", "writing-skills"]),
     ("data-analysis", ["data", "analyst", "quality", "reconciliation", "xlsx", "chart"]),
     ("docs-office", ["docx", "pdf", "pptx", "xlsx", "paperless", "meeting", "calendar"]),
+    ("html-publishing", ["html-anything", "html publishing", "wechat export", "zhihu", "xiaohongshu card"]),
     ("design-ui", ["design", "ui", "generative-ui", "animation", "visualizer", "brand", "logo"]),
     ("media-generation", ["image", "music", "video", "gif", "multimodal", "vision", "media", "compress", "sings"]),
     ("marketing-growth", ["marketing", "social", "xiaohongshu", "zhihu", "weibo", "content-strategy", "producthunt", "seo"]),
@@ -89,6 +91,7 @@ L2_HINTS = {
     "tavily-search", "multi-search-engine", "notebooklm-skill", "content-strategy",
     "social-content", "vision-analysis", "openclaw-cron-setup", "proactive-agent",
     "self-improving-agent-cn", "reflection", "writing-plans", "seedance2-skill",
+    "html-anything",
 }
 
 CONFLICT_GROUP_RULES = [
@@ -98,6 +101,7 @@ CONFLICT_GROUP_RULES = [
     ("document-pdf", ["pdf", "nano-pdf", "minimax-pdf"]),
     ("document-pptx", ["pptx", "pptx-generator"]),
     ("spreadsheet-xlsx", ["xlsx", "minimax-xlsx"]),
+    ("html-publishing", ["html-anything", "baoyu-markdown-to-html"]),
     ("image-generation", ["ai-image-generation", "gemini-image-service", "baoyu-image-gen"]),
     ("music-generation", ["ai-music-generation", "ai-music-prompts", "minimax-music-gen"]),
     ("email-agent", ["agentmail", "agentmail-cli", "agentmail-mcp", "agentmail-toolkit"]),
@@ -110,6 +114,7 @@ STANDARD_CAPABILITIES = [
     "code-hosting", "terminal", "task-tracking", "planning", "verification", "skill-authoring",
     "security-review", "data-analysis", "docs", "spreadsheet", "slides", "pdf", "frontend",
     "fullstack", "database", "mcp", "media-download", "image-generation", "research-news",
+    "html-publishing",
     "finance-data", "content-strategy", "writing", "automation-followup", "cost-observability",
     "weather",
     "persistent-memory",
@@ -140,6 +145,7 @@ CAPABILITY_RULES = [
     ("media-download", ["media-downloader"]),
     ("image-generation", ["ai-image-generation", "gemini-image-service"]),
     ("research-news", ["news-radar", "notebooklm-skill"]),
+    ("html-publishing", ["html-anything", "baoyu-markdown-to-html"]),
     ("finance-data", ["a-stock-data", "openclaw-stock-data-skill", "tushare-openclaw-skill", "yfinance-data", "akshare-stock"]),
     ("content-strategy", ["content-strategy"]),
     ("writing", ["writing-skills", "baoyu-format-markdown"]),
@@ -165,9 +171,9 @@ API_KEY_PATTERNS = {
 }
 
 TOOL_PATTERNS = {
-    "browser": ["browser", "chrome", "web"],
+    "browser": ["browser", "chrome", "web", "html-anything"],
     "mcp": ["mcp"],
-    "node": ["frontend", "fullstack", "react", "pptx", "xlsx"],
+    "node": ["frontend", "fullstack", "react", "pptx", "xlsx", "next", "html-anything"],
     "python": ["data", "finance", "stock", "analyst", "yfinance", "akshare"],
     "ffmpeg": ["video", "gif", "music", "audio"],
     "gh": ["github"],
@@ -303,6 +309,7 @@ def classify_category(skill_id: str, description: str) -> str:
         "policy-monitor": "policy-monitoring",
         "skill-vetter": "security-audit",
         "claude-mem-plugin": "memory-context",
+        "html-anything": "html-publishing",
     }
     if skill_id in explicit:
         return explicit[skill_id]
@@ -337,6 +344,8 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
             tools.append(tool)
     if skill_id == "seedance2-skill":
         tools = []
+    if skill_id == "html-anything":
+        tools = ["browser", "node"]
     if api_keys:
         access_mode = "api-key"
     elif "mcp" in tools:
@@ -367,6 +376,8 @@ def conflict_group(skill_id: str, category: str) -> str:
 def risk_level(skill_id: str, deps: dict[str, Any], category: str) -> str:
     if skill_id == "claude-mem-plugin":
         return "high"
+    if skill_id == "html-anything":
+        return "medium"
     if any(token in skill_id for token in ["danger", "shell"]):
         return "high"
     if deps["access_mode"] in {"api-key", "mcp-required", "browser-required"}:
@@ -405,6 +416,8 @@ def score_item(item: dict[str, Any]) -> dict[str, Any]:
         score += 7
     if item["id"] == "claude-mem-plugin":
         score += 35
+    if item["id"] == "html-anything":
+        score += 15
     if item["preset_excluded"]:
         score -= 100
     if confidence == "missing":
@@ -757,7 +770,7 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
         "## Curation Rules",
         "",
         "- Every active skill must have a native upstream source; mirrors and copied installer paths are not treated as origins.",
-        "- The standard bundle avoids duplicate capabilities by using conflict groups such as `web-search`, `document-pdf`, `email-agent`, and `finance-data`.",
+        "- The standard bundle avoids duplicate capabilities by using conflict groups such as `web-search`, `html-publishing`, `document-pdf`, `email-agent`, and `finance-data`.",
         "- Open and Hermes preset skills are excluded from bundle installs because the target agent already provides them.",
         "- Monthly automation regenerates the registry, indexes, README, standard bundle, and audit reports.",
         "",

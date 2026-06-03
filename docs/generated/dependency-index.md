@@ -3,7 +3,7 @@
 | 使用条件 | 数量 |
 |---|---:|
 | `api-key` | 56 |
-| `browser-required` | 10 |
+| `browser-required` | 11 |
 | `direct` | 120 |
 | `mcp-required` | 4 |
 
@@ -33,7 +33,7 @@
 | `downtrend-duration-analyzer` | `FMP_API_KEY` | 无 | `medium` |
 | `earnings-calendar` | `FMP_API_KEY` | `browser`, `python` | `medium` |
 | `earnings-trade-analyzer` | `FMP_API_KEY` | `node`, `python` | `medium` |
-| `economic-calendar-fetcher` | `FMP_API_KEY` | `python` | `medium` |
+| `economic-calendar-fetcher` | `FMP_API_KEY` | `node`, `python` | `medium` |
 | `edge-hint-extractor` | `OPENAI_API_KEY` | `node` | `medium` |
 | `exposure-coach` | `FMP_API_KEY` | 无 | `medium` |
 | `finance-sentiment` | `ADANOS_API_KEY` | `python` | `medium` |
@@ -72,6 +72,7 @@
 
 | Skill | API Key | Tools | 风险 |
 |---|---|---|---|
+| `html-anything` | 无 | `browser`, `node` | `medium` |
 | `agent-browser` | 无 | `browser`, `python` | `medium` |
 | `url-to-markdown` | 无 | `browser` | `medium` |
 | `baoyu-url-to-markdown` | 无 | `browser` | `medium` |

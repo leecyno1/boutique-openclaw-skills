@@ -9,9 +9,9 @@
 **面向智能体的精品技能仓库：原生来源可审计、能力不重复、安装可控、持续月评。**
 
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
-[![Skills](https://img.shields.io/badge/Skills-190-2ea44f)](#all-skills)
+[![Skills](https://img.shields.io/badge/Skills-191-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
-[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-28%20skills-7c3aed)](catalog/standard-bundle.json)
+[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-29%20skills-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
@@ -61,11 +61,11 @@ Or install a tier:
 
 | Metric | Value |
 |---|---:|
-| Curated skills | 190 |
-| Native sources verified or referenced | 184 |
+| Curated skills | 191 |
+| Native sources verified or referenced | 185 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
-| Standard bundle size | 28 / 30 |
+| Standard bundle size | 29 / 30 |
 
 ## Standard Bundle
 
@@ -95,6 +95,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `media-download` | `media-downloader` | 3★ | `api-key` |
 | `image-generation` | `gemini-image-service` | 3★ | `api-key` |
 | `research-news` | `news-radar` | 4★ | `mcp-required` |
+| `html-publishing` | `html-anything` | 5★ | `browser-required` |
 | `finance-data` | `a-stock-data` | 4★ | `direct` |
 | `content-strategy` | `content-strategy` | 4★ | `direct` |
 | `writing` | `writing-skills` | 5★ | `direct` |
@@ -248,6 +249,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `us-stock-analysis` | `L3 Specialist` | `finance-trading` | 4★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/us-stock-analysis) |
 | `value-dividend-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/value-dividend-screener) |
 | `vcp-screener` | `L3 Specialist` | `finance-trading` | 3★ | `api-key` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/vcp-screener) |
+| `html-anything` | `L2 Professional` | `html-publishing` | 5★ | `browser-required` | [Source](https://github.com/nexu-io/html-anything) |
 | `baoyu-comic` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic) |
 | `baoyu-compress-image` | `L3 Specialist` | `media-generation` | 3★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-compress-image) |
 | `baoyu-cover-image` | `L3 Specialist` | `media-generation` | 4★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image) |
@@ -310,7 +312,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 ## Curation Rules
 
 - Every active skill must have a native upstream source; mirrors and copied installer paths are not treated as origins.
-- The standard bundle avoids duplicate capabilities by using conflict groups such as `web-search`, `document-pdf`, `email-agent`, and `finance-data`.
+- The standard bundle avoids duplicate capabilities by using conflict groups such as `web-search`, `html-publishing`, `document-pdf`, `email-agent`, and `finance-data`.
 - Open and Hermes preset skills are excluded from bundle installs because the target agent already provides them.
 - Monthly automation regenerates the registry, indexes, README, standard bundle, and audit reports.
 

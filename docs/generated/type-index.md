@@ -9,6 +9,7 @@
 | 数据分析 (`data-analysis`) | 7 |
 | 文档 / 办公 (`docs-office`) | 9 |
 | 设计 / UI (`design-ui`) | 9 |
+| HTML 发布 / 视觉出版 (`html-publishing`) | 1 |
 | 媒体生成 / 处理 (`media-generation`) | 20 |
 | 写作 / 内容 (`writing-content`) | 8 |
 | 营销 / 增长 (`marketing-growth`) | 0 |
@@ -134,6 +135,12 @@
 | `agentmail-toolkit` | `L2 Professional` | 4★ | `api-key`, `design-ui`, `l2`, `online` |
 | `agentmail` | `L2 Professional` | 3★ | `api-key`, `design-ui`, `l2`, `online` |
 | `baoyu-danger-x-to-markdown` | `L2 Professional` | 2★ | `api-key`, `design-ui`, `l2`, `online` |
+
+## HTML 发布 / 视觉出版
+
+| Skill | 横向层级 | 星级 | 标签 |
+|---|---|---:|---|
+| `html-anything` | `L2 Professional` | 5★ | `browser-required`, `html-publishing`, `l2`, `online` |
 
 ## 媒体生成 / 处理
 
