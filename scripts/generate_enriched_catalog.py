@@ -93,6 +93,8 @@ L2_HINTS = {
     "social-content", "vision-analysis", "openclaw-cron-setup", "proactive-agent",
     "self-improving-agent-cn", "reflection", "writing-plans", "seedance2-skill",
     "html-anything",
+    "guizang-ppt-skill", "khazix-skills", "humanizer-zh", "dbskill",
+    "guizang-social-card-skill", "ian-xiaohei-illustrations",
 }
 
 CONFLICT_GROUP_RULES = [
@@ -202,11 +204,29 @@ def parse_frontmatter(skill_id: str) -> dict[str, Any]:
     if len(parts) < 3:
         return {}
     data: dict[str, Any] = {}
-    for line in parts[1].splitlines():
+    lines = parts[1].splitlines()
+    index = 0
+    while index < len(lines):
+        line = lines[index]
         if ":" not in line or line.startswith(" "):
+            index += 1
             continue
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip().strip('"')
+        key = key.strip()
+        value = value.strip()
+        if value in {"|", ">"}:
+            block = []
+            index += 1
+            while index < len(lines):
+                next_line = lines[index]
+                if next_line and not next_line.startswith((" ", "\t")):
+                    break
+                block.append(next_line.strip())
+                index += 1
+            data[key] = norm(" ".join(block))
+            continue
+        data[key] = value.strip('"')
+        index += 1
     return data
 
 
@@ -311,6 +331,31 @@ def classify_category(skill_id: str, description: str) -> str:
         "skill-vetter": "security-audit",
         "claude-mem-plugin": "memory-context",
         "html-anything": "html-publishing",
+        "guizang-ppt-skill": "html-publishing",
+        "khazix-skills": "writing-content",
+        "humanizer-zh": "writing-content",
+        "dbskill": "marketing-growth",
+        "guizang-social-card-skill": "media-generation",
+        "ian-xiaohei-illustrations": "media-generation",
+        "content-strategy": "marketing-growth",
+        "marketingskills": "marketing-growth",
+        "frontend-dev": "coding-devtools",
+        "ios-application-dev": "coding-devtools",
+        "generative-ui": "design-ui",
+        "media-downloader": "media-generation",
+        "minimax-pdf": "docs-office",
+        "vision-analysis": "media-generation",
+        "buddy-sings": "media-generation",
+        "gif-sticker-maker": "media-generation",
+        "minimax-music-gen": "media-generation",
+        "minimax-music-playlist": "media-generation",
+        "discord-reader": "search-research",
+        "linkedin-reader": "search-research",
+        "opencli-reader": "search-research",
+        "telegram-reader": "search-research",
+        "twitter-reader": "search-research",
+        "yc-reader": "search-research",
+        "startup-analysis": "commerce-ops",
     }
     if skill_id in explicit:
         return explicit[skill_id]
@@ -347,6 +392,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
         tools = []
     if skill_id == "html-anything":
         tools = ["browser", "node"]
+    if skill_id == "generative-ui":
+        api_keys = []
+        tools = []
     if api_keys:
         access_mode = "api-key"
     elif "mcp" in tools:
@@ -776,6 +824,7 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
         "| [Dependency index](docs/generated/dependency-index.md) | API keys, tools, runtime mode, and risk |",
         "| [Scoring model](docs/generated/scoring-model.md) | How star ratings are calculated |",
         "| [Upstream status](docs/generated/upstream-status.md) | Latest GitHub-backed update check and manual-review items |",
+        "| [Content creator intake](docs/generated/content-creator-skills-intake.md) | Verification notes for the creator skill intake batch |",
         "| [Update and audit SOP](docs/UPDATE_AND_AUDIT.md) | Monthly review process and risk gates |",
         "",
         "## Curation Rules",

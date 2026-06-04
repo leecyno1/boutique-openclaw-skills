@@ -1,6 +1,6 @@
 {
   "schema_version": "2026.05.17",
-  "generated_at": "2026-06-04",
+  "generated_at": "2026-06-05",
   "max_skills": 30,
   "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
   "overrides": {
@@ -151,7 +151,7 @@
       "access_mode": "direct",
       "conflict_group": "document-docx",
       "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-docx",
-      "note": ">"
+      "note": "Professional DOCX document creation, editing, and formatting using OpenXML SDK (.NET). Three pipelines: (A) create new documents from scratch, (B) fill/edit content in existing documents, (C) apply template formatting with XSD validation gate-check. MUST use this skill whenever the user wants to produce, modify, or format a Word document — including when they say \"write a report\", \"draft a proposal\", \"make a contract\", \"fill in this form\", \"reformat to match this template\", or any task whose final output is a .docx file. Even if the user doesn't mention \"docx\" explicitly, if the task implies a printable/formal document, use this skill."
     },
     {
       "capability": "spreadsheet",
@@ -195,7 +195,7 @@
       "access_mode": "direct",
       "conflict_group": "generative-ui",
       "origin_url": "https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui",
-      "note": ">"
+      "note": "Design system and guidelines for Claude's built-in generative UI — the show_widget tool that renders interactive HTML/SVG widgets inline in claude.ai conversations. This skill provides the complete Anthropic \"Imagine\" design system so Claude produces high-quality widgets without needing to call read_me first. Use this skill whenever the user asks to visualize data, create an interactive chart, build a dashboard, render a diagram, draw a flowchart, show a mockup, create an interactive explainer, or produce any visual content beyond plain text or markdown. Triggers include: \"show me\", \"visualize\", \"draw\", \"chart\", \"dashboard\", \"diagram\", \"flowchart\", \"widget\", \"interactive\", \"mockup\", \"illustrate\", \"explain how X works\" (with visual), or any request for visual/interactive output. Also triggers when the user wants to display financial data visually, create comparison grids, or build tools with sliders, toggles, or live-updating displays."
     },
     {
       "capability": "fullstack",
@@ -206,7 +206,7 @@
       "access_mode": "api-key",
       "conflict_group": "fullstack-dev",
       "origin_url": "https://github.com/MiniMax-AI/skills/tree/main/skills/fullstack-dev",
-      "note": "|"
+      "note": "Full-stack backend architecture and frontend-backend integration guide. TRIGGER when: building a full-stack app, creating REST API with frontend, scaffolding backend service, building todo app, building CRUD app, building real-time app, building chat app, Express + React, Next.js API, Node.js backend, Python backend, Go backend, designing service layers, implementing error handling, managing config/auth, setting up API clients, implementing auth flows, handling file uploads, adding real-time features (SSE/WebSocket), hardening for production. DO NOT TRIGGER when: pure frontend UI work, pure CSS/styling, database schema only."
     },
     {
       "capability": "mcp",
@@ -228,7 +228,7 @@
       "access_mode": "api-key",
       "conflict_group": "media-downloader",
       "origin_url": "https://github.com/yizhiyanhua-ai/media-downloader.git",
-      "note": "|"
+      "note": "智能媒体下载器。根据用户描述自动搜索和下载图片、视频片段，支持视频自动剪辑。 Smart media downloader. Automatically search and download images/video clips based on user description, with auto-trimming support. 触发方式 Triggers: \"下载图片\", \"找视频\", \"download media\", \"download images\", \"find video\", \"/media\""
     },
     {
       "capability": "image-generation",
@@ -277,11 +277,11 @@
     {
       "capability": "content-strategy",
       "skill": "content-strategy",
-      "category": "finance-trading",
+      "category": "marketing-growth",
       "stars": 4,
-      "score": 76,
+      "score": 82,
       "access_mode": "direct",
-      "conflict_group": "finance-specialist:content-strategy",
+      "conflict_group": "content-strategy",
       "origin_url": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy",
       "note": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social."
     },

@@ -6,14 +6,14 @@
 | 搜索 / 研究 / 情报 (`search-research`) | 15 |
 | 浏览器 / 自动化 (`browser-automation`) | 2 |
 | 编程 / 工程工具 (`coding-devtools`) | 10 |
-| 数据分析 (`data-analysis`) | 7 |
+| 数据分析 (`data-analysis`) | 9 |
 | 文档 / 办公 (`docs-office`) | 9 |
 | 设计 / UI (`design-ui`) | 11 |
-| HTML 发布 / 视觉出版 (`html-publishing`) | 1 |
-| 媒体生成 / 处理 (`media-generation`) | 20 |
-| 写作 / 内容 (`writing-content`) | 5 |
-| 营销 / 增长 (`marketing-growth`) | 0 |
-| 金融 / 交易 (`finance-trading`) | 67 |
+| HTML 发布 / 视觉出版 (`html-publishing`) | 2 |
+| 媒体生成 / 处理 (`media-generation`) | 22 |
+| 写作 / 内容 (`writing-content`) | 7 |
+| 营销 / 增长 (`marketing-growth`) | 3 |
+| 金融 / 交易 (`finance-trading`) | 68 |
 | 金融 / 数据源 (`finance-data`) | 6 |
 | 金融 / 知识库 (`finance-knowledge`) | 1 |
 | 金融 / 监控预警 (`finance-monitor`) | 1 |
@@ -23,10 +23,10 @@
 | 记忆 / 上下文基础设施 (`memory-context`) | 1 |
 | 通信 / 社交集成 (`communication`) | 1 |
 | DevOps / 云 / 数据库 (`devops-cloud`) | 0 |
-| 安全 / 审计 (`security-audit`) | 2 |
+| 安全 / 审计 (`security-audit`) | 1 |
 | 本地 macOS / 桌面 (`local-macos`) | 0 |
 | 多 Agent / 自动调度 (`agent-orchestration`) | 3 |
-| 商业运营 (`commerce-ops`) | 7 |
+| 商业运营 (`commerce-ops`) | 3 |
 | 教育 / 学习 (`education-learning`) | 0 |
 
 ## 核心 Agent 能力
@@ -88,12 +88,12 @@
 | `backtest-expert` | `L2 Professional` | 5★ | `coding-devtools`, `direct`, `l2`, `offline` |
 | `android-native-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
 | `flutter-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `frontend-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
 | `ios-application-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
 | `react-native-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
 | `shader-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
 | `agentmail-mcp` | `L2 Professional` | 4★ | `api-key`, `coding-devtools`, `l2`, `online` |
 | `baoyu-image-gen` | `L2 Professional` | 4★ | `api-key`, `coding-devtools`, `l2`, `online` |
+| `frontend-dev` | `L2 Professional` | 3★ | `browser-required`, `coding-devtools`, `l2`, `online` |
 | `fullstack-dev` | `L2 Professional` | 3★ | `api-key`, `coding-devtools`, `l2`, `online` |
 
 ## 数据分析
@@ -103,6 +103,8 @@
 | `baoyu-youtube-transcript` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
 | `data-analyst` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
 | `edge-signal-aggregator` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
+| `edge-strategy-reviewer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
+| `scenario-analyzer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
 | `skill-integration-tester` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
 | `minimax-xlsx` | `L2 Professional` | 4★ | `data-analysis`, `direct`, `l2`, `offline` |
 | `dual-axis-skill-reviewer` | `L2 Professional` | 4★ | `api-key`, `data-analysis`, `l2`, `online` |
@@ -143,11 +145,14 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `html-anything` | `L2 Professional` | 5★ | `browser-required`, `html-publishing`, `l2`, `online` |
+| `guizang-ppt-skill` | `L2 Professional` | 4★ | `browser-required`, `html-publishing`, `l2`, `online` |
 
 ## 媒体生成 / 处理
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
+| `guizang-social-card-skill` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
+| `ian-xiaohei-illustrations` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
 | `reflection` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
 | `seedance2-skill` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
 | `baoyu-comic` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
@@ -173,11 +178,21 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
+| `humanizer-zh` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
+| `khazix-skills` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
 | `writing-plans` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
 | `baoyu-format-markdown` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-infographic` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-skills` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-markdown-to-html` | `L3 Specialist` | 3★ | `browser-required`, `l3`, `offline`, `writing-content` |
+
+## 营销 / 增长
+
+| Skill | 横向层级 | 星级 | 标签 |
+|---|---|---:|---|
+| `dbskill` | `L2 Professional` | 5★ | `direct`, `l2`, `marketing-growth`, `offline` |
+| `content-strategy` | `L2 Professional` | 4★ | `direct`, `l2`, `marketing-growth`, `offline` |
+| `marketingskills` | `L3 Specialist` | 4★ | `direct`, `l3`, `marketing-growth`, `offline` |
 
 ## 金融 / 交易
 
@@ -197,8 +212,10 @@
 | `earnings-preview` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `earnings-recap` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `edge-candidate-agent` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
+| `estimate-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `etf-premium` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `finance-skill-creator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
+| `hormuz-strait` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `kanchi-dividend-review-monitor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `market-breadth-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
@@ -208,6 +225,7 @@
 | `pybroker-backtest-skill` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `saas-valuation-compression` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `sector-analyst` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
+| `sepa-strategy` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `stanley-druckenmiller-investment` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `stock-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `stock-correlation` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
@@ -218,7 +236,6 @@
 | `uptrend-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
 | `us-market-bubble-detector` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `us-stock-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `content-strategy` | `L2 Professional` | 4★ | `direct`, `finance-trading`, `l2`, `offline` |
 | `alphaear-search` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online` |
 | `market-news-analyst` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online` |
 | `portfolio-manager` | `L3 Specialist` | 3★ | `finance-trading`, `l3`, `mcp-required`, `offline` |
@@ -248,7 +265,6 @@
 | `theme-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
 | `value-dividend-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
 | `vcp-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `marketingskills` | `L3 Specialist` | 3★ | `direct`, `finance-trading`, `l3`, `offline` |
 | `ai-image-generation` | `L2 Professional` | 3★ | `api-key`, `finance-trading`, `l2`, `online` |
 
 ## 金融 / 数据源
@@ -303,7 +319,6 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `skill-vetter` | `L1 Foundation` | 5★ | `direct`, `l1`, `offline`, `security-audit` |
-| `edge-strategy-reviewer` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `security-audit` |
 
 ## 多 Agent / 自动调度
 
@@ -317,10 +332,6 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `estimate-analysis` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
-| `hormuz-strait` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
-| `scenario-analyzer` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
-| `sepa-strategy` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
 | `skill-idea-miner` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
-| `startup-analysis` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
+| `startup-analysis` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `online` |
 | `inference-skills` | `L3 Specialist` | 3★ | `api-key`, `commerce-ops`, `l3`, `online` |

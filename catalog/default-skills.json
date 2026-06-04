@@ -1077,6 +1077,24 @@
           "groups": []
         },
         {
+          "id": "claude-mem-plugin",
+          "name": "claude-mem-plugin",
+          "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
+          "manual": "skills/default/claude-mem-plugin/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
+          "source": "https://github.com/thedotmack/claude-mem",
+          "requires_api_keys": true,
+          "api_keys": [
+            "ANTHROPIC_API_KEY",
+            "OPENROUTER_API_KEY",
+            "GEMINI_API_KEY"
+          ],
+          "groups": [
+            "agent_infrastructure",
+            "memory_context"
+          ]
+        },
+        {
           "id": "content-strategy",
           "name": "content-strategy",
           "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover.",
@@ -1101,6 +1119,21 @@
           "groups": [
             "default_sentinel"
           ]
+        },
+        {
+          "id": "dbskill",
+          "name": "dbskill",
+          "description": "内容增长与爆款选题套件，覆盖标题优化、痛点拆解、内容框架和社媒 hook。",
+          "manual": "skills/default/dbskill/SKILL.md",
+          "source": "https://github.com/dontbesilent2025/dbskill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "marketing",
+            "content-growth"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dbskill/SKILL.md"
         },
         {
           "id": "docx",
@@ -1209,6 +1242,82 @@
           "groups": []
         },
         {
+          "id": "guizang-ppt-skill",
+          "name": "guizang-ppt-skill",
+          "description": "文章一键生成网页 PPT，自动提炼要点，支持墨水与瑞士风版式，可导出 PDF/PNG。",
+          "manual": "skills/default/guizang-ppt-skill/SKILL.md",
+          "source": "https://github.com/op7418/guizang-ppt-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "presentation",
+            "html-publishing"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-ppt-skill/SKILL.md"
+        },
+        {
+          "id": "guizang-social-card-skill",
+          "name": "guizang-social-card-skill",
+          "description": "新媒体封面与社交卡片制作技能，面向小红书卡片、公众号头图和多平台视觉发布。",
+          "manual": "skills/default/guizang-social-card-skill/SKILL.md",
+          "source": "https://github.com/op7418/guizang-social-card-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "design",
+            "social-card"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-social-card-skill/SKILL.md"
+        },
+        {
+          "id": "html-anything",
+          "name": "html-anything",
+          "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
+          "manual": "skills/default/html-anything/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
+          "source": "https://github.com/nexu-io/html-anything",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "html_publishing",
+            "design_ui",
+            "writing_content",
+            "media_generation"
+          ]
+        },
+        {
+          "id": "humanizer-zh",
+          "name": "humanizer-zh",
+          "description": "中文文稿拟人优化技能，通过文本规则弱化机器腔、翻译腔和不自然表达。",
+          "manual": "skills/default/humanizer-zh/SKILL.md",
+          "source": "https://github.com/idao-cube/humanizer-zh",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "writing",
+            "polish"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/humanizer-zh/SKILL.md"
+        },
+        {
+          "id": "ian-xiaohei-illustrations",
+          "name": "ian-xiaohei-illustrations",
+          "description": "手绘黑白简笔配图技能，根据正文生成知识类文章插画，并支持少量亮色点缀。",
+          "manual": "skills/default/ian-xiaohei-illustrations/SKILL.md",
+          "source": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "illustration",
+            "media-generation"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ian-xiaohei-illustrations/SKILL.md"
+        },
+        {
           "id": "inference-skills",
           "name": "inference-skills",
           "description": "Inference Skills Hub（上游: inference-sh/skills）- 用于索引与选择 inference-sh 的工具型技能。",
@@ -1234,6 +1343,21 @@
             "minimax_official",
             "default_sentinel"
           ]
+        },
+        {
+          "id": "khazix-skills",
+          "name": "khazix-skills",
+          "description": "长文与行业报告创作套件，提供深度写作、热点分析、高价值分析与文稿自检流程。",
+          "manual": "skills/default/khazix-skills/SKILL.md",
+          "source": "https://github.com/KKKKhazix/khazix-skills",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "writing",
+            "research"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/khazix-skills/SKILL.md"
         },
         {
           "id": "lark-calendar",
@@ -1858,40 +1982,6 @@
           "requires_api_keys": false,
           "api_keys": [],
           "groups": []
-        },
-        {
-          "id": "claude-mem-plugin",
-          "name": "claude-mem-plugin",
-          "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
-          "manual": "skills/default/claude-mem-plugin/SKILL.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
-          "source": "https://github.com/thedotmack/claude-mem",
-          "requires_api_keys": true,
-          "api_keys": [
-            "ANTHROPIC_API_KEY",
-            "OPENROUTER_API_KEY",
-            "GEMINI_API_KEY"
-          ],
-          "groups": [
-            "agent_infrastructure",
-            "memory_context"
-          ]
-        },
-        {
-          "id": "html-anything",
-          "name": "html-anything",
-          "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
-          "manual": "skills/default/html-anything/SKILL.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
-          "source": "https://github.com/nexu-io/html-anything",
-          "requires_api_keys": false,
-          "api_keys": [],
-          "groups": [
-            "html_publishing",
-            "design_ui",
-            "writing_content",
-            "media_generation"
-          ]
         }
       ]
     },
@@ -2519,6 +2609,24 @@
           "groups": []
         },
         {
+          "id": "claude-mem-plugin",
+          "name": "claude-mem-plugin",
+          "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
+          "manual": "skills/default/claude-mem-plugin/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
+          "source": "https://github.com/thedotmack/claude-mem",
+          "requires_api_keys": true,
+          "api_keys": [
+            "ANTHROPIC_API_KEY",
+            "OPENROUTER_API_KEY",
+            "GEMINI_API_KEY"
+          ],
+          "groups": [
+            "agent_infrastructure",
+            "memory_context"
+          ]
+        },
+        {
           "id": "codex-responses-tooling",
           "name": "codex-responses-tooling",
           "description": "高级版默认生图技能：读取本机 Codex Responses API 配置，流式调用 image_generation 并保存图片结果。",
@@ -2583,6 +2691,21 @@
           "groups": [
             "trading_finance"
           ]
+        },
+        {
+          "id": "dbskill",
+          "name": "dbskill",
+          "description": "内容增长与爆款选题套件，覆盖标题优化、痛点拆解、内容框架和社媒 hook。",
+          "manual": "skills/default/dbskill/SKILL.md",
+          "source": "https://github.com/dontbesilent2025/dbskill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "marketing",
+            "content-growth"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dbskill/SKILL.md"
         },
         {
           "id": "discord-reader",
@@ -3037,6 +3160,36 @@
           "groups": []
         },
         {
+          "id": "guizang-ppt-skill",
+          "name": "guizang-ppt-skill",
+          "description": "文章一键生成网页 PPT，自动提炼要点，支持墨水与瑞士风版式，可导出 PDF/PNG。",
+          "manual": "skills/default/guizang-ppt-skill/SKILL.md",
+          "source": "https://github.com/op7418/guizang-ppt-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "presentation",
+            "html-publishing"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-ppt-skill/SKILL.md"
+        },
+        {
+          "id": "guizang-social-card-skill",
+          "name": "guizang-social-card-skill",
+          "description": "新媒体封面与社交卡片制作技能，面向小红书卡片、公众号头图和多平台视觉发布。",
+          "manual": "skills/default/guizang-social-card-skill/SKILL.md",
+          "source": "https://github.com/op7418/guizang-social-card-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "design",
+            "social-card"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-social-card-skill/SKILL.md"
+        },
+        {
           "id": "hormuz-strait",
           "name": "hormuz-strait",
           "description": "Check the current status of the Strait of Hormuz — shipping transit data, oil price impact, stranded vessels, insurance risk levels, diplomatic developments, and global trade impact.",
@@ -3048,6 +3201,52 @@
           "groups": [
             "trading_finance"
           ]
+        },
+        {
+          "id": "html-anything",
+          "name": "html-anything",
+          "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
+          "manual": "skills/default/html-anything/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
+          "source": "https://github.com/nexu-io/html-anything",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "html_publishing",
+            "design_ui",
+            "writing_content",
+            "media_generation"
+          ]
+        },
+        {
+          "id": "humanizer-zh",
+          "name": "humanizer-zh",
+          "description": "中文文稿拟人优化技能，通过文本规则弱化机器腔、翻译腔和不自然表达。",
+          "manual": "skills/default/humanizer-zh/SKILL.md",
+          "source": "https://github.com/idao-cube/humanizer-zh",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "writing",
+            "polish"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/humanizer-zh/SKILL.md"
+        },
+        {
+          "id": "ian-xiaohei-illustrations",
+          "name": "ian-xiaohei-illustrations",
+          "description": "手绘黑白简笔配图技能，根据正文生成知识类文章插画，并支持少量亮色点缀。",
+          "manual": "skills/default/ian-xiaohei-illustrations/SKILL.md",
+          "source": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "illustration",
+            "media-generation"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ian-xiaohei-illustrations/SKILL.md"
         },
         {
           "id": "ibd-distribution-day-monitor",
@@ -3146,6 +3345,21 @@
           "groups": [
             "trading_finance"
           ]
+        },
+        {
+          "id": "khazix-skills",
+          "name": "khazix-skills",
+          "description": "长文与行业报告创作套件，提供深度写作、热点分析、高价值分析与文稿自检流程。",
+          "manual": "skills/default/khazix-skills/SKILL.md",
+          "source": "https://github.com/KKKKhazix/khazix-skills",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "creator",
+            "writing",
+            "research"
+          ],
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/khazix-skills/SKILL.md"
         },
         {
           "id": "lark-calendar",
@@ -4442,40 +4656,6 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
-          ]
-        },
-        {
-          "id": "claude-mem-plugin",
-          "name": "claude-mem-plugin",
-          "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
-          "manual": "skills/default/claude-mem-plugin/SKILL.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
-          "source": "https://github.com/thedotmack/claude-mem",
-          "requires_api_keys": true,
-          "api_keys": [
-            "ANTHROPIC_API_KEY",
-            "OPENROUTER_API_KEY",
-            "GEMINI_API_KEY"
-          ],
-          "groups": [
-            "agent_infrastructure",
-            "memory_context"
-          ]
-        },
-        {
-          "id": "html-anything",
-          "name": "html-anything",
-          "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
-          "manual": "skills/default/html-anything/SKILL.md",
-          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
-          "source": "https://github.com/nexu-io/html-anything",
-          "requires_api_keys": false,
-          "api_keys": [],
-          "groups": [
-            "html_publishing",
-            "design_ui",
-            "writing_content",
-            "media_generation"
           ]
         }
       ]
