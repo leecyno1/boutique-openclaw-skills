@@ -45,10 +45,11 @@ export AZURE_OPENAI_AUTH_MODE="openai_compatible"
 Example SearchQA-style run from the repository root:
 
 ```bash
-python3 optimization/scripts/create_skillopt_dataset.py <skill-id>
+python3 optimization/scripts/create_skillopt_dataset.py <skill-id> --template qa
 export SKILLOPT_OPTIMIZER_MODEL=<optimizer-model>
 export SKILLOPT_TARGET_MODEL=<target-model>
 ./optimization/scripts/run_skillopt_searchqa.sh <skill-id>
+python3 optimization/scripts/review_skillopt_candidate.py <skill-id>
 ```
 
 Equivalent direct command:

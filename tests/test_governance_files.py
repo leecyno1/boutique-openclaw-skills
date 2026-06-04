@@ -23,6 +23,20 @@ class GovernanceFilesTests(unittest.TestCase):
         self.assertIn("Quality Gates", text)
         self.assertIn("Suggested First Targets", text)
 
+    def test_skillopt_candidates_are_well_formed(self):
+        path = ROOT / "optimization" / "skillopt-candidates.json"
+        self.assertTrue(path.exists())
+        data = json.loads(path.read_text(encoding="utf-8"))
+        candidates = data.get("candidates", [])
+        self.assertTrue(candidates)
+        priorities = [item["priority"] for item in candidates]
+        self.assertEqual(priorities, sorted(priorities))
+        for item in candidates:
+            self.assertTrue((ROOT / "skills" / "default" / item["skill_id"] / "SKILL.md").exists())
+            self.assertIn(item["template"], {"qa", "finance-analysis", "content-rubric", "coding-rubric"})
+            self.assertTrue(item["failure_mode"])
+            self.assertTrue(item["acceptance_gate"])
+
 
 if __name__ == "__main__":
     unittest.main()

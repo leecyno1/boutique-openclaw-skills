@@ -1,0 +1,41 @@
+{
+  "schema_version": "2026.06.04",
+  "policy": "One skill, one failure mode, one reviewed candidate at a time. SkillOpt output is advisory until manually accepted.",
+  "candidates": [
+    {
+      "priority": 1,
+      "skill_id": "url-to-markdown",
+      "template": "qa",
+      "failure_mode": "webpage extraction accuracy, login/cookie pages, and markdown fidelity",
+      "acceptance_gate": "Improves extraction QA without adding hidden browser/API requirements."
+    },
+    {
+      "priority": 2,
+      "skill_id": "a-stock-data",
+      "template": "finance-analysis",
+      "failure_mode": "A-share data task routing and concise finance answer quality",
+      "acceptance_gate": "Improves benchmark finance judgments while preserving source/API caveats."
+    },
+    {
+      "priority": 3,
+      "skill_id": "skill-creator",
+      "template": "coding-rubric",
+      "failure_mode": "skill authoring precision, trigger clarity, and review discipline",
+      "acceptance_gate": "Improves skill quality rubric results without bloating the trigger description."
+    },
+    {
+      "priority": 4,
+      "skill_id": "baoyu-format-markdown",
+      "template": "content-rubric",
+      "failure_mode": "Chinese article structure, headings, summaries, and style consistency",
+      "acceptance_gate": "Improves rubric score while preserving Baoyu suite workflow compatibility."
+    },
+    {
+      "priority": 5,
+      "skill_id": "frontend-dev",
+      "template": "coding-rubric",
+      "failure_mode": "frontend implementation plan quality and visual/spec compliance",
+      "acceptance_gate": "Improves compliance rubric without pulling in large binary assets or broadening scope."
+    }
+  ]
+}

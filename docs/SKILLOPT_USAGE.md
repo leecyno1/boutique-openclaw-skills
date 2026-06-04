@@ -47,21 +47,25 @@ Before accepting an optimized skill:
 
 ## Suggested First Targets
 
-| Priority | Skill | Why |
-|---|---|---|
-| 1 | `url-to-markdown` | Clear QA/extraction outcomes and many edge cases. |
-| 2 | `a-stock-data` | High-value standard bundle skill with measurable finance queries. |
-| 3 | `skill-creator` | Meta-skill quality has compounding effect across the repository. |
-| 4 | `baoyu-format-markdown` | Content formatting can be tested with rubric-based examples. |
-| 5 | `frontend-dev` | Can use visual/spec compliance rubrics, but needs careful datasets. |
+The tracked candidate queue lives in `optimization/skillopt-candidates.json`.
+
+| Priority | Skill | Template | Why |
+|---|---|---|---|
+| 1 | `url-to-markdown` | `qa` | Clear QA/extraction outcomes and many edge cases. |
+| 2 | `a-stock-data` | `finance-analysis` | High-value standard bundle skill with measurable finance queries. |
+| 3 | `skill-creator` | `coding-rubric` | Meta-skill quality has compounding effect across the repository. |
+| 4 | `baoyu-format-markdown` | `content-rubric` | Content formatting can be tested with rubric-based examples. |
+| 5 | `frontend-dev` | `coding-rubric` | Can use visual/spec compliance rubrics, but needs careful datasets. |
 
 ## Commands
 
 Scaffold a dataset:
 
 ```bash
-python3 optimization/scripts/create_skillopt_dataset.py <skill-id>
+python3 optimization/scripts/create_skillopt_dataset.py <skill-id> --template qa
 ```
+
+Supported templates: `qa`, `finance-analysis`, `content-rubric`, `coding-rubric`.
 
 Run SearchQA-style optimization:
 
@@ -74,7 +78,8 @@ export SKILLOPT_TARGET_MODEL=<target-model>
 Review candidate output:
 
 ```bash
-open optimization/skillopt-runs/<skill-id>/best_skill.md
+python3 optimization/scripts/review_skillopt_candidate.py <skill-id>
+open optimization/skillopt-runs/<skill-id>/review.md
 ```
 
 ## Repository Policy
