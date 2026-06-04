@@ -1,0 +1,11 @@
+{
+  "schema_version": "2026.06.04",
+  "pinned_capabilities": {},
+  "excluded_skills": {
+    "claude-mem-plugin": "Persistent memory is powerful but too stateful for the default no-duplicate standard bundle."
+  },
+  "notes": {
+    "pinned_capabilities": "Map capability name to a skill id when a human review should override automatic scoring.",
+    "excluded_skills": "Map skill id to a short reason when a skill must not enter the standard bundle."
+  }
+}

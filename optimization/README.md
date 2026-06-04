@@ -14,6 +14,8 @@ Use SkillOpt when a skill needs measurable improvement against repeatable exampl
 
 Do not use it for routine README edits or simple metadata/tag maintenance.
 
+For repository policy, candidate selection, quality gates, and recommended first targets, see [`docs/SKILLOPT_USAGE.md`](../docs/SKILLOPT_USAGE.md).
+
 ## Workflow
 
 1. Pick one target skill from `skills/default/<skill-id>/SKILL.md`.
@@ -43,6 +45,7 @@ export AZURE_OPENAI_AUTH_MODE="openai_compatible"
 Example SearchQA-style run from the repository root:
 
 ```bash
+python3 optimization/scripts/create_skillopt_dataset.py <skill-id>
 export SKILLOPT_OPTIMIZER_MODEL=<optimizer-model>
 export SKILLOPT_TARGET_MODEL=<target-model>
 ./optimization/scripts/run_skillopt_searchqa.sh <skill-id>

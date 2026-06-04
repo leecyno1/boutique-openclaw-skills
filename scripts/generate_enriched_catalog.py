@@ -16,6 +16,7 @@ ORIGIN_OVERRIDES = ROOT / "catalog" / "native-origin-overrides.json"
 PRESETS_DIR = ROOT / "catalog" / "presets"
 ENRICHED_PATH = ROOT / "catalog" / "skills.enriched.json"
 STANDARD_BUNDLE_PATH = ROOT / "catalog" / "standard-bundle.json"
+STANDARD_BUNDLE_OVERRIDES = ROOT / "catalog" / "standard-bundle-overrides.json"
 HORIZONTAL_PATH = ROOT / "docs" / "generated" / "horizontal-index.md"
 TYPE_PATH = ROOT / "docs" / "generated" / "type-index.md"
 DEPENDENCY_PATH = ROOT / "docs" / "generated" / "dependency-index.md"
@@ -506,15 +507,20 @@ def counter(skills: list[dict[str, Any]], key: str | Any) -> dict[str, int]:
 
 def build_standard_bundle(enriched: dict[str, Any]) -> dict[str, Any]:
     by_id = {s["id"]: s for s in enriched["skills"] if not s["preset_excluded"]}
+    overrides = load_json(STANDARD_BUNDLE_OVERRIDES, {})
+    pinned = overrides.get("pinned_capabilities", {}) or {}
+    excluded = set((overrides.get("excluded_skills", {}) or {}).keys())
     selected = []
     selected_conflicts = set()
     for capability, candidates in CAPABILITY_RULES:
         choices = [by_id[c] for c in candidates if c in by_id]
+        choices = [c for c in choices if c["id"] not in excluded]
         choices = [c for c in choices if c["conflict_group"] not in selected_conflicts]
-        choices = [c for c in choices if c["id"] != "claude-mem-plugin"]
         if not choices:
             continue
-        best = sorted(choices, key=lambda s: (-s["rating"]["score"], risk_sort(s["risk_level"]), s["id"]))[0]
+        pinned_skill = pinned.get(capability)
+        pinned_choices = [choice for choice in choices if choice["id"] == pinned_skill]
+        best = pinned_choices[0] if pinned_choices else sorted(choices, key=lambda s: (-s["rating"]["score"], risk_sort(s["risk_level"]), s["id"]))[0]
         selected.append({
             "capability": capability,
             "skill": best["id"],
@@ -534,6 +540,10 @@ def build_standard_bundle(enriched: dict[str, Any]) -> dict[str, Any]:
         "generated_at": TODAY,
         "max_skills": 30,
         "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
+        "overrides": {
+            "pinned_capabilities": pinned,
+            "excluded_skills": sorted(excluded),
+        },
         "skills": selected,
     }
 

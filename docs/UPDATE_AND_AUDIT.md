@@ -61,12 +61,14 @@ The standard bundle is generated at `catalog/standard-bundle.json` and enforces 
 
 Audit is **FAIL** when:
 - duplicate curated capabilities are detected,
-- high-risk patterns are found in curated skill code.
+- standard bundle uniqueness rules are violated,
+- `scripts/audit_skills.py --strict-risk` finds high-risk patterns.
 
 Audit is **WARN** when:
 - required env vars are missing,
 - curated skills are not installed locally,
 - skills are missing native origin URLs.
+- high-risk patterns are found in default non-strict mode and need human review.
 
 ## Monthly reviewer checklist
 
@@ -75,5 +77,6 @@ Audit is **WARN** when:
 - Run `python3 scripts/check_upstream_updates.py --apply` only for safe GitHub skill directories; full application repositories remain metadata-only unless their root has `SKILL.md`.
 - Check whether Open or Hermes has added preset skills and update `catalog/presets/*.json`.
 - Review `catalog/standard-bundle.json` for duplicate capability or conflict-group overlap.
+- Review `catalog/standard-bundle-overrides.json` for human pins/exclusions before changing automatic standard-bundle rules.
 - Update `catalog/native-origin-overrides.json` when first-party URLs are confirmed.
 - Re-run `python3 scripts/generate_enriched_catalog.py` before committing README or generated index changes.

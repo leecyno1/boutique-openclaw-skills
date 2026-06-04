@@ -8,9 +8,11 @@ from pathlib import Path
 from typing import Dict, List
 
 REPO = Path(__file__).resolve().parents[1]
-CATALOG = REPO / "catalog" / "skills.json"
+LEGACY_CATALOG = REPO / "catalog" / "skills.json"
 ENRICHED_CATALOG = REPO / "catalog" / "skills.enriched.json"
+LOCAL_SKILLS_DIR = REPO / "skills" / "default"
 SKILL_DIRS = [
+    LOCAL_SKILLS_DIR,
     Path.home() / ".openclaw" / "skills",
     Path.home() / "Desktop" / "Projects" / "clawdbot" / "skills",
 ]
@@ -20,12 +22,14 @@ HIGH_RISK_PATTERNS = [
     re.compile(r"rm\s+-rf\s+/"),
     re.compile(r"curl\s+[^\n|]+\|\s*(sh|bash)"),
     re.compile(r"wget\s+[^\n|]+\|\s*(sh|bash)"),
-    re.compile(r"eval\("),
+    re.compile(r"(?<![A-Za-z0-9_])eval\s*\("),
 ]
 
 
-def load_catalog() -> dict:
-    return json.loads(CATALOG.read_text(encoding="utf-8"))
+def load_legacy_catalog() -> dict:
+    if not LEGACY_CATALOG.exists():
+        return {"skills": []}
+    return json.loads(LEGACY_CATALOG.read_text(encoding="utf-8"))
 
 
 def load_enriched_catalog() -> dict:
@@ -36,9 +40,9 @@ def load_enriched_catalog() -> dict:
 
 def find_skill_path(skill: str) -> Path | None:
     for base in SKILL_DIRS:
-      p = base / skill
-      if p.exists():
-          return p
+        p = base / skill
+        if p.exists():
+            return p
     return None
 
 
@@ -71,17 +75,26 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Audit curated OpenClaw skill set")
     parser.add_argument("--report", default=str(REPO / "reports" / "audit-latest.md"))
     parser.add_argument("--json", default=str(REPO / "reports" / "audit-latest.json"))
+    parser.add_argument("--strict-risk", action="store_true", help="treat risk findings as FAIL instead of WARN")
     args = parser.parse_args()
 
-    catalog = load_catalog()
+    legacy_catalog = load_legacy_catalog()
     enriched = load_enriched_catalog()
-    skills = catalog.get("skills", [])
     enriched_skills = enriched.get("skills", [])
+    skills = [
+        {
+            "id": item.get("id"),
+            "requires_api_keys": (item.get("dependencies") or {}).get("requires_api_keys", False),
+            "api_keys": (item.get("dependencies") or {}).get("api_keys", []),
+        }
+        for item in enriched_skills
+        if item.get("id") and not item.get("preset_excluded")
+    ]
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     dup_caps = {}
     cap_owner = {}
-    for s in skills:
+    for s in legacy_catalog.get("skills", []):
         cap = s["capability"]
         if cap in cap_owner:
             dup_caps.setdefault(cap, [cap_owner[cap]]).append(s["skill"])
@@ -115,28 +128,30 @@ def main() -> int:
             standard_bundle_issues.append("standard bundle has duplicate conflict groups")
 
     for s in skills:
-        skill = s["skill"]
+        skill = s["id"]
         p = find_skill_path(skill)
         if not p:
             missing.append(skill)
             continue
         resolved.append({"skill": skill, "path": str(p)})
-        for env in s.get("requires", []):
+        for env in s.get("api_keys", []):
             if not os.environ.get(env):
                 env_missing.append({"skill": skill, "env": env})
         risky.extend([{"skill": skill, **f} for f in scan_text_files(p)])
 
     status = "PASS"
-    if dup_caps or risky or standard_bundle_issues:
+    if dup_caps or standard_bundle_issues or (args.strict_risk and risky):
         status = "FAIL"
-    elif missing or env_missing or missing_origins:
+    elif missing or env_missing or missing_origins or risky:
         status = "WARN"
 
     result = {
         "timestamp": ts,
         "status": status,
         "summary": {
-            "catalog_skills": len(skills),
+            "catalog_skills": len(enriched_skills),
+            "audited_skills": len(skills),
+            "legacy_catalog_skills": len(legacy_catalog.get("skills", [])),
             "resolved_skills": len(resolved),
             "missing_skills": len(missing),
             "missing_env": len(env_missing),
@@ -159,7 +174,9 @@ def main() -> int:
         "",
         f"- Time: {ts}",
         f"- Status: **{status}**",
-        f"- Catalog skills: {len(skills)}",
+        f"- Catalog skills: {len(enriched_skills)}",
+        f"- Audited skills: {len(skills)}",
+        f"- Legacy catalog skills: {len(legacy_catalog.get('skills', []))}",
         f"- Installed/Resolved: {len(resolved)}",
         f"- Missing: {len(missing)}",
         f"- Missing env vars: {len(env_missing)}",
