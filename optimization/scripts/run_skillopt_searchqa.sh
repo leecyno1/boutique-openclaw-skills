@@ -15,6 +15,7 @@ SKILLOPT_DIR="$ROOT_DIR/optimization/skillopt"
 SKILL_PATH="$ROOT_DIR/skills/default/$SKILL_ID/SKILL.md"
 SPLIT_DIR="$ROOT_DIR/optimization/datasets/skillopt/$SKILL_ID"
 OUT_ROOT="$ROOT_DIR/optimization/skillopt-runs/$SKILL_ID"
+READY_CHECK="$ROOT_DIR/optimization/scripts/check_skillopt_ready.py"
 
 if [[ ! -f "$SKILL_PATH" ]]; then
   echo "Missing skill file: $SKILL_PATH" >&2
@@ -32,6 +33,10 @@ if [[ -z "$OPTIMIZER_MODEL" || -z "$TARGET_MODEL" ]]; then
   echo "Set SKILLOPT_OPTIMIZER_MODEL and SKILLOPT_TARGET_MODEL, or pass models as arguments." >&2
   exit 1
 fi
+
+SKILLOPT_OPTIMIZER_MODEL="$OPTIMIZER_MODEL" \
+SKILLOPT_TARGET_MODEL="$TARGET_MODEL" \
+python3 "$READY_CHECK" "$SKILL_ID" --require-models
 
 cd "$SKILLOPT_DIR"
 python scripts/train.py \

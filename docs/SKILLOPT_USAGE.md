@@ -72,6 +72,7 @@ Run SearchQA-style optimization:
 ```bash
 export SKILLOPT_OPTIMIZER_MODEL=<optimizer-model>
 export SKILLOPT_TARGET_MODEL=<target-model>
+python3 optimization/scripts/check_skillopt_ready.py <skill-id> --require-models
 ./optimization/scripts/run_skillopt_searchqa.sh <skill-id>
 ```
 

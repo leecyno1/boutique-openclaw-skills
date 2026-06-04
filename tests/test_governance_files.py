@@ -22,6 +22,7 @@ class GovernanceFilesTests(unittest.TestCase):
         text = path.read_text(encoding="utf-8")
         self.assertIn("Quality Gates", text)
         self.assertIn("Suggested First Targets", text)
+        self.assertIn("check_skillopt_ready.py", text)
 
     def test_skillopt_candidates_are_well_formed(self):
         path = ROOT / "optimization" / "skillopt-candidates.json"
@@ -36,6 +37,14 @@ class GovernanceFilesTests(unittest.TestCase):
             self.assertIn(item["template"], {"qa", "finance-analysis", "content-rubric", "coding-rubric"})
             self.assertTrue(item["failure_mode"])
             self.assertTrue(item["acceptance_gate"])
+
+    def test_skillopt_helper_scripts_exist(self):
+        for name in [
+            "create_skillopt_dataset.py",
+            "check_skillopt_ready.py",
+            "review_skillopt_candidate.py",
+        ]:
+            self.assertTrue((ROOT / "optimization" / "scripts" / name).exists())
 
 
 if __name__ == "__main__":
