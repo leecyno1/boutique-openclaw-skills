@@ -14,9 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATALOG = ROOT / "catalog" / "default-skills.json"
 ORIGIN_OVERRIDES = ROOT / "catalog" / "native-origin-overrides.json"
 PRESETS_DIR = ROOT / "catalog" / "presets"
+SUITES_DIR = ROOT / "catalog" / "suites"
 ENRICHED_PATH = ROOT / "catalog" / "skills.enriched.json"
 STANDARD_BUNDLE_PATH = ROOT / "catalog" / "standard-bundle.json"
 STANDARD_BUNDLE_OVERRIDES = ROOT / "catalog" / "standard-bundle-overrides.json"
+TIERS_DIR = ROOT / "tiers"
+DOC_TIERS_DIR = ROOT / "docs" / "tiers"
+MANUALS_DOC = ROOT / "docs" / "SKILL_MANUALS.md"
 HORIZONTAL_PATH = ROOT / "docs" / "generated" / "horizontal-index.md"
 TYPE_PATH = ROOT / "docs" / "generated" / "type-index.md"
 DEPENDENCY_PATH = ROOT / "docs" / "generated" / "dependency-index.md"
@@ -41,6 +45,7 @@ CATEGORY_LABELS = {
     "writing-content": "写作 / 内容",
     "marketing-growth": "营销 / 增长",
     "finance-trading": "金融 / 交易",
+    "finance-services": "金融 / 机构服务",
     "finance-data": "金融 / 数据源",
     "finance-knowledge": "金融 / 知识库",
     "finance-monitor": "金融 / 监控预警",
@@ -92,10 +97,37 @@ L2_HINTS = {
     "tavily-search", "multi-search-engine", "notebooklm-skill", "content-strategy",
     "social-content", "vision-analysis", "openclaw-cron-setup", "proactive-agent",
     "self-improving-agent-cn", "reflection", "writing-plans", "seedance2-skill",
-    "html-anything",
+    "html-anything", "ima",
     "guizang-ppt-skill", "khazix-skills", "humanizer-zh", "dbskill",
     "guizang-social-card-skill", "ian-xiaohei-illustrations",
 }
+
+LLMQUANT_SKILL_CATEGORIES = {
+    "llmquant-data": "finance-data",
+    "llmquant-etfs": "finance-data",
+    "llmquant-investor-lenses": "finance-knowledge",
+    "llmquant-events": "finance-monitor",
+    "llmquant-macro": "finance-monitor",
+    "llmquant-market-intelligence": "finance-monitor",
+    "llmquant-portfolio": "finance-monitor",
+    "llmquant-portfolio-lab": "finance-monitor",
+    "llmquant-rates-fx": "finance-monitor",
+    "llmquant-risk": "finance-monitor",
+}
+
+ANTHROPIC_FS_PLUGIN_CATEGORIES = {
+    "equity-research": "finance-services",
+    "financial-analysis": "finance-services",
+    "fund-admin": "finance-services",
+    "investment-banking": "finance-services",
+    "operations": "legal-compliance",
+    "private-equity": "finance-services",
+    "wealth-management": "finance-services",
+    "lseg": "finance-data",
+    "spglobal": "finance-data",
+}
+
+STANDARD_BUNDLE_MAX_SKILLS = 30
 
 CONFLICT_GROUP_RULES = [
     ("web-search", ["web-search", "tavily-search", "brave-search", "multi-search-engine", "minimax-web-search"]),
@@ -108,6 +140,7 @@ CONFLICT_GROUP_RULES = [
     ("image-generation", ["ai-image-generation", "gemini-image-service", "baoyu-image-gen"]),
     ("music-generation", ["ai-music-generation", "ai-music-prompts", "minimax-music-gen"]),
     ("email-agent", ["agentmail", "agentmail-cli", "agentmail-mcp", "agentmail-toolkit"]),
+    ("ima", ["ima"]),
     ("finance-data", ["a-stock-data", "akshare-stock", "yfinance-data", "funda-data", "tushare-openclaw-skill", "openclaw-stock-data-skill"]),
     ("persistent-memory", ["claude-mem-plugin"]),
 ]
@@ -119,6 +152,7 @@ STANDARD_CAPABILITIES = [
     "fullstack", "database", "mcp", "media-download", "image-generation", "research-news",
     "html-publishing",
     "finance-data", "content-strategy", "writing", "automation-followup", "cost-observability",
+    "email-agent", "ima-notes-knowledge",
     "weather",
     "persistent-memory",
 ]
@@ -154,12 +188,17 @@ CAPABILITY_RULES = [
     ("writing", ["writing-skills", "baoyu-format-markdown"]),
     ("automation-followup", ["proactive-agent", "openclaw-cron-setup"]),
     ("cost-observability", ["model-usage"]),
+    ("email-agent", ["agentmail", "agentmail-mcp", "agentmail-cli", "agentmail-toolkit"]),
+    ("ima-notes-knowledge", ["ima"]),
     ("weather", ["weather"]),
     ("persistent-memory", ["claude-mem-plugin"]),
 ]
 
 API_KEY_PATTERNS = {
     "AGENTMAIL_API_KEY": ["agentmail"],
+    "IMA_API_KEY": ["ima"],
+    "IMA_CLIENT_ID": ["ima"],
+    "LLMQUANT_API_KEY": ["llmquant"],
     "TAVILY_API_KEY": ["tavily"],
     "BRAVE_API_KEY": ["brave"],
     "GITHUB_TOKEN": ["github"],
@@ -315,6 +354,13 @@ def extract_local_urls(skill_id: str) -> list[str]:
 
 
 def classify_category(skill_id: str, description: str) -> str:
+    if skill_id.startswith("llmquant-"):
+        return LLMQUANT_SKILL_CATEGORIES.get(skill_id, "finance-trading")
+    if skill_id.startswith("anthropic-fs-"):
+        for plugin, category in ANTHROPIC_FS_PLUGIN_CATEGORIES.items():
+            if skill_id.startswith(f"anthropic-fs-{plugin}-"):
+                return category
+        return "finance-services"
     explicit = {
         "a-stock-data": "finance-data",
         "akshare-stock": "finance-data",
@@ -331,6 +377,7 @@ def classify_category(skill_id: str, description: str) -> str:
         "skill-vetter": "security-audit",
         "claude-mem-plugin": "memory-context",
         "html-anything": "html-publishing",
+        "ima": "productivity-pkm",
         "guizang-ppt-skill": "html-publishing",
         "khazix-skills": "writing-content",
         "humanizer-zh": "writing-content",
@@ -369,6 +416,10 @@ def classify_category(skill_id: str, description: str) -> str:
 
 
 def classify_horizontal(skill_id: str, category: str, origin_confidence: str) -> str:
+    if skill_id.startswith("llmquant-"):
+        return "L2 Professional"
+    if skill_id.startswith("anthropic-fs-"):
+        return "L3 Specialist"
     if skill_id in L1:
         return "L1 Foundation"
     if skill_id in L2_HINTS or category in {"coding-devtools", "data-analysis", "docs-office", "search-research", "design-ui", "finance-data", "finance-knowledge"}:
@@ -388,6 +439,12 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     for tool, patterns in TOOL_PATTERNS.items():
         if any(pattern in haystack for pattern in patterns):
             tools.append(tool)
+    if skill_id.startswith("llmquant-"):
+        api_keys = ["LLMQUANT_API_KEY"]
+        tools = ["mcp", "node"]
+    if skill_id.startswith("anthropic-fs-"):
+        api_keys = []
+        tools = sorted(set(tools + ["mcp"]))
     if skill_id == "seedance2-skill":
         tools = []
     if skill_id == "html-anything":
@@ -395,7 +452,10 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     if skill_id == "generative-ui":
         api_keys = []
         tools = []
-    if api_keys:
+    tools = sorted(set(tools))
+    if api_keys and "mcp" in tools:
+        access_mode = "api-key+mcp-required"
+    elif api_keys:
         access_mode = "api-key"
     elif "mcp" in tools:
         access_mode = "mcp-required"
@@ -407,7 +467,7 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     return {
         "requires_api_keys": bool(api_keys),
         "api_keys": sorted(api_keys),
-        "required_tools": sorted(set(tools)),
+        "required_tools": tools,
         "access_mode": access_mode,
         "runtime": runtime,
     }
@@ -429,9 +489,9 @@ def risk_level(skill_id: str, deps: dict[str, Any], category: str) -> str:
         return "medium"
     if any(token in skill_id for token in ["danger", "shell"]):
         return "high"
-    if deps["access_mode"] in {"api-key", "mcp-required", "browser-required"}:
+    if deps["access_mode"] in {"api-key", "api-key+mcp-required", "mcp-required", "browser-required"}:
         return "medium"
-    if category in {"finance-trading", "finance-data", "finance-monitor", "policy-monitoring", "legal-compliance", "devops-cloud"}:
+    if category in {"finance-trading", "finance-services", "finance-data", "finance-monitor", "policy-monitoring", "legal-compliance", "devops-cloud"}:
         return "medium"
     return "low"
 
@@ -459,7 +519,7 @@ def score_item(item: dict[str, Any]) -> dict[str, Any]:
         score -= 8
     if item["dependencies"]["access_mode"] == "direct":
         score += 8
-    elif item["dependencies"]["access_mode"] in {"browser-required", "mcp-required"}:
+    elif item["dependencies"]["access_mode"] in {"browser-required", "mcp-required", "api-key+mcp-required"}:
         score += 3
     if item["description"] and item["description"] != "No description.":
         score += 7
@@ -484,6 +544,19 @@ def load_preset_exclusions() -> set[str]:
     return excluded
 
 
+def load_suites() -> list[dict[str, Any]]:
+    suites = []
+    if not SUITES_DIR.exists():
+        return suites
+    for path in sorted(SUITES_DIR.glob("*.json")):
+        suite = load_json(path, {})
+        if not suite.get("id"):
+            continue
+        suite["skill_count"] = len(suite.get("skills", []))
+        suites.append(suite)
+    return suites
+
+
 def build_enriched() -> dict[str, Any]:
     overrides = load_json(ORIGIN_OVERRIDES, {})
     preset_exclusions = load_preset_exclusions()
@@ -496,6 +569,12 @@ def build_enriched() -> dict[str, Any]:
         category = classify_category(skill_id, description)
         horizontal = classify_horizontal(skill_id, category, origin["origin_confidence"])
         deps = infer_dependencies(skill_id, description, base.get("api_keys", []))
+        tags = [category, horizontal.split()[0].lower(), deps["access_mode"], deps["runtime"]]
+        tags.extend(base.get("groups", []) or [])
+        if skill_id.startswith("llmquant-"):
+            tags.extend(["llmquant", "institutional-research", "finance-suite"])
+        if skill_id.startswith("anthropic-fs-"):
+            tags.extend(["anthropic-financial-services", "enterprise-data", "institutional-finance", "finance-suite"])
         item = {
             "id": skill_id,
             "name": base.get("name", skill_id),
@@ -507,7 +586,7 @@ def build_enriched() -> dict[str, Any]:
             "horizontal_tier": horizontal,
             "primary_category": category,
             "category_label": CATEGORY_LABELS[category],
-            "tags": sorted(set([category, horizontal.split()[0].lower(), deps["access_mode"], deps["runtime"]])),
+            "tags": sorted(set(tags)),
             "dependencies": deps,
             "risk_level": risk_level(skill_id, deps, category),
             "conflict_group": conflict_group(skill_id, category),
@@ -523,7 +602,7 @@ def build_enriched() -> dict[str, Any]:
             "native_origin_required": True,
             "mirror_sources_are_not_native": True,
             "missing_origin_max_stars": 2,
-            "standard_bundle_max_skills": 30,
+            "standard_bundle_max_skills": STANDARD_BUNDLE_MAX_SKILLS,
             "preset_excluded_agents": [p.stem for p in sorted(PRESETS_DIR.glob("*.json"))],
         },
         "summary": summarize(skills),
@@ -581,12 +660,12 @@ def build_standard_bundle(enriched: dict[str, Any]) -> dict[str, Any]:
             "note": best["description"],
         })
         selected_conflicts.add(best["conflict_group"])
-        if len(selected) >= 30:
+        if len(selected) >= STANDARD_BUNDLE_MAX_SKILLS:
             break
     return {
         "schema_version": enriched["schema_version"],
         "generated_at": TODAY,
-        "max_skills": 30,
+        "max_skills": STANDARD_BUNDLE_MAX_SKILLS,
         "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
         "overrides": {
             "pinned_capabilities": pinned,
@@ -718,11 +797,12 @@ def render_tech_stack_badges() -> str:
     ])
 
 
-def render_stats(summary: dict[str, Any], bundle: dict[str, Any]) -> str:
+def render_stats(summary: dict[str, Any], bundle: dict[str, Any], suites: list[dict[str, Any]]) -> str:
     return "\n".join([
         "| Metric | Value |",
         "|---|---:|",
         f"| Curated skills | {summary['skills']} |",
+        f"| Skill suites | {len(suites)} |",
         f"| Native sources verified or referenced | {summary['native_origin_verified_or_referenced']} |",
         f"| Agent preset exclusions | {summary['preset_excluded']} |",
         f"| Missing native origins | {summary['needs_origin_review']} |",
@@ -753,7 +833,99 @@ def render_standard_bundle_table(bundle: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
+def render_suites_table(suites: list[dict[str, Any]]) -> str:
+    if not suites:
+        return "No grouped suites yet."
+    lines = [
+        "| Suite | Skills | Tier | Category | Requirements | Install |",
+        "|---|---:|---|---|---|---|",
+    ]
+    for suite in suites:
+        requirements = []
+        api_keys = suite.get("api_keys", []) or []
+        tools = suite.get("requires_tools", []) or []
+        if api_keys:
+            requirements.append("API: " + ", ".join(f"`{key}`" for key in api_keys))
+        if tools:
+            requirements.append("Tools: " + ", ".join(f"`{tool}`" for tool in tools))
+        requirement_text = "<br>".join(requirements) or "`direct`"
+        title = md_link(suite.get("source") or suite.get("native_origin"), suite.get("title") or suite["id"])
+        lines.append(
+            f"| {title} | {suite.get('skill_count', len(suite.get('skills', [])))} | "
+            f"`{suite.get('install_tier', '-')}` | `{suite.get('category', '-')}` | "
+            f"{requirement_text} | `./scripts/install-suite.sh {suite['id']}` |"
+        )
+    return "\n".join(lines)
+
+
+
+def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]]) -> str:
+    finance_skills = [
+        item for item in enriched["skills"]
+        if item.get("primary_category", "").startswith("finance")
+        or item["id"].startswith(("anthropic-fs-", "llmquant-"))
+    ]
+    category_counts = counter(finance_skills, "primary_category")
+    suite_ids = {suite.get("id"): suite for suite in suites}
+    scenario_rows = [
+        ("A股数据 / 行情 / 财报", "`a-stock-data`, `akshare-stock`, `tushare-openclaw-skill`", "A 股行情、财务、研报、题材、资金流、公告与自选股数据底座。"),
+        ("美股 / 全球股票研究", "`yfinance-data`, `stock-analysis`, `us-stock-analysis`, `llmquant-equities`", "轻量行情与基本面、个股评分、研究 memo、同业比较。"),
+        ("每日复盘 / 宏观政策", "`alphaear-news`, `stock-daily-analysis-skill`, `llmquant-macro`, `policy-monitor`", "收盘复盘、政策跟踪、宏观冲击、事件日历。"),
+        ("选股 / 机会发现", "`finviz-screener`, `canslim-screener`, `vcp-screener`, `theme-detector`", "成长、价值、股息、主题、VCP/CANSLIM 等候选池构建。"),
+        ("技术面 / 交易计划", "`technical-analyst`, `sepa-strategy`, `breakout-trade-planner`, `position-sizer`", "趋势模板、突破计划、止损、仓位与市场健康度。"),
+        ("财报 / 事件驱动", "`earnings-preview`, `earnings-recap`, `llmquant-events`, `anthropic-fs-equity-research-earnings-preview`", "财报前预案、财报后复盘、PEAD、催化剂跟踪。"),
+        ("组合 / 风控 / 监控", "`stock-monitor-skill`, `trader-memory-core`, `llmquant-portfolio`, `llmquant-risk`", "持仓 thesis、预警、暴露、情景模拟、风险健康度。"),
+        ("量化 / 回测 / 策略迭代", "`backtest-expert`, `pybroker-backtest-skill`, `trade-hypothesis-ideator`, `signal-postmortem`", "策略假设、回测、配对/相关性、交易后验复盘。"),
+        ("机构金融 / 投行 / PE", "`anthropic-fs-*`, `funda-data`, `llmquant-*`", "投行、PE、固收、KYC、基金运营、机构研究报告与材料。"),
+    ]
+    lines = [
+        "## Finance / Investment Workflows",
+        "",
+        "Finance skills are curated as opt-in domain capabilities, not part of the default standard bundle. Install them only when an investment, research, trading, PE/IB, or fund-ops workflow needs them.",
+        "",
+        "| Metric | Value |",
+        "|---|---:|",
+        f"| Finance-related skills | {len(finance_skills)} |",
+        f"| Finance data skills | {category_counts.get('finance-data', 0)} |",
+        f"| Finance trading/research skills | {category_counts.get('finance-trading', 0)} |",
+        f"| Institutional finance services | {category_counts.get('finance-services', 0)} |",
+        f"| Finance monitor/risk skills | {category_counts.get('finance-monitor', 0)} |",
+        "",
+        "### Recommended Entry Points",
+        "",
+        "| Need | Start Here |",
+        "|---|---|",
+        "| 普通投资者 / A股研究 | `a-stock-data` + `openclaw-stock-kb` + `stock-monitor-skill` |",
+        "| 美股与全球资产 | `yfinance-data` + `stock-analysis` + `llmquant-equities` |",
+        "| 机构研究 / 多资产 | `./scripts/install-suite.sh llmquant --dry-run` |",
+        "| 投行 / PE / 财富管理 / 基金运营 | `./scripts/install-suite.sh anthropic-financial-services --dry-run` |",
+        "| 选型参考 | [Finance scenario mapping](docs/generated/finance-skills-mapping.md) |",
+        "",
+        "### Investment Scenario Mapping",
+        "",
+        "| Scenario | Matching Skills | What It Covers |",
+        "|---|---|---|",
+    ]
+    for scenario, skills, note in scenario_rows:
+        lines.append(f"| {scenario} | {skills} | {note} |")
+    lines += [
+        "",
+        "### Install Examples",
+        "",
+        "```bash",
+        "# Preview the finance profile",
+        "./scripts/install-profile.sh finance --dry-run",
+        "",
+        "# Install institutional finance suites only when needed",
+        "./scripts/install-suite.sh llmquant --dry-run",
+        "./scripts/install-suite.sh anthropic-financial-services --dry-run",
+        "```",
+        "",
+        "Detailed list and scenario notes: [docs/generated/finance-skills-mapping.md](docs/generated/finance-skills-mapping.md).",
+    ]
+    return "\n".join(lines)
+
+def render_readme(enriched: dict[str, Any], bundle: dict[str, Any], suites: list[dict[str, Any]]) -> str:
     summary = enriched["summary"]
     return "\n".join([
         '<div align="center">',
@@ -801,15 +973,32 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
         "./scripts/install-tier.sh high",
         "```",
         "",
+        "Or install a grouped suite:",
+        "",
+        "```bash",
+        "./scripts/install-suite.sh llmquant --dry-run",
+        "./scripts/install-suite.sh llmquant",
+        "```",
+        "",
         "## At A Glance",
         "",
-        render_stats(summary, bundle),
+        render_stats(summary, bundle, suites),
         "",
         "## Standard Bundle",
         "",
         "The standard bundle keeps one best skill per capability and excludes skills already built into Open or Hermes.",
         "",
+        "Finance skills are intentionally kept out of the default standard bundle for now. Use the finance profile, a finance suite, or the [finance scenario mapping](docs/generated/finance-skills-mapping.md) when an investment workflow needs them.",
+        "",
         render_standard_bundle_table(bundle),
+        "",
+        render_finance_entry(enriched, suites),
+        "",
+        "## Skill Suites",
+        "",
+        "Skill suites are domain packs kept outside the standard no-duplicate bundle. Use them when a specific workflow needs a deeper vertical stack.",
+        "",
+        render_suites_table(suites),
         "",
         "## All Skills",
         "",
@@ -822,6 +1011,7 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
         "| [Horizontal index](docs/generated/horizontal-index.md) | L1 Foundation, L2 Professional, L3 Specialist |",
         "| [Type index](docs/generated/type-index.md) | Coding, design, finance, writing, research, media, docs, and more |",
         "| [Dependency index](docs/generated/dependency-index.md) | API keys, tools, runtime mode, and risk |",
+        "| [Finance scenario mapping](docs/generated/finance-skills-mapping.md) | Investment workflows mapped to matching finance skills |",
         "| [Scoring model](docs/generated/scoring-model.md) | How star ratings are calculated |",
         "| [Upstream status](docs/generated/upstream-status.md) | Latest GitHub-backed update check and manual-review items |",
         "| [Content creator intake](docs/generated/content-creator-skills-intake.md) | Verification notes for the creator skill intake batch |",
@@ -863,21 +1053,87 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any]) -> str:
     ])
 
 
+def render_tier_doc(payload: dict[str, Any]) -> str:
+    lines = [
+        f"# {payload.get('title', payload.get('id', 'Tier'))} Skills",
+        "",
+        payload.get("description", ""),
+        "",
+        f"- 技能数量：`{len(payload.get('skills', []))}`",
+        f"- 安装命令：`{payload.get('install_command', './scripts/install-tier.sh ' + payload.get('id', ''))}`",
+        f"- JSON 清单：`tiers/{payload.get('id', 'tier')}.json`",
+        "",
+        "## 技能清单",
+        "",
+        "| Skill | 说明 | 使用手册 | 原仓库链接 |",
+        "|---|---|---|---|",
+    ]
+    for item in payload.get("skills", []):
+        manual = item.get("manual") or f"skills/default/{item.get('id', '')}/SKILL.md"
+        source = item.get("source") or ""
+        source_link = md_link(source, "source") if source else "待补"
+        lines.append(
+            f"| `{item.get('id', '')}` | {item.get('description', '')} | "
+            f"[{manual}](../../{manual}) | {source_link} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def write_tier_outputs() -> None:
+    catalog = load_json(DEFAULT_CATALOG, {})
+    tiers = catalog.get("tiers", {})
+    if not tiers:
+        return
+    TIERS_DIR.mkdir(parents=True, exist_ok=True)
+    DOC_TIERS_DIR.mkdir(parents=True, exist_ok=True)
+    all_skills = {}
+    for tier in ("low", "medium", "high"):
+        payload = tiers.get(tier)
+        if not payload:
+            continue
+        (TIERS_DIR / f"{tier}.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        (DOC_TIERS_DIR / f"{tier}.md").write_text(render_tier_doc(payload), encoding="utf-8")
+        for item in payload.get("skills", []):
+            all_skills[item["id"]] = item
+
+    manual_lines = [
+        "# Default Skills Manual Index",
+        "",
+        "本文件由 `scripts/generate_enriched_catalog.py` 生成，作为 boutique 仓库维护默认 skills 的统一手册索引。",
+        "",
+        "| Skill | 说明 | 使用手册 | 原仓库链接 |",
+        "|---|---|---|---|",
+    ]
+    for skill_id in sorted(all_skills):
+        item = all_skills[skill_id]
+        manual = item.get("manual") or f"skills/default/{skill_id}/SKILL.md"
+        source = item.get("source") or ""
+        source_link = md_link(source, "source") if source else "待补"
+        manual_lines.append(f"| `{skill_id}` | {item.get('description', '')} | [{manual}]({manual}) | {source_link} |")
+    manual_lines.append("")
+    MANUALS_DOC.write_text("\n".join(manual_lines), encoding="utf-8")
+
+
 def write_outputs(enriched: dict[str, Any], bundle: dict[str, Any]) -> None:
+    suites = load_suites()
     ENRICHED_PATH.write_text(json.dumps(enriched, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     STANDARD_BUNDLE_PATH.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     HORIZONTAL_PATH.write_text(render_horizontal_index(enriched["skills"]), encoding="utf-8")
     TYPE_PATH.write_text(render_type_index(enriched["skills"]), encoding="utf-8")
     DEPENDENCY_PATH.write_text(render_dependency_index(enriched["skills"]), encoding="utf-8")
     SCORING_PATH.write_text(render_scoring_model(), encoding="utf-8")
-    README_PATH.write_text(render_readme(enriched, bundle), encoding="utf-8")
+    README_PATH.write_text(render_readme(enriched, bundle, suites), encoding="utf-8")
+    write_tier_outputs()
 
 
 def main() -> int:
     enriched = build_enriched()
     bundle = build_standard_bundle(enriched)
     write_outputs(enriched, bundle)
-    print(json.dumps({"summary": enriched["summary"], "standard_bundle": len(bundle["skills"])}, ensure_ascii=False))
+    print(json.dumps({"summary": enriched["summary"], "standard_bundle": len(bundle["skills"]), "suites": len(load_suites())}, ensure_ascii=False))
     return 0
 
 

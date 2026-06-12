@@ -13,13 +13,14 @@
 | 媒体生成 / 处理 (`media-generation`) | 22 |
 | 写作 / 内容 (`writing-content`) | 7 |
 | 营销 / 增长 (`marketing-growth`) | 3 |
-| 金融 / 交易 (`finance-trading`) | 68 |
-| 金融 / 数据源 (`finance-data`) | 6 |
-| 金融 / 知识库 (`finance-knowledge`) | 1 |
-| 金融 / 监控预警 (`finance-monitor`) | 1 |
+| 金融 / 交易 (`finance-trading`) | 76 |
+| 金融 / 机构服务 (`finance-services`) | 53 |
+| 金融 / 数据源 (`finance-data`) | 19 |
+| 金融 / 知识库 (`finance-knowledge`) | 2 |
+| 金融 / 监控预警 (`finance-monitor`) | 8 |
 | 政策 / 宏观监控 (`policy-monitoring`) | 1 |
-| 法律 / 合规 / 税务 (`legal-compliance`) | 0 |
-| 效率 / 知识管理 (`productivity-pkm`) | 1 |
+| 法律 / 合规 / 税务 (`legal-compliance`) | 2 |
+| 效率 / 知识管理 (`productivity-pkm`) | 2 |
 | 记忆 / 上下文基础设施 (`memory-context`) | 1 |
 | 通信 / 社交集成 (`communication`) | 1 |
 | DevOps / 云 / 数据库 (`devops-cloud`) | 0 |
@@ -38,76 +39,76 @@
 | `model-usage` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
 | `planning-with-files` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
 | `skill-creator` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `skill-security-auditor` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `subagent-driven-development` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `task` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `todo` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `using-superpowers` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `verification-before-completion` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
-| `weather` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `online` |
-| `writing-skills` | `L1 Foundation` | 5★ | `core-agent`, `direct`, `l1`, `offline` |
+| `skill-security-auditor` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
+| `subagent-driven-development` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
+| `task` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
+| `todo` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
+| `using-superpowers` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
+| `verification-before-completion` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
+| `weather` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `online` |
+| `writing-skills` | `L1 Foundation` | 5★ | `core-agent`, `default_sentinel`, `direct`, `l1`, `offline` |
 | `agent-browser` | `L1 Foundation` | 4★ | `browser-required`, `core-agent`, `l1`, `online` |
 | `chrome-devtools-mcp` | `L1 Foundation` | 4★ | `core-agent`, `l1`, `mcp-required`, `online` |
 | `mcp-builder` | `L1 Foundation` | 4★ | `core-agent`, `l1`, `mcp-required`, `online` |
 | `url-to-markdown` | `L1 Foundation` | 4★ | `browser-required`, `core-agent`, `l1`, `online` |
 | `github` | `L1 Foundation` | 4★ | `api-key`, `core-agent`, `l1`, `online` |
 | `shell` | `L1 Foundation` | 1★ | `core-agent`, `direct`, `l1`, `offline` |
-| `web-search` | `L1 Foundation` | 1★ | `browser-required`, `core-agent`, `l1`, `online` |
+| `web-search` | `L1 Foundation` | 1★ | `api-key`, `core-agent`, `l1`, `online` |
 
 ## 搜索 / 研究 / 情报
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `discord-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `edge-pipeline-orchestrator` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `linkedin-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
+| `discord-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `edge-pipeline-orchestrator` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `linkedin-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
 | `multi-search-engine` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `opencli-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `telegram-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `twitter-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `yc-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research` |
-| `baoyu-url-to-markdown` | `L2 Professional` | 4★ | `browser-required`, `l2`, `online`, `search-research` |
+| `opencli-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `telegram-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `twitter-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `yc-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `baoyu-url-to-markdown` | `L2 Professional` | 4★ | `baoyu`, `browser-required`, `l2`, `online`, `search-research` |
+| `minimax-web-search` | `L2 Professional` | 4★ | `api-key+mcp-required`, `default_sentinel`, `l2`, `minimax_local_compat`, `online`, `search-research` |
 | `news-radar` | `L2 Professional` | 4★ | `l2`, `mcp-required`, `online`, `search-research` |
-| `minimax-web-search` | `L2 Professional` | 4★ | `api-key`, `l2`, `online`, `search-research` |
 | `paperless-docs` | `L2 Professional` | 4★ | `api-key`, `l2`, `online`, `search-research` |
 | `paperless-ngx-tools` | `L2 Professional` | 4★ | `api-key`, `l2`, `online`, `search-research` |
 | `tavily-search` | `L2 Professional` | 4★ | `api-key`, `l2`, `online`, `search-research` |
-| `minimax-multimodal-toolkit` | `L2 Professional` | 3★ | `api-key`, `l2`, `online`, `search-research` |
+| `minimax-multimodal-toolkit` | `L2 Professional` | 3★ | `api-key`, `default_sentinel`, `l2`, `minimax_official`, `online`, `search-research` |
 
 ## 浏览器 / 自动化
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `oracle` | `L3 Specialist` | 3★ | `api-key`, `browser-automation`, `l3`, `online` |
-| `notebooklm-skill` | `L2 Professional` | 3★ | `api-key`, `browser-automation`, `l2`, `online` |
+| `notebooklm-skill` | `L2 Professional` | 3★ | `api-key`, `browser-automation`, `default_sentinel`, `l2`, `online` |
 
 ## 编程 / 工程工具
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `backtest-expert` | `L2 Professional` | 5★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `android-native-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `flutter-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `ios-application-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `react-native-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `shader-dev` | `L2 Professional` | 4★ | `coding-devtools`, `direct`, `l2`, `offline` |
-| `agentmail-mcp` | `L2 Professional` | 4★ | `api-key`, `coding-devtools`, `l2`, `online` |
-| `baoyu-image-gen` | `L2 Professional` | 4★ | `api-key`, `coding-devtools`, `l2`, `online` |
-| `frontend-dev` | `L2 Professional` | 3★ | `browser-required`, `coding-devtools`, `l2`, `online` |
-| `fullstack-dev` | `L2 Professional` | 3★ | `api-key`, `coding-devtools`, `l2`, `online` |
+| `backtest-expert` | `L2 Professional` | 5★ | `coding-devtools`, `direct`, `l2`, `offline`, `trading_finance` |
+| `android-native-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
+| `flutter-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
+| `ios-application-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
+| `shader-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
+| `agentmail-mcp` | `L2 Professional` | 4★ | `api-key+mcp-required`, `coding-devtools`, `default_sentinel`, `l2`, `online` |
+| `baoyu-image-gen` | `L2 Professional` | 4★ | `api-key`, `baoyu`, `coding-devtools`, `l2`, `online` |
+| `frontend-dev` | `L2 Professional` | 3★ | `api-key`, `coding-devtools`, `default_sentinel`, `l2`, `minimax_official`, `online` |
+| `fullstack-dev` | `L2 Professional` | 3★ | `api-key`, `coding-devtools`, `default_sentinel`, `l2`, `minimax_official`, `online` |
+| `react-native-dev` | `L2 Professional` | 3★ | `api-key`, `coding-devtools`, `default_sentinel`, `l2`, `minimax_official`, `online` |
 
 ## 数据分析
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `baoyu-youtube-transcript` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `data-analyst` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `edge-signal-aggregator` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `edge-strategy-reviewer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `scenario-analyzer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `skill-integration-tester` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `minimax-xlsx` | `L2 Professional` | 4★ | `data-analysis`, `direct`, `l2`, `offline` |
-| `dual-axis-skill-reviewer` | `L2 Professional` | 4★ | `api-key`, `data-analysis`, `l2`, `online` |
+| `data-analyst` | `L2 Professional` | 5★ | `data-analysis`, `default_sentinel`, `direct`, `l2`, `offline` |
+| `edge-signal-aggregator` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
+| `edge-strategy-reviewer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
+| `scenario-analyzer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
+| `skill-integration-tester` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
+| `baoyu-youtube-transcript` | `L2 Professional` | 4★ | `api-key`, `baoyu`, `data-analysis`, `l2`, `online` |
+| `dual-axis-skill-reviewer` | `L2 Professional` | 4★ | `api-key`, `data-analysis`, `l2`, `online`, `trading_finance` |
+| `minimax-xlsx` | `L2 Professional` | 3★ | `api-key`, `data-analysis`, `default_sentinel`, `l2`, `minimax_official`, `online` |
 | `xlsx` | `L2 Professional` | 1★ | `data-analysis`, `direct`, `l2`, `offline` |
 
 ## 文档 / 办公
@@ -115,11 +116,11 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `nano-pdf` | `L2 Professional` | 5★ | `direct`, `docs-office`, `l2`, `offline` |
-| `minimax-docx` | `L2 Professional` | 4★ | `direct`, `docs-office`, `l2`, `offline` |
-| `minimax-pdf` | `L2 Professional` | 4★ | `direct`, `docs-office`, `l2`, `offline` |
-| `pptx-generator` | `L2 Professional` | 4★ | `direct`, `docs-office`, `l2`, `offline` |
-| `social-content` | `L2 Professional` | 4★ | `direct`, `docs-office`, `l2`, `offline` |
-| `lark-calendar` | `L2 Professional` | 4★ | `api-key`, `docs-office`, `l2`, `online` |
+| `pptx-generator` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `docs-office`, `l2`, `minimax_official`, `offline` |
+| `social-content` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `docs-office`, `l2`, `offline` |
+| `lark-calendar` | `L2 Professional` | 4★ | `api-key`, `default_sentinel`, `docs-office`, `l2`, `online` |
+| `minimax-docx` | `L2 Professional` | 3★ | `api-key`, `default_sentinel`, `docs-office`, `l2`, `minimax_official`, `online` |
+| `minimax-pdf` | `L2 Professional` | 3★ | `api-key`, `default_sentinel`, `docs-office`, `l2`, `minimax_official`, `online` |
 | `docx` | `L2 Professional` | 1★ | `direct`, `docs-office`, `l2`, `offline` |
 | `pdf` | `L2 Professional` | 1★ | `direct`, `docs-office`, `l2`, `offline` |
 | `pptx` | `L2 Professional` | 1★ | `direct`, `docs-office`, `l2`, `offline` |
@@ -128,197 +129,292 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `animation` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `baoyu-article-illustrator` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `baoyu-translate` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `edge-concept-synthesizer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `edge-strategy-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `generative-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `skill-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `strategy-pivot-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline` |
-| `agentmail-toolkit` | `L2 Professional` | 4★ | `api-key`, `design-ui`, `l2`, `online` |
-| `agentmail` | `L2 Professional` | 3★ | `api-key`, `design-ui`, `l2`, `online` |
-| `baoyu-danger-x-to-markdown` | `L2 Professional` | 2★ | `api-key`, `design-ui`, `l2`, `online` |
+| `baoyu-translate` | `L2 Professional` | 5★ | `baoyu`, `design-ui`, `direct`, `l2`, `offline` |
+| `edge-concept-synthesizer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `edge-strategy-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `generative-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `skill-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `strategy-pivot-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `agentmail-toolkit` | `L2 Professional` | 4★ | `api-key`, `default_sentinel`, `design-ui`, `l2`, `online` |
+| `animation` | `L2 Professional` | 4★ | `api-key`, `design-ui`, `l2`, `online` |
+| `baoyu-article-illustrator` | `L2 Professional` | 4★ | `api-key`, `baoyu`, `design-ui`, `l2`, `online` |
+| `agentmail` | `L2 Professional` | 3★ | `api-key`, `default_sentinel`, `design-ui`, `l2`, `online` |
+| `baoyu-danger-x-to-markdown` | `L2 Professional` | 2★ | `api-key`, `baoyu`, `design-ui`, `l2`, `online` |
 
 ## HTML 发布 / 视觉出版
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `html-anything` | `L2 Professional` | 5★ | `browser-required`, `html-publishing`, `l2`, `online` |
-| `guizang-ppt-skill` | `L2 Professional` | 4★ | `browser-required`, `html-publishing`, `l2`, `online` |
+| `html-anything` | `L2 Professional` | 5★ | `browser-required`, `design_ui`, `html-publishing`, `html_publishing`, `l2`, `media_generation`, `online`, `writing_content` |
+| `guizang-ppt-skill` | `L2 Professional` | 4★ | `browser-required`, `creator`, `html-publishing`, `l2`, `online`, `presentation` |
 
 ## 媒体生成 / 处理
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `guizang-social-card-skill` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
-| `ian-xiaohei-illustrations` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
+| `ian-xiaohei-illustrations` | `L2 Professional` | 5★ | `creator`, `direct`, `illustration`, `l2`, `media-generation`, `offline` |
 | `reflection` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
-| `seedance2-skill` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
-| `baoyu-comic` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `baoyu-cover-image` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `baoyu-slide-deck` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `baoyu-xhs-images` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `buddy-sings` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `codex-responses-tooling` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `online` |
-| `minimax-music-gen` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `minimax-music-playlist` | `L3 Specialist` | 4★ | `direct`, `l3`, `media-generation`, `offline` |
-| `baoyu-compress-image` | `L3 Specialist` | 3★ | `browser-required`, `l3`, `media-generation`, `online` |
-| `baoyu-post-to-weibo` | `L3 Specialist` | 3★ | `browser-required`, `l3`, `media-generation`, `offline` |
-| `baoyu-post-to-x` | `L3 Specialist` | 3★ | `browser-required`, `l3`, `media-generation`, `offline` |
-| `baoyu-post-to-wechat` | `L3 Specialist` | 3★ | `api-key`, `l3`, `media-generation`, `online` |
+| `guizang-social-card-skill` | `L2 Professional` | 4★ | `api-key`, `creator`, `design`, `l2`, `media-generation`, `online`, `social-card` |
+| `seedance2-skill` | `L2 Professional` | 4★ | `api-key`, `l2`, `media`, `media-generation`, `online`, `prompt`, `video` |
+| `buddy-sings` | `L3 Specialist` | 4★ | `default_sentinel`, `direct`, `l3`, `media-generation`, `minimax_official`, `offline` |
+| `baoyu-comic` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-compress-image` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-cover-image` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-post-to-wechat` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-post-to-weibo` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-post-to-x` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-slide-deck` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
+| `baoyu-xhs-images` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
 | `gemini-image-service` | `L3 Specialist` | 3★ | `api-key`, `l3`, `media-generation`, `online` |
-| `minimax-image-understanding` | `L3 Specialist` | 3★ | `api-key`, `l3`, `media-generation`, `online` |
-| `media-downloader` | `L2 Professional` | 3★ | `api-key`, `l2`, `media-generation`, `online` |
-| `vision-analysis` | `L2 Professional` | 3★ | `api-key`, `l2`, `media-generation`, `online` |
-| `gif-sticker-maker` | `L3 Specialist` | 3★ | `api-key`, `l3`, `media-generation`, `online` |
-| `baoyu-danger-gemini-web` | `L3 Specialist` | 2★ | `api-key`, `l3`, `media-generation`, `online` |
+| `minimax-image-understanding` | `L3 Specialist` | 3★ | `api-key`, `default_sentinel`, `l3`, `media-generation`, `minimax_local_compat`, `online` |
+| `vision-analysis` | `L2 Professional` | 3★ | `api-key+mcp-required`, `default_sentinel`, `l2`, `media-generation`, `minimax_official`, `online` |
+| `media-downloader` | `L2 Professional` | 3★ | `api-key`, `default_sentinel`, `l2`, `media-generation`, `online` |
+| `codex-responses-tooling` | `L3 Specialist` | 3★ | `api-key`, `high_default`, `l3`, `media-generation`, `media_generation`, `online` |
+| `gif-sticker-maker` | `L3 Specialist` | 3★ | `api-key`, `default_sentinel`, `l3`, `media-generation`, `minimax_official`, `online` |
+| `minimax-music-gen` | `L3 Specialist` | 3★ | `api-key`, `default_sentinel`, `l3`, `media-generation`, `minimax_official`, `online` |
+| `minimax-music-playlist` | `L3 Specialist` | 3★ | `api-key`, `default_sentinel`, `l3`, `media-generation`, `minimax_official`, `online` |
+| `baoyu-danger-gemini-web` | `L3 Specialist` | 2★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
 
 ## 写作 / 内容
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `humanizer-zh` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
-| `khazix-skills` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
+| `humanizer-zh` | `L2 Professional` | 5★ | `creator`, `direct`, `l2`, `offline`, `polish`, `writing`, `writing-content` |
+| `khazix-skills` | `L2 Professional` | 5★ | `creator`, `direct`, `l2`, `offline`, `research`, `writing`, `writing-content` |
 | `writing-plans` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `writing-content` |
-| `baoyu-format-markdown` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
-| `baoyu-infographic` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
-| `baoyu-skills` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `writing-content` |
-| `baoyu-markdown-to-html` | `L3 Specialist` | 3★ | `browser-required`, `l3`, `offline`, `writing-content` |
+| `baoyu-format-markdown` | `L3 Specialist` | 4★ | `baoyu`, `direct`, `l3`, `offline`, `writing-content` |
+| `baoyu-infographic` | `L3 Specialist` | 4★ | `baoyu`, `direct`, `l3`, `offline`, `writing-content` |
+| `baoyu-skills` | `L3 Specialist` | 4★ | `baoyu`, `direct`, `l3`, `offline`, `writing-content` |
+| `baoyu-markdown-to-html` | `L3 Specialist` | 3★ | `baoyu`, `browser-required`, `l3`, `offline`, `writing-content` |
 
 ## 营销 / 增长
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `dbskill` | `L2 Professional` | 5★ | `direct`, `l2`, `marketing-growth`, `offline` |
-| `content-strategy` | `L2 Professional` | 4★ | `direct`, `l2`, `marketing-growth`, `offline` |
-| `marketingskills` | `L3 Specialist` | 4★ | `direct`, `l3`, `marketing-growth`, `offline` |
+| `dbskill` | `L2 Professional` | 5★ | `content-growth`, `creator`, `direct`, `l2`, `marketing`, `marketing-growth`, `offline` |
+| `content-strategy` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `l2`, `marketing-growth`, `offline` |
+| `marketingskills` | `L3 Specialist` | 4★ | `default_sentinel`, `direct`, `l3`, `marketing-growth`, `offline` |
 
 ## 金融 / 交易
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `alphaear-deepear-lite` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `alphaear-logic-visualizer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `alphaear-news` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `alphaear-predictor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `alphaear-reporter` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `alphaear-signal-tracker` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `alphaear-stock` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `breadth-chart-analyst` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `breakout-trade-planner` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `company-valuation` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `data-quality-checker` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `earnings-preview` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `earnings-recap` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `edge-candidate-agent` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `estimate-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `etf-premium` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `finance-skill-creator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `hormuz-strait` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `kanchi-dividend-review-monitor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `market-breadth-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `market-environment-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `options-payoff` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `position-sizer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `pybroker-backtest-skill` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `saas-valuation-compression` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `sector-analyst` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `sepa-strategy` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `stanley-druckenmiller-investment` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `stock-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `stock-correlation` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `stock-liquidity` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `technical-analyst` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `trade-hypothesis-ideator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `trader-memory-core` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `uptrend-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online` |
-| `us-market-bubble-detector` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `us-stock-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline` |
-| `alphaear-search` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online` |
-| `market-news-analyst` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online` |
-| `portfolio-manager` | `L3 Specialist` | 3★ | `finance-trading`, `l3`, `mcp-required`, `offline` |
-| `alphaear-sentiment` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `canslim-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `dividend-growth-pullback-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `downtrend-duration-analyzer` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `earnings-calendar` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `earnings-trade-analyzer` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `economic-calendar-fetcher` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `edge-hint-extractor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `exposure-coach` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `finance-sentiment` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `finviz-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `ftd-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `ibd-distribution-day-monitor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `institutional-flow-tracker` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `kanchi-dividend-sop` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `macro-regime-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `market-top-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `options-strategy-advisor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `pair-trade-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `parabolic-short-trade-planner` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `pead-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `signal-postmortem` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `stock-daily-analysis-skill` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `theme-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `value-dividend-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `vcp-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online` |
-| `ai-image-generation` | `L2 Professional` | 3★ | `api-key`, `finance-trading`, `l2`, `online` |
+| `llmquant-commodities` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-credit` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-crypto` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-equities` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-equity-derivatives` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-options` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-prediction-markets` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-strategies` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `alphaear-deepear-lite` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `alphaear-logic-visualizer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `alphaear-news` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `alphaear-predictor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `alphaear-reporter` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `alphaear-signal-tracker` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `alphaear-stock` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `breakout-trade-planner` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `data-quality-checker` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `earnings-recap` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `edge-candidate-agent` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `etf-premium` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `finance-skill-creator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `hormuz-strait` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `kanchi-dividend-review-monitor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `market-breadth-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `options-payoff` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `position-sizer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `pybroker-backtest-skill` | `L3 Specialist` | 4★ | `backtesting`, `direct`, `experimental`, `finance`, `finance-trading`, `l3`, `offline` |
+| `saas-valuation-compression` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `sepa-strategy` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `stanley-druckenmiller-investment` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `stock-analysis` | `L3 Specialist` | 4★ | `analysis`, `direct`, `finance`, `finance-trading`, `l3`, `offline`, `watchlist` |
+| `stock-correlation` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `trade-hypothesis-ideator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `trader-memory-core` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `uptrend-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `us-market-bubble-detector` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `us-stock-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
+| `alphaear-search` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `market-news-analyst` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `portfolio-manager` | `L3 Specialist` | 3★ | `finance-trading`, `l3`, `mcp-required`, `offline`, `trading_finance` |
+| `alphaear-sentiment` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `breadth-chart-analyst` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `canslim-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `company-valuation` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `dividend-growth-pullback-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `downtrend-duration-analyzer` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `earnings-calendar` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `earnings-preview` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `earnings-trade-analyzer` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `economic-calendar-fetcher` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `edge-hint-extractor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `estimate-analysis` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `exposure-coach` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `finance-sentiment` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `finviz-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `ftd-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `ibd-distribution-day-monitor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `institutional-flow-tracker` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `kanchi-dividend-sop` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `macro-regime-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `market-environment-analysis` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `market-top-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `options-strategy-advisor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `pair-trade-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `parabolic-short-trade-planner` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `pead-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `sector-analyst` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `signal-postmortem` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `stock-daily-analysis-skill` | `L3 Specialist` | 3★ | `analysis`, `api-key`, `daily-review`, `finance`, `finance-trading`, `l3`, `online` |
+| `stock-liquidity` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `technical-analyst` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `theme-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `value-dividend-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `vcp-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `ai-image-generation` | `L2 Professional` | 3★ | `api-key`, `default_sentinel`, `finance-trading`, `l2`, `online` |
+
+## 金融 / 机构服务
+
+| Skill | 横向层级 | 星级 | 标签 |
+|---|---|---:|---|
+| `anthropic-fs-equity-research-catalyst-calendar` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-earnings-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-earnings-preview` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-idea-generation` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-initiating-coverage` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-model-update` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-morning-note` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-sector-overview` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-equity-research-thesis-tracker` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-financial-analysis-3-statement-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-audit-xls` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-clean-data-xls` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-competitive-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-comps-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-dcf-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-deck-refresh` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-ib-check-deck` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-lbo-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-ppt-template-creator` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-pptx-author` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-skill-creator` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-xlsx-author` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-fund-admin-accrual-schedule` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-fund-admin-break-trace` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-fund-admin-gl-recon` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-fund-admin-nav-tieout` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-fund-admin-roll-forward` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-fund-admin-variance-commentary` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-buyer-list` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-cim-builder` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-datapack-builder` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `online` |
+| `anthropic-fs-investment-banking-deal-tracker` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-merger-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-pitch-deck` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-process-letter` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-strip-profile` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-investment-banking-teaser` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `investment-banking`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-private-equity-ai-readiness` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-dd-checklist` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-dd-meeting-prep` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-deal-screening` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-deal-sourcing` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-ic-memo` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-portfolio-monitoring` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-returns-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-unit-economics` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-value-creation-plan` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-wealth-management-client-report` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
+| `anthropic-fs-wealth-management-client-review` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
+| `anthropic-fs-wealth-management-financial-plan` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
+| `anthropic-fs-wealth-management-investment-proposal` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
+| `anthropic-fs-wealth-management-portfolio-rebalance` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
+| `anthropic-fs-wealth-management-tax-loss-harvesting` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
 
 ## 金融 / 数据源
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `a-stock-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
+| `a-stock-data` | `L2 Professional` | 4★ | `a-share`, `direct`, `finance`, `finance-data`, `l2`, `offline`, `standard` |
 | `akshare-stock` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
-| `yfinance-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
-| `funda-data` | `L2 Professional` | 4★ | `api-key`, `finance-data`, `l2`, `online` |
-| `openclaw-stock-data-skill` | `L2 Professional` | 4★ | `api-key`, `finance-data`, `l2`, `online` |
-| `tushare-openclaw-skill` | `L2 Professional` | 4★ | `api-key`, `finance-data`, `l2`, `online` |
+| `yfinance-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline`, `trading_finance` |
+| `funda-data` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance-data`, `l2`, `online`, `trading_finance` |
+| `llmquant-data` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-data`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-etfs` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-data`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `openclaw-stock-data-skill` | `L2 Professional` | 4★ | `a-share`, `api-key`, `data`, `finance`, `finance-data`, `high-frequency`, `l2`, `online` |
+| `tushare-openclaw-skill` | `L2 Professional` | 4★ | `a-share`, `api-key`, `data`, `finance`, `finance-data`, `l2`, `online` |
+| `anthropic-fs-lseg-bond-futures-basis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-bond-relative-value` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-equity-research` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `online` |
+| `anthropic-fs-lseg-fixed-income-portfolio` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-fx-carry-trade` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-macro-rates-monitor` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-option-vol-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-swap-curve-strategy` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-spglobal-earnings-preview-beta` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal` |
+| `anthropic-fs-spglobal-funding-digest` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal` |
+| `anthropic-fs-spglobal-tear-sheet` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal` |
 
 ## 金融 / 知识库
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `openclaw-stock-kb` | `L2 Professional` | 5★ | `direct`, `finance-knowledge`, `l2`, `offline` |
+| `openclaw-stock-kb` | `L2 Professional` | 5★ | `direct`, `finance`, `finance-knowledge`, `knowledge`, `l2`, `offline` |
+| `llmquant-investor-lenses` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-knowledge`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 
 ## 金融 / 监控预警
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
+| `llmquant-events` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-macro` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-market-intelligence` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-portfolio` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-portfolio-lab` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-rates-fx` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `llmquant-risk` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 | `stock-monitor-skill` | `L3 Specialist` | 4★ | `direct`, `finance-monitor`, `l3`, `offline` |
 
 ## 政策 / 宏观监控
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `policy-monitor` | `L3 Specialist` | 4★ | `direct`, `l3`, `offline`, `policy-monitoring` |
+| `policy-monitor` | `L3 Specialist` | 4★ | `direct`, `finance`, `l3`, `monitor`, `offline`, `original`, `policy`, `policy-monitoring` |
+
+## 法律 / 合规 / 税务
+
+| Skill | 横向层级 | 星级 | 标签 |
+|---|---|---:|---|
+| `anthropic-fs-operations-kyc-doc-parse` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-suite`, `institutional-finance`, `l3`, `legal-compliance`, `mcp-required`, `offline`, `operations` |
+| `anthropic-fs-operations-kyc-rules` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-suite`, `institutional-finance`, `l3`, `legal-compliance`, `mcp-required`, `offline`, `operations` |
 
 ## 效率 / 知识管理
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `proactive-agent` | `L2 Professional` | 5★ | `direct`, `l2`, `offline`, `productivity-pkm` |
+| `ima` | `L2 Professional` | 4★ | `api-key`, `knowledge`, `l2`, `notes`, `online`, `productivity`, `productivity-pkm`, `standard` |
 
 ## 记忆 / 上下文基础设施
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `claude-mem-plugin` | `L3 Specialist` | 5★ | `api-key`, `l3`, `memory-context`, `online` |
+| `claude-mem-plugin` | `L3 Specialist` | 5★ | `agent_infrastructure`, `api-key`, `l3`, `memory-context`, `memory_context`, `online` |
 
 ## 通信 / 社交集成
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `agentmail-cli` | `L3 Specialist` | 3★ | `api-key`, `communication`, `l3`, `online` |
+| `agentmail-cli` | `L3 Specialist` | 3★ | `api-key`, `communication`, `default_sentinel`, `l3`, `online` |
 
 ## 安全 / 审计
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `skill-vetter` | `L1 Foundation` | 5★ | `direct`, `l1`, `offline`, `security-audit` |
+| `skill-vetter` | `L1 Foundation` | 5★ | `direct`, `l1`, `offline`, `security`, `security-audit`, `standard` |
 
 ## 多 Agent / 自动调度
 
@@ -332,6 +428,6 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `skill-idea-miner` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline` |
-| `startup-analysis` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `online` |
-| `inference-skills` | `L3 Specialist` | 3★ | `api-key`, `commerce-ops`, `l3`, `online` |
+| `skill-idea-miner` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `offline`, `trading_finance` |
+| `startup-analysis` | `L3 Specialist` | 4★ | `commerce-ops`, `direct`, `l3`, `online`, `trading_finance` |
+| `inference-skills` | `L3 Specialist` | 3★ | `api-key`, `commerce-ops`, `default_sentinel`, `l3`, `online` |

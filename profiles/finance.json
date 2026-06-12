@@ -11,5 +11,62 @@
     "presentation_generation",
     "database_ops",
     "programmatic_seo"
+  ],
+  "skills": [
+    "llmquant-commodities",
+    "llmquant-credit",
+    "llmquant-crypto",
+    "llmquant-data",
+    "llmquant-equities",
+    "llmquant-equity-derivatives",
+    "llmquant-etfs",
+    "llmquant-events",
+    "llmquant-investor-lenses",
+    "llmquant-macro",
+    "llmquant-market-intelligence",
+    "llmquant-options",
+    "llmquant-portfolio",
+    "llmquant-portfolio-lab",
+    "llmquant-prediction-markets",
+    "llmquant-rates-fx",
+    "llmquant-risk",
+    "llmquant-strategies"
+  ],
+  "skill_suites": [
+    {
+      "id": "llmquant",
+      "title": "LLMQuant Institutional Finance Suite",
+      "description": "18 source-grounded finance router skills for U.S. equities, options, ETF, macro, credit, rates/FX, crypto, portfolio, risk, and PM strategy workflows. Requires LLMQuant Data MCP and LLMQUANT_API_KEY for live data.",
+      "source": "https://github.com/LLMQuant/skills",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "requires_tools": [
+        "mcp",
+        "node"
+      ],
+      "skills": [
+        "llmquant-commodities",
+        "llmquant-credit",
+        "llmquant-crypto",
+        "llmquant-data",
+        "llmquant-equities",
+        "llmquant-equity-derivatives",
+        "llmquant-etfs",
+        "llmquant-events",
+        "llmquant-investor-lenses",
+        "llmquant-macro",
+        "llmquant-market-intelligence",
+        "llmquant-options",
+        "llmquant-portfolio",
+        "llmquant-portfolio-lab",
+        "llmquant-prediction-markets",
+        "llmquant-rates-fx",
+        "llmquant-risk",
+        "llmquant-strategies"
+      ]
+    },
+    "anthropic-financial-services"
   ]
 }

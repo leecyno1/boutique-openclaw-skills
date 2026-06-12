@@ -90,6 +90,25 @@
       ]
     },
     {
+      "id": "ima",
+      "name": "ima",
+      "description": "Connect IMA notes, notebooks, and knowledge bases from OpenClaw or Hermes with safe authorization checks and read-only verification.",
+      "manual": "skills/default/ima/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ima/GUIDE.md",
+      "source": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ima",
+      "requires_api_keys": true,
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "groups": [
+        "notes",
+        "knowledge",
+        "productivity",
+        "standard"
+      ]
+    },
+    {
       "id": "ai-image-generation",
       "name": "ai-image-generation",
       "description": "Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.",

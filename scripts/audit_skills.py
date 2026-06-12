@@ -118,10 +118,11 @@ def main() -> int:
     if standard_bundle_path.exists():
         bundle = json.loads(standard_bundle_path.read_text(encoding="utf-8"))
         bundle_items = bundle.get("skills", [])
+        max_skills = int(bundle.get("max_skills") or 30)
         capabilities = [item.get("capability") for item in bundle_items]
         conflicts = [item.get("conflict_group") for item in bundle_items]
-        if len(bundle_items) > 30:
-            standard_bundle_issues.append("standard bundle has more than 30 skills")
+        if len(bundle_items) > max_skills:
+            standard_bundle_issues.append(f"standard bundle has more than {max_skills} skills")
         if len(set(capabilities)) != len(capabilities):
             standard_bundle_issues.append("standard bundle has duplicate capabilities")
         if len(set(conflicts)) != len(conflicts):

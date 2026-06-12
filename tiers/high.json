@@ -256,6 +256,1128 @@
       "groups": []
     },
     {
+      "id": "anthropic-fs-equity-research-catalyst-calendar",
+      "name": "anthropic-fs-equity-research-catalyst-calendar",
+      "description": "Build and maintain a calendar of upcoming catalysts across a coverage universe — earnings dates, conferences, product launches, regulatory decisions, and macro events. Helps prioritize attention and position ahead of events. Triggers on \"catalyst calendar\", \"upcoming events\", \"what's coming up\", \"earnings calendar\", \"event calendar\", or \"catalyst tracker\".",
+      "manual": "skills/default/anthropic-fs-equity-research-catalyst-calendar/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-catalyst-calendar/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/catalyst-calendar",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-earnings-analysis",
+      "name": "anthropic-fs-equity-research-earnings-analysis",
+      "description": "Create professional equity research earnings update reports (8-12 pages, 3,000-5,000 words) analyzing quarterly results for companies already under coverage. Fast-turnaround format focusing on beat/miss analysis, key metrics, updated estimates, and revised thesis. Includes 1-3 summary tables and 8-12 charts. Use when user requests \"earnings update\", \"quarterly update\", \"earnings analysis\", \"Q1/Q2/Q3/Q4 results\", or post-earnings report.",
+      "manual": "skills/default/anthropic-fs-equity-research-earnings-analysis/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-earnings-analysis/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/earnings-analysis",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-earnings-preview",
+      "name": "anthropic-fs-equity-research-earnings-preview",
+      "description": "Build pre-earnings analysis with estimate models, scenario frameworks, and key metrics to watch. Use before a company reports quarterly earnings to prepare positioning notes, set up bull/bear scenarios, and identify what will move the stock. Triggers on \"earnings preview\", \"what to watch for [company] earnings\", \"pre-earnings\", \"earnings setup\", or \"preview Q[X] for [company]\".",
+      "manual": "skills/default/anthropic-fs-equity-research-earnings-preview/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-earnings-preview/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/earnings-preview",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-idea-generation",
+      "name": "anthropic-fs-equity-research-idea-generation",
+      "description": "Systematic stock screening and investment idea sourcing. Combines quantitative screens, thematic research, and pattern recognition to surface new long and short ideas. Use when looking for new ideas, running screens, or conducting thematic sweeps. Triggers on \"idea generation\", \"stock screen\", \"find ideas\", \"what looks interesting\", \"screen for\", \"new ideas\", or \"pitch me something\".",
+      "manual": "skills/default/anthropic-fs-equity-research-idea-generation/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-idea-generation/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/idea-generation",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-initiating-coverage",
+      "name": "anthropic-fs-equity-research-initiating-coverage",
+      "description": "Create institutional-quality equity research initiation reports through a 5-task workflow. Tasks must be executed individually with verified prerequisites - (1) company research, (2) financial modeling, (3) valuation analysis, (4) chart generation, (5) final report assembly. Each task produces specific deliverables (markdown docs, Excel models, charts, or DOCX reports). Tasks 3-5 have dependencies on earlier tasks.",
+      "manual": "skills/default/anthropic-fs-equity-research-initiating-coverage/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-initiating-coverage/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/initiating-coverage",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-model-update",
+      "name": "anthropic-fs-equity-research-model-update",
+      "description": "Update financial models with new data — quarterly earnings, management guidance, macro changes, or revised assumptions. Adjusts estimates, recalculates valuation, and flags material changes. Use after earnings, guidance updates, or when assumptions need refreshing. Triggers on \"update model\", \"plug earnings\", \"refresh estimates\", \"update numbers for [company]\", \"new guidance\", or \"revise estimates\".",
+      "manual": "skills/default/anthropic-fs-equity-research-model-update/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-model-update/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/model-update",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-morning-note",
+      "name": "anthropic-fs-equity-research-morning-note",
+      "description": "Draft concise morning meeting notes summarizing overnight developments, trade ideas, and key events for coverage stocks. Designed for the 7am morning meeting format — tight, opinionated, actionable. Triggers on \"morning note\", \"morning meeting\", \"what happened overnight\", \"trade idea\", \"morning call prep\", or \"daily note\".",
+      "manual": "skills/default/anthropic-fs-equity-research-morning-note/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-morning-note/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/morning-note",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-sector-overview",
+      "name": "anthropic-fs-equity-research-sector-overview",
+      "description": "Create comprehensive industry and sector landscape reports covering market dynamics, competitive positioning, key players, and thematic trends. Use for client requests, sector initiations, thematic research pieces, or internal knowledge building. Triggers on \"sector overview\", \"industry report\", \"market landscape\", \"sector analysis\", \"industry deep dive\", or \"thematic research\".",
+      "manual": "skills/default/anthropic-fs-equity-research-sector-overview/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-sector-overview/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/sector-overview",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-equity-research-thesis-tracker",
+      "name": "anthropic-fs-equity-research-thesis-tracker",
+      "description": "Maintain and update investment theses for portfolio positions and watchlist names. Track key data points, catalysts, and thesis milestones over time. Use when updating a thesis with new information, reviewing position rationale, or checking if a thesis is still intact. Triggers on \"update thesis for [company]\", \"is my thesis still intact\", \"thesis check\", \"add data point to [company]\", or \"review my positions\".",
+      "manual": "skills/default/anthropic-fs-equity-research-thesis-tracker/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-equity-research-thesis-tracker/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/equity-research/skills/thesis-tracker",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "equity-research",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-3-statement-model",
+      "name": "anthropic-fs-financial-analysis-3-statement-model",
+      "description": "Complete, populate and fill out 3-statement financial model templates (Income Statement, Balance Sheet, Cash Flow Statement) . Use when asked to fill out model templates, complete existing model frameworks, populate financial models with data, complete a partially filled IS/BS/CF framework, or link integrated financial statements within an existing template structure. Triggers include requests to fill in, complete, or populate a 3-statement model template",
+      "manual": "skills/default/anthropic-fs-financial-analysis-3-statement-model/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-3-statement-model/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/3-statement-model",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-audit-xls",
+      "name": "anthropic-fs-financial-analysis-audit-xls",
+      "description": "Audit a spreadsheet for formula accuracy, errors, and common mistakes. Scopes to a selected range, a single sheet, or the entire model (including financial-model integrity checks like BS balance, cash tie-out, and logic sanity). Triggers on \"audit this sheet\", \"check my formulas\", \"find formula errors\", \"QA this spreadsheet\", \"sanity check this\", \"debug model\", \"model check\", \"model won't balance\", \"something's off in my model\", \"model review\".",
+      "manual": "skills/default/anthropic-fs-financial-analysis-audit-xls/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-audit-xls/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/audit-xls",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-clean-data-xls",
+      "name": "anthropic-fs-financial-analysis-clean-data-xls",
+      "description": "Clean up messy spreadsheet data — trim whitespace, fix inconsistent casing, convert numbers-stored-as-text, standardize dates, remove duplicates, and flag mixed-type columns. Use when data is messy, inconsistent, or needs prep before analysis. Triggers on \"clean this data\", \"clean up this sheet\", \"normalize this data\", \"fix formatting\", \"dedupe\", \"standardize this column\", \"this data is messy\".",
+      "manual": "skills/default/anthropic-fs-financial-analysis-clean-data-xls/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-clean-data-xls/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/clean-data-xls",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-competitive-analysis",
+      "name": "anthropic-fs-financial-analysis-competitive-analysis",
+      "description": "Framework for building competitive landscape decks — market positioning, competitor deep-dives, comparative analysis, strategic synthesis. Use when the user asks for a competitive landscape, competitor analysis, peer comparison, market positioning assessment, strategic review, or investment memo deck. Also triggers on \"who are the competitors to X\", \"benchmark X against peers\", \"build a market map\", or any request to systematically evaluate competitive dynamics across an industry.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-competitive-analysis/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-competitive-analysis/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/competitive-analysis",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-comps-analysis",
+      "name": "anthropic-fs-financial-analysis-comps-analysis",
+      "description": "Build institutional-grade comparable company analyses with operating metrics, valuation multiples, and statistical benchmarking in Excel/spreadsheet format.  **Perfect for:** - Public company valuation (M&A, investment analysis) - Benchmarking performance vs. industry peers - Pricing IPOs or funding rounds - Identifying valuation outliers (over/under-valued) - Supporting investment committee presentations - Creating sector overview reports  **Not ideal for:** - Private companies without comparable public peers - Highly diversified conglomerates - Distressed/bankrupt companies - Pre-revenue startups - Companies with unique business models",
+      "manual": "skills/default/anthropic-fs-financial-analysis-comps-analysis/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-comps-analysis/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/comps-analysis",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-dcf-model",
+      "name": "anthropic-fs-financial-analysis-dcf-model",
+      "description": "Real DCF (Discounted Cash Flow) model creation for equity valuation. Retrieves financial data from SEC filings and analyst reports, builds comprehensive cash flow projections with proper WACC calculations, performs sensitivity analysis, and outputs professional Excel models with executive summaries. Use when users need to value a company using DCF methodology, request intrinsic value analysis, or ask for detailed financial modeling with growth projections and terminal value calculations.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-dcf-model/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-dcf-model/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/dcf-model",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-deck-refresh",
+      "name": "anthropic-fs-financial-analysis-deck-refresh",
+      "description": "Updates a presentation with new numbers — quarterly refreshes, earnings updates, comp rolls, rebased market data. Use whenever the user asks to \"update the deck with Q4 numbers\", \"refresh the comps\", \"roll this forward\", \"swap in the new earnings\", \"change all the $485M to $512M\", or any request to swap figures across an existing deck without rebuilding it.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-deck-refresh/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-deck-refresh/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/deck-refresh",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-ib-check-deck",
+      "name": "anthropic-fs-financial-analysis-ib-check-deck",
+      "description": "Investment banking presentation quality checker. Reviews a pitch deck or client-ready presentation for (1) number consistency across slides, (2) data-narrative alignment, (3) language polish against IB standards, (4) visual and formatting QC. Use whenever the user asks to review, check, QC, proof, or do a final pass on a deck, pitch, or client materials — including requests like \"check my numbers\", \"reconcile figures across slides\", \"is this client-ready\", or \"what am I missing before I send this out\".",
+      "manual": "skills/default/anthropic-fs-financial-analysis-ib-check-deck/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-ib-check-deck/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/ib-check-deck",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-lbo-model",
+      "name": "anthropic-fs-financial-analysis-lbo-model",
+      "description": "This skill should be used when completing LBO (Leveraged Buyout) model templates in Excel for private equity transactions, deal materials, or investment committee presentations. The skill fills in formulas, validates calculations, and ensures professional formatting standards that adapt to any template structure.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-lbo-model/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-lbo-model/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/lbo-model",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-ppt-template-creator",
+      "name": "anthropic-fs-financial-analysis-ppt-template-creator",
+      "description": "Creates self-contained PPT template SKILLS (not presentations) from user-provided PowerPoint templates. Use ONLY when a user wants to create a reusable skill from their template. For creating actual presentations, use the pptx skill instead.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-ppt-template-creator/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-ppt-template-creator/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/ppt-template-creator",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-pptx-author",
+      "name": "anthropic-fs-financial-analysis-pptx-author",
+      "description": "Produce a .pptx file on disk (headless) instead of driving a live PowerPoint document — for managed-agent sessions with no open Office app.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-pptx-author/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-pptx-author/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/pptx-author",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-skill-creator",
+      "name": "anthropic-fs-financial-analysis-skill-creator",
+      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-skill-creator/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-skill-creator/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/skill-creator",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-financial-analysis-xlsx-author",
+      "name": "anthropic-fs-financial-analysis-xlsx-author",
+      "description": "Produce a .xlsx file on disk (headless) instead of driving a live Excel workbook — for managed-agent sessions with no open Office app.",
+      "manual": "skills/default/anthropic-fs-financial-analysis-xlsx-author/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-financial-analysis-xlsx-author/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/xlsx-author",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "financial-analysis",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-fund-admin-accrual-schedule",
+      "name": "anthropic-fs-fund-admin-accrual-schedule",
+      "description": "Build the period-end accrual schedule — for each accrual, compute the entry, cite the support, and draft the JE. Use during month-end close; the JE is a draft for controller approval, not a posting.",
+      "manual": "skills/default/anthropic-fs-fund-admin-accrual-schedule/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-fund-admin-accrual-schedule/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/fund-admin/skills/accrual-schedule",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "fund-admin",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-fund-admin-break-trace",
+      "name": "anthropic-fs-fund-admin-break-trace",
+      "description": "Root-cause a reconciliation break to its source transaction or posting — follow the audit trail from the break row back to the originating entry on each side and state what differs and why. Use after gl-recon has classified a break.",
+      "manual": "skills/default/anthropic-fs-fund-admin-break-trace/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-fund-admin-break-trace/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/fund-admin/skills/break-trace",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "fund-admin",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-fund-admin-gl-recon",
+      "name": "anthropic-fs-fund-admin-gl-recon",
+      "description": "Reconcile general ledger to subledger for a trade date or period — match at the position or transaction level, surface breaks, and classify each break by likely cause. Use for daily or month-end recon runs across asset classes.",
+      "manual": "skills/default/anthropic-fs-fund-admin-gl-recon/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-fund-admin-gl-recon/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/fund-admin/skills/gl-recon",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "fund-admin",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-fund-admin-nav-tieout",
+      "name": "anthropic-fs-fund-admin-nav-tieout",
+      "description": "Tie an LP statement to the fund's NAV pack — recompute the LP's capital account from the NAV components and flag any line that doesn't agree. Use before LP statements are distributed.",
+      "manual": "skills/default/anthropic-fs-fund-admin-nav-tieout/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-fund-admin-nav-tieout/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/fund-admin/skills/nav-tieout",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "fund-admin",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-fund-admin-roll-forward",
+      "name": "anthropic-fs-fund-admin-roll-forward",
+      "description": "Build a roll-forward schedule for a balance-sheet account — beginning balance plus activity less reversals equals ending balance, with each component tied to GL. Use for month-end close packages and audit support.",
+      "manual": "skills/default/anthropic-fs-fund-admin-roll-forward/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-fund-admin-roll-forward/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/fund-admin/skills/roll-forward",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "fund-admin",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-fund-admin-variance-commentary",
+      "name": "anthropic-fs-fund-admin-variance-commentary",
+      "description": "Write flux commentary for every P&L and balance-sheet line over threshold — current vs prior period and vs budget, with the driver explained from underlying activity. Use for the month-end close package and management reporting.",
+      "manual": "skills/default/anthropic-fs-fund-admin-variance-commentary/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-fund-admin-variance-commentary/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/fund-admin/skills/variance-commentary",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "fund-admin",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-buyer-list",
+      "name": "anthropic-fs-investment-banking-buyer-list",
+      "description": "Build and organize a universe of potential acquirers for sell-side M&A processes. Identifies strategic and financial buyers, assesses fit, and prioritizes outreach. Use when preparing for a sell-side mandate, building a buyer universe, or evaluating potential partners. Triggers on \"buyer list\", \"buyer universe\", \"potential acquirers\", \"who would buy this\", \"strategic buyers\", or \"financial sponsors\".",
+      "manual": "skills/default/anthropic-fs-investment-banking-buyer-list/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-buyer-list/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/buyer-list",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-cim-builder",
+      "name": "anthropic-fs-investment-banking-cim-builder",
+      "description": "Structure and draft a Confidential Information Memorandum for sell-side M&A processes. Organizes company information into a professional, investor-ready document with consistent formatting and narrative flow. Use when preparing sell-side materials, drafting a CIM, or organizing company data for a sale process. Triggers on \"CIM\", \"confidential information memorandum\", \"offering memorandum\", \"info memo\", \"draft CIM\", or \"sell-side materials\".",
+      "manual": "skills/default/anthropic-fs-investment-banking-cim-builder/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-cim-builder/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/cim-builder",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-datapack-builder",
+      "name": "anthropic-fs-investment-banking-datapack-builder",
+      "description": "Build professional financial services data packs from various sources including CIMs, offering memorandums, SEC filings, web search, or MCP servers. Extract, normalize, and standardize financial data into investment committee-ready Excel workbooks with consistent structure, proper formatting, and documented assumptions. Use for M&A due diligence, private equity analysis, investment committee materials, and standardizing financial reporting across portfolio companies. Do not use for simple financial calculations or working with already-completed data packs.",
+      "manual": "skills/default/anthropic-fs-investment-banking-datapack-builder/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-datapack-builder/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/datapack-builder",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-deal-tracker",
+      "name": "anthropic-fs-investment-banking-deal-tracker",
+      "description": "Track multiple live deals with milestones, deadlines, action items, and status updates. Maintains a deal pipeline view and surfaces upcoming deadlines and overdue items. Use when managing a book of business, tracking process milestones, or preparing for weekly deal reviews. Triggers on \"deal tracker\", \"deal status\", \"where are we on\", \"process update\", \"deal pipeline\", or \"weekly deal review\".",
+      "manual": "skills/default/anthropic-fs-investment-banking-deal-tracker/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-deal-tracker/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/deal-tracker",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-merger-model",
+      "name": "anthropic-fs-investment-banking-merger-model",
+      "description": "Build accretion/dilution analysis for M&A transactions. Models pro forma EPS impact, synergy sensitivities, and purchase price allocation. Use when evaluating a potential acquisition, preparing merger consequences analysis for a pitch, or advising on deal terms. Triggers on \"merger model\", \"accretion dilution\", \"M&A model\", \"pro forma EPS\", \"merger consequences\", or \"deal impact analysis\".",
+      "manual": "skills/default/anthropic-fs-investment-banking-merger-model/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-merger-model/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/merger-model",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-pitch-deck",
+      "name": "anthropic-fs-investment-banking-pitch-deck",
+      "description": "Populates investment banking pitch deck templates with data from source files. Use when: user provides a PowerPoint template to fill in, user has source data (Excel/CSV) to populate into slides, user mentions populating or filling a pitch deck template, or user needs to transfer data into existing slide layouts. Not for creating presentations from scratch.",
+      "manual": "skills/default/anthropic-fs-investment-banking-pitch-deck/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-pitch-deck/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/pitch-deck",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-process-letter",
+      "name": "anthropic-fs-investment-banking-process-letter",
+      "description": "Draft process letters and bid instructions for sell-side M&A processes. Covers initial indication of interest (IOI) instructions, final bid procedures, and management meeting logistics. Triggers on \"process letter\", \"bid instructions\", \"IOI letter\", \"bid procedures\", \"final round letter\", or \"management meeting invite\".",
+      "manual": "skills/default/anthropic-fs-investment-banking-process-letter/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-process-letter/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/process-letter",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-strip-profile",
+      "name": "anthropic-fs-investment-banking-strip-profile",
+      "description": "Creates professional investment banking strip profiles (company profiles) for pitch books, deal materials, and client presentations. Generates 1-4 information-dense slides with quadrant layouts, charts, and tables.",
+      "manual": "skills/default/anthropic-fs-investment-banking-strip-profile/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-strip-profile/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/strip-profile",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-investment-banking-teaser",
+      "name": "anthropic-fs-investment-banking-teaser",
+      "description": "Draft anonymous one-page company teasers for sell-side M&A processes. Creates a compelling summary without revealing the company's identity, designed to gauge buyer interest before NDA execution. Triggers on \"teaser\", \"blind teaser\", \"anonymous profile\", \"one-pager for process\", or \"draft teaser for sell-side\".",
+      "manual": "skills/default/anthropic-fs-investment-banking-teaser/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-investment-banking-teaser/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/investment-banking/skills/teaser",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "investment-banking",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-bond-futures-basis",
+      "name": "anthropic-fs-lseg-bond-futures-basis",
+      "description": "Analyze the bond futures basis by pricing futures, identifying the cheapest-to-deliver, and comparing with yield curves to assess delivery option value and basis trading opportunities. Use when analyzing bond futures, computing the basis, identifying CTD bonds, calculating implied repo rates, or evaluating basis trades.",
+      "manual": "skills/default/anthropic-fs-lseg-bond-futures-basis/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-bond-futures-basis/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/bond-futures-basis",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-bond-relative-value",
+      "name": "anthropic-fs-lseg-bond-relative-value",
+      "description": "Perform relative value analysis on bonds by combining pricing, yield curve context, credit spreads, and scenario stress testing. Use when analyzing bond richness/cheapness, computing spread decomposition, comparing bonds, assessing bond value vs curves, or running rate shock scenarios.",
+      "manual": "skills/default/anthropic-fs-lseg-bond-relative-value/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-bond-relative-value/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/bond-relative-value",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-equity-research",
+      "name": "anthropic-fs-lseg-equity-research",
+      "description": "Generate comprehensive equity research snapshots combining analyst consensus estimates, company fundamentals, historical prices, and macroeconomic context. Use when researching stocks, comparing estimates to actuals, analyzing company financials, assessing equity valuations, or building investment cases.",
+      "manual": "skills/default/anthropic-fs-lseg-equity-research/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-equity-research/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/equity-research",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-fixed-income-portfolio",
+      "name": "anthropic-fs-lseg-fixed-income-portfolio",
+      "description": "Review fixed income portfolios by pricing multiple bonds, retrieving reference data, analyzing cashflows, and running scenario analysis. Use when reviewing bond portfolios, computing portfolio duration and DV01, analyzing cashflow waterfalls, stress testing rate scenarios, or assessing portfolio composition.",
+      "manual": "skills/default/anthropic-fs-lseg-fixed-income-portfolio/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-fixed-income-portfolio/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/fixed-income-portfolio",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-fx-carry-trade",
+      "name": "anthropic-fs-lseg-fx-carry-trade",
+      "description": "Evaluate FX carry trade opportunities by combining spot rates, forward points, interest rate differentials, volatility surface analysis, and historical price trends. Use when analyzing carry trades, comparing FX forward curves, assessing carry-to-vol ratios, or evaluating currency pair opportunities.",
+      "manual": "skills/default/anthropic-fs-lseg-fx-carry-trade/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-fx-carry-trade/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/fx-carry-trade",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-macro-rates-monitor",
+      "name": "anthropic-fs-lseg-macro-rates-monitor",
+      "description": "Build macroeconomic and rates dashboards combining macro indicators, yield curves, inflation breakevens, and swap rates. Use when monitoring macro conditions, analyzing yield curve shape, decomposing real vs nominal rates, assessing policy rate expectations, or evaluating financial conditions.",
+      "manual": "skills/default/anthropic-fs-lseg-macro-rates-monitor/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-macro-rates-monitor/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/macro-rates-monitor",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-option-vol-analysis",
+      "name": "anthropic-fs-lseg-option-vol-analysis",
+      "description": "Analyze option volatility by combining vol surface data, option pricing with Greeks, and historical price data to assess implied vs realized volatility. Use when pricing options, analyzing volatility surfaces, computing Greeks, assessing vol premiums, or evaluating vol trading strategies.",
+      "manual": "skills/default/anthropic-fs-lseg-option-vol-analysis/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-option-vol-analysis/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/option-vol-analysis",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-lseg-swap-curve-strategy",
+      "name": "anthropic-fs-lseg-swap-curve-strategy",
+      "description": "Analyze the interest rate swap curve by pricing swaps at multiple tenors, overlaying government and inflation curves, and identifying curve trade opportunities. Use when analyzing swap curves, computing swap spreads, decomposing real rates, identifying steepener/flattener/butterfly trades, or comparing swap rates across currencies.",
+      "manual": "skills/default/anthropic-fs-lseg-swap-curve-strategy/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-lseg-swap-curve-strategy/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/lseg/skills/swap-curve-strategy",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "lseg",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-operations-kyc-doc-parse",
+      "name": "anthropic-fs-operations-kyc-doc-parse",
+      "description": "Parse an investor or client onboarding packet into structured KYC fields — identity, ownership, control, source of funds, and document inventory. Use as the first step of KYC screening; output feeds the rules engine.",
+      "manual": "skills/default/anthropic-fs-operations-kyc-doc-parse/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-operations-kyc-doc-parse/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/operations/skills/kyc-doc-parse",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "operations",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-operations-kyc-rules",
+      "name": "anthropic-fs-operations-kyc-rules",
+      "description": "Apply the firm's KYC/AML rules grid to a parsed onboarding record — assign a risk rating, list every rule outcome with the rule cited, and flag what's missing or escalation-worthy. Use after kyc-doc-parse; this skill decides nothing, it scores and routes.",
+      "manual": "skills/default/anthropic-fs-operations-kyc-rules/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-operations-kyc-rules/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/operations/skills/kyc-rules",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "operations",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-ai-readiness",
+      "name": "anthropic-fs-private-equity-ai-readiness",
+      "description": "Scan the portfolio for the highest-leverage AI opportunities and rank where to deploy operating-partner time. Ingests quarterly updates and financials across multiple portfolio companies, identifies quick wins at each, and stacks them into a single ranked action list. Use during quarterly portfolio reviews, annual planning, or when deciding which companies get AI investment first. Triggers on \"AI readiness\", \"AI opportunity scan\", \"where should we deploy AI\", \"AI across the portfolio\", \"AI quick wins\", or \"which portcos are ready for AI\".",
+      "manual": "skills/default/anthropic-fs-private-equity-ai-readiness/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-ai-readiness/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/ai-readiness",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-dd-checklist",
+      "name": "anthropic-fs-private-equity-dd-checklist",
+      "description": "Generate and track comprehensive due diligence checklists tailored to the target company's sector, deal type, and complexity. Covers all major workstreams with request lists, status tracking, and red flag escalation. Use when kicking off diligence, organizing a data room review, or tracking outstanding items. Triggers on \"dd checklist\", \"due diligence tracker\", \"diligence request list\", \"what do we still need\", or \"data room review\".",
+      "manual": "skills/default/anthropic-fs-private-equity-dd-checklist/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-dd-checklist/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/dd-checklist",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-dd-meeting-prep",
+      "name": "anthropic-fs-private-equity-dd-meeting-prep",
+      "description": "Prepare for due diligence meetings — management presentations, expert network calls, customer references, and advisor sessions. Generates targeted question lists, benchmarks to reference, and red flags to probe. Use before any diligence meeting or call. Triggers on \"prep for management meeting\", \"diligence call prep\", \"expert call questions\", \"customer reference questions\", or \"meeting prep for [company]\".",
+      "manual": "skills/default/anthropic-fs-private-equity-dd-meeting-prep/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-dd-meeting-prep/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/dd-meeting-prep",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-deal-screening",
+      "name": "anthropic-fs-private-equity-deal-screening",
+      "description": "Quickly screen inbound deal flow — CIMs, teasers, and broker materials — against the fund's investment criteria. Extracts key deal metrics, runs a pass/fail framework, and outputs a one-page screening memo. Use when reviewing new deal flow, triaging inbound materials, or deciding whether to take a first call. Triggers on \"screen this deal\", \"review this CIM\", \"should we look at this\", \"triage this teaser\", or \"deal screening\".",
+      "manual": "skills/default/anthropic-fs-private-equity-deal-screening/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-deal-screening/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/deal-screening",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-deal-sourcing",
+      "name": "anthropic-fs-private-equity-deal-sourcing",
+      "description": "PE deal sourcing workflow — discover target companies, check CRM for existing relationships, and draft personalized founder outreach emails. Use when sourcing new deals, prospecting companies in a sector, or reaching out to founders. Triggers on \"find companies\", \"source deals\", \"draft founder email\", \"check if we've seen this company\", or \"outreach to founder\".",
+      "manual": "skills/default/anthropic-fs-private-equity-deal-sourcing/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-deal-sourcing/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/deal-sourcing",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-ic-memo",
+      "name": "anthropic-fs-private-equity-ic-memo",
+      "description": "Draft a structured investment committee memo for PE deal approval. Synthesizes due diligence findings, financial analysis, and deal terms into a professional IC-ready document. Use when preparing for investment committee, writing up a deal, or creating a formal recommendation. Triggers on \"write IC memo\", \"investment committee memo\", \"deal write-up\", \"prepare IC materials\", or \"recommendation memo\".",
+      "manual": "skills/default/anthropic-fs-private-equity-ic-memo/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-ic-memo/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/ic-memo",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-portfolio-monitoring",
+      "name": "anthropic-fs-private-equity-portfolio-monitoring",
+      "description": "Track and analyze portfolio company performance against plan. Ingests monthly/quarterly financial packages (Excel, PDF), extracts KPIs, flags variances to budget, and produces summary dashboards. Use when reviewing portfolio company financials, preparing board materials, or monitoring covenant compliance. Triggers on \"review portfolio company\", \"monthly financials\", \"how is [company] performing\", \"covenant check\", or \"portfolio update\".",
+      "manual": "skills/default/anthropic-fs-private-equity-portfolio-monitoring/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-portfolio-monitoring/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/portfolio-monitoring",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-returns-analysis",
+      "name": "anthropic-fs-private-equity-returns-analysis",
+      "description": "Build quick IRR/MOIC sensitivity tables for PE deal evaluation. Models returns across entry multiple, leverage, exit multiple, growth, and hold period scenarios. Use when sizing up a deal, stress-testing assumptions, or preparing IC returns exhibits. Triggers on \"returns analysis\", \"IRR sensitivity\", \"MOIC table\", \"what's the return at\", \"model the returns\", or \"back of the envelope\".",
+      "manual": "skills/default/anthropic-fs-private-equity-returns-analysis/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-returns-analysis/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/returns-analysis",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-unit-economics",
+      "name": "anthropic-fs-private-equity-unit-economics",
+      "description": "Analyze unit economics for PE targets — ARR cohorts, LTV/CAC, net retention, payback periods, revenue quality, and margin waterfall. Essential for software/SaaS, recurring revenue, and subscription businesses. Use when evaluating revenue quality, building a cohort analysis, or assessing customer economics. Triggers on \"unit economics\", \"cohort analysis\", \"ARR analysis\", \"LTV CAC\", \"net retention\", \"revenue quality\", or \"customer economics\".",
+      "manual": "skills/default/anthropic-fs-private-equity-unit-economics/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-unit-economics/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/unit-economics",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-private-equity-value-creation-plan",
+      "name": "anthropic-fs-private-equity-value-creation-plan",
+      "description": "Structure post-acquisition value creation plans with revenue, cost, and operational levers mapped to an EBITDA bridge. Includes 100-day priorities, KPI targets, and accountability frameworks. Use when planning post-close execution, preparing operating partner materials, or building a board-ready value creation roadmap. Triggers on \"value creation plan\", \"100-day plan\", \"post-close plan\", \"EBITDA bridge\", \"operating plan\", or \"value creation levers\".",
+      "manual": "skills/default/anthropic-fs-private-equity-value-creation-plan/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-private-equity-value-creation-plan/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/private-equity/skills/value-creation-plan",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "private-equity",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-spglobal-earnings-preview-beta",
+      "name": "anthropic-fs-spglobal-earnings-preview-beta",
+      "description": "Generate a concise 4-5 page equity research earnings preview for a single company. Analyzes the most recent earnings transcript, competitor landscape, valuation, and recent news to produce a professional HTML report.",
+      "manual": "skills/default/anthropic-fs-spglobal-earnings-preview-beta/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-spglobal-earnings-preview-beta/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/spglobal/skills/earnings-preview-beta",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "spglobal",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-spglobal-funding-digest",
+      "name": "anthropic-fs-spglobal-funding-digest",
+      "description": "Generate a polished one-page PowerPoint slide summarizing key takeaways from recent funding rounds and notable capital markets activity across a user's watched sectors or companies. Use this skill when the user asks for a deal flow summary, weekly recap, funding digest, transaction roundup, or capital markets briefing. Triggers on: 'deal flow digest', 'weekly funding recap', 'deal roundup', 'transaction summary this week', 'what happened in [sector] this week', 'capital markets update', or any request to compile recent funding activity into a briefing slide. Produces a professional single-slide PPTX with key takeaways, valuation data, and Capital IQ deal links.",
+      "manual": "skills/default/anthropic-fs-spglobal-funding-digest/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-spglobal-funding-digest/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/spglobal/skills/funding-digest",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "spglobal",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-spglobal-tear-sheet",
+      "name": "anthropic-fs-spglobal-tear-sheet",
+      "description": "Generate professional company tear sheets using S&P Capital IQ data via the Kensho LLM-ready API MCP server. Use this skill whenever the user asks for a tear sheet, company one-pager, company profile, fact sheet, company snapshot, or company overview document — especially when they mention a specific company name or ticker. Also trigger when users ask for equity research summaries, M&A company profiles, corporate development target profiles, sales/BD meeting prep documents, or any concise single-company financial summary. This skill supports four audience types: equity research, investment banking/M&A, corporate development, and sales/business development. If the user doesn't specify an audience, ask. Works for both public and private companies.",
+      "manual": "skills/default/anthropic-fs-spglobal-tear-sheet/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-spglobal-tear-sheet/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/spglobal/skills/tear-sheet",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "spglobal",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-wealth-management-client-report",
+      "name": "anthropic-fs-wealth-management-client-report",
+      "description": "Generate professional client-facing performance reports with portfolio returns, allocation breakdowns, and market commentary. Suitable for quarterly or annual distribution. Triggers on \"client report\", \"performance report\", \"quarterly report for [client]\", \"generate reports\", or \"client statement\".",
+      "manual": "skills/default/anthropic-fs-wealth-management-client-report/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-wealth-management-client-report/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/wealth-management/skills/client-report",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "wealth-management",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-wealth-management-client-review",
+      "name": "anthropic-fs-wealth-management-client-review",
+      "description": "Prepare for client review meetings with portfolio performance summary, allocation analysis, talking points, and action items. Pulls together account data into a concise meeting-ready format. Use before quarterly reviews, annual checkups, or ad-hoc client meetings. Triggers on \"client review\", \"meeting prep for [client]\", \"quarterly review\", \"prep for [client name]\", or \"client meeting\".",
+      "manual": "skills/default/anthropic-fs-wealth-management-client-review/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-wealth-management-client-review/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/wealth-management/skills/client-review",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "wealth-management",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-wealth-management-financial-plan",
+      "name": "anthropic-fs-wealth-management-financial-plan",
+      "description": "Build or update a comprehensive financial plan covering retirement projections, education funding, estate planning, and cash flow analysis. Use for new client onboarding, annual plan reviews, or scenario modeling. Triggers on \"financial plan\", \"retirement plan\", \"can I retire\", \"education funding\", \"estate plan\", \"cash flow analysis\", or \"plan update\".",
+      "manual": "skills/default/anthropic-fs-wealth-management-financial-plan/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-wealth-management-financial-plan/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/wealth-management/skills/financial-plan",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "wealth-management",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-wealth-management-investment-proposal",
+      "name": "anthropic-fs-wealth-management-investment-proposal",
+      "description": "Create professional investment proposals for prospective clients. Covers the firm's approach, proposed allocation, expected outcomes, and fee structure. Use when pitching new clients or presenting a new investment strategy. Triggers on \"investment proposal\", \"prospect presentation\", \"pitch new client\", \"proposal for [client]\", or \"new client presentation\".",
+      "manual": "skills/default/anthropic-fs-wealth-management-investment-proposal/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-wealth-management-investment-proposal/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/wealth-management/skills/investment-proposal",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "wealth-management",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-wealth-management-portfolio-rebalance",
+      "name": "anthropic-fs-wealth-management-portfolio-rebalance",
+      "description": "Analyze portfolio allocation drift and generate rebalancing trade recommendations across accounts. Considers tax implications, transaction costs, and wash sale rules. Triggers on \"rebalance\", \"portfolio drift\", \"allocation check\", \"rebalancing trades\", or \"my portfolio is out of balance\".",
+      "manual": "skills/default/anthropic-fs-wealth-management-portfolio-rebalance/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-wealth-management-portfolio-rebalance/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/wealth-management/skills/portfolio-rebalance",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "wealth-management",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
+      "id": "anthropic-fs-wealth-management-tax-loss-harvesting",
+      "name": "anthropic-fs-wealth-management-tax-loss-harvesting",
+      "description": "Identify tax-loss harvesting opportunities across taxable accounts. Finds positions with unrealized losses, suggests replacement securities, and tracks wash sale windows. Triggers on \"tax-loss harvesting\", \"TLH\", \"harvest losses\", \"tax losses\", \"unrealized losses\", or \"year-end tax planning\".",
+      "manual": "skills/default/anthropic-fs-wealth-management-tax-loss-harvesting/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/anthropic-fs-wealth-management-tax-loss-harvesting/SKILL.md",
+      "source": "https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/wealth-management/skills/tax-loss-harvesting",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "finance",
+        "anthropic-financial-services",
+        "wealth-management",
+        "mcp-required",
+        "enterprise-data"
+      ]
+    },
+    {
       "id": "backtest-expert",
       "name": "backtest-expert",
       "description": "Expert guidance for systematic backtesting of trading strategies.",
@@ -622,6 +1744,24 @@
       "groups": []
     },
     {
+      "id": "claude-mem-plugin",
+      "name": "claude-mem-plugin",
+      "description": "Codex/OpenClaw-compatible persistent memory plugin with hooks, MCP search, local worker, and compressed cross-session context.",
+      "manual": "skills/default/claude-mem-plugin/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/claude-mem-plugin/SKILL.md",
+      "source": "https://github.com/thedotmack/claude-mem",
+      "requires_api_keys": true,
+      "api_keys": [
+        "ANTHROPIC_API_KEY",
+        "OPENROUTER_API_KEY",
+        "GEMINI_API_KEY"
+      ],
+      "groups": [
+        "agent_infrastructure",
+        "memory_context"
+      ]
+    },
+    {
       "id": "codex-responses-tooling",
       "name": "codex-responses-tooling",
       "description": "高级版默认生图技能：读取本机 Codex Responses API 配置，流式调用 image_generation 并保存图片结果。",
@@ -686,6 +1826,21 @@
       "groups": [
         "trading_finance"
       ]
+    },
+    {
+      "id": "dbskill",
+      "name": "dbskill",
+      "description": "内容增长与爆款选题套件，覆盖标题优化、痛点拆解、内容框架和社媒 hook。",
+      "manual": "skills/default/dbskill/SKILL.md",
+      "source": "https://github.com/dontbesilent2025/dbskill",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "creator",
+        "marketing",
+        "content-growth"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dbskill/SKILL.md"
     },
     {
       "id": "discord-reader",
@@ -1140,6 +2295,36 @@
       "groups": []
     },
     {
+      "id": "guizang-ppt-skill",
+      "name": "guizang-ppt-skill",
+      "description": "文章一键生成网页 PPT，自动提炼要点，支持墨水与瑞士风版式，可导出 PDF/PNG。",
+      "manual": "skills/default/guizang-ppt-skill/SKILL.md",
+      "source": "https://github.com/op7418/guizang-ppt-skill",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "creator",
+        "presentation",
+        "html-publishing"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-ppt-skill/SKILL.md"
+    },
+    {
+      "id": "guizang-social-card-skill",
+      "name": "guizang-social-card-skill",
+      "description": "新媒体封面与社交卡片制作技能，面向小红书卡片、公众号头图和多平台视觉发布。",
+      "manual": "skills/default/guizang-social-card-skill/SKILL.md",
+      "source": "https://github.com/op7418/guizang-social-card-skill",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "creator",
+        "design",
+        "social-card"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-social-card-skill/SKILL.md"
+    },
+    {
       "id": "hormuz-strait",
       "name": "hormuz-strait",
       "description": "Check the current status of the Strait of Hormuz — shipping transit data, oil price impact, stranded vessels, insurance risk levels, diplomatic developments, and global trade impact.",
@@ -1151,6 +2336,52 @@
       "groups": [
         "trading_finance"
       ]
+    },
+    {
+      "id": "html-anything",
+      "name": "html-anything",
+      "description": "Local-first agentic HTML publishing suite with 78 upstream templates for articles, decks, posters, social cards, prototypes, data reports, and HTML/PNG export.",
+      "manual": "skills/default/html-anything/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/html-anything/SKILL.md",
+      "source": "https://github.com/nexu-io/html-anything",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "html_publishing",
+        "design_ui",
+        "writing_content",
+        "media_generation"
+      ]
+    },
+    {
+      "id": "humanizer-zh",
+      "name": "humanizer-zh",
+      "description": "中文文稿拟人优化技能，通过文本规则弱化机器腔、翻译腔和不自然表达。",
+      "manual": "skills/default/humanizer-zh/SKILL.md",
+      "source": "https://github.com/idao-cube/humanizer-zh",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "creator",
+        "writing",
+        "polish"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/humanizer-zh/SKILL.md"
+    },
+    {
+      "id": "ian-xiaohei-illustrations",
+      "name": "ian-xiaohei-illustrations",
+      "description": "手绘黑白简笔配图技能，根据正文生成知识类文章插画，并支持少量亮色点缀。",
+      "manual": "skills/default/ian-xiaohei-illustrations/SKILL.md",
+      "source": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "creator",
+        "illustration",
+        "media-generation"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ian-xiaohei-illustrations/SKILL.md"
     },
     {
       "id": "ibd-distribution-day-monitor",
@@ -1165,6 +2396,25 @@
       ],
       "groups": [
         "trading_finance"
+      ]
+    },
+    {
+      "id": "ima",
+      "name": "ima",
+      "description": "Connect IMA notes, notebooks, and knowledge bases from OpenClaw or Hermes with safe authorization checks and read-only verification.",
+      "manual": "skills/default/ima/GUIDE.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ima/GUIDE.md",
+      "source": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ima",
+      "requires_api_keys": true,
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "groups": [
+        "notes",
+        "knowledge",
+        "productivity",
+        "standard"
       ]
     },
     {
@@ -1251,6 +2501,21 @@
       ]
     },
     {
+      "id": "khazix-skills",
+      "name": "khazix-skills",
+      "description": "长文与行业报告创作套件，提供深度写作、热点分析、高价值分析与文稿自检流程。",
+      "manual": "skills/default/khazix-skills/SKILL.md",
+      "source": "https://github.com/KKKKhazix/khazix-skills",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "creator",
+        "writing",
+        "research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/khazix-skills/SKILL.md"
+    },
+    {
       "id": "lark-calendar",
       "name": "lark-calendar",
       "description": "Create, update, and delete calendar events and tasks in Lark (Feishu).",
@@ -1277,6 +2542,330 @@
       "groups": [
         "trading_finance"
       ]
+    },
+    {
+      "id": "llmquant-commodities",
+      "name": "llmquant-commodities",
+      "description": "Router skill for LLMQuant commodities workflows. Use when the user needs commodity spot, futures curve, inventory, roll yield, or macro linkage analysis.",
+      "manual": "skills/default/llmquant-commodities/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-commodities",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-commodities/SKILL.md"
+    },
+    {
+      "id": "llmquant-credit",
+      "name": "llmquant-credit",
+      "description": "Router skill for LLMQuant credit workflows. Use when the user needs issuer credit review, spread regime analysis, high-yield stress monitoring, default risk, debt maturity, or covenant context.",
+      "manual": "skills/default/llmquant-credit/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-credit",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-credit/SKILL.md"
+    },
+    {
+      "id": "llmquant-crypto",
+      "name": "llmquant-crypto",
+      "description": "Router skill for LLMQuant crypto workflows. Use when the user needs crypto market regime analysis, token research, perpetual funding, basis, leverage, liquidity, or cross-asset crypto context.",
+      "manual": "skills/default/llmquant-crypto/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-crypto",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-crypto/SKILL.md"
+    },
+    {
+      "id": "llmquant-data",
+      "name": "llmquant-data",
+      "description": "Router skill for LLMQuant Data primitive workflows. Use when the user needs SEC filings, 13F holders, macro snapshots, or source-grounded macro briefs.",
+      "manual": "skills/default/llmquant-data/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-data",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-data/SKILL.md"
+    },
+    {
+      "id": "llmquant-equities",
+      "name": "llmquant-equities",
+      "description": "Router skill for LLMQuant equities workflows. Use when the user needs stock analysis, equity comparison, research memos, merger-arb memos, or sell/take-profit work.",
+      "manual": "skills/default/llmquant-equities/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-equities",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-equities/SKILL.md"
+    },
+    {
+      "id": "llmquant-equity-derivatives",
+      "name": "llmquant-equity-derivatives",
+      "description": "Router skill for LLMQuant equity derivatives workflows. Use when the user needs single-stock derivative, convertible, warrant, structured payoff, or hybrid security analysis.",
+      "manual": "skills/default/llmquant-equity-derivatives/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-equity-derivatives",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-equity-derivatives/SKILL.md"
+    },
+    {
+      "id": "llmquant-etfs",
+      "name": "llmquant-etfs",
+      "description": "Router skill for LLMQuant ETFs workflows. Use when the user needs ETF holdings, overlap, concentration, issuer snapshot, or theme exposure analysis.",
+      "manual": "skills/default/llmquant-etfs/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-etfs",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-etfs/SKILL.md"
+    },
+    {
+      "id": "llmquant-events",
+      "name": "llmquant-events",
+      "description": "Router skill for LLMQuant event workflows. Use when the user needs earnings event briefs, M&A tracking, regulatory risk, catalysts, event calendars, or cross-asset event impact.",
+      "manual": "skills/default/llmquant-events/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-events",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-events/SKILL.md"
+    },
+    {
+      "id": "llmquant-investor-lenses",
+      "name": "llmquant-investor-lenses",
+      "description": "Router skill for LLMQuant investor-lens workflows. Use when the user wants an investor-style reasoning overlay grounded in LLMQuant Data evidence.",
+      "manual": "skills/default/llmquant-investor-lenses/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-investor-lenses",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-investor-lenses/SKILL.md"
+    },
+    {
+      "id": "llmquant-macro",
+      "name": "llmquant-macro",
+      "description": "Router skill for LLMQuant macro workflows. Use when the user needs macro dashboards, Fed or central-bank previews, inflation and growth context, liquidity, or macro-to-portfolio impact analysis.",
+      "manual": "skills/default/llmquant-macro/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-macro",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-macro/SKILL.md"
+    },
+    {
+      "id": "llmquant-market-intelligence",
+      "name": "llmquant-market-intelligence",
+      "description": "Router skill for LLMQuant market-intelligence workflows. Use when the user needs macro views, market sentiment dashboards, or event probability signals.",
+      "manual": "skills/default/llmquant-market-intelligence/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-market-intelligence",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-market-intelligence/SKILL.md"
+    },
+    {
+      "id": "llmquant-options",
+      "name": "llmquant-options",
+      "description": "Router skill for LLMQuant options workflows. Use when the user needs IV rank, option scoring, strategy construction, Greeks, P&L simulation, volatility surface, unusual activity, earnings IV crush, backtests, or hedges.",
+      "manual": "skills/default/llmquant-options/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-options",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-options/SKILL.md"
+    },
+    {
+      "id": "llmquant-portfolio",
+      "name": "llmquant-portfolio",
+      "description": "Router skill for LLMQuant portfolio workflows. Use when the user needs company profiles, thesis tracking, theme research, watchlist monitoring, or alert management.",
+      "manual": "skills/default/llmquant-portfolio/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-portfolio",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-portfolio/SKILL.md"
+    },
+    {
+      "id": "llmquant-portfolio-lab",
+      "name": "llmquant-portfolio-lab",
+      "description": "Router skill for LLMQuant portfolio-lab workflows. Use when the user needs portfolio exposure maps, what-if simulations, scenario states, or virtual portfolio comparisons.",
+      "manual": "skills/default/llmquant-portfolio-lab/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-portfolio-lab",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-portfolio-lab/SKILL.md"
+    },
+    {
+      "id": "llmquant-prediction-markets",
+      "name": "llmquant-prediction-markets",
+      "description": "Router skill for LLMQuant prediction-market workflows. Use when the user needs event odds, settlement criteria, probability gaps, cross-market pricing, or prediction-market arbitrage review.",
+      "manual": "skills/default/llmquant-prediction-markets/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-prediction-markets",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-prediction-markets/SKILL.md"
+    },
+    {
+      "id": "llmquant-rates-fx",
+      "name": "llmquant-rates-fx",
+      "description": "Router skill for LLMQuant rates and FX workflows. Use when the user needs yield curve, duration, central-bank divergence, FX carry, real-rate, dollar, or cross-currency analysis.",
+      "manual": "skills/default/llmquant-rates-fx/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-rates-fx",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-rates-fx/SKILL.md"
+    },
+    {
+      "id": "llmquant-risk",
+      "name": "llmquant-risk",
+      "description": "Router skill for LLMQuant risk workflows. Use when the user needs fear scoring, VIX regime, hedge design, or research health checks.",
+      "manual": "skills/default/llmquant-risk/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-risk",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-risk/SKILL.md"
+    },
+    {
+      "id": "llmquant-strategies",
+      "name": "llmquant-strategies",
+      "description": "Router skill for LLMQuant hedge-fund and PM strategy workflows. Use when the user needs equity long/short, long-biased, event-driven, macro, quant, or multi-strategy playbooks.",
+      "manual": "skills/default/llmquant-strategies/SKILL.md",
+      "source": "https://github.com/LLMQuant/skills/tree/master/skills/llmquant-strategies",
+      "requires_api_keys": true,
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "groups": [
+        "finance",
+        "llmquant",
+        "mcp-required",
+        "institutional-research"
+      ],
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/llmquant-strategies/SKILL.md"
     },
     {
       "id": "macro-regime-detector",

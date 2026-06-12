@@ -15,7 +15,7 @@ This does:
 2. Check GitHub-backed native origins and write `reports/upstream-check-latest.{json,md}`.
 3. Preserve installer URLs as mirror sources, not native origins.
 4. Generate `catalog/skills.enriched.json` with native origin fields, horizontal tiers, vertical categories, dependency labels, risk, conflict groups, preset exclusions, and star ratings.
-5. Generate `catalog/standard-bundle.json` with at most 30 non-duplicated recommended skills.
+5. Generate `catalog/standard-bundle.json` with at most the configured `max_skills` non-duplicated recommended skills.
 6. Regenerate `docs/generated/*.md` and the README index block.
 7. Validate the standard bundle uniqueness rules and native-origin review count in local audit (`scripts/audit_skills.py`).
 8. Write reports to `reports/`.
@@ -55,7 +55,7 @@ Output is generated under `dist/`.
 ./scripts/install-standard-bundle.sh
 ```
 
-The standard bundle is generated at `catalog/standard-bundle.json` and enforces at most 30 skills, one skill per capability, and one skill per conflict group.
+The standard bundle is generated at `catalog/standard-bundle.json` and enforces its configured `max_skills`, one skill per capability, and one skill per conflict group.
 
 ## Risk gates
 

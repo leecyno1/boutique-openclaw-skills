@@ -498,6 +498,21 @@
       "risk": "low",
       "requires": [],
       "note": "Convert web pages to markdown."
+    },
+    {
+      "capability": "ima_notes_knowledge",
+      "skill": "ima",
+      "category": "productivity",
+      "source": {
+        "type": "local",
+        "ref": "skills/default/ima"
+      },
+      "risk": "medium",
+      "requires": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "note": "Connect IMA notes, notebooks, and knowledge bases with read-only verification and safe authorization handling."
     }
   ]
 }

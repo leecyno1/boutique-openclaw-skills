@@ -1,8 +1,15 @@
 {
   "schema_version": "2026.06.04",
-  "pinned_capabilities": {},
+  "pinned_capabilities": {
+    "email-agent": "agentmail"
+  },
   "excluded_skills": {
-    "claude-mem-plugin": "Persistent memory is powerful but too stateful for the default no-duplicate standard bundle."
+    "a-stock-data": "Finance skills are temporarily excluded from the default standard bundle; install the finance profile or finance suites explicitly when needed.",
+    "akshare-stock": "Finance skills are temporarily excluded from the default standard bundle; install the finance profile or finance suites explicitly when needed.",
+    "claude-mem-plugin": "Persistent memory is powerful but too stateful for the default no-duplicate standard bundle.",
+    "openclaw-stock-data-skill": "Finance skills are temporarily excluded from the default standard bundle; install the finance profile or finance suites explicitly when needed.",
+    "tushare-openclaw-skill": "Finance skills are temporarily excluded from the default standard bundle; install the finance profile or finance suites explicitly when needed.",
+    "yfinance-data": "Finance skills are temporarily excluded from the default standard bundle; install the finance profile or finance suites explicitly when needed."
   },
   "notes": {
     "pinned_capabilities": "Map capability name to a skill id when a human review should override automatic scoring.",

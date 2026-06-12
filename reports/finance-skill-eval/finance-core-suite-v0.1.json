@@ -1,0 +1,232 @@
+{
+  "schema_version": "2026.06.12",
+  "id": "finance-core-evaluated",
+  "title": "Finance Core Suite v0.1",
+  "status": "proposal",
+  "description": "Evaluated finance suite proposal selected by task-based static and live tests. Not yet promoted to catalog/suites.",
+  "evaluation_reports": [
+    "reports/finance-skill-eval/finance-skill-eval-plan.md",
+    "reports/finance-skill-eval/round1-candidate-matrix.md",
+    "reports/finance-skill-eval/round1-static-results.md",
+    "reports/finance-skill-eval/round2-live-results.md",
+    "reports/finance-skill-eval/finance-core-suite-v0.1.md"
+  ],
+  "selection_policy": {
+    "dedupe_rule": "one primary skill per finance capability; keep multiple only when market coverage or workflow role differs",
+    "core_target_size": "20-30 skills",
+    "api_gated_skills_are_provisional": true,
+    "not_promoted_to_catalog_until_approved": true
+  },
+  "requirements": {
+    "api_keys": [
+      "LLMQUANT_API_KEY",
+      "FMP_API_KEY",
+      "FINVIZ_API_KEY",
+      "IMA_API_KEY",
+      "IMA_CLIENT_ID"
+    ],
+    "tools": [
+      "mcp",
+      "node",
+      "python"
+    ],
+    "notes": [
+      "Direct skills can run without API keys.",
+      "LLMQuant skills require LLMQuant Data MCP.",
+      "FMP/FINVIZ/IMA-dependent screeners need live retest before final promotion.",
+      "yfinance and pybroker live data paths may hit Yahoo rate limits and need cache/retry fallback."
+    ]
+  },
+  "skills": [
+    {
+      "id": "a-stock-data",
+      "capability": "china-a-share-data",
+      "status": "selected",
+      "evidence": "Broadest A-share data coverage; direct mode; replaces akshare/tushare/openclaw-stock-data for core."
+    },
+    {
+      "id": "yfinance-data",
+      "capability": "us-global-market-data",
+      "status": "selected-pending-retest",
+      "evidence": "Direct yfinance access; live test hit Yahoo rate limit, so needs retry/cache policy."
+    },
+    {
+      "id": "llmquant-data",
+      "capability": "institutional-sec-13f-data",
+      "status": "selected-api-gated",
+      "evidence": "Best documented SEC/13F workflow; requires LLMQUANT_API_KEY and MCP."
+    },
+    {
+      "id": "openclaw-stock-kb",
+      "capability": "finance-knowledge-base",
+      "status": "selected",
+      "evidence": "Direct finance research knowledge base with strategies, indicators, sentiment, risk and backtesting references."
+    },
+    {
+      "id": "policy-monitor",
+      "capability": "policy-monitoring",
+      "status": "selected",
+      "evidence": "Direct policy monitoring and market-impact interpretation."
+    },
+    {
+      "id": "llmquant-macro",
+      "capability": "macro-analysis",
+      "status": "selected-api-gated",
+      "evidence": "Structured macro workflows; requires LLMQuant live test."
+    },
+    {
+      "id": "llmquant-events",
+      "capability": "event-research",
+      "status": "selected-api-gated",
+      "evidence": "Consolidates earnings, M&A, regulatory and catalyst workflows."
+    },
+    {
+      "id": "llmquant-market-intelligence",
+      "capability": "market-intelligence",
+      "status": "selected-api-gated",
+      "evidence": "Market sentiment dashboards and event probability signals."
+    },
+    {
+      "id": "llmquant-risk",
+      "capability": "risk-regime",
+      "status": "selected-api-gated",
+      "evidence": "VIX regime, panic scoring, hedge design and research health checks."
+    },
+    {
+      "id": "llmquant-investor-lenses",
+      "capability": "investor-reasoning-overlay",
+      "status": "selected-api-gated",
+      "evidence": "Investor-style reasoning overlay grounded in LLMQuant Data."
+    },
+    {
+      "id": "us-stock-analysis",
+      "capability": "us-stock-analysis",
+      "status": "selected",
+      "evidence": "Direct all-purpose US stock analysis across fundamentals, valuation and technicals."
+    },
+    {
+      "id": "company-valuation",
+      "capability": "company-valuation",
+      "status": "selected-model-gated",
+      "evidence": "Valuation-specific depth; overlaps with us-stock-analysis but has unique DCF/comps/SOTP role."
+    },
+    {
+      "id": "sepa-strategy",
+      "capability": "technical-trading-framework",
+      "status": "selected",
+      "evidence": "Direct SEPA/Minervini strategy framework; less API-dependent than screener-only skills."
+    },
+    {
+      "id": "canslim-screener",
+      "capability": "growth-stock-screening",
+      "status": "selected-api-gated",
+      "evidence": "Growth screening role; requires FMP live test."
+    },
+    {
+      "id": "vcp-screener",
+      "capability": "vcp-setup-screening",
+      "status": "selected-api-gated",
+      "evidence": "VCP setup role; distinct from CANSLIM methodology."
+    },
+    {
+      "id": "value-dividend-screener",
+      "capability": "value-dividend-screening",
+      "status": "selected-api-gated",
+      "evidence": "Dividend/value screening role; requires FMP/FINVIZ live test."
+    },
+    {
+      "id": "llmquant-options",
+      "capability": "options-analysis",
+      "status": "selected-api-gated",
+      "evidence": "Richest options workflow set; fallback is options-strategy-advisor if LLMQuant is unavailable."
+    },
+    {
+      "id": "pybroker-backtest-skill",
+      "capability": "backtesting-engine",
+      "status": "selected-with-dependency-note",
+      "evidence": "33 offline tests passed; CLI starts after requirements install; live Yahoo data hit rate limit."
+    },
+    {
+      "id": "backtest-expert",
+      "capability": "backtesting-methodology",
+      "status": "selected",
+      "evidence": "Methodology and robustness review, complementary to pybroker engine."
+    },
+    {
+      "id": "position-sizer",
+      "capability": "position-sizing",
+      "status": "selected",
+      "evidence": "Live run produced JSON/Markdown with shares, position value and risk percentage."
+    },
+    {
+      "id": "stock-monitor-skill",
+      "capability": "watchlist-monitoring",
+      "status": "selected",
+      "evidence": "17 tests passed; live monitor produced actionable A-share/ETF/gold alerts."
+    },
+    {
+      "id": "uptrend-analyzer",
+      "capability": "market-breadth-exposure",
+      "status": "selected",
+      "evidence": "Live run succeeded and generated market breadth exposure guidance."
+    },
+    {
+      "id": "opencli-reader",
+      "capability": "financial-intelligence-reader",
+      "status": "selected",
+      "evidence": "Generic read-only source reader; replaces channel-specific readers in core."
+    },
+    {
+      "id": "startup-analysis",
+      "capability": "venture-startup-research",
+      "status": "selected",
+      "evidence": "Distinct VC/job/founder perspective for startup investment research."
+    }
+  ],
+  "excluded_duplicate_groups": {
+    "a_share_data": [
+      "akshare-stock",
+      "tushare-openclaw-skill",
+      "openclaw-stock-data-skill"
+    ],
+    "earnings_singletons": [
+      "earnings-calendar",
+      "earnings-preview",
+      "earnings-recap",
+      "earnings-trade-analyzer"
+    ],
+    "market_breadth_long_tail": [
+      "market-breadth-analyzer",
+      "market-top-detector",
+      "ftd-detector",
+      "ibd-distribution-day-monitor",
+      "breadth-chart-analyst"
+    ],
+    "specialized_social_readers": [
+      "twitter-reader",
+      "telegram-reader",
+      "discord-reader",
+      "linkedin-reader"
+    ],
+    "alphaear_lab": [
+      "alphaear-deepear-lite",
+      "alphaear-logic-visualizer",
+      "alphaear-news",
+      "alphaear-predictor",
+      "alphaear-reporter",
+      "alphaear-search",
+      "alphaear-sentiment",
+      "alphaear-signal-tracker",
+      "alphaear-stock"
+    ],
+    "edge_lab": [
+      "edge-candidate-agent",
+      "edge-concept-synthesizer",
+      "edge-hint-extractor",
+      "edge-pipeline-orchestrator",
+      "edge-signal-aggregator",
+      "edge-strategy-designer",
+      "edge-strategy-reviewer"
+    ]
+  }
+}

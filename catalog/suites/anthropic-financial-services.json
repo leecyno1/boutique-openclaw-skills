@@ -1,0 +1,237 @@
+{
+  "schema_version": "2026.06.12",
+  "id": "anthropic-financial-services",
+  "title": "Anthropic Financial Services Suite",
+  "description": "Official Anthropic financial-services skill set for equity research, investment banking, private equity, wealth management, fund administration, KYC, and partner data workflows.",
+  "source": "https://github.com/anthropics/financial-services",
+  "native_origin": "https://github.com/anthropics/financial-services",
+  "homepage": "https://github.com/anthropics/financial-services",
+  "license": "Apache-2.0",
+  "install_tier": "high",
+  "category": "finance-services",
+  "horizontal_tier": "L3 Specialist",
+  "access_mode": "mcp-required",
+  "requires_api_keys": false,
+  "api_keys": [],
+  "requires_tools": [
+    "mcp"
+  ],
+  "enterprise_connectors": [
+    "Daloopa",
+    "Morningstar",
+    "S&P Global",
+    "FactSet",
+    "Moody's",
+    "MT Newswires",
+    "Aiera",
+    "LSEG",
+    "PitchBook",
+    "Chronograph",
+    "Egnyte",
+    "Box"
+  ],
+  "upstream": {
+    "stars": 30939,
+    "forks": 4375,
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pushed_at": "2026-06-05T20:53:09Z",
+    "verified_at": "2026-06-12",
+    "commit": "4bbabc7cd1a474c1667fa05a2bfe58e411dcf9c1"
+  },
+  "skills": [
+    "anthropic-fs-equity-research-catalyst-calendar",
+    "anthropic-fs-equity-research-earnings-analysis",
+    "anthropic-fs-equity-research-earnings-preview",
+    "anthropic-fs-equity-research-idea-generation",
+    "anthropic-fs-equity-research-initiating-coverage",
+    "anthropic-fs-equity-research-model-update",
+    "anthropic-fs-equity-research-morning-note",
+    "anthropic-fs-equity-research-sector-overview",
+    "anthropic-fs-equity-research-thesis-tracker",
+    "anthropic-fs-financial-analysis-3-statement-model",
+    "anthropic-fs-financial-analysis-audit-xls",
+    "anthropic-fs-financial-analysis-clean-data-xls",
+    "anthropic-fs-financial-analysis-competitive-analysis",
+    "anthropic-fs-financial-analysis-comps-analysis",
+    "anthropic-fs-financial-analysis-dcf-model",
+    "anthropic-fs-financial-analysis-deck-refresh",
+    "anthropic-fs-financial-analysis-ib-check-deck",
+    "anthropic-fs-financial-analysis-lbo-model",
+    "anthropic-fs-financial-analysis-ppt-template-creator",
+    "anthropic-fs-financial-analysis-pptx-author",
+    "anthropic-fs-financial-analysis-skill-creator",
+    "anthropic-fs-financial-analysis-xlsx-author",
+    "anthropic-fs-fund-admin-accrual-schedule",
+    "anthropic-fs-fund-admin-break-trace",
+    "anthropic-fs-fund-admin-gl-recon",
+    "anthropic-fs-fund-admin-nav-tieout",
+    "anthropic-fs-fund-admin-roll-forward",
+    "anthropic-fs-fund-admin-variance-commentary",
+    "anthropic-fs-investment-banking-buyer-list",
+    "anthropic-fs-investment-banking-cim-builder",
+    "anthropic-fs-investment-banking-datapack-builder",
+    "anthropic-fs-investment-banking-deal-tracker",
+    "anthropic-fs-investment-banking-merger-model",
+    "anthropic-fs-investment-banking-pitch-deck",
+    "anthropic-fs-investment-banking-process-letter",
+    "anthropic-fs-investment-banking-strip-profile",
+    "anthropic-fs-investment-banking-teaser",
+    "anthropic-fs-operations-kyc-doc-parse",
+    "anthropic-fs-operations-kyc-rules",
+    "anthropic-fs-private-equity-ai-readiness",
+    "anthropic-fs-private-equity-dd-checklist",
+    "anthropic-fs-private-equity-dd-meeting-prep",
+    "anthropic-fs-private-equity-deal-screening",
+    "anthropic-fs-private-equity-deal-sourcing",
+    "anthropic-fs-private-equity-ic-memo",
+    "anthropic-fs-private-equity-portfolio-monitoring",
+    "anthropic-fs-private-equity-returns-analysis",
+    "anthropic-fs-private-equity-unit-economics",
+    "anthropic-fs-private-equity-value-creation-plan",
+    "anthropic-fs-wealth-management-client-report",
+    "anthropic-fs-wealth-management-client-review",
+    "anthropic-fs-wealth-management-financial-plan",
+    "anthropic-fs-wealth-management-investment-proposal",
+    "anthropic-fs-wealth-management-portfolio-rebalance",
+    "anthropic-fs-wealth-management-tax-loss-harvesting",
+    "anthropic-fs-lseg-bond-futures-basis",
+    "anthropic-fs-lseg-bond-relative-value",
+    "anthropic-fs-lseg-equity-research",
+    "anthropic-fs-lseg-fixed-income-portfolio",
+    "anthropic-fs-lseg-fx-carry-trade",
+    "anthropic-fs-lseg-macro-rates-monitor",
+    "anthropic-fs-lseg-option-vol-analysis",
+    "anthropic-fs-lseg-swap-curve-strategy",
+    "anthropic-fs-spglobal-earnings-preview-beta",
+    "anthropic-fs-spglobal-funding-digest",
+    "anthropic-fs-spglobal-tear-sheet"
+  ],
+  "sub_suites": [
+    {
+      "id": "equity-research",
+      "title": "Equity Research",
+      "skills": [
+        "anthropic-fs-equity-research-catalyst-calendar",
+        "anthropic-fs-equity-research-earnings-analysis",
+        "anthropic-fs-equity-research-earnings-preview",
+        "anthropic-fs-equity-research-idea-generation",
+        "anthropic-fs-equity-research-initiating-coverage",
+        "anthropic-fs-equity-research-model-update",
+        "anthropic-fs-equity-research-morning-note",
+        "anthropic-fs-equity-research-sector-overview",
+        "anthropic-fs-equity-research-thesis-tracker"
+      ]
+    },
+    {
+      "id": "financial-analysis",
+      "title": "Financial Analysis",
+      "skills": [
+        "anthropic-fs-financial-analysis-3-statement-model",
+        "anthropic-fs-financial-analysis-audit-xls",
+        "anthropic-fs-financial-analysis-clean-data-xls",
+        "anthropic-fs-financial-analysis-competitive-analysis",
+        "anthropic-fs-financial-analysis-comps-analysis",
+        "anthropic-fs-financial-analysis-dcf-model",
+        "anthropic-fs-financial-analysis-deck-refresh",
+        "anthropic-fs-financial-analysis-ib-check-deck",
+        "anthropic-fs-financial-analysis-lbo-model",
+        "anthropic-fs-financial-analysis-ppt-template-creator",
+        "anthropic-fs-financial-analysis-pptx-author",
+        "anthropic-fs-financial-analysis-skill-creator",
+        "anthropic-fs-financial-analysis-xlsx-author"
+      ]
+    },
+    {
+      "id": "fund-admin",
+      "title": "Fund Admin",
+      "skills": [
+        "anthropic-fs-fund-admin-accrual-schedule",
+        "anthropic-fs-fund-admin-break-trace",
+        "anthropic-fs-fund-admin-gl-recon",
+        "anthropic-fs-fund-admin-nav-tieout",
+        "anthropic-fs-fund-admin-roll-forward",
+        "anthropic-fs-fund-admin-variance-commentary"
+      ]
+    },
+    {
+      "id": "investment-banking",
+      "title": "Investment Banking",
+      "skills": [
+        "anthropic-fs-investment-banking-buyer-list",
+        "anthropic-fs-investment-banking-cim-builder",
+        "anthropic-fs-investment-banking-datapack-builder",
+        "anthropic-fs-investment-banking-deal-tracker",
+        "anthropic-fs-investment-banking-merger-model",
+        "anthropic-fs-investment-banking-pitch-deck",
+        "anthropic-fs-investment-banking-process-letter",
+        "anthropic-fs-investment-banking-strip-profile",
+        "anthropic-fs-investment-banking-teaser"
+      ]
+    },
+    {
+      "id": "lseg",
+      "title": "Lseg",
+      "skills": [
+        "anthropic-fs-lseg-bond-futures-basis",
+        "anthropic-fs-lseg-bond-relative-value",
+        "anthropic-fs-lseg-equity-research",
+        "anthropic-fs-lseg-fixed-income-portfolio",
+        "anthropic-fs-lseg-fx-carry-trade",
+        "anthropic-fs-lseg-macro-rates-monitor",
+        "anthropic-fs-lseg-option-vol-analysis",
+        "anthropic-fs-lseg-swap-curve-strategy"
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "Operations",
+      "skills": [
+        "anthropic-fs-operations-kyc-doc-parse",
+        "anthropic-fs-operations-kyc-rules"
+      ]
+    },
+    {
+      "id": "private-equity",
+      "title": "Private Equity",
+      "skills": [
+        "anthropic-fs-private-equity-ai-readiness",
+        "anthropic-fs-private-equity-dd-checklist",
+        "anthropic-fs-private-equity-dd-meeting-prep",
+        "anthropic-fs-private-equity-deal-screening",
+        "anthropic-fs-private-equity-deal-sourcing",
+        "anthropic-fs-private-equity-ic-memo",
+        "anthropic-fs-private-equity-portfolio-monitoring",
+        "anthropic-fs-private-equity-returns-analysis",
+        "anthropic-fs-private-equity-unit-economics",
+        "anthropic-fs-private-equity-value-creation-plan"
+      ]
+    },
+    {
+      "id": "spglobal",
+      "title": "Spglobal",
+      "skills": [
+        "anthropic-fs-spglobal-earnings-preview-beta",
+        "anthropic-fs-spglobal-funding-digest",
+        "anthropic-fs-spglobal-tear-sheet"
+      ]
+    },
+    {
+      "id": "wealth-management",
+      "title": "Wealth Management",
+      "skills": [
+        "anthropic-fs-wealth-management-client-report",
+        "anthropic-fs-wealth-management-client-review",
+        "anthropic-fs-wealth-management-financial-plan",
+        "anthropic-fs-wealth-management-investment-proposal",
+        "anthropic-fs-wealth-management-portfolio-rebalance",
+        "anthropic-fs-wealth-management-tax-loss-harvesting"
+      ]
+    }
+  ],
+  "notes": [
+    "Imported only from canonical vertical-plugins and partner-built skills, not duplicate agent-plugin bundles.",
+    "Keep outside the no-duplicate standard bundle because it is a specialist institutional-finance suite and expects enterprise MCP/data connectors.",
+    "Outputs are professional drafts for human review and are not investment, legal, tax, accounting, transaction-execution, or ledger-posting advice."
+  ]
+}

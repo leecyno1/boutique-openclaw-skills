@@ -1,0 +1,108 @@
+{
+  "schema_version": "2026.06.12",
+  "id": "finance-core-data-enhanced",
+  "title": "Finance Core Data-Enhanced Suite",
+  "status": "proposal",
+  "description": "Finance core suite selected under the policy that financial data-source keys are acceptable, while model/platform keys remain non-preferred.",
+  "key_policy": {
+    "allowed_data_keys": [
+      "TUSHARE_TOKEN",
+      "STOCK_API_KEY",
+      "FMP_API_KEY",
+      "FINVIZ_API_KEY",
+      "LLMQUANT_API_KEY",
+      "ADANOS_API_KEY",
+      "ALPACA_API_KEY",
+      "WIND_API_KEY",
+      "WIND_TOKEN"
+    ],
+    "non_preferred_model_or_platform_keys": [
+      "OPENAI_API_KEY",
+      "IMA_API_KEY",
+      "IMA_CLIENT_ID",
+      "GEMINI_API_KEY",
+      "ANTHROPIC_API_KEY",
+      "OPENROUTER_API_KEY"
+    ],
+    "note": "Wind is allowed by policy but no dedicated Wind skill currently exists in this repository."
+  },
+  "skills": [
+    "a-stock-data",
+    "tushare-openclaw-skill",
+    "yfinance-data",
+    "llmquant-data",
+    "llmquant-etfs",
+    "openclaw-stock-kb",
+    "policy-monitor",
+    "llmquant-macro",
+    "llmquant-events",
+    "llmquant-market-intelligence",
+    "llmquant-risk",
+    "llmquant-investor-lenses",
+    "us-stock-analysis",
+    "finviz-screener",
+    "canslim-screener",
+    "vcp-screener",
+    "value-dividend-screener",
+    "theme-detector",
+    "macro-regime-detector",
+    "llmquant-options",
+    "llmquant-portfolio",
+    "pybroker-backtest-skill",
+    "backtest-expert",
+    "position-sizer",
+    "stock-monitor-skill",
+    "uptrend-analyzer",
+    "opencli-reader",
+    "startup-analysis"
+  ],
+  "optional_fallbacks": {
+    "china_data": [
+      "akshare-stock",
+      "openclaw-stock-data-skill"
+    ],
+    "specialized_social_readers": [
+      "twitter-reader",
+      "telegram-reader",
+      "discord-reader",
+      "linkedin-reader",
+      "yc-reader"
+    ],
+    "advanced_quant_lab": [
+      "alphaear-deepear-lite",
+      "alphaear-logic-visualizer",
+      "alphaear-news",
+      "alphaear-predictor",
+      "alphaear-reporter",
+      "alphaear-search",
+      "alphaear-signal-tracker",
+      "alphaear-stock",
+      "edge-candidate-agent",
+      "edge-concept-synthesizer",
+      "edge-hint-extractor",
+      "edge-pipeline-orchestrator",
+      "edge-signal-aggregator",
+      "edge-strategy-designer",
+      "edge-strategy-reviewer"
+    ]
+  },
+  "excluded_due_to_model_or_platform_keys": [
+    "funda-data",
+    "stock-daily-analysis-skill",
+    "company-valuation",
+    "technical-analyst",
+    "estimate-analysis",
+    "earnings-preview",
+    "market-environment-analysis",
+    "sector-analyst",
+    "stock-liquidity",
+    "alphaear-sentiment"
+  ],
+  "evaluation_reports": [
+    "reports/finance-skill-eval/finance-skill-eval-plan.md",
+    "reports/finance-skill-eval/round1-candidate-matrix.md",
+    "reports/finance-skill-eval/round1-static-results.md",
+    "reports/finance-skill-eval/round2-live-results.md",
+    "reports/finance-skill-eval/finance-core-suite-v0.2-data-keys-ok.md"
+  ]
+}

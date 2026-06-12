@@ -34,21 +34,24 @@ if [[ ! -f "$BUNDLE_JSON" ]]; then
   exit 1
 fi
 
-mapfile -t SKILLS < <(python3 - <<'PY' "$BUNDLE_JSON"
+readarray_output="$(python3 - <<'PY' "$BUNDLE_JSON"
 import json, sys
 payload=json.load(open(sys.argv[1], encoding='utf-8'))
+print(int(payload.get('max_skills') or 30))
 for item in payload.get('skills', []):
     print(item['skill'])
 PY
-)
+)"
+MAX_SKILLS="$(printf '%s\n' "$readarray_output" | sed -n '1p')"
+mapfile -t SKILLS < <(printf '%s\n' "$readarray_output" | sed '1d')
 
 if [[ ${#SKILLS[@]} -eq 0 ]]; then
   echo "[ERROR] standard bundle has no skills" >&2
   exit 1
 fi
 
-if [[ ${#SKILLS[@]} -gt 30 ]]; then
-  echo "[ERROR] standard bundle has more than 30 skills" >&2
+if [[ ${#SKILLS[@]} -gt "$MAX_SKILLS" ]]; then
+  echo "[ERROR] standard bundle has more than $MAX_SKILLS skills" >&2
   exit 1
 fi
 

@@ -2,10 +2,11 @@
 
 | 使用条件 | 数量 |
 |---|---:|
-| `api-key` | 56 |
-| `browser-required` | 14 |
-| `direct` | 123 |
-| `mcp-required` | 4 |
+| `api-key` | 82 |
+| `api-key+mcp-required` | 22 |
+| `browser-required` | 9 |
+| `direct` | 99 |
+| `mcp-required` | 70 |
 
 ## api-key
 
@@ -13,60 +14,113 @@
 |---|---|---|---|
 | `claude-mem-plugin` | `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY` | 无 | `high` |
 | `github` | `GH_TOKEN`, `GITHUB_TOKEN` | `gh` | `medium` |
-| `agentmail-mcp` | `AGENTMAIL_API_KEY` | `mcp` | `medium` |
 | `agentmail-toolkit` | `AGENTMAIL_API_KEY`, `OPENAI_API_KEY` | 无 | `medium` |
-| `baoyu-image-gen` | `ARK_API_KEY`, `AZURE_OPENAI_API_KEY`, `BIGMODEL_API_KEY`, `DASHSCOPE_API_KEY`, `GOOGLE_API_KEY`, `MINIMAX_API_KEY`, `OPENAI_API_KEY`, `OPENROUTER_API_KEY`, `REPLICATE_API_TOKEN`, `ZAI_API_KEY` | 无 | `medium` |
+| `animation` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `baoyu-article-illustrator` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `baoyu-image-gen` | `ARK_API_KEY`, `AZURE_OPENAI_API_KEY`, `BIGMODEL_API_KEY`, `DASHSCOPE_API_KEY`, `GOOGLE_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY`, `OPENAI_API_KEY`, `OPENROUTER_API_KEY`, `REPLICATE_API_TOKEN`, `ZAI_API_KEY` | 无 | `medium` |
+| `baoyu-youtube-transcript` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `ffmpeg`, `python` | `medium` |
 | `dual-axis-skill-reviewer` | `OPENAI_API_KEY` | 无 | `medium` |
-| `funda-data` | `FUNDA_API_KEY` | `mcp`, `python` | `medium` |
+| `guizang-social-card-skill` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `ima` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `lark-calendar` | `FEISHU_APP_SECRET` | 无 | `medium` |
-| `minimax-web-search` | `MINIMAX_API_KEY` | `browser`, `mcp` | `medium` |
 | `openclaw-stock-data-skill` | `STOCK_API_KEY` | `python` | `medium` |
 | `paperless-docs` | `PAPERLESS_TOKEN` | 无 | `medium` |
 | `paperless-ngx-tools` | `PAPERLESS_TOKEN` | 无 | `medium` |
+| `seedance2-skill` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `tavily-search` | `OPENAI_API_KEY`, `TAVILY_API_KEY` | `browser`, `python` | `medium` |
 | `tushare-openclaw-skill` | `TUSHARE_TOKEN` | 无 | `medium` |
 | `agentmail-cli` | `AGENTMAIL_API_KEY` | 无 | `medium` |
 | `alphaear-sentiment` | `OPENAI_API_KEY` | `python` | `medium` |
-| `baoyu-post-to-wechat` | `ACCESS_TOKEN`, `WECHAT_AI_TOOLS_APP_SECRET`, `WECHAT_APP_SECRET`, `WECHAT_BAOYU_APP_SECRET` | `browser` | `medium` |
+| `baoyu-comic` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `baoyu-compress-image` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser` | `medium` |
+| `baoyu-cover-image` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `baoyu-post-to-wechat` | `ACCESS_TOKEN`, `IMA_API_KEY`, `IMA_CLIENT_ID`, `WECHAT_AI_TOOLS_APP_SECRET`, `WECHAT_APP_SECRET`, `WECHAT_BAOYU_APP_SECRET` | `browser` | `medium` |
+| `baoyu-post-to-weibo` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser`, `ffmpeg` | `medium` |
+| `baoyu-post-to-x` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser`, `ffmpeg` | `medium` |
+| `baoyu-slide-deck` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `baoyu-xhs-images` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `breadth-chart-analyst` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
 | `canslim-screener` | `FMP_API_KEY` | `python` | `medium` |
+| `company-valuation` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `dividend-growth-pullback-screener` | `FINVIZ_API_KEY`, `FMP_API_KEY` | `python` | `medium` |
 | `downtrend-duration-analyzer` | `FMP_API_KEY` | 无 | `medium` |
 | `earnings-calendar` | `FMP_API_KEY` | `browser`, `python` | `medium` |
+| `earnings-preview` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `node`, `python` | `medium` |
 | `earnings-trade-analyzer` | `FMP_API_KEY` | `node`, `python` | `medium` |
 | `economic-calendar-fetcher` | `FMP_API_KEY` | `node`, `python` | `medium` |
 | `edge-hint-extractor` | `OPENAI_API_KEY` | `node` | `medium` |
+| `estimate-analysis` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `node`, `python` | `medium` |
 | `exposure-coach` | `FMP_API_KEY` | 无 | `medium` |
 | `finance-sentiment` | `ADANOS_API_KEY` | `python` | `medium` |
 | `finviz-screener` | `FINVIZ_API_KEY` | `python` | `medium` |
 | `ftd-detector` | `FMP_API_KEY` | 无 | `medium` |
-| `gemini-image-service` | `GEMINI_API_KEY` | 无 | `medium` |
+| `gemini-image-service` | `GEMINI_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `ibd-distribution-day-monitor` | `FMP_API_KEY` | 无 | `medium` |
 | `inference-skills` | `OPENAI_API_KEY` | 无 | `medium` |
 | `institutional-flow-tracker` | `FMP_API_KEY` | `python` | `medium` |
 | `kanchi-dividend-sop` | `FMP_API_KEY` | `python` | `medium` |
 | `macro-regime-detector` | `FMP_API_KEY` | 无 | `medium` |
+| `market-environment-analysis` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
 | `market-top-detector` | `FMP_API_KEY` | `python` | `medium` |
-| `minimax-image-understanding` | `MINIMAX_API_KEY` | 无 | `medium` |
+| `minimax-image-understanding` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY` | 无 | `medium` |
 | `options-strategy-advisor` | `FMP_API_KEY` | 无 | `medium` |
 | `oracle` | `OPENAI_API_KEY` | `browser` | `medium` |
 | `pair-trade-screener` | `FMP_API_KEY` | `python` | `medium` |
-| `parabolic-short-trade-planner` | `ALPACA_API_KEY`, `FMP_API_KEY` | 无 | `medium` |
+| `parabolic-short-trade-planner` | `ALPACA_API_KEY`, `FMP_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `pead-screener` | `FMP_API_KEY` | `python` | `medium` |
+| `sector-analyst` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
 | `signal-postmortem` | `FMP_API_KEY` | 无 | `medium` |
 | `stock-daily-analysis-skill` | `OPENAI_API_KEY` | `python` | `medium` |
+| `stock-liquidity` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
+| `technical-analyst` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
 | `theme-detector` | `FINVIZ_API_KEY`, `FMP_API_KEY` | 无 | `medium` |
 | `value-dividend-screener` | `FINVIZ_API_KEY`, `FMP_API_KEY` | `python` | `medium` |
 | `vcp-screener` | `FMP_API_KEY` | `python` | `medium` |
 | `agentmail` | `AGENTMAIL_API_KEY` | `browser` | `medium` |
-| `ai-image-generation` | `GEMINI_API_KEY`, `OPENAI_API_KEY` | 无 | `medium` |
+| `ai-image-generation` | `GEMINI_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID`, `OPENAI_API_KEY` | 无 | `medium` |
+| `frontend-dev` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser`, `ffmpeg`, `node` | `medium` |
 | `fullstack-dev` | `JWT_SECRET` | `browser`, `node`, `python` | `medium` |
-| `media-downloader` | `PEXELS_API_KEY` | `ffmpeg` | `medium` |
-| `minimax-multimodal-toolkit` | `MINIMAX_API_KEY` | `browser`, `ffmpeg` | `medium` |
+| `media-downloader` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `PEXELS_API_KEY` | `ffmpeg` | `medium` |
+| `minimax-docx` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `minimax-multimodal-toolkit` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY` | `browser`, `ffmpeg` | `medium` |
+| `minimax-pdf` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `minimax-xlsx` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `node`, `python` | `medium` |
 | `notebooklm-skill` | `GEMINI_API_KEY` | `browser` | `medium` |
-| `vision-analysis` | `MINIMAX_API_KEY` | `browser`, `ffmpeg`, `mcp`, `python` | `medium` |
-| `gif-sticker-maker` | `MINIMAX_API_KEY` | `ffmpeg` | `medium` |
+| `react-native-dev` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `node`, `python` | `medium` |
+| `codex-responses-tooling` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `gif-sticker-maker` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY` | `ffmpeg` | `medium` |
+| `minimax-music-gen` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `ffmpeg` | `medium` |
+| `minimax-music-playlist` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `ffmpeg` | `medium` |
 | `baoyu-danger-x-to-markdown` | `X_AUTH_TOKEN` | 无 | `high` |
-| `baoyu-danger-gemini-web` | `GEMINI_API_KEY` | `browser` | `high` |
+| `baoyu-danger-gemini-web` | `GEMINI_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser` | `high` |
+| `web-search` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser`, `ffmpeg` | `medium` |
+
+## api-key+mcp-required
+
+| Skill | API Key | Tools | 风险 |
+|---|---|---|---|
+| `agentmail-mcp` | `AGENTMAIL_API_KEY` | `mcp` | `medium` |
+| `funda-data` | `FUNDA_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID` | `mcp`, `python` | `medium` |
+| `llmquant-commodities` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-credit` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-crypto` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-data` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-equities` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-equity-derivatives` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-etfs` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-events` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-investor-lenses` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-macro` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-market-intelligence` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-options` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-portfolio` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-portfolio-lab` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-prediction-markets` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-rates-fx` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-risk` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `llmquant-strategies` | `LLMQUANT_API_KEY` | `mcp`, `node` | `medium` |
+| `minimax-web-search` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY` | `browser`, `mcp` | `medium` |
+| `vision-analysis` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY` | `browser`, `ffmpeg`, `mcp`, `python` | `medium` |
 
 ## browser-required
 
@@ -79,13 +133,8 @@
 | `guizang-ppt-skill` | 无 | `browser` | `medium` |
 | `openclaw-cron-setup` | 无 | `browser` | `medium` |
 | `alphaear-search` | 无 | `browser`, `python` | `medium` |
-| `baoyu-compress-image` | 无 | `browser` | `medium` |
 | `baoyu-markdown-to-html` | 无 | `browser` | `medium` |
-| `baoyu-post-to-weibo` | 无 | `browser`, `ffmpeg` | `medium` |
-| `baoyu-post-to-x` | 无 | `browser`, `ffmpeg` | `medium` |
 | `market-news-analyst` | 无 | `browser`, `node`, `python` | `medium` |
-| `frontend-dev` | 无 | `browser`, `ffmpeg`, `node` | `medium` |
-| `web-search` | 无 | `browser`, `ffmpeg` | `medium` |
 
 ## direct
 
@@ -105,11 +154,8 @@
 | `verification-before-completion` | 无 | 无 | `low` |
 | `weather` | 无 | 无 | `low` |
 | `writing-skills` | 无 | 无 | `low` |
-| `animation` | 无 | 无 | `low` |
 | `backtest-expert` | 无 | 无 | `low` |
-| `baoyu-article-illustrator` | 无 | 无 | `low` |
 | `baoyu-translate` | 无 | 无 | `low` |
-| `baoyu-youtube-transcript` | 无 | `ffmpeg`, `python` | `low` |
 | `data-analyst` | 无 | `python` | `low` |
 | `dbskill` | 无 | 无 | `low` |
 | `discord-reader` | 无 | `node` | `low` |
@@ -119,7 +165,6 @@
 | `edge-strategy-designer` | 无 | 无 | `low` |
 | `edge-strategy-reviewer` | 无 | 无 | `low` |
 | `generative-ui` | 无 | 无 | `low` |
-| `guizang-social-card-skill` | 无 | 无 | `low` |
 | `humanizer-zh` | 无 | 无 | `low` |
 | `ian-xiaohei-illustrations` | 无 | 无 | `low` |
 | `khazix-skills` | 无 | 无 | `low` |
@@ -131,7 +176,6 @@
 | `proactive-agent` | 无 | 无 | `low` |
 | `reflection` | 无 | 无 | `low` |
 | `scenario-analyzer` | 无 | `python` | `low` |
-| `seedance2-skill` | 无 | 无 | `low` |
 | `self-improving-agent-cn` | 无 | 无 | `low` |
 | `skill-designer` | 无 | 无 | `low` |
 | `skill-integration-tester` | 无 | `python` | `low` |
@@ -143,13 +187,9 @@
 | `a-stock-data` | 无 | `python` | `medium` |
 | `akshare-stock` | 无 | `python` | `medium` |
 | `yfinance-data` | 无 | `python` | `medium` |
-| `baoyu-comic` | 无 | 无 | `low` |
-| `baoyu-cover-image` | 无 | 无 | `low` |
 | `baoyu-format-markdown` | 无 | 无 | `low` |
 | `baoyu-infographic` | 无 | 无 | `low` |
 | `baoyu-skills` | 无 | 无 | `low` |
-| `baoyu-slide-deck` | 无 | 无 | `low` |
-| `baoyu-xhs-images` | 无 | 无 | `low` |
 | `capability-evolver` | 无 | 无 | `low` |
 | `skill-idea-miner` | 无 | 无 | `low` |
 | `startup-analysis` | 无 | 无 | `low` |
@@ -157,11 +197,7 @@
 | `content-strategy` | 无 | 无 | `low` |
 | `flutter-dev` | 无 | 无 | `low` |
 | `ios-application-dev` | 无 | 无 | `low` |
-| `minimax-docx` | 无 | 无 | `low` |
-| `minimax-pdf` | 无 | 无 | `low` |
-| `minimax-xlsx` | 无 | `node`, `python` | `low` |
 | `pptx-generator` | 无 | `node` | `low` |
-| `react-native-dev` | 无 | `node`, `python` | `low` |
 | `shader-dev` | 无 | 无 | `low` |
 | `social-content` | 无 | `ffmpeg` | `low` |
 | `alphaear-deepear-lite` | 无 | `python` | `medium` |
@@ -171,44 +207,33 @@
 | `alphaear-reporter` | 无 | `python` | `medium` |
 | `alphaear-signal-tracker` | 无 | `python` | `medium` |
 | `alphaear-stock` | 无 | `python` | `medium` |
-| `breadth-chart-analyst` | 无 | `python` | `medium` |
 | `breakout-trade-planner` | 无 | 无 | `medium` |
-| `company-valuation` | 无 | 无 | `medium` |
 | `data-quality-checker` | 无 | `python` | `medium` |
-| `earnings-preview` | 无 | `node`, `python` | `medium` |
 | `earnings-recap` | 无 | `node`, `python` | `medium` |
 | `edge-candidate-agent` | 无 | `python` | `medium` |
-| `estimate-analysis` | 无 | `node`, `python` | `medium` |
 | `etf-premium` | 无 | `python` | `medium` |
 | `finance-skill-creator` | 无 | `python` | `medium` |
 | `hormuz-strait` | 无 | `python` | `medium` |
 | `kanchi-dividend-review-monitor` | 无 | 无 | `medium` |
 | `kanchi-dividend-us-tax-accounting` | 无 | 无 | `medium` |
 | `market-breadth-analyzer` | 无 | `python` | `medium` |
-| `market-environment-analysis` | 无 | `python` | `medium` |
 | `options-payoff` | 无 | 无 | `medium` |
 | `policy-monitor` | 无 | 无 | `medium` |
 | `position-sizer` | 无 | `python` | `medium` |
 | `pybroker-backtest-skill` | 无 | 无 | `medium` |
 | `saas-valuation-compression` | 无 | 无 | `medium` |
-| `sector-analyst` | 无 | `python` | `medium` |
 | `sepa-strategy` | 无 | `python` | `medium` |
 | `stanley-druckenmiller-investment` | 无 | 无 | `medium` |
 | `stock-analysis` | 无 | `node`, `python` | `medium` |
 | `stock-correlation` | 无 | `python` | `medium` |
-| `stock-liquidity` | 无 | `python` | `medium` |
 | `stock-monitor-skill` | 无 | `python` | `medium` |
-| `technical-analyst` | 无 | `python` | `medium` |
 | `trade-hypothesis-ideator` | 无 | `python` | `medium` |
 | `trader-memory-core` | 无 | 无 | `medium` |
 | `uptrend-analyzer` | 无 | `python` | `medium` |
 | `us-market-bubble-detector` | 无 | `python` | `medium` |
 | `us-stock-analysis` | 无 | `python` | `medium` |
 | `buddy-sings` | 无 | `ffmpeg` | `low` |
-| `codex-responses-tooling` | 无 | 无 | `low` |
 | `marketingskills` | 无 | 无 | `low` |
-| `minimax-music-gen` | 无 | `ffmpeg` | `low` |
-| `minimax-music-playlist` | 无 | `ffmpeg` | `low` |
 | `docx` | 无 | 无 | `low` |
 | `pdf` | 无 | 无 | `low` |
 | `pptx` | 无 | `node` | `low` |
@@ -222,4 +247,70 @@
 | `chrome-devtools-mcp` | 无 | `browser`, `mcp` | `medium` |
 | `mcp-builder` | 无 | `mcp` | `medium` |
 | `news-radar` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-equity-research-catalyst-calendar` | 无 | `mcp` | `medium` |
+| `anthropic-fs-equity-research-earnings-analysis` | 无 | `mcp` | `medium` |
+| `anthropic-fs-equity-research-earnings-preview` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-equity-research-idea-generation` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-equity-research-initiating-coverage` | 无 | `mcp` | `medium` |
+| `anthropic-fs-equity-research-model-update` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-equity-research-morning-note` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-equity-research-sector-overview` | 无 | `mcp` | `medium` |
+| `anthropic-fs-equity-research-thesis-tracker` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-financial-analysis-3-statement-model` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-financial-analysis-audit-xls` | 无 | `mcp` | `medium` |
+| `anthropic-fs-financial-analysis-clean-data-xls` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-financial-analysis-competitive-analysis` | 无 | `mcp` | `medium` |
+| `anthropic-fs-financial-analysis-comps-analysis` | 无 | `mcp` | `medium` |
+| `anthropic-fs-financial-analysis-dcf-model` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-financial-analysis-deck-refresh` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-financial-analysis-ib-check-deck` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-financial-analysis-lbo-model` | 无 | `mcp` | `medium` |
+| `anthropic-fs-financial-analysis-ppt-template-creator` | 无 | `mcp`, `node` | `medium` |
+| `anthropic-fs-financial-analysis-pptx-author` | 无 | `mcp`, `node` | `medium` |
+| `anthropic-fs-financial-analysis-skill-creator` | 无 | `mcp` | `medium` |
+| `anthropic-fs-financial-analysis-xlsx-author` | 无 | `mcp`, `node` | `medium` |
+| `anthropic-fs-fund-admin-accrual-schedule` | 无 | `mcp` | `medium` |
+| `anthropic-fs-fund-admin-break-trace` | 无 | `mcp` | `medium` |
+| `anthropic-fs-fund-admin-gl-recon` | 无 | `mcp` | `medium` |
+| `anthropic-fs-fund-admin-nav-tieout` | 无 | `mcp` | `medium` |
+| `anthropic-fs-fund-admin-roll-forward` | 无 | `mcp` | `medium` |
+| `anthropic-fs-fund-admin-variance-commentary` | 无 | `mcp` | `medium` |
+| `anthropic-fs-investment-banking-buyer-list` | 无 | `mcp` | `medium` |
+| `anthropic-fs-investment-banking-cim-builder` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-investment-banking-datapack-builder` | 无 | `browser`, `mcp`, `python` | `medium` |
+| `anthropic-fs-investment-banking-deal-tracker` | 无 | `mcp` | `medium` |
+| `anthropic-fs-investment-banking-merger-model` | 无 | `mcp` | `medium` |
+| `anthropic-fs-investment-banking-pitch-deck` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-investment-banking-process-letter` | 无 | `mcp` | `medium` |
+| `anthropic-fs-investment-banking-strip-profile` | 无 | `mcp` | `medium` |
+| `anthropic-fs-investment-banking-teaser` | 无 | `mcp` | `medium` |
+| `anthropic-fs-lseg-bond-futures-basis` | 无 | `mcp` | `medium` |
+| `anthropic-fs-lseg-bond-relative-value` | 无 | `mcp` | `medium` |
+| `anthropic-fs-lseg-equity-research` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-lseg-fixed-income-portfolio` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-lseg-fx-carry-trade` | 无 | `mcp` | `medium` |
+| `anthropic-fs-lseg-macro-rates-monitor` | 无 | `mcp` | `medium` |
+| `anthropic-fs-lseg-option-vol-analysis` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-lseg-swap-curve-strategy` | 无 | `mcp` | `medium` |
+| `anthropic-fs-operations-kyc-doc-parse` | 无 | `mcp` | `medium` |
+| `anthropic-fs-operations-kyc-rules` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-ai-readiness` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-dd-checklist` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-private-equity-dd-meeting-prep` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-deal-screening` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-deal-sourcing` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-ic-memo` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-portfolio-monitoring` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-returns-analysis` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-unit-economics` | 无 | `mcp` | `medium` |
+| `anthropic-fs-private-equity-value-creation-plan` | 无 | `mcp` | `medium` |
+| `anthropic-fs-spglobal-earnings-preview-beta` | 无 | `mcp` | `medium` |
+| `anthropic-fs-spglobal-funding-digest` | 无 | `mcp`, `node`, `python` | `medium` |
+| `anthropic-fs-spglobal-tear-sheet` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-wealth-management-client-report` | 无 | `mcp` | `medium` |
+| `anthropic-fs-wealth-management-client-review` | 无 | `mcp`, `python` | `medium` |
+| `anthropic-fs-wealth-management-financial-plan` | 无 | `mcp` | `medium` |
+| `anthropic-fs-wealth-management-investment-proposal` | 无 | `mcp` | `medium` |
+| `anthropic-fs-wealth-management-portfolio-rebalance` | 无 | `mcp` | `medium` |
+| `anthropic-fs-wealth-management-tax-loss-harvesting` | 无 | `mcp` | `medium` |
 | `portfolio-manager` | 无 | `mcp`, `python` | `medium` |

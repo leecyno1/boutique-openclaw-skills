@@ -6,6 +6,7 @@ from typing import Dict, List
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = REPO_ROOT / "catalog" / "skills.json"
 PROFILES_DIR = REPO_ROOT / "profiles"
+SUITES_DIR = REPO_ROOT / "catalog" / "suites"
 
 
 def load_catalog() -> dict:
@@ -17,6 +18,14 @@ def load_profile(profile_id: str) -> dict:
     p = PROFILES_DIR / f"{profile_id}.json"
     if not p.exists():
         raise FileNotFoundError(f"Profile not found: {profile_id}")
+    with p.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_suite(suite_id: str) -> dict:
+    p = SUITES_DIR / f"{suite_id}.json"
+    if not p.exists():
+        raise FileNotFoundError(f"Suite not found: {suite_id}")
     with p.open("r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -36,13 +45,27 @@ def resolve_profile_skills(profile_id: str) -> List[str]:
     profile = load_profile(profile_id)
     idx = index_by_capability(catalog)
     resolved = []
+    seen = set()
+
+    def add_skill(skill: str) -> None:
+        if skill and skill not in seen:
+            seen.add(skill)
+            resolved.append(skill)
+
     for cap in profile.get("capabilities", []):
         if cap not in idx:
             raise KeyError(f"Profile {profile_id} references unknown capability: {cap}")
-        resolved.append(idx[cap]["skill"])
+        add_skill(idx[cap]["skill"])
     for extra in profile.get("extra_skills", []):
-        if extra not in resolved:
-            resolved.append(extra)
+        add_skill(extra)
+    for skill in profile.get("skills", []):
+        add_skill(skill)
+    for suite_ref in profile.get("skill_suites", []):
+        suite = suite_ref
+        if isinstance(suite_ref, str):
+            suite = load_suite(suite_ref)
+        for skill in suite.get("skills", []):
+            add_skill(skill)
     return resolved
 
 
