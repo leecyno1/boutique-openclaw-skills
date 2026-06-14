@@ -58,6 +58,11 @@
       "score": 95
     },
     {
+      "slot": "A股全栈行情/题材数据",
+      "skill": "a-stock-data",
+      "score": 88
+    },
+    {
       "slot": "全球轻量数据",
       "skill": "yfinance-data",
       "score": 78

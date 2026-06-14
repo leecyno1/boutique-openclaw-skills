@@ -139,6 +139,7 @@ This standard suite intentionally combines `llmquant`, `claude-trading-skills`, 
 | 能力位 | 标准 Skill | Score |
 |---|---|---:|
 | A股结构化数据 | `tushare-openclaw-skill` | 95 |
+| A股全栈行情/题材数据 | `a-stock-data` | 88 |
 | 全球轻量数据 | `yfinance-data` | 78 |
 | SEC/13F/宏观数据 | `llmquant-data` | 86 |
 | 个股分析 | `stock-analysis` | 84 |

@@ -39,7 +39,7 @@ Score interpretation:
 | Skill | Score | Verdict | Reason |
 |---|---:|---|---|
 | `tushare-openclaw-skill` | 95 | Core | Best structured China-market data spine; native Tushare coverage for A-shares, funds, futures, bonds, fundamentals, valuation, dividends, unlocks, and macro. Requires `TUSHARE_TOKEN`, acceptable as a finance data key. |
-| `a-stock-data` | 88 | Optional A-share enhancement | Very broad A-share coverage including quotes, research reports, themes, northbound, Dragon-Tiger, unlocks, margin, block trades, holders, dividends, news, announcements. Self-contained but very large and harder to maintain than Tushare as a standard default. |
+| `a-stock-data` | 88 | Core A-share multi-source layer | Very broad A-share coverage including quotes, research reports, themes, northbound, Dragon-Tiger, unlocks, margin, block trades, holders, dividends, news, announcements. Complements Tushare by covering real-time, theme, capital-flow, announcement, and no-key direct-source workflows. |
 | `llmquant-data` | 86 | Institutional-data core if LLMQuant is available | Clean router for SEC filings, 13F holders, macro snapshots, and grounded macro briefs. Strong data contract, but gated by LLMQuant data/MCP availability. |
 | `yfinance-data` | 78 | Core lightweight global data | Good no-key US/global fallback for prices, statements, options, dividends, earnings, holders. Yahoo rate limits mean it should not be the only data source. |
 | `akshare-stock` | 76 | A-share fallback | Useful AkShare wrapper with scripts, but overlaps heavily with Tushare and `a-stock-data`; weaker guardrails. |
@@ -242,7 +242,8 @@ This is the recommended default set for an investor who wants broad coverage wit
 
 | Slot | Recommended Skill | Score | Why This One | Duplicates / Alternatives Not In Default |
 |---|---|---:|---|---|
-| A-share structured data | `tushare-openclaw-skill` | 95 | Most standard China-market data spine. | `a-stock-data`, `akshare-stock`, `openclaw-stock-data-skill` as optional fallbacks. |
+| A-share structured data | `tushare-openclaw-skill` | 95 | Most standard China-market data spine. | `akshare-stock`, `openclaw-stock-data-skill` as optional fallbacks. |
+| A-share full-stack quotes/themes | `a-stock-data` | 88 | Best multi-source A-share layer for real-time quotes, research reports, themes, northbound flow, Dragon-Tiger, unlocks, margin, block trades, holder counts, dividends, news, and announcements. | `akshare-stock` as a broader fallback wrapper. |
 | Global lightweight data | `yfinance-data` | 78 | Lowest-friction US/global price and fundamentals fallback. | `funda-data` if configured; `llmquant-data` for institutional package. |
 | SEC/13F/macro data | `llmquant-data` | 86 | Source-grounded filings, holders, and macro primitives. | Skip if LLMQuant unavailable. |
 | Stock analysis | `stock-analysis` | 84 | Broad practical single-stock and watchlist workflow. | `us-stock-analysis` for US-only deep workflows; `openclaw-stock-analyzer` for value-investing variant. |
@@ -269,7 +270,7 @@ Recommended default size: 20-22 skills, depending on whether LLMQuant is availab
 
 Minimal no-LLMQuant standard set:
 
-`tushare-openclaw-skill`, `yfinance-data`, `stock-analysis`, `anthropic-fs-financial-analysis-dcf-model`, `canslim-screener`, `vcp-screener`, `sepa-strategy`, `value-dividend-screener`, `uptrend-analyzer`, `policy-monitor`, `options-strategy-advisor`, `position-sizer`, `stock-monitor-skill`, `trader-memory-core`, `pybroker-backtest-skill`, `backtest-expert`, `data-quality-checker`, `alphaear-reporter`, `openclaw-stock-kb`.
+`tushare-openclaw-skill`, `a-stock-data`, `yfinance-data`, `stock-analysis`, `anthropic-fs-financial-analysis-dcf-model`, `canslim-screener`, `vcp-screener`, `sepa-strategy`, `value-dividend-screener`, `uptrend-analyzer`, `policy-monitor`, `options-strategy-advisor`, `position-sizer`, `stock-monitor-skill`, `trader-memory-core`, `pybroker-backtest-skill`, `backtest-expert`, `data-quality-checker`, `alphaear-reporter`, `openclaw-stock-kb`.
 
 Institutional enhanced add-ons:
 
@@ -277,7 +278,7 @@ Institutional enhanced add-ons:
 
 A-share enhanced add-ons:
 
-`a-stock-data`, `akshare-stock`, `stock_datasource/skills/stock-mcp-query`, `stock_datasource/skills/stock-rt-subscribe`.
+`akshare-stock`, `stock_datasource/skills/stock-mcp-query`, `stock_datasource/skills/stock-rt-subscribe`.
 
 Quant/trading lab add-ons:
 
