@@ -128,7 +128,7 @@ ANTHROPIC_FS_PLUGIN_CATEGORIES = {
     "spglobal": "finance-data",
 }
 
-STANDARD_BUNDLE_MAX_SKILLS = 30
+STANDARD_BUNDLE_MAX_SKILLS = 31
 
 CONFLICT_GROUP_RULES = [
     ("web-search", ["web-search", "tavily-search", "brave-search", "multi-search-engine", "minimax-web-search"]),
@@ -1076,7 +1076,7 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any], suites: list
         "",
         "The standard bundle keeps one best skill per capability and excludes skills already built into Open or Hermes.",
         "",
-        "Finance skills are kept in a dedicated finance investment standard suite instead of the general default bundle. Use `./scripts/install-suite.sh finance-investment-standard --dry-run` or the finance profile when an investment workflow needs the full domain stack.",
+        "`a-stock-data` is included in the general standard bundle as the default A-share data skill. Use `./scripts/install-suite.sh finance-investment-standard --dry-run` or the finance profile when an investment workflow needs the full domain stack.",
         "",
         render_standard_bundle_table(bundle),
         "",

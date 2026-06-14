@@ -11,7 +11,7 @@
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
 [![Skills](https://img.shields.io/badge/Skills-282-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
-[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-30%20skills-7c3aed)](catalog/standard-bundle.json)
+[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-31%20skills-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
@@ -73,13 +73,13 @@ Or install a grouped suite:
 | Native sources verified or referenced | 276 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
-| Standard bundle size | 30 / 30 |
+| Standard bundle size | 31 / 30 |
 
 ## Standard Bundle
 
 The standard bundle keeps one best skill per capability and excludes skills already built into Open or Hermes.
 
-Finance skills are kept in a dedicated finance investment standard suite instead of the general default bundle. Use `./scripts/install-suite.sh finance-investment-standard --dry-run` or the finance profile when an investment workflow needs the full domain stack.
+`a-stock-data` is included in the general standard bundle as the default A-share data skill. Use `./scripts/install-suite.sh finance-investment-standard --dry-run` or the finance profile when an investment workflow needs the full domain stack.
 
 | Capability | Skill | Stars | Use |
 |---|---|---:|---|
@@ -106,6 +106,7 @@ Finance skills are kept in a dedicated finance investment standard suite instead
 | `image-generation` | `gemini-image-service` | 3★ | `api-key` |
 | `research-news` | `news-radar` | 4★ | `mcp-required` |
 | `html-publishing` | `html-anything` | 5★ | `browser-required` |
+| `finance-data` | `a-stock-data` | 4★ | `api-key` |
 | `content-strategy` | `content-strategy` | 4★ | `direct` |
 | `writing` | `writing-skills` | 5★ | `direct` |
 | `automation-followup` | `proactive-agent` | 5★ | `direct` |
