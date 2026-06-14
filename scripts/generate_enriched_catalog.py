@@ -18,6 +18,7 @@ SUITES_DIR = ROOT / "catalog" / "suites"
 ENRICHED_PATH = ROOT / "catalog" / "skills.enriched.json"
 STANDARD_BUNDLE_PATH = ROOT / "catalog" / "standard-bundle.json"
 STANDARD_BUNDLE_OVERRIDES = ROOT / "catalog" / "standard-bundle-overrides.json"
+TUSHARE_ROUTING = ROOT / "catalog" / "tushare-finance-routing.json"
 TIERS_DIR = ROOT / "tiers"
 DOC_TIERS_DIR = ROOT / "docs" / "tiers"
 MANUALS_DOC = ROOT / "docs" / "SKILL_MANUALS.md"
@@ -560,6 +561,9 @@ def load_suites() -> list[dict[str, Any]]:
 def build_enriched() -> dict[str, Any]:
     overrides = load_json(ORIGIN_OVERRIDES, {})
     preset_exclusions = load_preset_exclusions()
+    tushare_routing = load_json(TUSHARE_ROUTING, {})
+    tushare_backed = {item.get("skill_id") for item in tushare_routing.get("convert_to_tushare_backed", [])}
+    tushare_supplement = {item.get("skill_id") for item in tushare_routing.get("tushare_supplement_only", [])}
     skills = []
     for base in dedupe_default_skills():
         skill_id = base["id"]
@@ -575,6 +579,15 @@ def build_enriched() -> dict[str, Any]:
             tags.extend(["llmquant", "institutional-research", "finance-suite"])
         if skill_id.startswith("anthropic-fs-"):
             tags.extend(["anthropic-financial-services", "enterprise-data", "institutional-finance", "finance-suite"])
+        if skill_id in tushare_backed:
+            tags.extend(["tushare-backed", "china-market-data"])
+            if "TUSHARE_TOKEN" not in deps["api_keys"]:
+                deps["api_keys"].append("TUSHARE_TOKEN")
+                deps["api_keys"] = sorted(set(deps["api_keys"]))
+                deps["requires_api_keys"] = True
+                deps["access_mode"] = "api-key" if deps["access_mode"] == "direct" else deps["access_mode"]
+        if skill_id in tushare_supplement:
+            tags.extend(["tushare-supplement", "china-market-data"])
         item = {
             "id": skill_id,
             "name": base.get("name", skill_id),
@@ -858,6 +871,18 @@ def render_suites_table(suites: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def render_finance_standard_suite_table(suite: dict[str, Any] | None) -> str:
+    if not suite:
+        return ""
+    rows = suite.get("standard_slots", []) or []
+    lines = [
+        "| 能力位 | 标准 Skill | Score |",
+        "|---|---|---:|",
+    ]
+    for row in rows:
+        lines.append(f"| {row['slot']} | `{row['skill']}` | {row['score']} |")
+    return "\n".join(lines)
+
 
 def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]]) -> str:
     finance_skills = [
@@ -867,6 +892,7 @@ def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]])
     ]
     category_counts = counter(finance_skills, "primary_category")
     suite_ids = {suite.get("id"): suite for suite in suites}
+    finance_standard = suite_ids.get("finance-investment-standard")
     scenario_rows = [
         ("A股数据 / 行情 / 财报", "`a-stock-data`, `akshare-stock`, `tushare-openclaw-skill`", "A 股行情、财务、研报、题材、资金流、公告与自选股数据底座。"),
         ("美股 / 全球股票研究", "`yfinance-data`, `stock-analysis`, `us-stock-analysis`, `llmquant-equities`", "轻量行情与基本面、个股评分、研究 memo、同业比较。"),
@@ -881,25 +907,42 @@ def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]])
     lines = [
         "## Finance / Investment Workflows",
         "",
-        "Finance skills are curated as opt-in domain capabilities, not part of the default standard bundle. Install them only when an investment, research, trading, PE/IB, or fund-ops workflow needs them.",
+        "Finance skills now have a dedicated **Finance Investment Standard Suite**. It is separate from the general no-duplicate bundle, but it is the recommended standard combination for investment research, screening, trading plans, portfolio risk, monitoring, backtesting, reporting, and institutional finance workflows.",
         "",
         "| Metric | Value |",
         "|---|---:|",
         f"| Finance-related skills | {len(finance_skills)} |",
+        f"| Finance investment standard suite | {len(finance_standard.get('skills', [])) if finance_standard else 0} skills |",
         f"| Finance data skills | {category_counts.get('finance-data', 0)} |",
         f"| Finance trading/research skills | {category_counts.get('finance-trading', 0)} |",
         f"| Institutional finance services | {category_counts.get('finance-services', 0)} |",
         f"| Finance monitor/risk skills | {category_counts.get('finance-monitor', 0)} |",
         "",
+        "### Finance Investment Standard Suite",
+        "",
+        "This standard suite intentionally combines `llmquant`, `claude-trading-skills`, `a-stock-data`, `anthropic-fs`, `alphaear`, and the scored high-value investment workflow skills listed below.",
+        "",
+        "```bash",
+        "./scripts/install-suite.sh finance-investment-standard --dry-run",
+        "./scripts/install-suite.sh finance-investment-standard",
+        "```",
+        "",
+        render_finance_standard_suite_table(finance_standard),
+        "",
+        "Full manifest: [catalog/suites/finance-investment-standard.json](catalog/suites/finance-investment-standard.json). Scorecard: [finance investment skills scorecard](reports/finance-skill-eval/finance-investment-skills-scorecard-2026-06-14.md).",
+        "",
         "### Recommended Entry Points",
         "",
         "| Need | Start Here |",
         "|---|---|",
-        "| 普通投资者 / A股研究 | `a-stock-data` + `openclaw-stock-kb` + `stock-monitor-skill` |",
+        "| 金融投资标准组合 | `./scripts/install-suite.sh finance-investment-standard --dry-run` |",
+        "| 普通投资者 / A股研究 | `tushare-openclaw-skill` + `a-stock-data` + `openclaw-stock-kb` + `stock-monitor-skill` |",
         "| 美股与全球资产 | `yfinance-data` + `stock-analysis` + `llmquant-equities` |",
         "| 机构研究 / 多资产 | `./scripts/install-suite.sh llmquant --dry-run` |",
         "| 投行 / PE / 财富管理 / 基金运营 | `./scripts/install-suite.sh anthropic-financial-services --dry-run` |",
         "| 选型参考 | [Finance scenario mapping](docs/generated/finance-skills-mapping.md) |",
+        "| Tushare 数据接口评测 | [HTML report](reports/finance-skill-eval/tushare-eval/tushare-finance-skill-evaluation.html) |",
+        "| Tushare 接入路由清单 | [Routing summary](reports/finance-skill-eval/tushare-eval/tushare-routing-summary.md) |",
         "",
         "### Investment Scenario Mapping",
         "",
@@ -915,6 +958,9 @@ def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]])
         "```bash",
         "# Preview the finance profile",
         "./scripts/install-profile.sh finance --dry-run",
+        "",
+        "# Preview the finance investment standard suite",
+        "./scripts/install-suite.sh finance-investment-standard --dry-run",
         "",
         "# Install institutional finance suites only when needed",
         "./scripts/install-suite.sh llmquant --dry-run",
@@ -988,7 +1034,7 @@ def render_readme(enriched: dict[str, Any], bundle: dict[str, Any], suites: list
         "",
         "The standard bundle keeps one best skill per capability and excludes skills already built into Open or Hermes.",
         "",
-        "Finance skills are intentionally kept out of the default standard bundle for now. Use the finance profile, a finance suite, or the [finance scenario mapping](docs/generated/finance-skills-mapping.md) when an investment workflow needs them.",
+        "Finance skills are kept in a dedicated finance investment standard suite instead of the general default bundle. Use `./scripts/install-suite.sh finance-investment-standard --dry-run` or the finance profile when an investment workflow needs the full domain stack.",
         "",
         render_standard_bundle_table(bundle),
         "",

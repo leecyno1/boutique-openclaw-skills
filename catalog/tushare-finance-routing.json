@@ -1,0 +1,1763 @@
+{
+  "schema_version": "2026.06.13",
+  "generated_from": "reports/finance-skill-eval/tushare-eval/tushare-finance-skill-evaluation.json",
+  "tushare_connected": true,
+  "tushare_samples": {
+    "stock_basic_rows": 5528,
+    "stock_basic_columns": [
+      "ts_code",
+      "symbol",
+      "name",
+      "area",
+      "industry",
+      "market",
+      "list_date"
+    ],
+    "daily_600519_rows": 105,
+    "daily_600519_columns": [
+      "ts_code",
+      "trade_date",
+      "open",
+      "high",
+      "low",
+      "close",
+      "pre_close",
+      "change",
+      "pct_chg",
+      "vol",
+      "amount"
+    ],
+    "index_000300_rows": 105,
+    "daily_basic_600519_rows": 105,
+    "daily_basic_600519_columns": [
+      "ts_code",
+      "trade_date",
+      "close",
+      "turnover_rate",
+      "pe_ttm",
+      "pb",
+      "total_mv",
+      "circ_mv"
+    ],
+    "income_600519_rows": 1
+  },
+  "policy": {
+    "convert_statuses": [
+      "passed_tushare_strong",
+      "passed_tushare_partial"
+    ],
+    "weak_statuses": [
+      "weak_tushare_fit"
+    ],
+    "skip_rule": "skip skills that require non-Tushare API keys, enterprise MCP, or domains Tushare cannot cover",
+    "secret_policy": "TUSHARE_TOKEN is runtime-only and must not be committed"
+  },
+  "convert_to_tushare_backed": [
+    {
+      "skill_id": "a-stock-data",
+      "score": 88,
+      "scenario": "A股基础数据",
+      "policy": "partial_replace_or_backend_option",
+      "verdict": "强适配：可优先接入或改为 Tushare 数据底座。",
+      "missing_or_blocked": [
+        "a-stock-data 当前内置多源直连；建议新增 Tushare provider，不建议全部删除原多源能力。"
+      ]
+    },
+    {
+      "skill_id": "akshare-stock",
+      "score": 82,
+      "scenario": "A股基础数据",
+      "policy": "replace_with_tushare_possible",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "alphaear-reporter",
+      "score": 70,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。"
+      ]
+    },
+    {
+      "skill_id": "alphaear-stock",
+      "score": 75,
+      "scenario": "A股基础数据",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "breakout-trade-planner",
+      "score": 70,
+      "scenario": "技术面/交易计划",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "data-quality-checker",
+      "score": 70,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。"
+      ]
+    },
+    {
+      "skill_id": "earnings-recap",
+      "score": 70,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。"
+      ]
+    },
+    {
+      "skill_id": "edge-candidate-agent",
+      "score": 70,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。"
+      ]
+    },
+    {
+      "skill_id": "finance-skill-creator",
+      "score": 70,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。"
+      ]
+    },
+    {
+      "skill_id": "kanchi-dividend-review-monitor",
+      "score": 70,
+      "scenario": "组合/风控/监控",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "options-payoff",
+      "score": 70,
+      "scenario": "技术面/交易计划",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "position-sizer",
+      "score": 70,
+      "scenario": "技术面/交易计划",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "pybroker-backtest-skill",
+      "score": 70,
+      "scenario": "量化/回测/策略迭代",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "saas-valuation-compression",
+      "score": 70,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。"
+      ]
+    },
+    {
+      "skill_id": "sepa-strategy",
+      "score": 70,
+      "scenario": "技术面/交易计划",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "stock-analysis",
+      "score": 70,
+      "scenario": "组合/风控/监控",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "stock-correlation",
+      "score": 70,
+      "scenario": "量化/回测/策略迭代",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "stock-monitor-skill",
+      "score": 70,
+      "scenario": "组合/风控/监控",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "tushare-openclaw-skill",
+      "score": 95,
+      "scenario": "A股基础数据",
+      "policy": "native_tushare",
+      "verdict": "强适配：可优先接入或改为 Tushare 数据底座。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "alphaear-search",
+      "score": 75,
+      "scenario": "A股基础数据",
+      "policy": "tushare_candidate",
+      "verdict": "部分适配：Tushare 可覆盖核心行情/基本面，但仍需保留原 skill 的非行情能力。",
+      "missing_or_blocked": []
+    }
+  ],
+  "tushare_supplement_only": [
+    {
+      "skill_id": "backtest-expert",
+      "score": 60,
+      "scenario": "选股/机会发现",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Finviz/CANSLIM 美股专用字段无法直接用 Tushare 替代。"
+      ]
+    },
+    {
+      "skill_id": "edge-signal-aggregator",
+      "score": 60,
+      "scenario": "选股/机会发现",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Finviz/CANSLIM 美股专用字段无法直接用 Tushare 替代。"
+      ]
+    },
+    {
+      "skill_id": "openclaw-stock-kb",
+      "score": 50,
+      "scenario": "报告/可视化/知识库",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "yfinance-data",
+      "score": 45,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。",
+        "Tushare 主要覆盖中国市场，不能替代美股/Finviz/yfinance 的全球资产能力。"
+      ]
+    },
+    {
+      "skill_id": "alphaear-deepear-lite",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "alphaear-logic-visualizer",
+      "score": 50,
+      "scenario": "报告/可视化/知识库",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": []
+    },
+    {
+      "skill_id": "alphaear-news",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "alphaear-predictor",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "alphaear-signal-tracker",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "etf-premium",
+      "score": 60,
+      "scenario": "选股/机会发现",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Finviz/CANSLIM 美股专用字段无法直接用 Tushare 替代。"
+      ]
+    },
+    {
+      "skill_id": "hormuz-strait",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "kanchi-dividend-us-tax-accounting",
+      "score": 45,
+      "scenario": "选股/机会发现",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Finviz/CANSLIM 美股专用字段无法直接用 Tushare 替代。",
+        "Tushare 主要覆盖中国市场，不能替代美股/Finviz/yfinance 的全球资产能力。"
+      ]
+    },
+    {
+      "skill_id": "market-breadth-analyzer",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "stanley-druckenmiller-investment",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "trade-hypothesis-ideator",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "trader-memory-core",
+      "score": 60,
+      "scenario": "选股/机会发现",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Finviz/CANSLIM 美股专用字段无法直接用 Tushare 替代。"
+      ]
+    },
+    {
+      "skill_id": "uptrend-analyzer",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "us-market-bubble-detector",
+      "score": 45,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Tushare 主要覆盖中国市场，不能替代美股/Finviz/yfinance 的全球资产能力。"
+      ]
+    },
+    {
+      "skill_id": "us-stock-analysis",
+      "score": 45,
+      "scenario": "个股研究/估值",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Tushare 主要覆盖中国市场，不能替代美股/Finviz/yfinance 的全球资产能力。"
+      ]
+    },
+    {
+      "skill_id": "marketingskills",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-catalyst-calendar",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-earnings-analysis",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-earnings-preview",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-idea-generation",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-initiating-coverage",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-model-update",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-morning-note",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-sector-overview",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-equity-research-thesis-tracker",
+      "score": 50,
+      "scenario": "组合/风控/监控",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-3-statement-model",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-audit-xls",
+      "score": 50,
+      "scenario": "报告/可视化/知识库",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-clean-data-xls",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-competitive-analysis",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-comps-analysis",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-dcf-model",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-deck-refresh",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-ppt-template-creator",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-pptx-author",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-skill-creator",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-xlsx-author",
+      "score": 50,
+      "scenario": "报告/可视化/知识库",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-fund-admin-gl-recon",
+      "score": 50,
+      "scenario": "技术面/交易计划",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-equity-research",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-fixed-income-portfolio",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-macro-rates-monitor",
+      "score": 50,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-option-vol-analysis",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-portfolio-monitoring",
+      "score": 50,
+      "scenario": "组合/风控/监控",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-returns-analysis",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-spglobal-earnings-preview-beta",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-spglobal-funding-digest",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-spglobal-tear-sheet",
+      "score": 50,
+      "scenario": "个股研究/估值",
+      "policy": "supplement_only",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "研报全文、电话会纪要、买方预期通常仍需东财/Funda/LSEG/S&P 或人工材料。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "market-news-analyst",
+      "score": 60,
+      "scenario": "市场复盘/宏观政策",
+      "policy": "tushare_candidate",
+      "verdict": "弱适配：Tushare 只能补充少量 A 股公开数据，不建议强行替换。",
+      "missing_or_blocked": [
+        "政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "skill_id": "funda-data",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "FUNDA_API_KEY",
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires FUNDA_API_KEY, IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "llmquant-commodities",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-credit",
+      "status": "skipped_extra_api",
+      "scenario": "组合/风控/监控",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-crypto",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-data",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-equities",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-equity-derivatives",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-etfs",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-events",
+      "status": "skipped_extra_api",
+      "scenario": "组合/风控/监控",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-investor-lenses",
+      "status": "skipped_extra_api",
+      "scenario": "A股基础数据",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-macro",
+      "status": "skipped_extra_api",
+      "scenario": "组合/风控/监控",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-market-intelligence",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-options",
+      "status": "skipped_extra_api",
+      "scenario": "量化/回测/策略迭代",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-portfolio",
+      "status": "skipped_extra_api",
+      "scenario": "组合/风控/监控",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-portfolio-lab",
+      "status": "skipped_extra_api",
+      "scenario": "组合/风控/监控",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-prediction-markets",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-rates-fx",
+      "status": "skipped_extra_api",
+      "scenario": "期权/固收/外汇/衍生品",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-risk",
+      "status": "skipped_extra_api",
+      "scenario": "组合/风控/监控",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "llmquant-strategies",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "LLMQUANT_API_KEY"
+      ],
+      "reason": [
+        "requires LLMQUANT_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "openclaw-stock-data-skill",
+      "status": "skipped_extra_api",
+      "scenario": "A股基础数据",
+      "api_keys": [
+        "STOCK_API_KEY"
+      ],
+      "reason": [
+        "requires STOCK_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-ib-check-deck",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-financial-analysis-lbo-model",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-fund-admin-accrual-schedule",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-fund-admin-break-trace",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-fund-admin-nav-tieout",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-fund-admin-roll-forward",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-fund-admin-variance-commentary",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-buyer-list",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-cim-builder",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-datapack-builder",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-deal-tracker",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-merger-model",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-pitch-deck",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-process-letter",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-strip-profile",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-investment-banking-teaser",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-bond-futures-basis",
+      "status": "not_suitable_for_tushare",
+      "scenario": "期权/固收/外汇/衍生品",
+      "api_keys": [],
+      "reason": [
+        "Tushare 对部分衍生品/基金/债券有接口，但无法替代 LSEG/LLMQuant 级跨资产深度数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-bond-relative-value",
+      "status": "not_suitable_for_tushare",
+      "scenario": "期权/固收/外汇/衍生品",
+      "api_keys": [],
+      "reason": [
+        "Tushare 对部分衍生品/基金/债券有接口，但无法替代 LSEG/LLMQuant 级跨资产深度数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-fx-carry-trade",
+      "status": "not_suitable_for_tushare",
+      "scenario": "期权/固收/外汇/衍生品",
+      "api_keys": [],
+      "reason": [
+        "Tushare 对部分衍生品/基金/债券有接口，但无法替代 LSEG/LLMQuant 级跨资产深度数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-lseg-swap-curve-strategy",
+      "status": "not_suitable_for_tushare",
+      "scenario": "期权/固收/外汇/衍生品",
+      "api_keys": [],
+      "reason": [
+        "Tushare 对部分衍生品/基金/债券有接口，但无法替代 LSEG/LLMQuant 级跨资产深度数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-operations-kyc-doc-parse",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-operations-kyc-rules",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-ai-readiness",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-dd-checklist",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-dd-meeting-prep",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-deal-screening",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-deal-sourcing",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-ic-memo",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-unit-economics",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-private-equity-value-creation-plan",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-wealth-management-client-report",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-wealth-management-client-review",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-wealth-management-financial-plan",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-wealth-management-investment-proposal",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-wealth-management-portfolio-rebalance",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "anthropic-fs-wealth-management-tax-loss-harvesting",
+      "status": "not_suitable_for_tushare",
+      "scenario": "机构金融/投行/PE/基金运营",
+      "api_keys": [],
+      "reason": [
+        "机构材料、KYC、基金运营、PE 尽调依赖文件、企业系统或 MCP，Tushare 只能补充上市公司公开市场数据。",
+        "Anthropic FS 多数依赖企业 MCP/文档/机构数据；Tushare 只能作为 A 股公开市场补充。"
+      ]
+    },
+    {
+      "skill_id": "portfolio-manager",
+      "status": "skipped_mcp",
+      "scenario": "个股研究/估值",
+      "api_keys": [],
+      "reason": [
+        "requires MCP or external tool"
+      ]
+    },
+    {
+      "skill_id": "alphaear-sentiment",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "OPENAI_API_KEY"
+      ],
+      "reason": [
+        "requires OPENAI_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "breadth-chart-analyst",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "canslim-screener",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "company-valuation",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "dividend-growth-pullback-screener",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FINVIZ_API_KEY",
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FINVIZ_API_KEY, FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "downtrend-duration-analyzer",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "earnings-calendar",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "earnings-preview",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "earnings-trade-analyzer",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "economic-calendar-fetcher",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "edge-hint-extractor",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "OPENAI_API_KEY"
+      ],
+      "reason": [
+        "requires OPENAI_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "estimate-analysis",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "exposure-coach",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "finance-sentiment",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "ADANOS_API_KEY"
+      ],
+      "reason": [
+        "requires ADANOS_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "finviz-screener",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FINVIZ_API_KEY"
+      ],
+      "reason": [
+        "requires FINVIZ_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "ftd-detector",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "ibd-distribution-day-monitor",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "institutional-flow-tracker",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "kanchi-dividend-sop",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "macro-regime-detector",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "market-environment-analysis",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "market-top-detector",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "options-strategy-advisor",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "pair-trade-screener",
+      "status": "skipped_extra_api",
+      "scenario": "量化/回测/策略迭代",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "parabolic-short-trade-planner",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "ALPACA_API_KEY",
+        "FMP_API_KEY",
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires ALPACA_API_KEY, FMP_API_KEY, IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "pead-screener",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "sector-analyst",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "signal-postmortem",
+      "status": "skipped_extra_api",
+      "scenario": "技术面/交易计划",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "stock-daily-analysis-skill",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "OPENAI_API_KEY"
+      ],
+      "reason": [
+        "requires OPENAI_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "stock-liquidity",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "technical-analyst",
+      "status": "skipped_extra_api",
+      "scenario": "个股研究/估值",
+      "api_keys": [
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID"
+      ],
+      "reason": [
+        "requires IMA_API_KEY, IMA_CLIENT_ID"
+      ]
+    },
+    {
+      "skill_id": "theme-detector",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FINVIZ_API_KEY",
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FINVIZ_API_KEY, FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "value-dividend-screener",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FINVIZ_API_KEY",
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FINVIZ_API_KEY, FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "vcp-screener",
+      "status": "skipped_extra_api",
+      "scenario": "选股/机会发现",
+      "api_keys": [
+        "FMP_API_KEY"
+      ],
+      "reason": [
+        "requires FMP_API_KEY"
+      ]
+    },
+    {
+      "skill_id": "ai-image-generation",
+      "status": "skipped_extra_api",
+      "scenario": "市场复盘/宏观政策",
+      "api_keys": [
+        "GEMINI_API_KEY",
+        "IMA_API_KEY",
+        "IMA_CLIENT_ID",
+        "OPENAI_API_KEY"
+      ],
+      "reason": [
+        "requires GEMINI_API_KEY, IMA_API_KEY, IMA_CLIENT_ID, OPENAI_API_KEY"
+      ]
+    }
+  ]
+}

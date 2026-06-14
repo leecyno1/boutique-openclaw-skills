@@ -86,7 +86,7 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `backtest-expert` | `L2 Professional` | 5★ | `coding-devtools`, `direct`, `l2`, `offline`, `trading_finance` |
+| `backtest-expert` | `L2 Professional` | 5★ | `china-market-data`, `coding-devtools`, `direct`, `l2`, `offline`, `trading_finance`, `tushare-supplement` |
 | `android-native-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
 | `flutter-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
 | `ios-application-dev` | `L2 Professional` | 4★ | `coding-devtools`, `default_sentinel`, `direct`, `l2`, `minimax_official`, `offline` |
@@ -102,7 +102,7 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `data-analyst` | `L2 Professional` | 5★ | `data-analysis`, `default_sentinel`, `direct`, `l2`, `offline` |
-| `edge-signal-aggregator` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
+| `edge-signal-aggregator` | `L2 Professional` | 5★ | `china-market-data`, `data-analysis`, `direct`, `l2`, `offline`, `trading_finance`, `tushare-supplement` |
 | `edge-strategy-reviewer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
 | `scenario-analyzer` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
 | `skill-integration-tester` | `L2 Professional` | 5★ | `data-analysis`, `direct`, `l2`, `offline`, `trading_finance` |
@@ -193,7 +193,7 @@
 |---|---|---:|---|
 | `dbskill` | `L2 Professional` | 5★ | `content-growth`, `creator`, `direct`, `l2`, `marketing`, `marketing-growth`, `offline` |
 | `content-strategy` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `l2`, `marketing-growth`, `offline` |
-| `marketingskills` | `L3 Specialist` | 4★ | `default_sentinel`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `marketingskills` | `L3 Specialist` | 4★ | `china-market-data`, `default_sentinel`, `direct`, `l3`, `marketing-growth`, `offline`, `tushare-supplement` |
 
 ## 金融 / 交易
 
@@ -207,67 +207,67 @@
 | `llmquant-options` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 | `llmquant-prediction-markets` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 | `llmquant-strategies` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-suite`, `finance-trading`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
-| `alphaear-deepear-lite` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `alphaear-logic-visualizer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `alphaear-news` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `alphaear-predictor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `alphaear-reporter` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `alphaear-signal-tracker` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `alphaear-stock` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `breakout-trade-planner` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `data-quality-checker` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `earnings-recap` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `edge-candidate-agent` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `etf-premium` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `finance-skill-creator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `hormuz-strait` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `kanchi-dividend-review-monitor` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `market-breadth-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `options-payoff` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `position-sizer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `pybroker-backtest-skill` | `L3 Specialist` | 4★ | `backtesting`, `direct`, `experimental`, `finance`, `finance-trading`, `l3`, `offline` |
-| `saas-valuation-compression` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `sepa-strategy` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `stanley-druckenmiller-investment` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `stock-analysis` | `L3 Specialist` | 4★ | `analysis`, `direct`, `finance`, `finance-trading`, `l3`, `offline`, `watchlist` |
-| `stock-correlation` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `trade-hypothesis-ideator` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `trader-memory-core` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `uptrend-analyzer` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `us-market-bubble-detector` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `us-stock-analysis` | `L3 Specialist` | 4★ | `direct`, `finance-trading`, `l3`, `offline`, `trading_finance` |
-| `alphaear-search` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online`, `trading_finance` |
-| `market-news-analyst` | `L3 Specialist` | 3★ | `browser-required`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `alphaear-deepear-lite` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `alphaear-logic-visualizer` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `alphaear-news` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
+| `alphaear-predictor` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
+| `alphaear-signal-tracker` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `etf-premium` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `hormuz-strait` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `market-breadth-analyzer` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
+| `stanley-druckenmiller-investment` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `trade-hypothesis-ideator` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `trader-memory-core` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `uptrend-analyzer` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
+| `us-market-bubble-detector` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `us-stock-analysis` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `alphaear-search` | `L3 Specialist` | 3★ | `browser-required`, `china-market-data`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-backed` |
+| `market-news-analyst` | `L3 Specialist` | 3★ | `browser-required`, `china-market-data`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
 | `portfolio-manager` | `L3 Specialist` | 3★ | `finance-trading`, `l3`, `mcp-required`, `offline`, `trading_finance` |
+| `alphaear-reporter` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `alphaear-sentiment` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `alphaear-stock` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-backed` |
 | `breadth-chart-analyst` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `breakout-trade-planner` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `canslim-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `company-valuation` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `data-quality-checker` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `dividend-growth-pullback-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `downtrend-duration-analyzer` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `earnings-calendar` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `earnings-preview` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `earnings-recap` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `earnings-trade-analyzer` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `economic-calendar-fetcher` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `edge-candidate-agent` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-backed` |
 | `edge-hint-extractor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `estimate-analysis` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `exposure-coach` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `finance-sentiment` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `finance-skill-creator` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `finviz-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `ftd-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `ibd-distribution-day-monitor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `institutional-flow-tracker` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `kanchi-dividend-review-monitor` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `kanchi-dividend-sop` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `macro-regime-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `market-environment-analysis` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `market-top-detector` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `options-payoff` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `options-strategy-advisor` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `pair-trade-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `parabolic-short-trade-planner` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `pead-screener` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `position-sizer` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
+| `pybroker-backtest-skill` | `L3 Specialist` | 3★ | `backtesting`, `china-market-data`, `direct`, `experimental`, `finance`, `finance-trading`, `l3`, `offline`, `tushare-backed` |
+| `saas-valuation-compression` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `sector-analyst` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `sepa-strategy` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `signal-postmortem` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
+| `stock-analysis` | `L3 Specialist` | 3★ | `analysis`, `china-market-data`, `direct`, `finance`, `finance-trading`, `l3`, `offline`, `tushare-backed`, `watchlist` |
+| `stock-correlation` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-backed` |
 | `stock-daily-analysis-skill` | `L3 Specialist` | 3★ | `analysis`, `api-key`, `daily-review`, `finance`, `finance-trading`, `l3`, `online` |
 | `stock-liquidity` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
 | `technical-analyst` | `L3 Specialist` | 3★ | `api-key`, `finance-trading`, `l3`, `online`, `trading_finance` |
@@ -280,31 +280,31 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `anthropic-fs-equity-research-catalyst-calendar` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-earnings-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-earnings-preview` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-idea-generation` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-initiating-coverage` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-model-update` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-morning-note` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-sector-overview` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-equity-research-thesis-tracker` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online` |
-| `anthropic-fs-financial-analysis-3-statement-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-audit-xls` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-clean-data-xls` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-competitive-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-comps-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-dcf-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-deck-refresh` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-equity-research-catalyst-calendar` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-earnings-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-earnings-preview` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-idea-generation` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-initiating-coverage` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-model-update` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-morning-note` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-sector-overview` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-equity-research-thesis-tracker` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `equity-research`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-3-statement-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-audit-xls` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-clean-data-xls` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-competitive-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-comps-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-dcf-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-deck-refresh` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
 | `anthropic-fs-financial-analysis-ib-check-deck` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
 | `anthropic-fs-financial-analysis-lbo-model` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-ppt-template-creator` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-pptx-author` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-skill-creator` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-financial-analysis-xlsx-author` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-financial-analysis-ppt-template-creator` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-pptx-author` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-skill-creator` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-financial-analysis-xlsx-author` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `financial-analysis`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
 | `anthropic-fs-fund-admin-accrual-schedule` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
 | `anthropic-fs-fund-admin-break-trace` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
-| `anthropic-fs-fund-admin-gl-recon` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
+| `anthropic-fs-fund-admin-gl-recon` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `tushare-supplement` |
 | `anthropic-fs-fund-admin-nav-tieout` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `online` |
 | `anthropic-fs-fund-admin-roll-forward` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
 | `anthropic-fs-fund-admin-variance-commentary` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `fund-admin`, `institutional-finance`, `l3`, `mcp-required`, `offline` |
@@ -323,8 +323,8 @@
 | `anthropic-fs-private-equity-deal-screening` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
 | `anthropic-fs-private-equity-deal-sourcing` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
 | `anthropic-fs-private-equity-ic-memo` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
-| `anthropic-fs-private-equity-portfolio-monitoring` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
-| `anthropic-fs-private-equity-returns-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
+| `anthropic-fs-private-equity-portfolio-monitoring` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity`, `tushare-supplement` |
+| `anthropic-fs-private-equity-returns-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity`, `tushare-supplement` |
 | `anthropic-fs-private-equity-unit-economics` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
 | `anthropic-fs-private-equity-value-creation-plan` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `private-equity` |
 | `anthropic-fs-wealth-management-client-report` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-services`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `offline`, `wealth-management` |
@@ -338,31 +338,31 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `a-stock-data` | `L2 Professional` | 4★ | `a-share`, `direct`, `finance`, `finance-data`, `l2`, `offline`, `standard` |
-| `akshare-stock` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline` |
-| `yfinance-data` | `L2 Professional` | 4★ | `direct`, `finance-data`, `l2`, `offline`, `trading_finance` |
+| `yfinance-data` | `L2 Professional` | 4★ | `china-market-data`, `direct`, `finance-data`, `l2`, `offline`, `trading_finance`, `tushare-supplement` |
 | `funda-data` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance-data`, `l2`, `online`, `trading_finance` |
 | `llmquant-data` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-data`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 | `llmquant-etfs` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-data`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
+| `a-stock-data` | `L2 Professional` | 4★ | `a-share`, `china-market-data`, `direct`, `finance`, `finance-data`, `l2`, `offline`, `standard`, `tushare-backed` |
+| `akshare-stock` | `L2 Professional` | 4★ | `china-market-data`, `direct`, `finance-data`, `l2`, `offline`, `tushare-backed` |
 | `openclaw-stock-data-skill` | `L2 Professional` | 4★ | `a-share`, `api-key`, `data`, `finance`, `finance-data`, `high-frequency`, `l2`, `online` |
-| `tushare-openclaw-skill` | `L2 Professional` | 4★ | `a-share`, `api-key`, `data`, `finance`, `finance-data`, `l2`, `online` |
+| `tushare-openclaw-skill` | `L2 Professional` | 4★ | `a-share`, `api-key`, `china-market-data`, `data`, `finance`, `finance-data`, `l2`, `online`, `tushare-backed` |
 | `anthropic-fs-lseg-bond-futures-basis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
 | `anthropic-fs-lseg-bond-relative-value` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
-| `anthropic-fs-lseg-equity-research` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `online` |
-| `anthropic-fs-lseg-fixed-income-portfolio` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-equity-research` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `online`, `tushare-supplement` |
+| `anthropic-fs-lseg-fixed-income-portfolio` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline`, `tushare-supplement` |
 | `anthropic-fs-lseg-fx-carry-trade` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
-| `anthropic-fs-lseg-macro-rates-monitor` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
-| `anthropic-fs-lseg-option-vol-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
+| `anthropic-fs-lseg-macro-rates-monitor` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline`, `tushare-supplement` |
+| `anthropic-fs-lseg-option-vol-analysis` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline`, `tushare-supplement` |
 | `anthropic-fs-lseg-swap-curve-strategy` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `lseg`, `mcp-required`, `offline` |
-| `anthropic-fs-spglobal-earnings-preview-beta` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal` |
-| `anthropic-fs-spglobal-funding-digest` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal` |
-| `anthropic-fs-spglobal-tear-sheet` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal` |
+| `anthropic-fs-spglobal-earnings-preview-beta` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal`, `tushare-supplement` |
+| `anthropic-fs-spglobal-funding-digest` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal`, `tushare-supplement` |
+| `anthropic-fs-spglobal-tear-sheet` | `L3 Specialist` | 3★ | `anthropic-financial-services`, `china-market-data`, `enterprise-data`, `finance`, `finance-data`, `finance-suite`, `institutional-finance`, `l3`, `mcp-required`, `online`, `spglobal`, `tushare-supplement` |
 
 ## 金融 / 知识库
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
-| `openclaw-stock-kb` | `L2 Professional` | 5★ | `direct`, `finance`, `finance-knowledge`, `knowledge`, `l2`, `offline` |
+| `openclaw-stock-kb` | `L2 Professional` | 5★ | `china-market-data`, `direct`, `finance`, `finance-knowledge`, `knowledge`, `l2`, `offline`, `tushare-supplement` |
 | `llmquant-investor-lenses` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-knowledge`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 
 ## 金融 / 监控预警
@@ -376,7 +376,7 @@
 | `llmquant-portfolio-lab` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 | `llmquant-rates-fx` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
 | `llmquant-risk` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-monitor`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
-| `stock-monitor-skill` | `L3 Specialist` | 4★ | `direct`, `finance-monitor`, `l3`, `offline` |
+| `stock-monitor-skill` | `L3 Specialist` | 3★ | `china-market-data`, `direct`, `finance-monitor`, `l3`, `offline`, `tushare-backed` |
 
 ## 政策 / 宏观监控
 

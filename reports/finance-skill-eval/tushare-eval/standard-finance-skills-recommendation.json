@@ -1,0 +1,410 @@
+{
+  "generated_at": "2026-06-14T07:38:30",
+  "principle": "标准套装按投资流程去重：一个岗位任务只选一个默认 skill；同类数据源、同类筛选器、同类机构工作流放入 excluded 或 optional_suites。",
+  "data_assumption": "中国市场以 Tushare Pro 为主数据底座；免 key 数据源和专有 API 只作为增强，不强行替代。",
+  "recommended_count": 15,
+  "recommended": [
+    {
+      "rank": 1,
+      "slot": "A股结构化数据底座",
+      "skill_id": "tushare-openclaw-skill",
+      "score": 95,
+      "status": "passed_tushare_strong",
+      "scenario": "A股基础数据",
+      "role": "用 Tushare Pro 拉取 A 股/基金/期货/债券、行情、财务、估值、分红、解禁等结构化数据。",
+      "why_recommended": "原生 Tushare，和本轮实测 token、stock_basic、daily、index_daily、daily_basic、income 覆盖完全对齐。",
+      "evaluation_reason": "评测结论：任务、数据源和 skill 能力高度一致；生成结果覆盖 A股数据源, 宏观/政策，可作为主流程候选。",
+      "data_policy": "native_tushare",
+      "excluded_as_duplicates": "a-stock-data、akshare-stock、openclaw-stock-data-skill",
+      "exclusion_reason": "同属 A 股数据源；标准套装只保留 Tushare 原生数据底座。a-stock-data 可作为增强包另装。",
+      "install_path": "skills/default/tushare-openclaw-skill",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [],
+        "access_mode": "api-key",
+        "runtime": "online"
+      }
+    },
+    {
+      "rank": 2,
+      "slot": "全球/美股轻量行情",
+      "skill_id": "yfinance-data",
+      "score": 45,
+      "status": "weak_tushare_fit",
+      "scenario": "市场复盘/宏观政策",
+      "role": "获取美股、ETF、指数、加密资产等 Yahoo Finance 数据，补足 Tushare 的中国市场边界。",
+      "why_recommended": "市场覆盖与 Tushare 不重复，是跨市场投资人最轻量的第二数据源。",
+      "evaluation_reason": "评测结论：只能解决 skill 功能中的局部问题，结果更像辅助页；不建议作为单独金融套件核心。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "funda-data、llmquant-data",
+      "exclusion_reason": "这些依赖额外 API/MCP，更适合机构增强包，不进入标准套装。",
+      "install_path": "skills/default/yfinance-data",
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 3,
+      "slot": "个股分析与组合视图",
+      "skill_id": "stock-analysis",
+      "score": 83,
+      "status": "passed_tushare_partial",
+      "scenario": "组合/风控/监控",
+      "role": "做股票/加密资产多维评分、组合管理、价格提醒和传闻核验。",
+      "why_recommended": "覆盖投资人最常见的个股到组合问题，和纯数据源不重复。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 若干补充数据缺口；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "us-stock-analysis、company-valuation",
+      "exclusion_reason": "us-stock-analysis 更偏美股深研且依赖较重；company-valuation 需要额外 IMA 依赖。",
+      "install_path": "skills/default/stock-analysis",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "node",
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 4,
+      "slot": "A股/多市场监控预警",
+      "skill_id": "stock-monitor-skill",
+      "score": 83,
+      "status": "passed_tushare_partial",
+      "scenario": "组合/风控/监控",
+      "role": "对自选股设置成本、均线、RSI、成交量、跳空、止盈等监控规则。",
+      "why_recommended": "它解决持续盯盘和提醒，不和研究/回测技能重复。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 若干补充数据缺口；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "kanchi-dividend-review-monitor、portfolio-manager",
+      "exclusion_reason": "kanchi 更窄地服务股息组合；portfolio-manager 依赖 Alpaca MCP。",
+      "install_path": "skills/default/stock-monitor-skill",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 5,
+      "slot": "仓位与交易风险",
+      "skill_id": "position-sizer",
+      "score": 88,
+      "status": "passed_tushare_strong",
+      "scenario": "技术面/交易计划",
+      "role": "按账户规模、止损距离和单笔风险预算计算买入股数、最大亏损和风险暴露。",
+      "why_recommended": "投资执行中不可替代，能直接降低交易计划落地风险。",
+      "evaluation_reason": "评测结论：任务、数据源和 skill 能力高度一致；生成结果覆盖 A股数据源, 组合/风控, 技术面/交易, 选股/扫描，可作为主流程候选。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "exposure-coach、portfolio-manager",
+      "exclusion_reason": "exposure-coach 依赖 FMP；portfolio-manager 依赖 Alpaca MCP。",
+      "install_path": "skills/default/position-sizer",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 6,
+      "slot": "技术面交易计划",
+      "skill_id": "sepa-strategy",
+      "score": 88,
+      "status": "passed_tushare_strong",
+      "scenario": "技术面/交易计划",
+      "role": "用 Minervini SEPA 框架分析趋势模板、突破质量、相对强度和失效条件。",
+      "why_recommended": "它提供清晰的交易方法论；和 position-sizer 的仓位计算分工不同。",
+      "evaluation_reason": "评测结论：任务、数据源和 skill 能力高度一致；生成结果覆盖 A股数据源, 个股评分, 知识库/框架, 回测，可作为主流程候选。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "technical-analyst、breakout-trade-planner、vcp-screener",
+      "exclusion_reason": "technical-analyst/vcp 依赖额外数据或更窄；breakout-trade-planner 适合作为 SEPA 后续专用增强。",
+      "install_path": "skills/default/sepa-strategy",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 7,
+      "slot": "量化回测",
+      "skill_id": "pybroker-backtest-skill",
+      "score": 83,
+      "status": "passed_tushare_partial",
+      "scenario": "量化/回测/策略迭代",
+      "role": "用 PyBroker 做策略回测、收益/回撤/稳定性评估和参数验证。",
+      "why_recommended": "标准套装需要一个真正能把想法变成历史检验的回测技能。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 若干补充数据缺口；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "backtest-expert、strategy-pivot-designer",
+      "exclusion_reason": "backtest-expert 更偏指导；strategy-pivot-designer 是回测遇到瓶颈后的增强工具。",
+      "install_path": "skills/default/pybroker-backtest-skill",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 8,
+      "slot": "相关性与配对分析",
+      "skill_id": "stock-correlation",
+      "score": 83,
+      "status": "passed_tushare_partial",
+      "scenario": "量化/回测/策略迭代",
+      "role": "分析股票相关性、替代标的、配对交易和组合分散度。",
+      "why_recommended": "补足组合层面的统计关系，和单票分析/回测不重复。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 若干补充数据缺口；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "pair-trade-screener",
+      "exclusion_reason": "pair-trade-screener 依赖 FMP；标准套装保留低依赖相关性分析。",
+      "install_path": "skills/default/stock-correlation",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 9,
+      "slot": "市场环境与趋势健康",
+      "skill_id": "uptrend-analyzer",
+      "score": 77,
+      "status": "passed_tushare_partial",
+      "scenario": "市场复盘/宏观政策",
+      "role": "判断市场上升趋势健康度、风险偏好和是否适合提高股票暴露。",
+      "why_recommended": "它解决买不买、加不加仓的市场背景问题，不替代个股研究。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "market-breadth-analyzer、market-top-detector、ftd-detector",
+      "exclusion_reason": "同属市场状态/广度/顶部识别；uptrend-analyzer 更适合作为标准入口。",
+      "install_path": "skills/default/uptrend-analyzer",
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "online"
+      }
+    },
+    {
+      "rank": 10,
+      "slot": "市场新闻与事件解读",
+      "skill_id": "alphaear-news",
+      "score": 77,
+      "status": "passed_tushare_partial",
+      "scenario": "市场复盘/宏观政策",
+      "role": "抓取热门财经新闻、统一趋势和市场预测线索，用于每日复盘与事件驱动观察。",
+      "why_recommended": "结构化数据不能替代新闻事件；它补齐信息面入口。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 政策文本/新闻解读不由 Tushare 原生覆盖，需要政策源或新闻源。；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "market-news-analyst、finance-sentiment、alphaear-sentiment",
+      "exclusion_reason": "market-news-analyst 更偏人工分析流程；sentiment 类依赖额外模型/API。",
+      "install_path": "skills/default/alphaear-news",
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "online"
+      }
+    },
+    {
+      "rank": 11,
+      "slot": "投资报告生成",
+      "skill_id": "alphaear-reporter",
+      "score": 92,
+      "status": "passed_tushare_strong",
+      "scenario": "个股研究/估值",
+      "role": "把行情、财务、事件和图表配置组织成可阅读的专业金融报告。",
+      "why_recommended": "标准套装需要一个输出层；它和数据、筛选、监控技能分工清楚。",
+      "evaluation_reason": "评测结论：任务、数据源和 skill 能力高度一致；生成结果覆盖 A股数据源, 个股评分, 财报/业绩, 报告/可视化，可作为主流程候选。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "anthropic-fs-equity-research-*、anthropic-fs-financial-analysis-pptx-author",
+      "exclusion_reason": "Anthropic FS 更适合机构材料工作流，依赖企业文件/MCP，不进入普通投资标准套装。",
+      "install_path": "skills/default/alphaear-reporter",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 12,
+      "slot": "研究质量检查",
+      "skill_id": "data-quality-checker",
+      "score": 92,
+      "status": "passed_tushare_strong",
+      "scenario": "个股研究/估值",
+      "role": "在发布投资分析前检查数据口径、日期、计算、图表和事实引用是否一致。",
+      "why_recommended": "它是报告交付前的质量闸门，不和报告生成重复。",
+      "evaluation_reason": "评测结论：任务、数据源和 skill 能力高度一致；生成结果覆盖 A股数据源, 个股评分，可作为主流程候选。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "anthropic-fs-financial-analysis-audit-xls",
+      "exclusion_reason": "audit-xls 更偏 Excel 公式审计；标准套装保留泛投资内容质量检查。",
+      "install_path": "skills/default/data-quality-checker",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 13,
+      "slot": "投资 thesis 记忆",
+      "skill_id": "trader-memory-core",
+      "score": 78,
+      "status": "passed_tushare_partial",
+      "scenario": "选股/机会发现",
+      "role": "记录从想法、建仓、跟踪到卖出复盘的投资 thesis 生命周期。",
+      "why_recommended": "它解决投资纪律和事后复盘，不依赖行情接口，也不与监控技能重复。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 Finviz/CANSLIM 美股专用字段无法直接用 Tushare 替代。；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "anthropic-fs-equity-research-thesis-tracker",
+      "exclusion_reason": "Anthropic 版本更机构化；trader-memory-core 更适合标准个人/小团队投资流程。",
+      "install_path": "skills/default/trader-memory-core",
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 14,
+      "slot": "期权收益结构",
+      "skill_id": "options-payoff",
+      "score": 88,
+      "status": "passed_tushare_strong",
+      "scenario": "技术面/交易计划",
+      "role": "绘制和解释期权盈亏曲线、最大亏损、盈亏平衡点和参数敏感性。",
+      "why_recommended": "它只覆盖收益结构教育与方案比较，不尝试替代专业期权行情源。",
+      "evaluation_reason": "评测结论：任务、数据源和 skill 能力高度一致；生成结果覆盖 A股数据源, 回测, 组合/风控, 技术面/交易，可作为主流程候选。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "options-strategy-advisor、llmquant-options",
+      "exclusion_reason": "后两者需要 FMP/LLMQuant；标准套装保留低依赖 payoff 分析。",
+      "install_path": "skills/default/options-payoff",
+      "dependencies": {
+        "requires_api_keys": true,
+        "api_keys": [
+          "TUSHARE_TOKEN"
+        ],
+        "required_tools": [],
+        "access_mode": "api-key",
+        "runtime": "offline"
+      }
+    },
+    {
+      "rank": 15,
+      "slot": "金融方法知识库",
+      "skill_id": "openclaw-stock-kb",
+      "score": 77,
+      "status": "passed_tushare_partial",
+      "scenario": "报告/可视化/知识库",
+      "role": "本地检索量化策略、技术指标、情绪分析、风控模板和回测工具文档。",
+      "why_recommended": "它是方法论资料库，不直接和数据/执行技能重复。",
+      "evaluation_reason": "评测结论：核心结果可用，但仍有 若干补充数据缺口；适合做组合式流程的一环。",
+      "data_policy": "tushare_candidate",
+      "excluded_as_duplicates": "llmquant-investor-lenses",
+      "exclusion_reason": "LLMQuant investor lenses 依赖专有数据生态，作为机构增强而非标准入口。",
+      "install_path": "skills/default/openclaw-stock-kb",
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [
+          "python"
+        ],
+        "access_mode": "direct",
+        "runtime": "offline"
+      }
+    }
+  ],
+  "optional_suites": [
+    {
+      "suite": "A股增强包",
+      "skills": [
+        "a-stock-data"
+      ],
+      "when_to_add": "需要 Tushare 之外的东财、腾讯、百度、巨潮、龙虎榜、题材、公告、新闻等多源直连能力时添加；不作为标准数据底座重复安装。"
+    },
+    {
+      "suite": "机构多资产包",
+      "skills": [
+        "llmquant-data",
+        "llmquant-equities",
+        "llmquant-portfolio",
+        "llmquant-risk",
+        "llmquant-macro",
+        "llmquant-options"
+      ],
+      "when_to_add": "已有 LLMQUANT_API_KEY 且需要跨资产、机构级组合/风险/宏观/期权工作流时添加。"
+    },
+    {
+      "suite": "投行/PE/财富管理包",
+      "skills": [
+        "anthropic-financial-services suite"
+      ],
+      "when_to_add": "处理 CIM、LBO、并购模型、PE 尽调、基金运营、KYC 或客户报告，且有企业文件/MCP 数据时添加。"
+    }
+  ],
+  "missing_recommendation_results": []
+}

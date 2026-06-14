@@ -4,6 +4,9 @@
 
 - 金融相关 skills 数量：`163`
 - 推荐原则：先装数据源，再按投资流程补研究、筛选、风控、报告；机构金融/投行/PE/固收类单独作为专业套件使用。
+- Tushare 实测报告：[`reports/finance-skill-eval/tushare-eval/tushare-finance-skill-evaluation.html`](../../reports/finance-skill-eval/tushare-eval/tushare-finance-skill-evaluation.html)
+- Tushare 接入路由：[`reports/finance-skill-eval/tushare-eval/tushare-routing-summary.md`](../../reports/finance-skill-eval/tushare-eval/tushare-routing-summary.md)
+- 安全复跑说明：[`reports/finance-skill-eval/tushare-eval/README.md`](../../reports/finance-skill-eval/tushare-eval/README.md)
 
 ## 投资场景 Mapping
 

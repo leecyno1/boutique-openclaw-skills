@@ -2,10 +2,10 @@
 
 | 使用条件 | 数量 |
 |---|---:|
-| `api-key` | 82 |
+| `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 9 |
-| `direct` | 99 |
+| `direct` | 81 |
 | `mcp-required` | 70 |
 
 ## api-key
@@ -14,7 +14,9 @@
 |---|---|---|---|
 | `claude-mem-plugin` | `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY` | 无 | `high` |
 | `github` | `GH_TOKEN`, `GITHUB_TOKEN` | `gh` | `medium` |
+| `a-stock-data` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `agentmail-toolkit` | `AGENTMAIL_API_KEY`, `OPENAI_API_KEY` | 无 | `medium` |
+| `akshare-stock` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `animation` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `baoyu-article-illustrator` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `baoyu-image-gen` | `ARK_API_KEY`, `AZURE_OPENAI_API_KEY`, `BIGMODEL_API_KEY`, `DASHSCOPE_API_KEY`, `GOOGLE_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY`, `OPENAI_API_KEY`, `OPENROUTER_API_KEY`, `REPLICATE_API_TOKEN`, `ZAI_API_KEY` | 无 | `medium` |
@@ -30,7 +32,9 @@
 | `tavily-search` | `OPENAI_API_KEY`, `TAVILY_API_KEY` | `browser`, `python` | `medium` |
 | `tushare-openclaw-skill` | `TUSHARE_TOKEN` | 无 | `medium` |
 | `agentmail-cli` | `AGENTMAIL_API_KEY` | 无 | `medium` |
+| `alphaear-reporter` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `alphaear-sentiment` | `OPENAI_API_KEY` | `python` | `medium` |
+| `alphaear-stock` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `baoyu-comic` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `baoyu-compress-image` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `browser` | `medium` |
 | `baoyu-cover-image` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
@@ -40,38 +44,52 @@
 | `baoyu-slide-deck` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `baoyu-xhs-images` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `breadth-chart-analyst` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
+| `breakout-trade-planner` | `TUSHARE_TOKEN` | 无 | `medium` |
 | `canslim-screener` | `FMP_API_KEY` | `python` | `medium` |
 | `company-valuation` | `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
+| `data-quality-checker` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `dividend-growth-pullback-screener` | `FINVIZ_API_KEY`, `FMP_API_KEY` | `python` | `medium` |
 | `downtrend-duration-analyzer` | `FMP_API_KEY` | 无 | `medium` |
 | `earnings-calendar` | `FMP_API_KEY` | `browser`, `python` | `medium` |
 | `earnings-preview` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `node`, `python` | `medium` |
+| `earnings-recap` | `TUSHARE_TOKEN` | `node`, `python` | `medium` |
 | `earnings-trade-analyzer` | `FMP_API_KEY` | `node`, `python` | `medium` |
 | `economic-calendar-fetcher` | `FMP_API_KEY` | `node`, `python` | `medium` |
+| `edge-candidate-agent` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `edge-hint-extractor` | `OPENAI_API_KEY` | `node` | `medium` |
 | `estimate-analysis` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `node`, `python` | `medium` |
 | `exposure-coach` | `FMP_API_KEY` | 无 | `medium` |
 | `finance-sentiment` | `ADANOS_API_KEY` | `python` | `medium` |
+| `finance-skill-creator` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `finviz-screener` | `FINVIZ_API_KEY` | `python` | `medium` |
 | `ftd-detector` | `FMP_API_KEY` | 无 | `medium` |
 | `gemini-image-service` | `GEMINI_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `ibd-distribution-day-monitor` | `FMP_API_KEY` | 无 | `medium` |
 | `inference-skills` | `OPENAI_API_KEY` | 无 | `medium` |
 | `institutional-flow-tracker` | `FMP_API_KEY` | `python` | `medium` |
+| `kanchi-dividend-review-monitor` | `TUSHARE_TOKEN` | 无 | `medium` |
 | `kanchi-dividend-sop` | `FMP_API_KEY` | `python` | `medium` |
 | `macro-regime-detector` | `FMP_API_KEY` | 无 | `medium` |
 | `market-environment-analysis` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
 | `market-top-detector` | `FMP_API_KEY` | `python` | `medium` |
 | `minimax-image-understanding` | `IMA_API_KEY`, `IMA_CLIENT_ID`, `MINIMAX_API_KEY` | 无 | `medium` |
+| `options-payoff` | `TUSHARE_TOKEN` | 无 | `medium` |
 | `options-strategy-advisor` | `FMP_API_KEY` | 无 | `medium` |
 | `oracle` | `OPENAI_API_KEY` | `browser` | `medium` |
 | `pair-trade-screener` | `FMP_API_KEY` | `python` | `medium` |
 | `parabolic-short-trade-planner` | `ALPACA_API_KEY`, `FMP_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID` | 无 | `medium` |
 | `pead-screener` | `FMP_API_KEY` | `python` | `medium` |
+| `position-sizer` | `TUSHARE_TOKEN` | `python` | `medium` |
+| `pybroker-backtest-skill` | `TUSHARE_TOKEN` | 无 | `medium` |
+| `saas-valuation-compression` | `TUSHARE_TOKEN` | 无 | `medium` |
 | `sector-analyst` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
+| `sepa-strategy` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `signal-postmortem` | `FMP_API_KEY` | 无 | `medium` |
+| `stock-analysis` | `TUSHARE_TOKEN` | `node`, `python` | `medium` |
+| `stock-correlation` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `stock-daily-analysis-skill` | `OPENAI_API_KEY` | `python` | `medium` |
 | `stock-liquidity` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
+| `stock-monitor-skill` | `TUSHARE_TOKEN` | `python` | `medium` |
 | `technical-analyst` | `IMA_API_KEY`, `IMA_CLIENT_ID` | `python` | `medium` |
 | `theme-detector` | `FINVIZ_API_KEY`, `FMP_API_KEY` | 无 | `medium` |
 | `value-dividend-screener` | `FINVIZ_API_KEY`, `FMP_API_KEY` | `python` | `medium` |
@@ -132,7 +150,7 @@
 | `baoyu-url-to-markdown` | 无 | `browser` | `medium` |
 | `guizang-ppt-skill` | 无 | `browser` | `medium` |
 | `openclaw-cron-setup` | 无 | `browser` | `medium` |
-| `alphaear-search` | 无 | `browser`, `python` | `medium` |
+| `alphaear-search` | `TUSHARE_TOKEN` | `browser`, `python` | `medium` |
 | `baoyu-markdown-to-html` | 无 | `browser` | `medium` |
 | `market-news-analyst` | 无 | `browser`, `node`, `python` | `medium` |
 
@@ -184,8 +202,6 @@
 | `twitter-reader` | 无 | 无 | `low` |
 | `writing-plans` | 无 | 无 | `low` |
 | `yc-reader` | 无 | `python` | `low` |
-| `a-stock-data` | 无 | `python` | `medium` |
-| `akshare-stock` | 无 | `python` | `medium` |
 | `yfinance-data` | 无 | `python` | `medium` |
 | `baoyu-format-markdown` | 无 | 无 | `low` |
 | `baoyu-infographic` | 无 | 无 | `low` |
@@ -204,29 +220,13 @@
 | `alphaear-logic-visualizer` | 无 | `python` | `medium` |
 | `alphaear-news` | 无 | `python` | `medium` |
 | `alphaear-predictor` | 无 | `python` | `medium` |
-| `alphaear-reporter` | 无 | `python` | `medium` |
 | `alphaear-signal-tracker` | 无 | `python` | `medium` |
-| `alphaear-stock` | 无 | `python` | `medium` |
-| `breakout-trade-planner` | 无 | 无 | `medium` |
-| `data-quality-checker` | 无 | `python` | `medium` |
-| `earnings-recap` | 无 | `node`, `python` | `medium` |
-| `edge-candidate-agent` | 无 | `python` | `medium` |
 | `etf-premium` | 无 | `python` | `medium` |
-| `finance-skill-creator` | 无 | `python` | `medium` |
 | `hormuz-strait` | 无 | `python` | `medium` |
-| `kanchi-dividend-review-monitor` | 无 | 无 | `medium` |
 | `kanchi-dividend-us-tax-accounting` | 无 | 无 | `medium` |
 | `market-breadth-analyzer` | 无 | `python` | `medium` |
-| `options-payoff` | 无 | 无 | `medium` |
 | `policy-monitor` | 无 | 无 | `medium` |
-| `position-sizer` | 无 | `python` | `medium` |
-| `pybroker-backtest-skill` | 无 | 无 | `medium` |
-| `saas-valuation-compression` | 无 | 无 | `medium` |
-| `sepa-strategy` | 无 | `python` | `medium` |
 | `stanley-druckenmiller-investment` | 无 | 无 | `medium` |
-| `stock-analysis` | 无 | `node`, `python` | `medium` |
-| `stock-correlation` | 无 | `python` | `medium` |
-| `stock-monitor-skill` | 无 | `python` | `medium` |
 | `trade-hypothesis-ideator` | 无 | `python` | `medium` |
 | `trader-memory-core` | 无 | 无 | `medium` |
 | `uptrend-analyzer` | 无 | `python` | `medium` |
