@@ -130,54 +130,46 @@ Finance skills now have a dedicated **Finance Investment Standard Suite**. It is
 
 ### Finance Investment Standard Suite
 
-This standard suite is built by merging the five upstream source packs below, then layering the scored high-value investment workflow skills listed after them.
+This standard suite lists merged upstream source packs and representative standalone skills together, so the install surface is easy to scan without hiding the single-skill standards.
 
-| 合并母仓 | 作用 | 来源 |
-|---|---|---|
-| LLMQuant | SEC/13F/宏观、组合/风险、期权、机构研究 | [llmquant](https://github.com/LLMQuant/skills) |
-| Claude Trading Skills | 交易筛选、技术形态、执行计划、监控 | [claude-trading-skills](https://github.com/tradermonty/claude-trading-skills) |
-| A-stock-data | A 股行情、题材、资金流、公告、新闻 | [a-stock-data](https://github.com/simonlin1212/a-stock-data) |
-| Anthropic Financial Services | 机构研究、建模、PE/IB/财富管理 | [anthropic-fs](https://github.com/anthropics/financial-services) |
-| AlphaEar | 新闻、情绪、信号、报告生成 | [alphaear](https://github.com/RKiding/Awesome-finance-skills) |
+| 类型 | 能力位 / 作用 | 标准组合项 | Score | 来源 |
+|---|---|---|---:|---|
+| 组合包 | SEC/13F/宏观、组合/风险、期权、机构研究 | LLMQuant | - | [Source](https://github.com/LLMQuant/skills) |
+| 组合包 | 交易筛选、技术形态、执行计划、监控 | Claude Trading Skills | - | [Source](https://github.com/tradermonty/claude-trading-skills) |
+| 组合包 | A 股行情、题材、资金流、公告、新闻 | A-stock-data | - | [Source](https://github.com/simonlin1212/a-stock-data) |
+| 组合包 | 机构研究、建模、PE/IB/财富管理 | Anthropic Financial Services | - | [Source](https://github.com/anthropics/financial-services) |
+| 组合包 | 新闻、情绪、信号、报告生成 | AlphaEar | - | [Source](https://github.com/RKiding/Awesome-finance-skills) |
+| 单品 | A股结构化数据 | `tushare-openclaw-skill` | 95 | [Source](https://github.com/DayDreammy/tushare-openclaw-skill) |
+| 单品 | A股全栈行情/题材数据 | `a-stock-data` | 88 | [Source](https://github.com/simonlin1212/a-stock-data) |
+| 单品 | 全球轻量数据 | `yfinance-data` | 78 | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data) |
+| 单品 | SEC/13F/宏观数据 | `llmquant-data` | 86 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-data) |
+| 单品 | 个股分析 | `stock-analysis` | 84 | [Source](https://github.com/moinsen-dev/stock-analysis) |
+| 单品 | 估值建模 | `anthropic-fs-financial-analysis-dcf-model` | 84 | [Source](https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis/skills/dcf-model) |
+| 单品 | 成长股筛选 | `canslim-screener` | 86 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/canslim-screener) |
+| 单品 | 技术形态筛选 | `vcp-screener` | 84 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/vcp-screener) |
+| 单品 | 交易计划 | `sepa-strategy` | 84 | [Source](https://github.com/himself65/finance-skills) |
+| 单品 | 股息价值筛选 | `value-dividend-screener` | 82 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/value-dividend-screener) |
+| 单品 | 市场宽度/趋势 | `uptrend-analyzer` | 88 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/uptrend-analyzer) |
+| 单品 | 宏观/政策 | `policy-monitor` | 88 | [Source](https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor) |
+| 单品 | 宏观/政策 | `llmquant-macro` | 84 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-macro) |
+| 单品 | 事件新闻 | `llmquant-events` | 84 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-events) |
+| 单品 | 期权 | `options-strategy-advisor` | 80 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/options-strategy-advisor) |
+| 单品 | 期权 | `llmquant-options` | 84 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-options) |
+| 单品 | 仓位管理 | `position-sizer` | 90 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/position-sizer) |
+| 单品 | 组合/风险 | `llmquant-risk` | 84 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-risk) |
+| 单品 | 组合/风险 | `llmquant-portfolio` | 84 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-portfolio) |
+| 单品 | 自选股监控 | `stock-monitor-skill` | 88 | [Source](https://github.com/chjm-ai/stock-monitor-skill) |
+| 单品 | Thesis 记忆 | `trader-memory-core` | 84 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/trader-memory-core) |
+| 单品 | 回测引擎 | `pybroker-backtest-skill` | 90 | [Source](https://github.com/gaaiyun/pybroker-backtest-skill) |
+| 单品 | 回测审查 | `backtest-expert` | 86 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/backtest-expert) |
+| 单品 | 数据质量 | `data-quality-checker` | 82 | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/data-quality-checker) |
+| 单品 | 报告生成 | `alphaear-reporter` | 82 | [Source](https://github.com/RKiding/Awesome-finance-skills/tree/main/skills/alphaear-reporter) |
+| 单品 | 金融知识库 | `openclaw-stock-kb` | 78 | [Source](https://github.com/freestylefly/openclaw-stock-kb) |
 
 ```bash
 ./scripts/install-suite.sh finance-investment-standard --dry-run
 ./scripts/install-suite.sh finance-investment-standard
 ```
-
-<details>
-<summary>查看细分能力位和代表性 standalone skills</summary>
-
-| 能力位 | 标准 Skill | Score |
-|---|---|---:|
-| A股结构化数据 | `tushare-openclaw-skill` | 95 |
-| A股全栈行情/题材数据 | `a-stock-data` | 88 |
-| 全球轻量数据 | `yfinance-data` | 78 |
-| SEC/13F/宏观数据 | `llmquant-data` | 86 |
-| 个股分析 | `stock-analysis` | 84 |
-| 估值建模 | `anthropic-fs-financial-analysis-dcf-model` | 84 |
-| 成长股筛选 | `canslim-screener` | 86 |
-| 技术形态筛选 | `vcp-screener` | 84 |
-| 交易计划 | `sepa-strategy` | 84 |
-| 股息价值筛选 | `value-dividend-screener` | 82 |
-| 市场宽度/趋势 | `uptrend-analyzer` | 88 |
-| 宏观/政策 | `policy-monitor` | 88 |
-| 宏观/政策 | `llmquant-macro` | 84 |
-| 事件新闻 | `llmquant-events` | 84 |
-| 期权 | `options-strategy-advisor` | 80 |
-| 期权 | `llmquant-options` | 84 |
-| 仓位管理 | `position-sizer` | 90 |
-| 组合/风险 | `llmquant-risk` | 84 |
-| 组合/风险 | `llmquant-portfolio` | 84 |
-| 自选股监控 | `stock-monitor-skill` | 88 |
-| Thesis 记忆 | `trader-memory-core` | 84 |
-| 回测引擎 | `pybroker-backtest-skill` | 90 |
-| 回测审查 | `backtest-expert` | 86 |
-| 数据质量 | `data-quality-checker` | 82 |
-| 报告生成 | `alphaear-reporter` | 82 |
-| 金融知识库 | `openclaw-stock-kb` | 78 |
-
-</details>
 
 Full manifest: [catalog/suites/finance-investment-standard.json](catalog/suites/finance-investment-standard.json). Scorecard: [finance investment skills scorecard](reports/finance-skill-eval/finance-investment-skills-scorecard-2026-06-14.md).
 

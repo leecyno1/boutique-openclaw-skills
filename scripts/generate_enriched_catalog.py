@@ -871,25 +871,12 @@ def render_suites_table(suites: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def render_finance_standard_suite_table(suite: dict[str, Any] | None) -> str:
+def finance_source_pack_rows(suite: dict[str, Any] | None) -> list[dict[str, str]]:
     if not suite:
-        return ""
-    rows = suite.get("standard_slots", []) or []
-    lines = [
-        "| 能力位 | 标准 Skill | Score |",
-        "|---|---|---:|",
-    ]
-    for row in rows:
-        lines.append(f"| {row['slot']} | `{row['skill']}` | {row['score']} |")
-    return "\n".join(lines)
-
-
-def render_finance_source_pack_table(suite: dict[str, Any] | None) -> str:
-    if not suite:
-        return ""
+        return []
     source_rows = suite.get("included_sources", []) or []
     if not source_rows:
-        return ""
+        return []
     family_labels = {
         "llmquant": "LLMQuant",
         "claude-trading-skills": "Claude Trading Skills",
@@ -904,17 +891,41 @@ def render_finance_source_pack_table(suite: dict[str, Any] | None) -> str:
         "anthropic-fs": "机构研究、建模、PE/IB/财富管理",
         "alphaear": "新闻、情绪、信号、报告生成",
     }
-    lines = [
-        "| 合并母仓 | 作用 | 来源 |",
-        "|---|---|---|",
-    ]
+    rows = []
     for row in source_rows:
         source_id = row.get("id", "")
-        origin = md_link(row.get("source") or row.get("origin") or row.get("source_url"), source_id)
+        rows.append({
+            "type": "组合包",
+            "slot": family_roles.get(source_id, "Merged source family"),
+            "item": family_labels.get(source_id, source_id),
+            "score": "-",
+            "source": row.get("source") or row.get("origin") or row.get("source_url") or "",
+        })
+    return rows
+
+
+def render_finance_standard_combined_table(suite: dict[str, Any] | None, enriched: dict[str, Any]) -> str:
+    if not suite:
+        return ""
+    skill_sources = {skill["id"]: skill.get("origin", {}).get("origin_url", "") for skill in enriched.get("skills", [])}
+    rows = finance_source_pack_rows(suite)
+    for row in suite.get("standard_slots", []) or []:
+        skill_id = row.get("skill", "")
+        rows.append({
+            "type": "单品",
+            "slot": row.get("slot", ""),
+            "item": f"`{skill_id}`",
+            "score": str(row.get("score", "-")),
+            "source": skill_sources.get(skill_id, ""),
+        })
+    lines = [
+        "| 类型 | 能力位 / 作用 | 标准组合项 | Score | 来源 |",
+        "|---|---|---|---:|---|",
+    ]
+    for row in rows:
         lines.append(
-            f"| {family_labels.get(source_id, source_id)} | "
-            f"{family_roles.get(source_id, 'Merged source family')} | "
-            f"{origin} |"
+            f"| {row['type']} | {row['slot']} | {row['item']} | {row['score']} | "
+            f"{md_link(row['source'], 'Source') if row['source'] else '-'} |"
         )
     return "\n".join(lines)
 
@@ -955,21 +966,14 @@ def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]])
         "",
         "### Finance Investment Standard Suite",
         "",
-        "This standard suite is built by merging the five upstream source packs below, then layering the scored high-value investment workflow skills listed after them.",
+        "This standard suite lists merged upstream source packs and representative standalone skills together, so the install surface is easy to scan without hiding the single-skill standards.",
         "",
-        render_finance_source_pack_table(finance_standard),
+        render_finance_standard_combined_table(finance_standard, enriched),
         "",
         "```bash",
         "./scripts/install-suite.sh finance-investment-standard --dry-run",
         "./scripts/install-suite.sh finance-investment-standard",
         "```",
-        "",
-        "<details>",
-        "<summary>查看细分能力位和代表性 standalone skills</summary>",
-        "",
-        render_finance_standard_suite_table(finance_standard),
-        "",
-        "</details>",
         "",
         "Full manifest: [catalog/suites/finance-investment-standard.json](catalog/suites/finance-investment-standard.json). Scorecard: [finance investment skills scorecard](reports/finance-skill-eval/finance-investment-skills-scorecard-2026-06-14.md).",
         "",
