@@ -884,6 +884,41 @@ def render_finance_standard_suite_table(suite: dict[str, Any] | None) -> str:
     return "\n".join(lines)
 
 
+def render_finance_source_pack_table(suite: dict[str, Any] | None) -> str:
+    if not suite:
+        return ""
+    source_rows = suite.get("included_sources", []) or []
+    if not source_rows:
+        return ""
+    family_labels = {
+        "llmquant": "LLMQuant",
+        "claude-trading-skills": "Claude Trading Skills",
+        "a-stock-data": "A-stock-data",
+        "anthropic-fs": "Anthropic Financial Services",
+        "alphaear": "AlphaEar",
+    }
+    family_roles = {
+        "llmquant": "SEC/13F/宏观、组合/风险、期权、机构研究",
+        "claude-trading-skills": "交易筛选、技术形态、执行计划、监控",
+        "a-stock-data": "A 股行情、题材、资金流、公告、新闻",
+        "anthropic-fs": "机构研究、建模、PE/IB/财富管理",
+        "alphaear": "新闻、情绪、信号、报告生成",
+    }
+    lines = [
+        "| 合并母仓 | 作用 | 来源 |",
+        "|---|---|---|",
+    ]
+    for row in source_rows:
+        source_id = row.get("id", "")
+        origin = md_link(row.get("source") or row.get("origin") or row.get("source_url"), source_id)
+        lines.append(
+            f"| {family_labels.get(source_id, source_id)} | "
+            f"{family_roles.get(source_id, 'Merged source family')} | "
+            f"{origin} |"
+        )
+    return "\n".join(lines)
+
+
 def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]]) -> str:
     finance_skills = [
         item for item in enriched["skills"]
@@ -920,14 +955,21 @@ def render_finance_entry(enriched: dict[str, Any], suites: list[dict[str, Any]])
         "",
         "### Finance Investment Standard Suite",
         "",
-        "This standard suite intentionally combines `llmquant`, `claude-trading-skills`, `a-stock-data`, `anthropic-fs`, `alphaear`, and the scored high-value investment workflow skills listed below.",
+        "This standard suite is built by merging the five upstream source packs below, then layering the scored high-value investment workflow skills listed after them.",
+        "",
+        render_finance_source_pack_table(finance_standard),
         "",
         "```bash",
         "./scripts/install-suite.sh finance-investment-standard --dry-run",
         "./scripts/install-suite.sh finance-investment-standard",
         "```",
         "",
+        "<details>",
+        "<summary>查看细分能力位和代表性 standalone skills</summary>",
+        "",
         render_finance_standard_suite_table(finance_standard),
+        "",
+        "</details>",
         "",
         "Full manifest: [catalog/suites/finance-investment-standard.json](catalog/suites/finance-investment-standard.json). Scorecard: [finance investment skills scorecard](reports/finance-skill-eval/finance-investment-skills-scorecard-2026-06-14.md).",
         "",

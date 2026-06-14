@@ -129,12 +129,23 @@ Finance skills now have a dedicated **Finance Investment Standard Suite**. It is
 
 ### Finance Investment Standard Suite
 
-This standard suite intentionally combines `llmquant`, `claude-trading-skills`, `a-stock-data`, `anthropic-fs`, `alphaear`, and the scored high-value investment workflow skills listed below.
+This standard suite is built by merging the five upstream source packs below, then layering the scored high-value investment workflow skills listed after them.
+
+| 合并母仓 | 作用 | 来源 |
+|---|---|---|
+| LLMQuant | SEC/13F/宏观、组合/风险、期权、机构研究 | [llmquant](https://github.com/LLMQuant/skills) |
+| Claude Trading Skills | 交易筛选、技术形态、执行计划、监控 | [claude-trading-skills](https://github.com/tradermonty/claude-trading-skills) |
+| A-stock-data | A 股行情、题材、资金流、公告、新闻 | [a-stock-data](https://github.com/simonlin1212/a-stock-data) |
+| Anthropic Financial Services | 机构研究、建模、PE/IB/财富管理 | [anthropic-fs](https://github.com/anthropics/financial-services) |
+| AlphaEar | 新闻、情绪、信号、报告生成 | [alphaear](https://github.com/RKiding/Awesome-finance-skills) |
 
 ```bash
 ./scripts/install-suite.sh finance-investment-standard --dry-run
 ./scripts/install-suite.sh finance-investment-standard
 ```
+
+<details>
+<summary>查看细分能力位和代表性 standalone skills</summary>
 
 | 能力位 | 标准 Skill | Score |
 |---|---|---:|
@@ -164,6 +175,8 @@ This standard suite intentionally combines `llmquant`, `claude-trading-skills`, 
 | 数据质量 | `data-quality-checker` | 82 |
 | 报告生成 | `alphaear-reporter` | 82 |
 | 金融知识库 | `openclaw-stock-kb` | 78 |
+
+</details>
 
 Full manifest: [catalog/suites/finance-investment-standard.json](catalog/suites/finance-investment-standard.json). Scorecard: [finance investment skills scorecard](reports/finance-skill-eval/finance-investment-skills-scorecard-2026-06-14.md).
 
