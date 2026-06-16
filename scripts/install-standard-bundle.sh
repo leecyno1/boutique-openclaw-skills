@@ -38,24 +38,29 @@ readarray_output="$(python3 - <<'PY' "$BUNDLE_JSON"
 import json, sys
 payload=json.load(open(sys.argv[1], encoding='utf-8'))
 print(int(payload.get('max_skills') or 30))
+print(len(payload.get('skills', [])))
 for item in payload.get('skills', []):
     print(item['skill'])
+for pack in payload.get('skill_packs', []):
+    for skill in pack.get('skills', []):
+        print(skill)
 PY
 )"
 MAX_SKILLS="$(printf '%s\n' "$readarray_output" | sed -n '1p')"
-mapfile -t SKILLS < <(printf '%s\n' "$readarray_output" | sed '1d')
+BASE_SKILL_COUNT="$(printf '%s\n' "$readarray_output" | sed -n '2p')"
+mapfile -t SKILLS < <(printf '%s\n' "$readarray_output" | sed '1,2d' | awk '!seen[$0]++')
 
 if [[ ${#SKILLS[@]} -eq 0 ]]; then
   echo "[ERROR] standard bundle has no skills" >&2
   exit 1
 fi
 
-if [[ ${#SKILLS[@]} -gt "$MAX_SKILLS" ]]; then
-  echo "[ERROR] standard bundle has more than $MAX_SKILLS skills" >&2
+if [[ "$BASE_SKILL_COUNT" -gt "$MAX_SKILLS" ]]; then
+  echo "[ERROR] standard bundle has more than $MAX_SKILLS base skills" >&2
   exit 1
 fi
 
-echo "[INFO] Standard bundle skills: ${#SKILLS[@]}"
+echo "[INFO] Standard bundle skills: ${#SKILLS[@]} (${BASE_SKILL_COUNT} base + pack expansion)"
 echo "[INFO] Target: $TARGET"
 mkdir -p "$TARGET"
 

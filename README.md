@@ -11,7 +11,7 @@
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
 [![Skills](https://img.shields.io/badge/Skills-282-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
-[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-31%20skills-7c3aed)](catalog/standard-bundle.json)
+[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-31%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
@@ -73,7 +73,7 @@ Or install a grouped suite:
 | Native sources verified or referenced | 276 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
-| Standard bundle size | 31 / 30 |
+| Standard bundle size | 31 skills + 1 pack |
 
 ## Standard Bundle
 
@@ -81,39 +81,40 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 
 `a-stock-data` is included in the general standard bundle as the default A-share data skill. Use `./scripts/install-suite.sh finance-investment-standard --dry-run` or the finance profile when an investment workflow needs the full domain stack.
 
-| Capability | Skill | Stars | Use |
-|---|---|---:|---|
-| `agent-method` | `brainstorming` | 5★ | `direct` |
-| `skill-discovery` | `find-skills` | 5★ | `direct` |
-| `web-search` | `multi-search-engine` | 5★ | `direct` |
-| `url-extraction` | `url-to-markdown` | 4★ | `browser-required` |
-| `browser-automation` | `agent-browser` | 4★ | `browser-required` |
-| `code-hosting` | `github` | 4★ | `api-key` |
-| `task-tracking` | `task` | 5★ | `direct` |
-| `planning` | `planning-with-files` | 5★ | `direct` |
-| `verification` | `verification-before-completion` | 5★ | `direct` |
-| `skill-authoring` | `skill-creator` | 5★ | `direct` |
-| `security-review` | `skill-security-auditor` | 5★ | `direct` |
-| `data-analysis` | `data-analyst` | 5★ | `direct` |
-| `docs` | `minimax-docx` | 3★ | `api-key` |
-| `spreadsheet` | `minimax-xlsx` | 3★ | `api-key` |
-| `slides` | `pptx-generator` | 4★ | `direct` |
-| `pdf` | `nano-pdf` | 5★ | `direct` |
-| `frontend` | `generative-ui` | 5★ | `direct` |
-| `fullstack` | `fullstack-dev` | 3★ | `api-key` |
-| `mcp` | `mcp-builder` | 4★ | `mcp-required` |
-| `media-download` | `media-downloader` | 3★ | `api-key` |
-| `image-generation` | `gemini-image-service` | 3★ | `api-key` |
-| `research-news` | `news-radar` | 4★ | `mcp-required` |
-| `html-publishing` | `html-anything` | 5★ | `browser-required` |
-| `finance-data` | `a-stock-data` | 4★ | `api-key` |
-| `content-strategy` | `content-strategy` | 4★ | `direct` |
-| `writing` | `writing-skills` | 5★ | `direct` |
-| `automation-followup` | `proactive-agent` | 5★ | `direct` |
-| `cost-observability` | `model-usage` | 5★ | `direct` |
-| `email-agent` | `agentmail` | 3★ | `api-key` |
-| `ima-notes-knowledge` | `ima` | 4★ | `api-key` |
-| `weather` | `weather` | 5★ | `direct` |
+| Type | Capability | Skill / Pack | Stars | Use |
+|---|---|---|---:|---|
+| `skill` | `agent-method` | `brainstorming` | 5★ | `direct` |
+| `skill` | `skill-discovery` | `find-skills` | 5★ | `direct` |
+| `skill` | `web-search` | `multi-search-engine` | 5★ | `direct` |
+| `skill` | `url-extraction` | `url-to-markdown` | 4★ | `browser-required` |
+| `skill` | `browser-automation` | `agent-browser` | 4★ | `browser-required` |
+| `skill` | `code-hosting` | `github` | 4★ | `api-key` |
+| `skill` | `task-tracking` | `task` | 5★ | `direct` |
+| `skill` | `planning` | `planning-with-files` | 5★ | `direct` |
+| `skill` | `verification` | `verification-before-completion` | 5★ | `direct` |
+| `skill` | `skill-authoring` | `skill-creator` | 5★ | `direct` |
+| `skill` | `security-review` | `skill-security-auditor` | 5★ | `direct` |
+| `skill` | `data-analysis` | `data-analyst` | 5★ | `direct` |
+| `skill` | `docs` | `minimax-docx` | 3★ | `api-key` |
+| `skill` | `spreadsheet` | `minimax-xlsx` | 3★ | `api-key` |
+| `skill` | `slides` | `pptx-generator` | 4★ | `direct` |
+| `skill` | `pdf` | `nano-pdf` | 5★ | `direct` |
+| `skill` | `frontend` | `generative-ui` | 5★ | `direct` |
+| `skill` | `fullstack` | `fullstack-dev` | 3★ | `api-key` |
+| `skill` | `mcp` | `mcp-builder` | 4★ | `mcp-required` |
+| `skill` | `media-download` | `media-downloader` | 3★ | `api-key` |
+| `skill` | `image-generation` | `gemini-image-service` | 3★ | `api-key` |
+| `skill` | `research-news` | `news-radar` | 4★ | `mcp-required` |
+| `skill` | `html-publishing` | `html-anything` | 5★ | `browser-required` |
+| `skill` | `finance-data` | `a-stock-data` | 4★ | `api-key` |
+| `skill` | `content-strategy` | `content-strategy` | 4★ | `direct` |
+| `skill` | `writing` | `writing-skills` | 5★ | `direct` |
+| `skill` | `automation-followup` | `proactive-agent` | 5★ | `direct` |
+| `skill` | `cost-observability` | `model-usage` | 5★ | `direct` |
+| `skill` | `email-agent` | `agentmail` | 3★ | `api-key` |
+| `skill` | `ima-notes-knowledge` | `ima` | 4★ | `api-key` |
+| `skill` | `weather` | `weather` | 5★ | `direct` |
+| `pack` | `finance-trading-pack` | [Claude Trading Skills](https://github.com/tradermonty/claude-trading-skills) | 4★ | `direct` |
 
 ## Finance / Investment Workflows
 

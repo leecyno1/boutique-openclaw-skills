@@ -130,6 +130,22 @@ ANTHROPIC_FS_PLUGIN_CATEGORIES = {
 
 STANDARD_BUNDLE_MAX_SKILLS = 31
 
+STANDARD_BUNDLE_PACKS = [
+    {
+        "capability": "finance-trading-pack",
+        "pack": "claude-trading-skills",
+        "title": "Claude Trading Skills",
+        "category": "finance-trading",
+        "stars": 4,
+        "score": 84,
+        "access_mode": "direct",
+        "conflict_group": "finance-pack:claude-trading-skills",
+        "origin_url": "https://github.com/tradermonty/claude-trading-skills",
+        "skills_origin_prefix": "https://github.com/tradermonty/claude-trading-skills",
+        "note": "Trading research, screeners, market regime, execution planning, options, position sizing, backtest review, thesis memory, and post-trade workflows.",
+    }
+]
+
 CONFLICT_GROUP_RULES = [
     ("web-search", ["web-search", "tavily-search", "brave-search", "multi-search-engine", "minimax-web-search"]),
     ("browser-automation", ["agent-browser", "chrome-devtools-mcp"]),
@@ -675,6 +691,27 @@ def build_standard_bundle(enriched: dict[str, Any]) -> dict[str, Any]:
         selected_conflicts.add(best["conflict_group"])
         if len(selected) >= STANDARD_BUNDLE_MAX_SKILLS:
             break
+    skill_packs = []
+    for pack in STANDARD_BUNDLE_PACKS:
+        pack_skills = sorted([
+            skill["id"]
+            for skill in enriched["skills"]
+            if (skill.get("origin", {}).get("origin_url") or "").startswith(pack["skills_origin_prefix"])
+            and not skill.get("preset_excluded")
+        ])
+        skill_packs.append({
+            "capability": pack["capability"],
+            "pack": pack["pack"],
+            "title": pack["title"],
+            "category": pack["category"],
+            "stars": pack["stars"],
+            "score": pack["score"],
+            "access_mode": pack["access_mode"],
+            "conflict_group": pack["conflict_group"],
+            "origin_url": pack["origin_url"],
+            "note": pack["note"],
+            "skills": pack_skills,
+        })
     return {
         "schema_version": enriched["schema_version"],
         "generated_at": TODAY,
@@ -684,6 +721,7 @@ def build_standard_bundle(enriched: dict[str, Any]) -> dict[str, Any]:
             "pinned_capabilities": pinned,
             "excluded_skills": sorted(excluded),
         },
+        "skill_packs": skill_packs,
         "skills": selected,
     }
 
@@ -783,12 +821,26 @@ def readme_origin(item: dict[str, Any]) -> str:
     return md_link(item["origin"].get("origin_url"), "Source")
 
 
+def pluralize_count(count: int, singular: str) -> str:
+    suffix = "" if count == 1 else "s"
+    return f"{count} {singular}{suffix}"
+
+
+def bundle_size_label(bundle: dict[str, Any]) -> str:
+    label = pluralize_count(len(bundle["skills"]), "skill")
+    pack_count = len(bundle.get("skill_packs", []))
+    if pack_count:
+        label += f" + {pluralize_count(pack_count, 'pack')}"
+    return label
+
+
 def render_badges(summary: dict[str, Any], bundle: dict[str, Any]) -> str:
+    bundle_badge_label = bundle_size_label(bundle).replace(" ", "%20").replace("+", "%2B")
     badges = [
         "[![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)",
         f"[![Skills](https://img.shields.io/badge/Skills-{summary['skills']}-2ea44f)](#all-skills)",
         "[![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)",
-        f"[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-{len(bundle['skills'])}%20skills-7c3aed)](catalog/standard-bundle.json)",
+        f"[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-{bundle_badge_label}-7c3aed)](catalog/standard-bundle.json)",
         "[![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)",
         "[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)",
     ]
@@ -819,7 +871,7 @@ def render_stats(summary: dict[str, Any], bundle: dict[str, Any], suites: list[d
         f"| Native sources verified or referenced | {summary['native_origin_verified_or_referenced']} |",
         f"| Agent preset exclusions | {summary['preset_excluded']} |",
         f"| Missing native origins | {summary['needs_origin_review']} |",
-        f"| Standard bundle size | {len(bundle['skills'])} / 30 |",
+        f"| Standard bundle size | {bundle_size_label(bundle)} |",
     ])
 
 
@@ -838,11 +890,16 @@ def render_all_skills_table(skills: list[dict[str, Any]]) -> str:
 
 def render_standard_bundle_table(bundle: dict[str, Any]) -> str:
     lines = [
-        "| Capability | Skill | Stars | Use |",
-        "|---|---|---:|---|",
+        "| Type | Capability | Skill / Pack | Stars | Use |",
+        "|---|---|---|---:|---|",
     ]
     for item in bundle["skills"]:
-        lines.append(f"| `{item['capability']}` | `{item['skill']}` | {item['stars']}★ | `{item['access_mode']}` |")
+        lines.append(f"| `skill` | `{item['capability']}` | `{item['skill']}` | {item['stars']}★ | `{item['access_mode']}` |")
+    for pack in bundle.get("skill_packs", []):
+        lines.append(
+            f"| `pack` | `{pack['capability']}` | "
+            f"[{pack['title']}]({pack['origin_url']}) | {pack['stars']}★ | `{pack['access_mode']}` |"
+        )
     return "\n".join(lines)
 
 
