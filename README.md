@@ -9,7 +9,7 @@
 **面向智能体的精品技能仓库：原生来源可审计、能力不重复、安装可控、持续月评。**
 
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
-[![Skills](https://img.shields.io/badge/Skills-282-2ea44f)](#all-skills)
+[![Skills](https://img.shields.io/badge/Skills-295-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
 [![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-31%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
@@ -68,9 +68,9 @@ Or install a grouped suite:
 
 | Metric | Value |
 |---|---:|
-| Curated skills | 282 |
+| Curated skills | 295 |
 | Skill suites | 3 |
-| Native sources verified or referenced | 276 |
+| Native sources verified or referenced | 289 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
 | Standard bundle size | 31 skills + 1 pack |
@@ -285,10 +285,23 @@ Skill suites are domain packs kept outside the standard no-duplicate bundle. Use
 | `baoyu-article-illustrator` | `L2 Professional` | `design-ui` | 4★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator) |
 | `baoyu-danger-x-to-markdown` | `L2 Professional` | `design-ui` | 2★ | `api-key` | [Source](https://github.com/JimLiu/baoyu-skills#baoyu-danger-x-to-markdown) |
 | `baoyu-translate` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
+| `brandkit` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/brandkit) |
+| `design-taste-frontend` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill) |
+| `design-taste-frontend-v1` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill-v1) |
 | `edge-concept-synthesizer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-concept-synthesizer) |
 | `edge-strategy-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-designer) |
+| `full-output-enforcement` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/output-skill) |
 | `generative-ui` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui) |
+| `gpt-taste` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/gpt-tasteskill) |
+| `high-end-visual-design` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/soft-skill) |
+| `image-to-code` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/image-to-code-skill) |
+| `imagegen-frontend-mobile` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/imagegen-frontend-mobile) |
+| `imagegen-frontend-web` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/imagegen-frontend-web) |
+| `industrial-brutalist-ui` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/brutalist-skill) |
+| `minimalist-ui` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/minimalist-skill) |
+| `redesign-existing-projects` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/redesign-skill) |
 | `skill-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-designer) |
+| `stitch-design-taste` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/stitch-skill) |
 | `strategy-pivot-designer` | `L2 Professional` | `design-ui` | 5★ | `direct` | [Source](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/strategy-pivot-designer) |
 | `docx` | `L2 Professional` | `docs-office` | 1★ | `direct` | Preset |
 | `lark-calendar` | `L2 Professional` | `docs-office` | 4★ | `api-key` | [Source](https://github.com/larksuite/oapi-sdk-nodejs) |

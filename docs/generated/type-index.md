@@ -8,7 +8,7 @@
 | 编程 / 工程工具 (`coding-devtools`) | 10 |
 | 数据分析 (`data-analysis`) | 9 |
 | 文档 / 办公 (`docs-office`) | 9 |
-| 设计 / UI (`design-ui`) | 11 |
+| 设计 / UI (`design-ui`) | 24 |
 | HTML 发布 / 视觉出版 (`html-publishing`) | 2 |
 | 媒体生成 / 处理 (`media-generation`) | 22 |
 | 写作 / 内容 (`writing-content`) | 7 |
@@ -130,10 +130,23 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `baoyu-translate` | `L2 Professional` | 5★ | `baoyu`, `design-ui`, `direct`, `l2`, `offline` |
+| `brandkit` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `design-taste-frontend` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `design-taste-frontend-v1` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
 | `edge-concept-synthesizer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
 | `edge-strategy-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `full-output-enforcement` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
 | `generative-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `gpt-taste` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `high-end-visual-design` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `online`, `taste-skill` |
+| `image-to-code` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `online`, `taste-skill` |
+| `imagegen-frontend-mobile` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `imagegen-frontend-web` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `online`, `taste-skill` |
+| `industrial-brutalist-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `minimalist-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `redesign-existing-projects` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `online`, `taste-skill` |
 | `skill-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
+| `stitch-design-taste` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
 | `strategy-pivot-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
 | `agentmail-toolkit` | `L2 Professional` | 4★ | `api-key`, `default_sentinel`, `design-ui`, `l2`, `online` |
 | `animation` | `L2 Professional` | 4★ | `api-key`, `design-ui`, `l2`, `online` |

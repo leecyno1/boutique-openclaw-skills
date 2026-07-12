@@ -128,6 +128,22 @@ ANTHROPIC_FS_PLUGIN_CATEGORIES = {
     "spglobal": "finance-data",
 }
 
+TASTE_SKILLS = {
+    "brandkit",
+    "design-taste-frontend",
+    "design-taste-frontend-v1",
+    "full-output-enforcement",
+    "gpt-taste",
+    "high-end-visual-design",
+    "image-to-code",
+    "imagegen-frontend-mobile",
+    "imagegen-frontend-web",
+    "industrial-brutalist-ui",
+    "minimalist-ui",
+    "redesign-existing-projects",
+    "stitch-design-taste",
+}
+
 STANDARD_BUNDLE_MAX_SKILLS = 31
 
 STANDARD_BUNDLE_PACKS = [
@@ -378,6 +394,8 @@ def classify_category(skill_id: str, description: str) -> str:
             if skill_id.startswith(f"anthropic-fs-{plugin}-"):
                 return category
         return "finance-services"
+    if skill_id in TASTE_SKILLS:
+        return "design-ui"
     explicit = {
         "a-stock-data": "finance-data",
         "akshare-stock": "finance-data",
@@ -467,6 +485,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     if skill_id == "html-anything":
         tools = ["browser", "node"]
     if skill_id == "generative-ui":
+        api_keys = []
+        tools = []
+    if skill_id in TASTE_SKILLS:
         api_keys = []
         tools = []
     tools = sorted(set(tools))

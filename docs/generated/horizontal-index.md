@@ -3,7 +3,7 @@
 | 层级 | 定义 | 数量 |
 |---|---|---:|
 | `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 21 |
-| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 98 |
+| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 111 |
 | `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 163 |
 
 ## L1 Foundation
@@ -39,29 +39,42 @@
 | `html-anything` | HTML 发布 / 视觉出版 | 5★ | `browser-required` | [origin](https://github.com/nexu-io/html-anything) |
 | `backtest-expert` | 编程 / 工程工具 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/backtest-expert) |
 | `baoyu-translate` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate) |
+| `brandkit` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/brandkit) |
 | `data-analyst` | 数据分析 | 5★ | `direct` | [origin](https://github.com/openclaw/skills/blob/main/skills/oyi77/data-analyst/SKILL.md) |
 | `dbskill` | 营销 / 增长 | 5★ | `direct` | [origin](https://github.com/dontbesilent2025/dbskill) |
+| `design-taste-frontend` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill) |
+| `design-taste-frontend-v1` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill-v1) |
 | `discord-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/discord-reader) |
 | `edge-concept-synthesizer` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-concept-synthesizer) |
 | `edge-pipeline-orchestrator` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-pipeline-orchestrator) |
 | `edge-signal-aggregator` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-signal-aggregator) |
 | `edge-strategy-designer` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-designer) |
 | `edge-strategy-reviewer` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-reviewer) |
+| `full-output-enforcement` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/output-skill) |
 | `generative-ui` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui) |
+| `gpt-taste` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/gpt-tasteskill) |
+| `high-end-visual-design` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/soft-skill) |
 | `humanizer-zh` | 写作 / 内容 | 5★ | `direct` | [origin](https://github.com/idao-cube/humanizer-zh) |
 | `ian-xiaohei-illustrations` | 媒体生成 / 处理 | 5★ | `direct` | [origin](https://github.com/helloianneo/ian-xiaohei-illustrations/tree/main/ian-xiaohei-illustrations) |
+| `image-to-code` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/image-to-code-skill) |
+| `imagegen-frontend-mobile` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/imagegen-frontend-mobile) |
+| `imagegen-frontend-web` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/imagegen-frontend-web) |
+| `industrial-brutalist-ui` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/brutalist-skill) |
 | `khazix-skills` | 写作 / 内容 | 5★ | `direct` | [origin](https://github.com/KKKKhazix/khazix-skills) |
 | `linkedin-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/linkedin-reader) |
+| `minimalist-ui` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/minimalist-skill) |
 | `multi-search-engine` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://clawhub.ai/gpyAngyoujun/multi-search-engine) |
 | `nano-pdf` | 文档 / 办公 | 5★ | `direct` | [origin](https://github.com/steipete/clawdis/tree/main/skills/nano-pdf) |
 | `openclaw-stock-kb` | 金融 / 知识库 | 5★ | `direct` | [origin](https://github.com/freestylefly/openclaw-stock-kb) |
 | `opencli-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/opencli-reader) |
 | `proactive-agent` | 效率 / 知识管理 | 5★ | `direct` | [origin](https://clawhub.ai/halthelobster/proactive-agent) |
+| `redesign-existing-projects` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/redesign-skill) |
 | `reflection` | 媒体生成 / 处理 | 5★ | `direct` | [origin](https://playbooks.com/skills/openclaw/skills/reflection) |
 | `scenario-analyzer` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills) |
 | `self-improving-agent-cn` | 多 Agent / 自动调度 | 5★ | `direct` | [origin](https://clawhub.ai/zhengxinjipai/self-improving-agent-cn) |
 | `skill-designer` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-designer) |
 | `skill-integration-tester` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-integration-tester) |
+| `stitch-design-taste` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/stitch-skill) |
 | `strategy-pivot-designer` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/strategy-pivot-designer) |
 | `telegram-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/telegram-reader) |
 | `twitter-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/twitter-reader) |

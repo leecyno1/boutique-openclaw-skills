@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 9 |
-| `direct` | 81 |
+| `direct` | 94 |
 | `mcp-required` | 70 |
 
 ## api-key
@@ -174,29 +174,42 @@
 | `writing-skills` | 无 | 无 | `low` |
 | `backtest-expert` | 无 | 无 | `low` |
 | `baoyu-translate` | 无 | 无 | `low` |
+| `brandkit` | 无 | 无 | `low` |
 | `data-analyst` | 无 | `python` | `low` |
 | `dbskill` | 无 | 无 | `low` |
+| `design-taste-frontend` | 无 | 无 | `low` |
+| `design-taste-frontend-v1` | 无 | 无 | `low` |
 | `discord-reader` | 无 | `node` | `low` |
 | `edge-concept-synthesizer` | 无 | 无 | `low` |
 | `edge-pipeline-orchestrator` | 无 | 无 | `low` |
 | `edge-signal-aggregator` | 无 | `python` | `low` |
 | `edge-strategy-designer` | 无 | 无 | `low` |
 | `edge-strategy-reviewer` | 无 | 无 | `low` |
+| `full-output-enforcement` | 无 | 无 | `low` |
 | `generative-ui` | 无 | 无 | `low` |
+| `gpt-taste` | 无 | 无 | `low` |
+| `high-end-visual-design` | 无 | 无 | `low` |
 | `humanizer-zh` | 无 | 无 | `low` |
 | `ian-xiaohei-illustrations` | 无 | 无 | `low` |
+| `image-to-code` | 无 | 无 | `low` |
+| `imagegen-frontend-mobile` | 无 | 无 | `low` |
+| `imagegen-frontend-web` | 无 | 无 | `low` |
+| `industrial-brutalist-ui` | 无 | 无 | `low` |
 | `khazix-skills` | 无 | 无 | `low` |
 | `linkedin-reader` | 无 | `python` | `low` |
+| `minimalist-ui` | 无 | 无 | `low` |
 | `multi-search-engine` | 无 | 无 | `low` |
 | `nano-pdf` | 无 | 无 | `low` |
 | `openclaw-stock-kb` | 无 | `python` | `low` |
 | `opencli-reader` | 无 | `python` | `low` |
 | `proactive-agent` | 无 | 无 | `low` |
+| `redesign-existing-projects` | 无 | 无 | `low` |
 | `reflection` | 无 | 无 | `low` |
 | `scenario-analyzer` | 无 | `python` | `low` |
 | `self-improving-agent-cn` | 无 | 无 | `low` |
 | `skill-designer` | 无 | 无 | `low` |
 | `skill-integration-tester` | 无 | `python` | `low` |
+| `stitch-design-taste` | 无 | 无 | `low` |
 | `strategy-pivot-designer` | 无 | 无 | `low` |
 | `telegram-reader` | 无 | 无 | `low` |
 | `twitter-reader` | 无 | 无 | `low` |

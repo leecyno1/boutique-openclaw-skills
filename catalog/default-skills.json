@@ -3692,6 +3692,20 @@
           "groups": []
         },
         {
+          "id": "brandkit",
+          "name": "brandkit",
+          "description": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations.",
+          "manual": "skills/default/brandkit/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/brandkit/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/brandkit",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
           "id": "breadth-chart-analyst",
           "name": "breadth-chart-analyst",
           "description": "This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadth Index (200-Day MA based) and the US Stock Market Uptrend Stock Ratio charts.",
@@ -3866,6 +3880,34 @@
             "content-growth"
           ],
           "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dbskill/SKILL.md"
+        },
+        {
+          "id": "design-taste-frontend",
+          "name": "design-taste-frontend",
+          "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns.",
+          "manual": "skills/default/design-taste-frontend/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/design-taste-frontend/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
+          "id": "design-taste-frontend-v1",
+          "name": "design-taste-frontend-v1",
+          "description": "The original v1 taste-skill, preserved for projects depending on its exact behavior.",
+          "manual": "skills/default/design-taste-frontend-v1/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/design-taste-frontend-v1/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill-v1",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
         },
         {
           "id": "discord-reader",
@@ -4236,6 +4278,20 @@
           ]
         },
         {
+          "id": "full-output-enforcement",
+          "name": "full-output-enforcement",
+          "description": "Overrides default LLM truncation behavior.",
+          "manual": "skills/default/full-output-enforcement/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/full-output-enforcement/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/output-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
           "id": "fullstack-dev",
           "name": "fullstack-dev",
           "description": "Full-stack backend architecture and frontend-backend integration guide.",
@@ -4320,6 +4376,20 @@
           "groups": []
         },
         {
+          "id": "gpt-taste",
+          "name": "gpt-taste",
+          "description": "Elite UX/UI & Advanced GSAP Motion Engineer.",
+          "manual": "skills/default/gpt-taste/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/gpt-taste/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/gpt-tasteskill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
           "id": "guizang-ppt-skill",
           "name": "guizang-ppt-skill",
           "description": "文章一键生成网页 PPT，自动提炼要点，支持墨水与瑞士风版式，可导出 PDF/PNG。",
@@ -4348,6 +4418,20 @@
             "social-card"
           ],
           "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/guizang-social-card-skill/SKILL.md"
+        },
+        {
+          "id": "high-end-visual-design",
+          "name": "high-end-visual-design",
+          "description": "Teaches the AI to design like a high-end agency.",
+          "manual": "skills/default/high-end-visual-design/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/high-end-visual-design/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/soft-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
         },
         {
           "id": "hormuz-strait",
@@ -4440,6 +4524,62 @@
             "knowledge",
             "productivity",
             "standard"
+          ]
+        },
+        {
+          "id": "image-to-code",
+          "name": "image-to-code",
+          "description": "Elite website image-to-code skill for Codex.",
+          "manual": "skills/default/image-to-code/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/image-to-code/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/image-to-code-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
+          "id": "imagegen-frontend-mobile",
+          "name": "imagegen-frontend-mobile",
+          "description": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows.",
+          "manual": "skills/default/imagegen-frontend-mobile/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/imagegen-frontend-mobile/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/imagegen-frontend-mobile",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
+          "id": "imagegen-frontend-web",
+          "name": "imagegen-frontend-web",
+          "description": "Elite frontend image-direction skill for generating premium, conversion-aware website design references.",
+          "manual": "skills/default/imagegen-frontend-web/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/imagegen-frontend-web/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/imagegen-frontend-web",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
+          "id": "industrial-brutalist-ui",
+          "name": "industrial-brutalist-ui",
+          "description": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics.",
+          "manual": "skills/default/industrial-brutalist-ui/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/industrial-brutalist-ui/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/brutalist-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
           ]
         },
         {
@@ -5001,6 +5141,20 @@
           ]
         },
         {
+          "id": "minimalist-ui",
+          "name": "minimalist-ui",
+          "description": "Clean editorial-style interfaces.",
+          "manual": "skills/default/minimalist-ui/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/minimalist-ui/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/minimalist-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
           "id": "minimax-docx",
           "name": "minimax-docx",
           "description": "Professional DOCX document creation, editing, and formatting using OpenXML SDK (.",
@@ -5474,6 +5628,20 @@
           ]
         },
         {
+          "id": "redesign-existing-projects",
+          "name": "redesign-existing-projects",
+          "description": "Upgrades existing websites and apps to premium quality.",
+          "manual": "skills/default/redesign-existing-projects/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/redesign-existing-projects/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/redesign-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
+          ]
+        },
+        {
           "id": "reflection",
           "name": "Self Reflection",
           "description": "Learns when to stop and review.",
@@ -5716,6 +5884,20 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
+          ]
+        },
+        {
+          "id": "stitch-design-taste",
+          "name": "stitch-design-taste",
+          "description": "Semantic Design System Skill for Google Stitch.",
+          "manual": "skills/default/stitch-design-taste/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/stitch-design-taste/SKILL.md",
+          "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/stitch-skill",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "taste-skill",
+            "design-ui"
           ]
         },
         {
