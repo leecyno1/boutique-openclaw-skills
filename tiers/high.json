@@ -4264,6 +4264,102 @@
       ]
     },
     {
+      "id": "wb-xhs-account-profile",
+      "name": "wb-xhs-account-profile",
+      "description": "Use when the user wants WorkBuddy or another agent to remember an account's positioning, voice, boundaries, data, trust assets, personal IP story, and content rules across sessions. Trigger phrases: \"账号档案\", \"记住我的账号\", \"写入",
+      "manual": "skills/default/wb-xhs-account-profile/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-account-profile/SKILL.md",
+      "source": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-account-profile",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "workbuddy-xhs",
+        "xiaohongshu",
+        "content-strategy",
+        "chinese-media"
+      ]
+    },
+    {
+      "id": "wb-xhs-humanize-compliance",
+      "name": "wb-xhs-humanize-compliance",
+      "description": "Use when the user has an AI-generated Xiaohongshu draft and wants it to sound more personal, concrete, platform-appropriate, and stronger in hook, retention, and interaction value. Trigger phrases: \"去 AI 味\", \"不像我\", \"合规检查",
+      "manual": "skills/default/wb-xhs-humanize-compliance/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-humanize-compliance/SKILL.md",
+      "source": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-humanize-compliance",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "workbuddy-xhs",
+        "xiaohongshu",
+        "content-strategy",
+        "chinese-media"
+      ]
+    },
+    {
+      "id": "wb-xhs-low-follower-pattern",
+      "name": "wb-xhs-low-follower-pattern",
+      "description": "Use when the user has a Xiaohongshu niche and needs to find, compare, and extract reusable content structures from low-follower high-performing posts, or diagnose why a post did or did not become a breakout using click r",
+      "manual": "skills/default/wb-xhs-low-follower-pattern/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-low-follower-pattern/SKILL.md",
+      "source": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-low-follower-pattern",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "workbuddy-xhs",
+        "xiaohongshu",
+        "content-strategy",
+        "chinese-media"
+      ]
+    },
+    {
+      "id": "wb-xhs-monetization-backsolve",
+      "name": "wb-xhs-monetization-backsolve",
+      "description": "Use when the user wants to start or reposition a Xiaohongshu account but is asking \"what should I post\" before clarifying monetization, timing, personal IP direction, or trust path. Trigger phrases: \"小红书定位\", \"不知道做什么赛道\", ",
+      "manual": "skills/default/wb-xhs-monetization-backsolve/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-monetization-backsolve/SKILL.md",
+      "source": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-monetization-backsolve",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "workbuddy-xhs",
+        "xiaohongshu",
+        "content-strategy",
+        "chinese-media"
+      ]
+    },
+    {
+      "id": "wb-xhs-schedule-review",
+      "name": "wb-xhs-schedule-review",
+      "description": "Use when the user wants a Xiaohongshu posting calendar, weekly review board, first-10-post launch plan, 10-20-post positioning test, or data-based next-step plan. Trigger phrases: \"排期\", \"复盘\", \"30 天计划\", \"前10条\", \"10-20条测试\"",
+      "manual": "skills/default/wb-xhs-schedule-review/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-schedule-review/SKILL.md",
+      "source": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-schedule-review",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "workbuddy-xhs",
+        "xiaohongshu",
+        "content-strategy",
+        "chinese-media"
+      ]
+    },
+    {
+      "id": "wb-xhs-topic-bank",
+      "name": "wb-xhs-topic-bank",
+      "description": "Use when the user has positioning and wants a reusable Xiaohongshu topic/title bank instead of asking AI to freely brainstorm, especially to map topics to user needs such as emotional resonance, growth proof, new insight",
+      "manual": "skills/default/wb-xhs-topic-bank/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-topic-bank/SKILL.md",
+      "source": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-topic-bank",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "workbuddy-xhs",
+        "xiaohongshu",
+        "content-strategy",
+        "chinese-media"
+      ]
+    },
+    {
       "id": "weather",
       "name": "weather",
       "description": "Get current weather and forecasts (no API key required).",

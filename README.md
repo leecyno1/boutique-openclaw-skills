@@ -9,7 +9,7 @@
 **面向智能体的精品技能仓库：原生来源可审计、能力不重复、安装可控、持续月评。**
 
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
-[![Skills](https://img.shields.io/badge/Skills-300-2ea44f)](#all-skills)
+[![Skills](https://img.shields.io/badge/Skills-306-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
 [![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-31%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
@@ -68,9 +68,9 @@ Or install a grouped suite:
 
 | Metric | Value |
 |---|---:|
-| Curated skills | 300 |
+| Curated skills | 306 |
 | Skill suites | 3 |
-| Native sources verified or referenced | 294 |
+| Native sources verified or referenced | 300 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
 | Standard bundle size | 31 skills + 1 pack |
@@ -479,6 +479,12 @@ Skill suites are domain packs kept outside the standard no-duplicate bundle. Use
 | `dbskill` | `L2 Professional` | `marketing-growth` | 5★ | `direct` | [Source](https://github.com/dontbesilent2025/dbskill) |
 | `douyin-account-launch-expert` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/douyin-account-launch-expert) |
 | `marketingskills` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/coreyhaines31/marketingskills) |
+| `wb-xhs-account-profile` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-account-profile) |
+| `wb-xhs-humanize-compliance` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-humanize-compliance) |
+| `wb-xhs-low-follower-pattern` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-low-follower-pattern) |
+| `wb-xhs-monetization-backsolve` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-monetization-backsolve) |
+| `wb-xhs-schedule-review` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-schedule-review) |
+| `wb-xhs-topic-bank` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-topic-bank) |
 | `wechat-account-launch-expert` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/wechat-account-launch-expert) |
 | `x-twitter-cold-start-expert` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/x-twitter-cold-start-expert) |
 | `xiaohongshu-account-launch-expert` | `L3 Specialist` | `marketing-growth` | 4★ | `direct` | [Source](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/xiaohongshu-account-launch-expert) |

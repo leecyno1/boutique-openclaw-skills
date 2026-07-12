@@ -1,0 +1,3 @@
+Source: https://github.com/jackbauerxu/workbuddy-xhs-skills
+Upstream path: https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-topic-bank
+License: No explicit license file was present in the upstream repository when imported.

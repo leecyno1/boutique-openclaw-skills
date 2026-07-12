@@ -13,15 +13,15 @@
     ]
   },
   "summary": {
-    "skills": 300,
-    "native_origin_verified_or_referenced": 294,
+    "skills": 306,
+    "native_origin_verified_or_referenced": 300,
     "native_origin_excluded_presets": 6,
     "needs_origin_review": 0,
     "preset_excluded": 6,
     "by_horizontal_tier": {
       "L1 Foundation": 21,
       "L2 Professional": 111,
-      "L3 Specialist": 168
+      "L3 Specialist": 174
     },
     "by_category": {
       "agent-orchestration": 3,
@@ -40,7 +40,7 @@
       "finance-trading": 76,
       "html-publishing": 2,
       "legal-compliance": 2,
-      "marketing-growth": 8,
+      "marketing-growth": 14,
       "media-generation": 22,
       "memory-context": 1,
       "policy-monitoring": 1,
@@ -53,14 +53,14 @@
       "api-key": 100,
       "api-key+mcp-required": 22,
       "browser-required": 9,
-      "direct": 99,
+      "direct": 105,
       "mcp-required": 70
     },
     "by_stars": {
       "1★": 6,
       "2★": 2,
       "3★": 149,
-      "4★": 84,
+      "4★": 90,
       "5★": 59
     }
   },
@@ -3311,6 +3311,282 @@
       },
       "risk_level": "low",
       "conflict_group": "startup-analysis",
+      "preset_excluded": false,
+      "rating": {
+        "score": 85,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "wb-xhs-account-profile",
+      "name": "wb-xhs-account-profile",
+      "description": "Use when the user wants WorkBuddy or another agent to remember an account's positioning, voice, boundaries, data, trust assets, personal IP story, and content rules across sessions. Trigger phrases: \"账号档案\", \"记住我的账号\", \"写入记忆\", \"人设垂直\", \"信任名片\", \"brand profile\", \"account memory\", \"style guide\". Do not use for one-off post drafting unless profile data is missing.",
+      "manual": "skills/default/wb-xhs-account-profile/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-account-profile/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-account-profile",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-12",
+        "mirror_source_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-account-profile",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "marketing-growth",
+      "category_label": "营销 / 增长",
+      "tags": [
+        "chinese-media",
+        "content-strategy",
+        "direct",
+        "l3",
+        "marketing-growth",
+        "offline",
+        "workbuddy-xhs",
+        "xiaohongshu"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "wb-xhs-account-profile",
+      "preset_excluded": false,
+      "rating": {
+        "score": 85,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "wb-xhs-humanize-compliance",
+      "name": "wb-xhs-humanize-compliance",
+      "description": "Use when the user has an AI-generated Xiaohongshu draft and wants it to sound more personal, concrete, platform-appropriate, and stronger in hook, retention, and interaction value. Trigger phrases: \"去 AI 味\", \"不像我\", \"合规检查\", \"改得像真人\", \"开头不抓人\", \"没停留\", \"humanize draft\", \"platform check\". Do not use for initial positioning or topic generation.",
+      "manual": "skills/default/wb-xhs-humanize-compliance/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-humanize-compliance/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-humanize-compliance",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-12",
+        "mirror_source_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-humanize-compliance",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "marketing-growth",
+      "category_label": "营销 / 增长",
+      "tags": [
+        "chinese-media",
+        "content-strategy",
+        "direct",
+        "l3",
+        "marketing-growth",
+        "offline",
+        "workbuddy-xhs",
+        "xiaohongshu"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "wb-xhs-humanize-compliance",
+      "preset_excluded": false,
+      "rating": {
+        "score": 85,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "wb-xhs-low-follower-pattern",
+      "name": "wb-xhs-low-follower-pattern",
+      "description": "Use when the user has a Xiaohongshu niche and needs to find, compare, and extract reusable content structures from low-follower high-performing posts, or diagnose why a post did or did not become a breakout using click rate, retention, and interaction signals. Trigger phrases: \"找对标\", \"低粉爆款\", \"拆爆款\", \"内容骨架\", \"点击率\", \"停留时长\", \"互动率\", \"competitor pattern\", \"viral post structure\". Do not use before the monetization direction is clear.",
+      "manual": "skills/default/wb-xhs-low-follower-pattern/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-low-follower-pattern/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-low-follower-pattern",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-12",
+        "mirror_source_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-low-follower-pattern",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "marketing-growth",
+      "category_label": "营销 / 增长",
+      "tags": [
+        "chinese-media",
+        "content-strategy",
+        "direct",
+        "l3",
+        "marketing-growth",
+        "offline",
+        "workbuddy-xhs",
+        "xiaohongshu"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "wb-xhs-low-follower-pattern",
+      "preset_excluded": false,
+      "rating": {
+        "score": 85,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "wb-xhs-monetization-backsolve",
+      "name": "wb-xhs-monetization-backsolve",
+      "description": "Use when the user wants to start or reposition a Xiaohongshu account but is asking \"what should I post\" before clarifying monetization, timing, personal IP direction, or trust path. Trigger phrases: \"小红书定位\", \"不知道做什么赛道\", \"怎么变现\", \"个人IP\", \"账号方向\", \"XHS positioning\", \"monetization first\". Do not use for drafting a specific post; use topic or copy skills after positioning is clear.",
+      "manual": "skills/default/wb-xhs-monetization-backsolve/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-monetization-backsolve/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-monetization-backsolve",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-12",
+        "mirror_source_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-monetization-backsolve",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "marketing-growth",
+      "category_label": "营销 / 增长",
+      "tags": [
+        "chinese-media",
+        "content-strategy",
+        "direct",
+        "l3",
+        "marketing-growth",
+        "offline",
+        "workbuddy-xhs",
+        "xiaohongshu"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "wb-xhs-monetization-backsolve",
+      "preset_excluded": false,
+      "rating": {
+        "score": 85,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "wb-xhs-schedule-review",
+      "name": "wb-xhs-schedule-review",
+      "description": "Use when the user wants a Xiaohongshu posting calendar, weekly review board, first-10-post launch plan, 10-20-post positioning test, or data-based next-step plan. Trigger phrases: \"排期\", \"复盘\", \"30 天计划\", \"前10条\", \"10-20条测试\", \"发了没数据\", \"weekly review\", \"content calendar\", \"XHS schedule\". Do not use for first-draft editing or initial account positioning.",
+      "manual": "skills/default/wb-xhs-schedule-review/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-schedule-review/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-schedule-review",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-12",
+        "mirror_source_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-schedule-review",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "marketing-growth",
+      "category_label": "营销 / 增长",
+      "tags": [
+        "chinese-media",
+        "content-strategy",
+        "direct",
+        "l3",
+        "marketing-growth",
+        "offline",
+        "workbuddy-xhs",
+        "xiaohongshu"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "wb-xhs-schedule-review",
+      "preset_excluded": false,
+      "rating": {
+        "score": 85,
+        "stars": 4,
+        "rating_label": "★★★★☆"
+      }
+    },
+    {
+      "id": "wb-xhs-topic-bank",
+      "name": "wb-xhs-topic-bank",
+      "description": "Use when the user has positioning and wants a reusable Xiaohongshu topic/title bank instead of asking AI to freely brainstorm, especially to map topics to user needs such as emotional resonance, growth proof, new insight, learning value, or identity expression. Trigger phrases: \"选题库\", \"标题公式\", \"每天发什么\", \"批量选题\", \"爆款需求\", \"XHS topic bank\", \"title formulas\". Do not use before account positioning and target audience are known.",
+      "manual": "skills/default/wb-xhs-topic-bank/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wb-xhs-topic-bank/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-topic-bank",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-12",
+        "mirror_source_url": "https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-topic-bank",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L3 Specialist",
+      "primary_category": "marketing-growth",
+      "category_label": "营销 / 增长",
+      "tags": [
+        "chinese-media",
+        "content-strategy",
+        "direct",
+        "l3",
+        "marketing-growth",
+        "offline",
+        "workbuddy-xhs",
+        "xiaohongshu"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "wb-xhs-topic-bank",
       "preset_excluded": false,
       "rating": {
         "score": 85,

@@ -1,0 +1,79 @@
+{
+  "skill": "wb-xhs-schedule-review",
+  "version": "0.1.0",
+  "source_book": "别不信！ WorkBuddy 就可以把你的小红书从0粉干到1000 — 文子 + yanliudreamer 小红书系列",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我已经有 20 个选题了，帮我排一个 30 天小红书发布计划。",
+      "expected_behavior": "应激活本 skill，生成阶段、排期表和发布节奏。",
+      "notes": "典型排期。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我发了 6 篇，数据有曝光、点赞、收藏，帮我复盘下周怎么发。",
+      "expected_behavior": "应激活本 skill，建立数据看板并输出下周调整动作。",
+      "notes": "典型复盘。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Create a weekly XHS content review board and next week's content calendar.",
+      "expected_behavior": "应激活本 skill，create review board and calendar.",
+      "notes": "英文触发。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我是新号，帮我设计前10条笔记，让系统知道我是一个完整的人。",
+      "expected_behavior": "应激活本 skill，按自我背景/经历、方法/经验、踩坑/反思、情绪/观点设计前10条。",
+      "notes": "融合后新增的系统画像建立期。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这篇 AI 初稿改得更像我的语气。",
+      "expected_behavior": "不应激活本 skill，应激活 wb-xhs-humanize-compliance。",
+      "notes": "单篇改稿。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我不知道账号该怎么赚钱，帮我定位。",
+      "expected_behavior": "不应激活本 skill，应激活 wb-xhs-monetization-backsolve。",
+      "notes": "兄弟 skill 混淆测试。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我只有 2 篇数据，能不能复盘？",
+      "expected_behavior": "可激活本 skill，但应说明样本太少，只做轻量观察，不下确定结论。",
+      "notes": "小样本边界。"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我已经发了 12 条，数据有起伏，帮我判断要不要收敛定位。",
+      "expected_behavior": "应激活本 skill，用 10-20 条测试结果比较主题在点击、停留、互动、关注上的差异。",
+      "notes": "定位验证周期复盘。"
+    },
+    {
+      "id": "should-trigger-05",
+      "type": "should_trigger",
+      "prompt": "帮我把本周小红书复盘整理成下周实验，并写回账号档案要更新的内容。",
+      "expected_behavior": "应激活本 skill，输出周度运营报告、有效/失效假设、下周实验和账号档案更新项。",
+      "notes": "dbskill 状态保存/恢复/报告思路转译场景。"
+    },
+    {
+      "id": "should-trigger-visual-01",
+      "type": "should_trigger",
+      "prompt": "帮我排下周小红书计划，要标注哪些做单图、哪些做 8 页图文，以及视觉确认图和最终图的制作时间。",
+      "expected_behavior": "应激活本 skill，排期不只安排发布时间，还安排图文制作任务、视觉母版、确认图、最终图和视觉审查。",
+      "notes": "融合 xhs-visual-director 后的图文生产排期场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

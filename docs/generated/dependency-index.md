@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 9 |
-| `direct` | 99 |
+| `direct` | 105 |
 | `mcp-required` | 70 |
 
 ## api-key
@@ -224,6 +224,12 @@
 | `douyin-account-launch-expert` | 无 | 无 | `low` |
 | `skill-idea-miner` | 无 | 无 | `low` |
 | `startup-analysis` | 无 | 无 | `low` |
+| `wb-xhs-account-profile` | 无 | 无 | `low` |
+| `wb-xhs-humanize-compliance` | 无 | 无 | `low` |
+| `wb-xhs-low-follower-pattern` | 无 | 无 | `low` |
+| `wb-xhs-monetization-backsolve` | 无 | 无 | `low` |
+| `wb-xhs-schedule-review` | 无 | 无 | `low` |
+| `wb-xhs-topic-bank` | 无 | 无 | `low` |
 | `wechat-account-launch-expert` | 无 | 无 | `low` |
 | `x-twitter-cold-start-expert` | 无 | 无 | `low` |
 | `xiaohongshu-account-launch-expert` | 无 | 无 | `low` |

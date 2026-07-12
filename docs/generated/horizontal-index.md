@@ -4,7 +4,7 @@
 |---|---|---:|
 | `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 21 |
 | `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 111 |
-| `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 168 |
+| `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 174 |
 
 ## L1 Foundation
 
@@ -161,6 +161,12 @@
 | `douyin-account-launch-expert` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/douyin-account-launch-expert) |
 | `skill-idea-miner` | 商业运营 | 4★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/skill-idea-miner) |
 | `startup-analysis` | 商业运营 | 4★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/startup-tools/skills/startup-analysis) |
+| `wb-xhs-account-profile` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-account-profile) |
+| `wb-xhs-humanize-compliance` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-humanize-compliance) |
+| `wb-xhs-low-follower-pattern` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-low-follower-pattern) |
+| `wb-xhs-monetization-backsolve` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-monetization-backsolve) |
+| `wb-xhs-schedule-review` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-schedule-review) |
+| `wb-xhs-topic-bank` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/jackbauerxu/workbuddy-xhs-skills/tree/main/wb-xhs-topic-bank) |
 | `wechat-account-launch-expert` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/wechat-account-launch-expert) |
 | `x-twitter-cold-start-expert` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/x-twitter-cold-start-expert) |
 | `xiaohongshu-account-launch-expert` | 营销 / 增长 | 4★ | `direct` | [origin](https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/xiaohongshu-account-launch-expert) |

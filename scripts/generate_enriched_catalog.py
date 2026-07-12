@@ -152,6 +152,15 @@ ACCOUNT_LAUNCH_SKILLS = {
     "xiaohongshu-account-launch-expert",
 }
 
+WORKBUDDY_XHS_SKILLS = {
+    "wb-xhs-account-profile",
+    "wb-xhs-humanize-compliance",
+    "wb-xhs-low-follower-pattern",
+    "wb-xhs-monetization-backsolve",
+    "wb-xhs-schedule-review",
+    "wb-xhs-topic-bank",
+}
+
 STANDARD_BUNDLE_MAX_SKILLS = 31
 
 STANDARD_BUNDLE_PACKS = [
@@ -406,6 +415,8 @@ def classify_category(skill_id: str, description: str) -> str:
         return "design-ui"
     if skill_id in ACCOUNT_LAUNCH_SKILLS:
         return "marketing-growth"
+    if skill_id in WORKBUDDY_XHS_SKILLS:
+        return "marketing-growth"
     explicit = {
         "a-stock-data": "finance-data",
         "akshare-stock": "finance-data",
@@ -501,6 +512,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
         api_keys = []
         tools = []
     if skill_id in ACCOUNT_LAUNCH_SKILLS:
+        api_keys = []
+        tools = []
+    if skill_id in WORKBUDDY_XHS_SKILLS:
         api_keys = []
         tools = []
     tools = sorted(set(tools))

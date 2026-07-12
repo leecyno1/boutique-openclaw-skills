@@ -12,7 +12,7 @@
 | HTML 发布 / 视觉出版 (`html-publishing`) | 2 |
 | 媒体生成 / 处理 (`media-generation`) | 22 |
 | 写作 / 内容 (`writing-content`) | 7 |
-| 营销 / 增长 (`marketing-growth`) | 8 |
+| 营销 / 增长 (`marketing-growth`) | 14 |
 | 金融 / 交易 (`finance-trading`) | 76 |
 | 金融 / 机构服务 (`finance-services`) | 53 |
 | 金融 / 数据源 (`finance-data`) | 19 |
@@ -207,6 +207,12 @@
 | `dbskill` | `L2 Professional` | 5★ | `content-growth`, `creator`, `direct`, `l2`, `marketing`, `marketing-growth`, `offline` |
 | `channels-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
 | `douyin-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `wb-xhs-account-profile` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
+| `wb-xhs-humanize-compliance` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
+| `wb-xhs-low-follower-pattern` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
+| `wb-xhs-monetization-backsolve` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
+| `wb-xhs-schedule-review` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
+| `wb-xhs-topic-bank` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
 | `wechat-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
 | `x-twitter-cold-start-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
 | `xiaohongshu-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
