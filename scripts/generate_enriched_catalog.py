@@ -144,6 +144,14 @@ TASTE_SKILLS = {
     "stitch-design-taste",
 }
 
+ACCOUNT_LAUNCH_SKILLS = {
+    "channels-account-launch-expert",
+    "douyin-account-launch-expert",
+    "wechat-account-launch-expert",
+    "x-twitter-cold-start-expert",
+    "xiaohongshu-account-launch-expert",
+}
+
 STANDARD_BUNDLE_MAX_SKILLS = 31
 
 STANDARD_BUNDLE_PACKS = [
@@ -396,6 +404,8 @@ def classify_category(skill_id: str, description: str) -> str:
         return "finance-services"
     if skill_id in TASTE_SKILLS:
         return "design-ui"
+    if skill_id in ACCOUNT_LAUNCH_SKILLS:
+        return "marketing-growth"
     explicit = {
         "a-stock-data": "finance-data",
         "akshare-stock": "finance-data",
@@ -488,6 +498,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
         api_keys = []
         tools = []
     if skill_id in TASTE_SKILLS:
+        api_keys = []
+        tools = []
+    if skill_id in ACCOUNT_LAUNCH_SKILLS:
         api_keys = []
         tools = []
     tools = sorted(set(tools))

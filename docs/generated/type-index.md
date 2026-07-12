@@ -12,7 +12,7 @@
 | HTML 发布 / 视觉出版 (`html-publishing`) | 2 |
 | 媒体生成 / 处理 (`media-generation`) | 22 |
 | 写作 / 内容 (`writing-content`) | 7 |
-| 营销 / 增长 (`marketing-growth`) | 3 |
+| 营销 / 增长 (`marketing-growth`) | 8 |
 | 金融 / 交易 (`finance-trading`) | 76 |
 | 金融 / 机构服务 (`finance-services`) | 53 |
 | 金融 / 数据源 (`finance-data`) | 19 |
@@ -205,6 +205,11 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `dbskill` | `L2 Professional` | 5★ | `content-growth`, `creator`, `direct`, `l2`, `marketing`, `marketing-growth`, `offline` |
+| `channels-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `douyin-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `wechat-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `x-twitter-cold-start-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `xiaohongshu-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
 | `content-strategy` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `l2`, `marketing-growth`, `offline` |
 | `marketingskills` | `L3 Specialist` | 4★ | `china-market-data`, `default_sentinel`, `direct`, `l3`, `marketing-growth`, `offline`, `tushare-supplement` |
 

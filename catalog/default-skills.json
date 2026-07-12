@@ -3772,6 +3772,21 @@
           "groups": []
         },
         {
+          "id": "channels-account-launch-expert",
+          "name": "channels-account-launch-expert",
+          "description": "规划、审计和优化合规的微信视频号从 0 到 1 起号系统，覆盖账号定位、人设打造、选题策划、视频脚本、私域承接、9条视频小样本实验、数据复盘和30天执行计划。用于用户询问视频号起号、视频号涨粉、新号冷启动、账号定位、低播放量、对标账号、视频号脚本、完播率、评论互动或视频号内容复盘时。",
+          "manual": "skills/default/channels-account-launch-expert/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/channels-account-launch-expert/SKILL.md",
+          "source": "https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/channels-account-launch-expert",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "account-launch",
+            "content-strategy",
+            "chinese-media"
+          ]
+        },
+        {
           "id": "chrome-devtools-mcp",
           "name": "chrome-devtools-mcp",
           "description": "Chrome DevTools MCP — Google's official browser automation and testing server.",
@@ -3948,6 +3963,21 @@
           "requires_api_keys": false,
           "api_keys": [],
           "groups": []
+        },
+        {
+          "id": "douyin-account-launch-expert",
+          "name": "douyin-account-launch-expert",
+          "description": "规划、审计和优化合规的抖音新号起号与涨粉系统，覆盖账号定位、观看理由、标签校准、搜索流量预埋、3秒钩子、人格化表达、评论互动、私域冷启动、合集运营、9条视频小样本实验、数据复盘和30天执行计划。用于用户询问抖音起号、抖音涨粉、新号冷启动、账号定位、低播放量、对标账号、短视频选题、完播率、评论互动、合集策略、私域启动或抖音内容复盘时。",
+          "manual": "skills/default/douyin-account-launch-expert/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/douyin-account-launch-expert/SKILL.md",
+          "source": "https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/douyin-account-launch-expert",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "account-launch",
+            "content-strategy",
+            "chinese-media"
+          ]
         },
         {
           "id": "downtrend-duration-analyzer",
@@ -6283,6 +6313,21 @@
           "groups": []
         },
         {
+          "id": "wechat-account-launch-expert",
+          "name": "wechat-account-launch-expert",
+          "description": "规划、审计和优化合规的微信公众号起号系统，覆盖账号定位、主页框架、对标拆解、选题库、文章简报、发布节奏、流量主实验和周复盘。用于用户询问公众号起号、新号冷启动、流量主、公众号定位、对标账号、爆款标题、30天起号计划或公众号内容策略时。",
+          "manual": "skills/default/wechat-account-launch-expert/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/wechat-account-launch-expert/SKILL.md",
+          "source": "https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/wechat-account-launch-expert",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "account-launch",
+            "content-strategy",
+            "chinese-media"
+          ]
+        },
+        {
           "id": "writing-plans",
           "name": "writing-plans",
           "description": "Use when writing implementation plans from specs before editing code.",
@@ -6304,6 +6349,36 @@
           "api_keys": [],
           "groups": [
             "default_sentinel"
+          ]
+        },
+        {
+          "id": "x-twitter-cold-start-expert",
+          "name": "x-twitter-cold-start-expert",
+          "description": "中文 X/Twitter 起号与冷启动专家。用于帮助普通人从 0 到早期正反馈搭建账号定位、内容主题、回复区曝光、主贴/Thread 转化、7 天执行计划、周复盘表和增长诊断。触发场景包括：用户想做 X 账号冷启动、推特起号、500 粉以内增长、个人 IP 定位、内容矩阵、互动回复策略、将真实工作流转成内容、复盘 X 数据，或要求基于账号/选题/截图制定可执行起号方案。",
+          "manual": "skills/default/x-twitter-cold-start-expert/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/x-twitter-cold-start-expert/SKILL.md",
+          "source": "https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/x-twitter-cold-start-expert",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "account-launch",
+            "content-strategy",
+            "chinese-media"
+          ]
+        },
+        {
+          "id": "xiaohongshu-account-launch-expert",
+          "name": "xiaohongshu-account-launch-expert",
+          "description": "当用户需要创建、诊断或优化小红书账号起号，包括起号、做小红书、涨粉、引流、账号定位、个人 IP、选题库、对标分析、笔记简报、内容日历、主页诊断、转化路径或 30/60/90 天起号计划。",
+          "manual": "skills/default/xiaohongshu-account-launch-expert/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/xiaohongshu-account-launch-expert/SKILL.md",
+          "source": "https://github.com/chenjin-cmd/agent-skills-launch-pack_/tree/main/skills/xiaohongshu-account-launch-expert",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "account-launch",
+            "content-strategy",
+            "chinese-media"
           ]
         },
         {

@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 9 |
-| `direct` | 94 |
+| `direct` | 99 |
 | `mcp-required` | 70 |
 
 ## api-key
@@ -220,8 +220,13 @@
 | `baoyu-infographic` | 无 | 无 | `low` |
 | `baoyu-skills` | 无 | 无 | `low` |
 | `capability-evolver` | 无 | 无 | `low` |
+| `channels-account-launch-expert` | 无 | 无 | `low` |
+| `douyin-account-launch-expert` | 无 | 无 | `low` |
 | `skill-idea-miner` | 无 | 无 | `low` |
 | `startup-analysis` | 无 | 无 | `low` |
+| `wechat-account-launch-expert` | 无 | 无 | `low` |
+| `x-twitter-cold-start-expert` | 无 | 无 | `low` |
+| `xiaohongshu-account-launch-expert` | 无 | 无 | `low` |
 | `android-native-dev` | 无 | 无 | `low` |
 | `content-strategy` | 无 | 无 | `low` |
 | `flutter-dev` | 无 | 无 | `low` |
