@@ -1,11 +1,12 @@
 {
   "schema_version": "2026.05.17",
   "generated_at": "2026-07-13",
-  "max_skills": 32,
+  "max_skills": 33,
   "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
   "overrides": {
     "pinned_capabilities": {
-      "email-agent": "agentmail"
+      "email-agent": "agentmail",
+      "social-research": "agent-reach"
     },
     "excluded_skills": [
       "akshare-stock",
@@ -340,6 +341,17 @@
       "conflict_group": "ian-xiaohei-illustrations",
       "origin_url": "https://github.com/helloianneo/ian-xiaohei-illustrations/tree/main/ian-xiaohei-illustrations",
       "note": "生成 Ian 风格的中文正文配图。用于用户要求为中文文章、帖子、博客、Notion 文档、工作流文档、方法论、流程、结构、状态、隐喻或观点生成“怪诞”“小黑”“手绘”“正文配图”“文章插图”“配图建议”“shot list”“去标题/改图”等任务；默认使用小黑 IP、纯白手绘、少量红橙蓝批注、简洁清爽但天马行空的视觉风格。"
+    },
+    {
+      "capability": "social-research",
+      "skill": "agent-reach",
+      "category": "search-research",
+      "stars": 4,
+      "score": 81,
+      "access_mode": "browser-required",
+      "conflict_group": "agent-reach",
+      "origin_url": "https://github.com/Panniantong/agent-reach/tree/main/agent_reach/skill",
+      "note": "MUST USE when user wants to 调研/research/搜索/search/查/找/look up anything on the internet — e.g. 全网调研 X / 帮我调研一下 X / 查一下 X / 搜搜 X / 看看大家怎么评价 X / X 上有什么讨论 / research this topic。 Also MUST USE when user mentions any platform or shares any URL/链接: 小红书/xiaohongshu/xhs, Twitter/推特/X, B站/bilibili, Reddit, Facebook, Instagram, V2EX, LinkedIn/领英/招聘/求职/jobs, YouTube, GitHub code search, 小宇宙播客, 雪球/股票行情, RSS feeds, or any web URL. 15 platforms, multi-backend routing (OpenCLI / per-platform CLIs / APIs). Zero config for 6 channels. Run `agent-reach doctor --json` to see which backend serves each platform right now. NOT for: 写报告/数据分析/翻译等内容加工（本 skill 只负责从互联网获取内容）； 发帖/评论/点赞等写操作；已有专门 skill 的平台（先用专门 skill）。 【路由方式】SKILL.md 包含路由表和常用命令，复杂场景需按需阅读对应分类的 references/*.md。 分类：search / social (小红书/推特/B站/V2EX/Reddit/Facebook/Instagram) / career(LinkedIn) / dev(github) / web(网页/文章/RSS) / video(YouTube/B站/播客)。"
     },
     {
       "capability": "html-publishing",

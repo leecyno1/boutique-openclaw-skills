@@ -1,6 +1,7 @@
 {
   "a-stock-data": "https://github.com/simonlin1212/a-stock-data",
   "agent-browser": "https://openclawdoc.com/docs/skills/clawhub/",
+  "agent-reach": "https://github.com/Panniantong/agent-reach/tree/main/agent_reach/skill",
   "agentmail-cli": "https://github.com/agentmail-to/agentmail-cli",
   "agentmail-mcp": "https://github.com/agentmail-to/agentmail-mcp",
   "agentmail-toolkit": "https://github.com/agentmail-to/agentmail-toolkit",

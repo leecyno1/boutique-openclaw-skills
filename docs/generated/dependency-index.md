@@ -4,7 +4,7 @@
 |---|---:|
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
-| `browser-required` | 9 |
+| `browser-required` | 10 |
 | `direct` | 131 |
 | `mcp-required` | 72 |
 
@@ -147,6 +147,7 @@
 | `html-anything` | 无 | `browser`, `node` | `medium` |
 | `agent-browser` | 无 | `browser`, `python` | `medium` |
 | `url-to-markdown` | 无 | `browser` | `medium` |
+| `agent-reach` | 无 | `browser`, `ffmpeg`, `gh` | `medium` |
 | `baoyu-url-to-markdown` | 无 | `browser` | `medium` |
 | `guizang-ppt-skill` | 无 | `browser` | `medium` |
 | `openclaw-cron-setup` | 无 | `browser` | `medium` |

@@ -9,9 +9,9 @@
 **面向智能体的精品技能仓库：原生来源可审计、能力不重复、安装可控、持续月评。**
 
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
-[![Skills](https://img.shields.io/badge/Skills-334-2ea44f)](#all-skills)
+[![Skills](https://img.shields.io/badge/Skills-335-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
-[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-32%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
+[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-33%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
@@ -68,12 +68,12 @@ Or install a grouped suite:
 
 | Metric | Value |
 |---|---:|
-| Curated skills | 334 |
+| Curated skills | 335 |
 | Skill suites | 4 |
-| Native sources verified or referenced | 328 |
+| Native sources verified or referenced | 329 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
-| Standard bundle size | 32 skills + 1 pack |
+| Standard bundle size | 33 skills + 1 pack |
 
 ## Standard Bundle
 
@@ -106,6 +106,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `skill` | `image-generation` | `gemini-image-service` | 3★ | `api-key` |
 | `skill` | `research-news` | `news-radar` | 4★ | `mcp-required` |
 | `skill` | `article-illustration` | `ian-xiaohei-illustrations` | 5★ | `direct` |
+| `skill` | `social-research` | `agent-reach` | 4★ | `browser-required` |
 | `skill` | `html-publishing` | `html-anything` | 5★ | `browser-required` |
 | `skill` | `finance-data` | `a-stock-data` | 4★ | `api-key` |
 | `skill` | `content-strategy` | `content-strategy` | 4★ | `direct` |
@@ -538,6 +539,7 @@ Skill suites are domain packs kept outside the standard no-duplicate bundle. Use
 | `policy-monitor` | `L3 Specialist` | `policy-monitoring` | 4★ | `direct` | [Source](https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/policy-monitor) |
 | `ima` | `L2 Professional` | `productivity-pkm` | 4★ | `api-key` | [Source](https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/ima) |
 | `proactive-agent` | `L2 Professional` | `productivity-pkm` | 5★ | `direct` | [Source](https://clawhub.ai/halthelobster/proactive-agent) |
+| `agent-reach` | `L2 Professional` | `search-research` | 4★ | `browser-required` | [Source](https://github.com/Panniantong/agent-reach/tree/main/agent_reach/skill) |
 | `baoyu-url-to-markdown` | `L2 Professional` | `search-research` | 4★ | `browser-required` | [Source](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
 | `dasheng-hotspot-radar` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-hotspot-radar) |
 | `discord-reader` | `L2 Professional` | `search-research` | 5★ | `direct` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/discord-reader) |

@@ -1,0 +1,5 @@
+Source: https://github.com/Panniantong/agent-reach
+Upstream path: https://github.com/Panniantong/agent-reach/tree/main/agent_reach/skill
+Imported from upstream HEAD: e825f6740d24c6c315c3b0dc41907e6c87ff39a5
+License: MIT License.
+Discovered from Xiaohongshu note: https://www.xiaohongshu.com/explore/69d53c82000000001a02aa71

@@ -3,7 +3,7 @@
 | 类型 | 数量 |
 |---|---:|
 | 核心 Agent 能力 (`core-agent`) | 20 |
-| 搜索 / 研究 / 情报 (`search-research`) | 16 |
+| 搜索 / 研究 / 情报 (`search-research`) | 17 |
 | 浏览器 / 自动化 (`browser-automation`) | 2 |
 | 编程 / 工程工具 (`coding-devtools`) | 10 |
 | 数据分析 (`data-analysis`) | 9 |
@@ -68,6 +68,7 @@
 | `telegram-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
 | `twitter-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
 | `yc-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
+| `agent-reach` | `L2 Professional` | 4★ | `browser-required`, `l2`, `online`, `research`, `search-research`, `social`, `standard` |
 | `baoyu-url-to-markdown` | `L2 Professional` | 4★ | `baoyu`, `browser-required`, `l2`, `online`, `search-research` |
 | `minimax-web-search` | `L2 Professional` | 4★ | `api-key+mcp-required`, `default_sentinel`, `l2`, `minimax_local_compat`, `online`, `search-research` |
 | `news-radar` | `L2 Professional` | 4★ | `l2`, `mcp-required`, `online`, `search-research` |

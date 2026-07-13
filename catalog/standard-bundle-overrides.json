@@ -1,7 +1,8 @@
 {
   "schema_version": "2026.06.04",
   "pinned_capabilities": {
-    "email-agent": "agentmail"
+    "email-agent": "agentmail",
+    "social-research": "agent-reach"
   },
   "excluded_skills": {
     "akshare-stock": "Finance skills are temporarily excluded from the default standard bundle; install the finance profile or finance suites explicitly when needed.",

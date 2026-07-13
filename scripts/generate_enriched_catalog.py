@@ -195,7 +195,7 @@ DASHENG_MEDIA_WORKFLOW_CATEGORIES = {
     "social-auto-upload-bridge": "media-generation",
 }
 
-STANDARD_BUNDLE_MAX_SKILLS = 32
+STANDARD_BUNDLE_MAX_SKILLS = 33
 
 STANDARD_BUNDLE_PACKS = [
     {
@@ -234,7 +234,7 @@ STANDARD_CAPABILITIES = [
     "code-hosting", "terminal", "task-tracking", "planning", "verification", "skill-authoring",
     "security-review", "data-analysis", "docs", "spreadsheet", "slides", "pdf", "frontend",
     "fullstack", "database", "mcp", "media-download", "image-generation", "research-news",
-    "article-illustration", "html-publishing",
+    "article-illustration", "social-research", "html-publishing",
     "finance-data", "content-strategy", "writing", "automation-followup", "cost-observability",
     "email-agent", "ima-notes-knowledge",
     "weather",
@@ -267,6 +267,7 @@ CAPABILITY_RULES = [
     ("image-generation", ["ai-image-generation", "gemini-image-service"]),
     ("research-news", ["news-radar", "notebooklm-skill"]),
     ("article-illustration", ["ian-xiaohei-illustrations", "baoyu-article-illustrator"]),
+    ("social-research", ["agent-reach", "opencli-reader", "twitter-reader", "reddit-reader", "discord-reader", "linkedin-reader"]),
     ("html-publishing", ["html-anything", "baoyu-markdown-to-html"]),
     ("finance-data", ["a-stock-data", "openclaw-stock-data-skill", "tushare-openclaw-skill", "yfinance-data", "akshare-stock"]),
     ("content-strategy", ["content-strategy"]),
@@ -458,6 +459,7 @@ def classify_category(skill_id: str, description: str) -> str:
         return DASHENG_MEDIA_WORKFLOW_CATEGORIES[skill_id]
     explicit = {
         "a-stock-data": "finance-data",
+        "agent-reach": "search-research",
         "akshare-stock": "finance-data",
         "funda-data": "finance-data",
         "openclaw-stock-data-skill": "finance-data",
@@ -559,6 +561,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     if skill_id in SERENITY_SKILLS:
         api_keys = []
         tools = sorted(set(tools + ["python"]))
+    if skill_id == "agent-reach":
+        api_keys = []
+        tools = ["browser", "ffmpeg", "gh"]
     if skill_id in DASHENG_MEDIA_WORKFLOW_CATEGORIES:
         api_keys = []
         if skill_id in {

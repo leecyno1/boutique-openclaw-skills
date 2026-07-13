@@ -3,7 +3,7 @@
 | 层级 | 定义 | 数量 |
 |---|---|---:|
 | `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 21 |
-| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 114 |
+| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 115 |
 | `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 199 |
 
 ## L1 Foundation
@@ -91,6 +91,7 @@
 | `pptx-generator` | 文档 / 办公 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator) |
 | `shader-dev` | 编程 / 工程工具 | 4★ | `direct` | [origin](https://github.com/MiniMax-AI/skills/tree/main/skills/shader-dev) |
 | `social-content` | 文档 / 办公 | 4★ | `direct` | [origin](https://github.com/coreyhaines31/marketingskills/tree/main/skills/social-content) |
+| `agent-reach` | 搜索 / 研究 / 情报 | 4★ | `browser-required` | [origin](https://github.com/Panniantong/agent-reach/tree/main/agent_reach/skill) |
 | `agentmail-mcp` | 编程 / 工程工具 | 4★ | `api-key+mcp-required` | [origin](https://github.com/agentmail-to/agentmail-mcp) |
 | `baoyu-url-to-markdown` | 搜索 / 研究 / 情报 | 4★ | `browser-required` | [origin](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-url-to-markdown) |
 | `funda-data` | 金融 / 数据源 | 4★ | `api-key+mcp-required` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data) |
