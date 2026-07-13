@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/run-manifest.schema.json",
+  "title": "RunManifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "run_id",
+    "run_date",
+    "workflow_name",
+    "workflow_version",
+    "status",
+    "current_step",
+    "completed_steps",
+    "failed_steps",
+    "skipped_steps",
+    "artifacts",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "run_date": {
+      "type": "string"
+    },
+    "workflow_name": {
+      "type": "string"
+    },
+    "workflow_version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "current_step": {
+      "type": "string"
+    },
+    "completed_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "failed_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "skipped_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "folder": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "object_type": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "doc_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "default": []
+    },
+    "selection_state": {
+      "type": "object",
+      "properties": {
+        "selected_topic_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "rejected_topic_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "operator_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    },
+    "retry_state": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "message_refs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

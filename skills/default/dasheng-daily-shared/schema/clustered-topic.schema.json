@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/clustered-topic.schema.json",
+  "title": "ClusteredTopic",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "cluster_label",
+    "thesis",
+    "representative_intake_ids"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "cluster_label": {
+      "type": "string"
+    },
+    "thesis": {
+      "type": "string"
+    },
+    "selection_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "representative_intake_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quality_tier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "candidate_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/topic-card.schema.json",
+  "title": "TopicCard",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "topic_id",
+    "title",
+    "core_thesis",
+    "scorecard",
+    "proof_requirements"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "core_thesis": {
+      "type": "string"
+    },
+    "one_line_judgment": {
+      "type": "string"
+    },
+    "source_material_summary": {
+      "type": "string"
+    },
+    "controversy_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "viewpoint_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "question_units": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "opinion_units": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "case_units": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "solution_units": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "counterintuitive_angle": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "why_now": {
+      "type": "string"
+    },
+    "reader_value": {
+      "type": "string"
+    },
+    "proof_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "existing_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "./evidence-item.schema.json"
+      },
+      "default": []
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "chart_needs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "image_needs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "video_needs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "priority_people": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "priority_orgs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "priority_news_queries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "scorecard": {
+      "type": "object",
+      "required": [
+        "heat",
+        "sharpness",
+        "evidence",
+        "longevity",
+        "reader_value",
+        "composite"
+      ],
+      "properties": {
+        "heat": {
+          "type": "number"
+        },
+        "sharpness": {
+          "type": "number"
+        },
+        "evidence": {
+          "type": "number"
+        },
+        "longevity": {
+          "type": "number"
+        },
+        "reader_value": {
+          "type": "number"
+        },
+        "composite": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

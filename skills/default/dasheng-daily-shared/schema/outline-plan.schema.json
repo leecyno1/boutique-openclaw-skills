@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/outline-plan.schema.json",
+  "title": "OutlinePlan",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "topic_id",
+    "title",
+    "style",
+    "sections"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "subsections": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "default": []
+          }
+        }
+      }
+    },
+    "narrative_goal": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

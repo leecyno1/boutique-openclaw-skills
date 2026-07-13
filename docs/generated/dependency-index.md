@@ -5,8 +5,8 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 9 |
-| `direct` | 110 |
-| `mcp-required` | 70 |
+| `direct` | 131 |
+| `mcp-required` | 72 |
 
 ## api-key
 
@@ -175,6 +175,7 @@
 | `backtest-expert` | 无 | 无 | `low` |
 | `baoyu-translate` | 无 | 无 | `low` |
 | `brandkit` | 无 | 无 | `low` |
+| `dasheng-hotspot-radar` | 无 | `python` | `low` |
 | `data-analyst` | 无 | `python` | `low` |
 | `dbskill` | 无 | 无 | `low` |
 | `design-taste-frontend` | 无 | 无 | `low` |
@@ -185,6 +186,7 @@
 | `edge-signal-aggregator` | 无 | `python` | `low` |
 | `edge-strategy-designer` | 无 | 无 | `low` |
 | `edge-strategy-reviewer` | 无 | 无 | `low` |
+| `feishu-doc-creator` | 无 | `python` | `low` |
 | `full-output-enforcement` | 无 | 无 | `low` |
 | `generative-ui` | 无 | 无 | `low` |
 | `gpt-taste` | 无 | 无 | `low` |
@@ -215,14 +217,33 @@
 | `twitter-reader` | 无 | 无 | `low` |
 | `writing-plans` | 无 | 无 | `low` |
 | `yc-reader` | 无 | `python` | `low` |
+| `dasheng-finance-data` | 无 | `python` | `medium` |
 | `yfinance-data` | 无 | `python` | `medium` |
 | `baoyu-format-markdown` | 无 | 无 | `low` |
 | `baoyu-infographic` | 无 | 无 | `low` |
 | `baoyu-skills` | 无 | 无 | `low` |
+| `bilibili-upload-bridge` | 无 | `ffmpeg`, `node` | `low` |
 | `capability-evolver` | 无 | 无 | `low` |
 | `channels-account-launch-expert` | 无 | 无 | `low` |
+| `dasheng-html-anything-bridge` | 无 | 无 | `low` |
+| `dasheng-html-video-bridge` | 无 | `ffmpeg`, `node` | `low` |
+| `dasheng-media-sop` | 无 | 无 | `low` |
+| `dasheng-paradigm-profiler` | 无 | 无 | `low` |
+| `dasheng-publish-operations-bridge` | 无 | 无 | `low` |
+| `dasheng-stage-brief-ai` | 无 | 无 | `low` |
+| `dasheng-stage-draft` | 无 | 无 | `low` |
+| `dasheng-stage-publish` | 无 | 无 | `low` |
+| `dasheng-stage-rewrite-v3` | 无 | 无 | `low` |
+| `dasheng-stage-transwrite` | 无 | 无 | `low` |
+| `dasheng-style-profiler` | 无 | 无 | `low` |
+| `dasheng-video-director` | 无 | 无 | `low` |
+| `dasheng-video-explainer-html` | 无 | `ffmpeg`, `node` | `low` |
+| `dasheng-video-style-trainer` | 无 | 无 | `low` |
+| `dasheng-video-talking-head` | 无 | `ffmpeg`, `node`, `python` | `low` |
 | `douyin-account-launch-expert` | 无 | 无 | `low` |
+| `jiebang` | 无 | 无 | `low` |
 | `skill-idea-miner` | 无 | 无 | `low` |
+| `social-auto-upload-bridge` | 无 | `ffmpeg`, `node` | `low` |
 | `startup-analysis` | 无 | 无 | `low` |
 | `wb-xhs-account-profile` | 无 | 无 | `low` |
 | `wb-xhs-humanize-compliance` | 无 | 无 | `low` |
@@ -342,4 +363,6 @@
 | `anthropic-fs-wealth-management-investment-proposal` | 无 | `mcp` | `medium` |
 | `anthropic-fs-wealth-management-portfolio-rebalance` | 无 | `mcp` | `medium` |
 | `anthropic-fs-wealth-management-tax-loss-harvesting` | 无 | `mcp` | `medium` |
+| `dasheng-video-roughcut` | 无 | `ffmpeg`, `mcp`, `node` | `medium` |
+| `dasheng-xhs-publish-bridge` | 无 | `browser`, `mcp`, `node` | `medium` |
 | `portfolio-manager` | 无 | `mcp`, `python` | `medium` |

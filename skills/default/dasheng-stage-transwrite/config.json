@@ -1,0 +1,46 @@
+{
+  "name": "dasheng-stage-transwrite",
+  "version": "1.0.0",
+  "description": "Stage 4 Transwrite - 渠道转写生产，生成公众号、口播视频、播客生产包",
+  "stage": "transwrite",
+  "stage_number": 4,
+  "runner": "python",
+  "entry": "scripts/build_stage4_transwrite.py",
+  "upstream_gate": "final_structure_snapshot.json",
+  "output_gate": "transwrite_manifest.json",
+  "hitl": true,
+  "trigger": "manual",
+  "inputs": {
+    "required": [
+      "draft_manifest.json",
+      "final_structure_snapshot.json",
+      "transwrite_decision.json"
+    ],
+    "optional": []
+  },
+  "outputs": {
+    "documents": [
+      "04_转写计划.md"
+    ],
+    "manifests": [
+      "transwrite_manifest.json",
+      "wechat_article_manifest.json",
+      "talking_head_video_manifest.json",
+      "podcast_manifest.json"
+    ],
+    "video_lane_files": [
+      "talking_head_video/video_storyboard.json",
+      "talking_head_video/talking_head_script.md",
+      "talking_head_video/html_overlay.html",
+      "talking_head_video/render_plan.json",
+      "talking_head_video/html_video_project_vars.json",
+      "talking_head_video/html_video_project_plan.json",
+      "talking_head_video/html_video_commands.sh"
+    ]
+  },
+  "lanes": [
+    "wechat_article",
+    "talking_head_video",
+    "podcast"
+  ]
+}

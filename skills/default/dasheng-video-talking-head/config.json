@@ -1,0 +1,25 @@
+{
+  "name": "dasheng-video-talking-head",
+  "version": "0.1.0",
+  "stage": "video",
+  "description": "真人出镜口播视频导演时间轴与包装工作流。",
+  "runner": "python",
+  "entry": "../../scripts/video_director_timeline.py",
+  "inputs": {
+    "required": [
+      "agent_proofread.srt or captions.json",
+      "speaker video"
+    ],
+    "optional": [
+      "article facts",
+      "B-roll",
+      "chart assets"
+    ]
+  },
+  "outputs": [
+    "talking_head_timeline.json",
+    "final_talking_head.mp4",
+    "video_qc_report.json"
+  ],
+  "hitl": true
+}

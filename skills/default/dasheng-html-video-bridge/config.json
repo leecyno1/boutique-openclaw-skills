@@ -1,0 +1,31 @@
+{
+  "name": "dasheng-html-video-bridge",
+  "version": "0.1.0",
+  "description": "Bridge Dasheng transwrite video manifests to the local html-video renderer.",
+  "type": "bridge",
+  "external_project": "${HTML_VIDEO_ROOT:-/Volumes/PSSD/html-video}",
+  "external_dependency": {
+    "name": "html-video",
+    "repo": "https://github.com/nexu-io/html-video.git",
+    "version_locked": false,
+    "installer": "scripts/ensure_video_external_deps.py --dep html-video --mode install --install-node-deps"
+  },
+  "entry": "scripts/transwrite_html_video_bridge.py",
+  "inputs": {
+    "required": [
+      "talking_head_video_manifest.json",
+      "html_video_project_plan.json",
+      "html_video_project_vars.json"
+    ],
+    "optional": [
+      "human video",
+      "human audio",
+      "srt subtitles"
+    ]
+  },
+  "outputs": [
+    "html_video_execution.json",
+    "html-video preview html",
+    "mp4 render when explicitly executed"
+  ]
+}

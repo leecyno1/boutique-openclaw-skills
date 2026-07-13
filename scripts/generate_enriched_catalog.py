@@ -169,6 +169,32 @@ SERENITY_SKILLS = {
     "tam-adj-peg",
 }
 
+DASHENG_MEDIA_WORKFLOW_CATEGORIES = {
+    "bilibili-upload-bridge": "media-generation",
+    "dasheng-finance-data": "finance-data",
+    "dasheng-hotspot-radar": "search-research",
+    "dasheng-html-anything-bridge": "html-publishing",
+    "dasheng-html-video-bridge": "media-generation",
+    "dasheng-media-sop": "marketing-growth",
+    "dasheng-paradigm-profiler": "writing-content",
+    "dasheng-publish-operations-bridge": "marketing-growth",
+    "dasheng-stage-brief-ai": "writing-content",
+    "dasheng-stage-draft": "writing-content",
+    "dasheng-stage-publish": "marketing-growth",
+    "dasheng-stage-rewrite-v3": "writing-content",
+    "dasheng-stage-transwrite": "media-generation",
+    "dasheng-style-profiler": "writing-content",
+    "dasheng-video-director": "media-generation",
+    "dasheng-video-explainer-html": "media-generation",
+    "dasheng-video-roughcut": "media-generation",
+    "dasheng-video-style-trainer": "media-generation",
+    "dasheng-video-talking-head": "media-generation",
+    "dasheng-xhs-publish-bridge": "marketing-growth",
+    "feishu-doc-creator": "docs-office",
+    "jiebang": "agent-orchestration",
+    "social-auto-upload-bridge": "media-generation",
+}
+
 STANDARD_BUNDLE_MAX_SKILLS = 31
 
 STANDARD_BUNDLE_PACKS = [
@@ -427,6 +453,8 @@ def classify_category(skill_id: str, description: str) -> str:
         return "marketing-growth"
     if skill_id in SERENITY_SKILLS:
         return "finance-trading"
+    if skill_id in DASHENG_MEDIA_WORKFLOW_CATEGORIES:
+        return DASHENG_MEDIA_WORKFLOW_CATEGORIES[skill_id]
     explicit = {
         "a-stock-data": "finance-data",
         "akshare-stock": "finance-data",
@@ -530,6 +558,22 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     if skill_id in SERENITY_SKILLS:
         api_keys = []
         tools = sorted(set(tools + ["python"]))
+    if skill_id in DASHENG_MEDIA_WORKFLOW_CATEGORIES:
+        api_keys = []
+        if skill_id in {
+            "bilibili-upload-bridge",
+            "dasheng-html-video-bridge",
+            "dasheng-video-explainer-html",
+            "dasheng-video-roughcut",
+            "dasheng-video-talking-head",
+            "dasheng-xhs-publish-bridge",
+            "social-auto-upload-bridge",
+        }:
+            tools = sorted(set(tools + ["node"]))
+        elif skill_id in {"dasheng-finance-data", "dasheng-hotspot-radar", "feishu-doc-creator"}:
+            tools = sorted(set(tools + ["python"]))
+        else:
+            tools = []
     tools = sorted(set(tools))
     if api_keys and "mcp" in tools:
         access_mode = "api-key+mcp-required"
@@ -665,6 +709,8 @@ def build_enriched() -> dict[str, Any]:
                 deps["access_mode"] = "api-key" if deps["access_mode"] == "direct" else deps["access_mode"]
         if skill_id in tushare_supplement:
             tags.extend(["tushare-supplement", "china-market-data"])
+        if skill_id in DASHENG_MEDIA_WORKFLOW_CATEGORIES:
+            tags.extend(["dasheng-media-workflow", "self-media-ops"])
         item = {
             "id": skill_id,
             "name": base.get("name", skill_id),

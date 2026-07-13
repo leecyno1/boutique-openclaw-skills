@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/intake-record.schema.json",
+  "title": "IntakeRecord",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "channel",
+    "source",
+    "title",
+    "normalized_text",
+    "url",
+    "heat_level"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "record_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "channel": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "source_item_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "publish_time": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "author_or_account": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "excerpt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "normalized_text": {
+      "type": "string"
+    },
+    "dedupe_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dynamic_cluster_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "freshness_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "engagement_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "raw_heat_signals": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "heat_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "heat_level": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_trendradar_source": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "editor_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "entities": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "dynamic_tokens": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "dominant_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "fetch_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dedupe_group_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "noise_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "trendradar_signal": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "source_freshness_weight": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_timeliness_weight": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_authority_weight": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "raw_payload": {
+      "type": [
+        "object",
+        "array",
+        "string",
+        "null"
+      ]
+    }
+  }
+}

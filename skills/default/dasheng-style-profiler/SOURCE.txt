@@ -1,0 +1,4 @@
+Source: https://github.com/leecyno1/dasheng-media-workflow-skills
+Local source path: /Volumes/PSSD/Projects/公众号文章/skills/dasheng-style-profiler
+Upstream path: https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-style-profiler
+License: MIT License (copied from source project LICENSE at import time).

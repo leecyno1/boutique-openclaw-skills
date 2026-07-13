@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/claim.schema.json",
+  "title": "Claim",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "claim_id",
+    "section_id",
+    "statement"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "section_id": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string"
+    },
+    "counterpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "missing_proof": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "chart_need": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

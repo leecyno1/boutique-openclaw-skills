@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/final-package.schema.json",
+  "title": "FinalPackage",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "topic_id",
+    "title",
+    "original_title",
+    "content",
+    "review",
+    "predicted_scores",
+    "status"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "original_title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "predicted_scores": {
+      "type": "object",
+      "required": [
+        "article_value",
+        "viral_potential",
+        "composite"
+      ],
+      "properties": {
+        "article_value": {
+          "type": "number"
+        },
+        "viral_potential": {
+          "type": "number"
+        },
+        "composite": {
+          "type": "number"
+        },
+        "score_reasoning": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "media_adaptations": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

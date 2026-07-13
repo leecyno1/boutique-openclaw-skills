@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/channel-pack.schema.json",
+  "title": "ChannelPack",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "topic_id",
+    "channel",
+    "title",
+    "content"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "structure_inheritance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "assets_used": {
+      "type": "array",
+      "items": {
+        "$ref": "./asset-item.schema.json"
+      },
+      "default": []
+    }
+  }
+}

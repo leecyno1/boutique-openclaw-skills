@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/content-brief.schema.json",
+  "title": "ContentBrief",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "topic_id",
+    "title",
+    "core_claim",
+    "scorecard"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "core_claim": {
+      "type": "string"
+    },
+    "angle_candidates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "risk_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "recommended_media": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "scorecard": {
+      "type": "object",
+      "required": [
+        "article_value",
+        "viral_potential",
+        "composite"
+      ],
+      "properties": {
+        "article_value": {
+          "type": "number"
+        },
+        "viral_potential": {
+          "type": "number"
+        },
+        "composite": {
+          "type": "number"
+        },
+        "score_reasoning": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

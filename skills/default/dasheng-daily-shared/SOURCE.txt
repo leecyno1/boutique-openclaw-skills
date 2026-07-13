@@ -1,0 +1,5 @@
+Source: https://github.com/leecyno1/dasheng-media-workflow-skills
+Local source path: /Volumes/PSSD/Projects/公众号文章/skills/dasheng-daily-shared
+Upstream path: https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-daily-shared
+License: MIT License (copied from source project LICENSE at import time).
+Note: Shared runtime support directory for Dasheng daily skills; intentionally not registered as a standalone skill because it has no SKILL.md.

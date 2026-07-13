@@ -3,19 +3,19 @@
 | 类型 | 数量 |
 |---|---:|
 | 核心 Agent 能力 (`core-agent`) | 20 |
-| 搜索 / 研究 / 情报 (`search-research`) | 15 |
+| 搜索 / 研究 / 情报 (`search-research`) | 16 |
 | 浏览器 / 自动化 (`browser-automation`) | 2 |
 | 编程 / 工程工具 (`coding-devtools`) | 10 |
 | 数据分析 (`data-analysis`) | 9 |
-| 文档 / 办公 (`docs-office`) | 9 |
+| 文档 / 办公 (`docs-office`) | 10 |
 | 设计 / UI (`design-ui`) | 24 |
-| HTML 发布 / 视觉出版 (`html-publishing`) | 2 |
-| 媒体生成 / 处理 (`media-generation`) | 22 |
-| 写作 / 内容 (`writing-content`) | 7 |
-| 营销 / 增长 (`marketing-growth`) | 14 |
+| HTML 发布 / 视觉出版 (`html-publishing`) | 3 |
+| 媒体生成 / 处理 (`media-generation`) | 31 |
+| 写作 / 内容 (`writing-content`) | 12 |
+| 营销 / 增长 (`marketing-growth`) | 18 |
 | 金融 / 交易 (`finance-trading`) | 81 |
 | 金融 / 机构服务 (`finance-services`) | 53 |
-| 金融 / 数据源 (`finance-data`) | 19 |
+| 金融 / 数据源 (`finance-data`) | 20 |
 | 金融 / 知识库 (`finance-knowledge`) | 2 |
 | 金融 / 监控预警 (`finance-monitor`) | 8 |
 | 政策 / 宏观监控 (`policy-monitoring`) | 1 |
@@ -26,7 +26,7 @@
 | DevOps / 云 / 数据库 (`devops-cloud`) | 0 |
 | 安全 / 审计 (`security-audit`) | 1 |
 | 本地 macOS / 桌面 (`local-macos`) | 0 |
-| 多 Agent / 自动调度 (`agent-orchestration`) | 3 |
+| 多 Agent / 自动调度 (`agent-orchestration`) | 4 |
 | 商业运营 (`commerce-ops`) | 3 |
 | 教育 / 学习 (`education-learning`) | 0 |
 
@@ -59,6 +59,7 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
+| `dasheng-hotspot-radar` | `L2 Professional` | 5★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l2`, `online`, `search-research`, `self-media-ops`, `self_media` |
 | `discord-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
 | `edge-pipeline-orchestrator` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
 | `linkedin-reader` | `L2 Professional` | 5★ | `direct`, `l2`, `online`, `search-research`, `trading_finance` |
@@ -115,6 +116,7 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
+| `feishu-doc-creator` | `L2 Professional` | 5★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `docs-office`, `l2`, `offline`, `self-media-ops`, `self_media` |
 | `nano-pdf` | `L2 Professional` | 5★ | `direct`, `docs-office`, `l2`, `offline` |
 | `pptx-generator` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `docs-office`, `l2`, `minimax_official`, `offline` |
 | `social-content` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `docs-office`, `l2`, `offline` |
@@ -159,6 +161,7 @@
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
 | `html-anything` | `L2 Professional` | 5★ | `browser-required`, `design_ui`, `html-publishing`, `html_publishing`, `l2`, `media_generation`, `online`, `writing_content` |
+| `dasheng-html-anything-bridge` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `html-publishing`, `l3`, `offline`, `self-media-ops`, `self_media` |
 | `guizang-ppt-skill` | `L2 Professional` | 4★ | `browser-required`, `creator`, `html-publishing`, `l2`, `online`, `presentation` |
 
 ## 媒体生成 / 处理
@@ -167,9 +170,18 @@
 |---|---|---:|---|
 | `ian-xiaohei-illustrations` | `L2 Professional` | 5★ | `creator`, `direct`, `illustration`, `l2`, `media-generation`, `offline` |
 | `reflection` | `L2 Professional` | 5★ | `direct`, `l2`, `media-generation`, `offline` |
+| `bilibili-upload-bridge` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-html-video-bridge` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-stage-transwrite` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-video-director` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-video-explainer-html` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-video-style-trainer` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-video-talking-head` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
+| `social-auto-upload-bridge` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
 | `guizang-social-card-skill` | `L2 Professional` | 4★ | `api-key`, `creator`, `design`, `l2`, `media-generation`, `online`, `social-card` |
 | `seedance2-skill` | `L2 Professional` | 4★ | `api-key`, `l2`, `media`, `media-generation`, `online`, `prompt`, `video` |
 | `buddy-sings` | `L3 Specialist` | 4★ | `default_sentinel`, `direct`, `l3`, `media-generation`, `minimax_official`, `offline` |
+| `dasheng-video-roughcut` | `L3 Specialist` | 3★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `l3`, `mcp-required`, `media-generation`, `offline`, `self-media-ops`, `self_media` |
 | `baoyu-comic` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
 | `baoyu-compress-image` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
 | `baoyu-cover-image` | `L3 Specialist` | 3★ | `api-key`, `baoyu`, `l3`, `media-generation`, `online` |
@@ -198,6 +210,11 @@
 | `baoyu-format-markdown` | `L3 Specialist` | 4★ | `baoyu`, `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-infographic` | `L3 Specialist` | 4★ | `baoyu`, `direct`, `l3`, `offline`, `writing-content` |
 | `baoyu-skills` | `L3 Specialist` | 4★ | `baoyu`, `direct`, `l3`, `offline`, `writing-content` |
+| `dasheng-paradigm-profiler` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `offline`, `self-media-ops`, `self_media`, `writing-content` |
+| `dasheng-stage-brief-ai` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `offline`, `self-media-ops`, `self_media`, `writing-content` |
+| `dasheng-stage-draft` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `offline`, `self-media-ops`, `self_media`, `writing-content` |
+| `dasheng-stage-rewrite-v3` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `offline`, `self-media-ops`, `self_media`, `writing-content` |
+| `dasheng-style-profiler` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `offline`, `self-media-ops`, `self_media`, `writing-content` |
 | `baoyu-markdown-to-html` | `L3 Specialist` | 3★ | `baoyu`, `browser-required`, `l3`, `offline`, `writing-content` |
 
 ## 营销 / 增长
@@ -206,6 +223,9 @@
 |---|---|---:|---|
 | `dbskill` | `L2 Professional` | 5★ | `content-growth`, `creator`, `direct`, `l2`, `marketing`, `marketing-growth`, `offline` |
 | `channels-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
+| `dasheng-media-sop` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `marketing-growth`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-publish-operations-bridge` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `marketing-growth`, `offline`, `self-media-ops`, `self_media` |
+| `dasheng-stage-publish` | `L3 Specialist` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `marketing-growth`, `offline`, `self-media-ops`, `self_media` |
 | `douyin-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
 | `wb-xhs-account-profile` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
 | `wb-xhs-humanize-compliance` | `L3 Specialist` | 4★ | `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline`, `workbuddy-xhs`, `xiaohongshu` |
@@ -218,6 +238,7 @@
 | `xiaohongshu-account-launch-expert` | `L3 Specialist` | 4★ | `account-launch`, `chinese-media`, `content-strategy`, `direct`, `l3`, `marketing-growth`, `offline` |
 | `content-strategy` | `L2 Professional` | 4★ | `default_sentinel`, `direct`, `l2`, `marketing-growth`, `offline` |
 | `marketingskills` | `L3 Specialist` | 4★ | `china-market-data`, `default_sentinel`, `direct`, `l3`, `marketing-growth`, `offline`, `tushare-supplement` |
+| `dasheng-xhs-publish-bridge` | `L3 Specialist` | 3★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `l3`, `marketing-growth`, `mcp-required`, `online`, `self-media-ops`, `self_media` |
 
 ## 金融 / 交易
 
@@ -367,6 +388,7 @@
 
 | Skill | 横向层级 | 星级 | 标签 |
 |---|---|---:|---|
+| `dasheng-finance-data` | `L2 Professional` | 4★ | `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `finance-data`, `l2`, `offline`, `self-media-ops`, `self_media` |
 | `yfinance-data` | `L2 Professional` | 4★ | `china-market-data`, `direct`, `finance-data`, `l2`, `offline`, `trading_finance`, `tushare-supplement` |
 | `funda-data` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance-data`, `l2`, `online`, `trading_finance` |
 | `llmquant-data` | `L2 Professional` | 4★ | `api-key+mcp-required`, `finance`, `finance-data`, `finance-suite`, `institutional-research`, `l2`, `llmquant`, `mcp-required`, `online` |
@@ -451,6 +473,7 @@
 |---|---|---:|---|
 | `self-improving-agent-cn` | `L2 Professional` | 5★ | `agent-orchestration`, `direct`, `l2`, `offline` |
 | `capability-evolver` | `L3 Specialist` | 4★ | `agent-orchestration`, `direct`, `l3`, `offline` |
+| `jiebang` | `L3 Specialist` | 4★ | `agent-orchestration`, `dasheng-media-workflow`, `dasheng_media_workflow`, `direct`, `l3`, `offline`, `self-media-ops`, `self_media` |
 | `openclaw-cron-setup` | `L2 Professional` | 4★ | `agent-orchestration`, `browser-required`, `l2`, `online` |
 
 ## 商业运营

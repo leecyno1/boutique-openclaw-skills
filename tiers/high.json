@@ -1671,6 +1671,20 @@
       ]
     },
     {
+      "id": "bilibili-upload-bridge",
+      "name": "bilibili-upload-bridge",
+      "description": "Use when Dasheng Publish needs to prepare, upload, or package Bilibili video submissions from completed transwrite video channel packs.",
+      "manual": "skills/default/bilibili-upload-bridge/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/bilibili-upload-bridge/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/bilibili-upload-bridge",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
       "id": "brainstorming",
       "name": "brainstorming",
       "description": "Use before creative feature, component, behavior, or product design work.",
@@ -1858,6 +1872,272 @@
       "api_keys": [],
       "groups": [
         "default_sentinel"
+      ]
+    },
+    {
+      "id": "dasheng-finance-data",
+      "name": "dasheng-finance-data",
+      "description": "Draft 阶段按需金融数据增强工具。用于把 A 股/指数行情、估值与时间序列数据转成可直接嵌入 Draft HTML 的 Chart.js `chart_specs`。",
+      "manual": "skills/default/dasheng-finance-data/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-finance-data/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-finance-data",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-hotspot-radar",
+      "name": "dasheng-hotspot-radar",
+      "description": "Use when an agent needs a standalone no-login hotspot/news radar for Dasheng workflows, especially public macro/policy/geopolitics/market trend capture without running the full intake stage.",
+      "manual": "skills/default/dasheng-hotspot-radar/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-hotspot-radar/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-hotspot-radar",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-html-anything-bridge",
+      "name": "dasheng-html-anything-bridge",
+      "description": "Use when Dasheng draft or transwrite needs HTML Anything templates, editable article HTML, social cards, posters, or visual HTML references.",
+      "manual": "skills/default/dasheng-html-anything-bridge/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-html-anything-bridge/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-html-anything-bridge",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-html-video-bridge",
+      "name": "dasheng-html-video-bridge",
+      "description": "Use when Dasheng transwrite needs no-human or human-material talking-head videos rendered through the local html-video project.",
+      "manual": "skills/default/dasheng-html-video-bridge/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-html-video-bridge/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-html-video-bridge",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-media-sop",
+      "name": "dasheng-media-sop",
+      "description": "Use when running, resuming, auditing, or updating the Dasheng self-media workflow in this repo. This is the only formal orchestration entry and it governs the simplified canonical chain.",
+      "manual": "skills/default/dasheng-media-sop/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-media-sop/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-media-sop",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-paradigm-profiler",
+      "name": "dasheng-paradigm-profiler",
+      "description": "Use when users provide standard articles, content templates, successful samples, or channel templates and want Codex to learn article paradigms/frameworks for different scenarios, channels, and styles.",
+      "manual": "skills/default/dasheng-paradigm-profiler/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-paradigm-profiler/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-paradigm-profiler",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-publish-operations-bridge",
+      "name": "dasheng-publish-operations-bridge",
+      "description": "Use when a Dasheng Publish channel pack needs account-launch, cold-start, matrix-role, cadence, hook, keyword, series, CTA, or post-publish metric advice before platform execution. Normalizes the external agent-skills-launch-pack into a small machine-readable Publish advisory without uploading or publishing.",
+      "manual": "skills/default/dasheng-publish-operations-bridge/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-publish-operations-bridge/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-publish-operations-bridge",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-stage-brief-ai",
+      "name": "dasheng-stage-brief-ai",
+      "description": "AI-driven topic generation for Dasheng workflow. Analyzes intake data to generate insightful, valuable, and actionable topic proposals with natural language titles and clear arguments.",
+      "manual": "skills/default/dasheng-stage-brief-ai/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-stage-brief-ai/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-stage-brief-ai",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-stage-draft",
+      "name": "dasheng-stage-draft",
+      "description": "Stage 3 Draft - 初稿生成（标准基线稿）",
+      "manual": "skills/default/dasheng-stage-draft/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-stage-draft/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-stage-draft",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-stage-publish",
+      "name": "dasheng-stage-publish",
+      "description": "Use when entering the slim Dasheng publish execution stage to validate transwrite outputs, create publish packs, push drafts/manual packages, and recover published links.",
+      "manual": "skills/default/dasheng-stage-publish/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-stage-publish/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-stage-publish",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-stage-rewrite-v3",
+      "name": "dasheng-stage-rewrite-v3",
+      "description": "Stage 5 Rewrite v3 - 渠道改写（集成增强质量评分和锚点映射）",
+      "manual": "skills/default/dasheng-stage-rewrite-v3/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-stage-rewrite-v3/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-stage-rewrite-v3",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-stage-transwrite",
+      "name": "dasheng-stage-transwrite",
+      "description": "Use when converting confirmed Dasheng drafts into channel-ready WeChat article, talking-head video, and podcast production packages.",
+      "manual": "skills/default/dasheng-stage-transwrite/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-stage-transwrite/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-stage-transwrite",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-style-profiler",
+      "name": "dasheng-style-profiler",
+      "description": "面向自媒体作者的文风 DNA 提取与分析技能。从历史文章中建立可复用的风格画像，输出 14 维分析、段落配方、叙述方法体系、内容推进方式等，供改写阶段调用。",
+      "manual": "skills/default/dasheng-style-profiler/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-style-profiler/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-style-profiler",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-video-director",
+      "name": "dasheng-video-director",
+      "description": "Use after roughcut/intake and before asset generation when converting article scripts, ASR, captions, or draft HTML into detailed video shot plans, scene plans, template choices, composition states, transitions, audio policies, and review gates.",
+      "manual": "skills/default/dasheng-video-director/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-video-director/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-video-director",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-video-explainer-html",
+      "name": "dasheng-video-explainer-html",
+      "description": "Use when turning a Dasheng HTML article into a no-human vertical explainer video with voiceover, storyboard scenes, HTML animation, real charts, music, and final MP4.",
+      "manual": "skills/default/dasheng-video-explainer-html/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-video-explainer-html/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-video-explainer-html",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-video-roughcut",
+      "name": "dasheng-video-roughcut",
+      "description": "Use when rough-cutting Chinese talking-head video with the reproducible Agent/FFmpeg path, the guarded Palmier MCP experimental path, or the Jianying production fallback.",
+      "manual": "skills/default/dasheng-video-roughcut/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-video-roughcut/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-video-roughcut",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-video-style-trainer",
+      "name": "dasheng-video-style-trainer",
+      "description": "Use when learning reusable video style DNA from many sample videos, training a blogger/channel editing style, or applying a learned style profile to Dasheng talking-head and no-human explainer video workflows.",
+      "manual": "skills/default/dasheng-video-style-trainer/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-video-style-trainer/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-video-style-trainer",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-video-talking-head",
+      "name": "dasheng-video-talking-head",
+      "description": "Use when producing or improving Dasheng真人出镜口播视频 from raw speaker footage, subtitles, rough cuts, B-roll, data charts, or HTML sticker overlays.",
+      "manual": "skills/default/dasheng-video-talking-head/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-video-talking-head/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-video-talking-head",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
+      ]
+    },
+    {
+      "id": "dasheng-xhs-publish-bridge",
+      "name": "dasheng-xhs-publish-bridge",
+      "description": "Use when Dasheng Publish needs to route Xiaohongshu publishing or content access through API-first CLI, MCP, or browser fallback bridges.",
+      "manual": "skills/default/dasheng-xhs-publish-bridge/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/dasheng-xhs-publish-bridge/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-xhs-publish-bridge",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
       ]
     },
     {
@@ -2213,6 +2493,20 @@
       ],
       "groups": [
         "trading_finance"
+      ]
+    },
+    {
+      "id": "feishu-doc-creator",
+      "name": "feishu-doc-creator",
+      "description": "Use when creating or updating Feishu docs from markdown in this repo and you need the known-safe block conversion flow instead of writing docx blocks naively.",
+      "manual": "skills/default/feishu-doc-creator/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/feishu-doc-creator/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/feishu-doc-creator",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
       ]
     },
     {
@@ -2672,6 +2966,20 @@
       "groups": [
         "minimax_official",
         "default_sentinel"
+      ]
+    },
+    {
+      "id": "jiebang",
+      "name": "jiebang",
+      "description": "当用户说“接棒cc/cx/ag”“交棒”“同步上下文”“跨代理切换开发”“自动交棒”时使用。用于 Claude Code、Codex、Antigravity 在同一项目中通过 `.jiebang/runtime/` 共享进度和决策，而不是依赖私有聊天记忆。",
+      "manual": "skills/default/jiebang/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/jiebang/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/jiebang",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
       ]
     },
     {
@@ -3910,6 +4218,20 @@
       "groups": [
         "security",
         "standard"
+      ]
+    },
+    {
+      "id": "social-auto-upload-bridge",
+      "name": "social-auto-upload-bridge",
+      "description": "Use when Dasheng Publish needs a bridge to the external social-auto-upload project for video upload packages across Bilibili, Xiaohongshu, Douyin, Kuaishou, WeChat Channels, Baijiahao, TikTok, or YouTube.",
+      "manual": "skills/default/social-auto-upload-bridge/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/social-auto-upload-bridge/SKILL.md",
+      "source": "https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/social-auto-upload-bridge",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "dasheng_media_workflow",
+        "self_media"
       ]
     },
     {

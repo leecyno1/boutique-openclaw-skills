@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dasheng-daily/reasoning-sheet.schema.json",
+  "title": "ReasoningSheet",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "topic_id",
+    "title",
+    "claims"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "./base-meta.schema.json"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "core_thesis": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "./claim.schema.json"
+      }
+    },
+    "evidence_items": {
+      "type": "array",
+      "items": {
+        "$ref": "./evidence-item.schema.json"
+      },
+      "default": []
+    },
+    "structure_contract": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
