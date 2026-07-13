@@ -3681,6 +3681,21 @@
           ]
         },
         {
+          "id": "bayesian-intrinsic-growth-valuation",
+          "name": "bayesian-intrinsic-growth-valuation",
+          "description": "Use a Bayesian intrinsic-growth valuation model to evaluate whether a company's market value sufficiently, excessively, or insufficiently prices its real 3-5 year growth. Use when the user asks for Bayesian valuation, in",
+          "manual": "skills/default/bayesian-intrinsic-growth-valuation/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/bayesian-intrinsic-growth-valuation/SKILL.md",
+          "source": "https://github.com/haskaomni/serenity-skill/tree/main/skills/bayesian-intrinsic-growth-valuation",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "serenity-skill",
+            "finance-research",
+            "investment-framework"
+          ]
+        },
+        {
           "id": "brainstorming",
           "name": "brainstorming",
           "description": "Use before creative feature, component, behavior, or product design work.",
@@ -3743,6 +3758,21 @@
           "groups": [
             "minimax_official",
             "default_sentinel"
+          ]
+        },
+        {
+          "id": "buy-side-equity-research-memo",
+          "name": "buy-side-equity-research-memo",
+          "description": "Generate source-backed buy-side equity research memos from a ticker, starting with investment view, target-price scenarios, SEC and IR-backed financial statement analysis, industry chain, competition, valuation, catalyst",
+          "manual": "skills/default/buy-side-equity-research-memo/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/buy-side-equity-research-memo/SKILL.md",
+          "source": "https://github.com/haskaomni/serenity-skill/tree/main/skills/buy-side-equity-research-memo",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "serenity-skill",
+            "finance-research",
+            "investment-framework"
           ]
         },
         {
@@ -4376,6 +4406,21 @@
           "api_keys": [],
           "groups": [
             "trading_finance"
+          ]
+        },
+        {
+          "id": "gf-dma-health-index",
+          "name": "gf-dma-health-index",
+          "description": "Score a stock's current valuation/trend health using the GF-DMA Health Index, combining fundamental growth speed, 20/50/100/200DMA trend speed, price-to-DMA divergence, ATR divergence, escape ratio, and estimate revision",
+          "manual": "skills/default/gf-dma-health-index/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/gf-dma-health-index/SKILL.md",
+          "source": "https://github.com/haskaomni/serenity-skill/tree/main/skills/gf-dma-health-index",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "serenity-skill",
+            "finance-research",
+            "investment-framework"
           ]
         },
         {
@@ -5761,6 +5806,21 @@
           ]
         },
         {
+          "id": "serenity-alpha",
+          "name": "serenity-alpha",
+          "description": "Translate market-moving news into investable alpha hypotheses by mapping observed demand changes to revenue lines, supply chains, small-cap financial elasticity, market misclassification, validation metrics, downside ris",
+          "manual": "skills/default/serenity-alpha/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/serenity-alpha/SKILL.md",
+          "source": "https://github.com/haskaomni/serenity-skill/tree/main/skills/serenity-alpha",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "serenity-skill",
+            "finance-research",
+            "investment-framework"
+          ]
+        },
+        {
           "id": "shader-dev",
           "name": "shader-dev",
           "description": "Comprehensive GLSL shader techniques for creating stunning visual effects — ray marching, SDF modeling, fluid simulation, particle systems, procedural generation, lighting, post-processing, and more.",
@@ -6026,6 +6086,21 @@
           "api_keys": [],
           "groups": [
             "default_sentinel"
+          ]
+        },
+        {
+          "id": "tam-adj-peg",
+          "name": "tam-adj-peg",
+          "description": "Evaluate a stock's valuation using TAM-Adj-PEG, adjusting traditional PEG by growth runway and quality. Use when the user provides a ticker or asks whether a growth stock's valuation is cheap, expensive, TAM-supported, r",
+          "manual": "skills/default/tam-adj-peg/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/tam-adj-peg/SKILL.md",
+          "source": "https://github.com/haskaomni/serenity-skill/tree/main/skills/tam-adj-peg",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "serenity-skill",
+            "finance-research",
+            "investment-framework"
           ]
         },
         {

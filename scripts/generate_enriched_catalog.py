@@ -161,6 +161,14 @@ WORKBUDDY_XHS_SKILLS = {
     "wb-xhs-topic-bank",
 }
 
+SERENITY_SKILLS = {
+    "bayesian-intrinsic-growth-valuation",
+    "buy-side-equity-research-memo",
+    "gf-dma-health-index",
+    "serenity-alpha",
+    "tam-adj-peg",
+}
+
 STANDARD_BUNDLE_MAX_SKILLS = 31
 
 STANDARD_BUNDLE_PACKS = [
@@ -417,6 +425,8 @@ def classify_category(skill_id: str, description: str) -> str:
         return "marketing-growth"
     if skill_id in WORKBUDDY_XHS_SKILLS:
         return "marketing-growth"
+    if skill_id in SERENITY_SKILLS:
+        return "finance-trading"
     explicit = {
         "a-stock-data": "finance-data",
         "akshare-stock": "finance-data",
@@ -517,6 +527,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     if skill_id in WORKBUDDY_XHS_SKILLS:
         api_keys = []
         tools = []
+    if skill_id in SERENITY_SKILLS:
+        api_keys = []
+        tools = sorted(set(tools + ["python"]))
     tools = sorted(set(tools))
     if api_keys and "mcp" in tools:
         access_mode = "api-key+mcp-required"

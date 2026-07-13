@@ -13,7 +13,7 @@
 | 媒体生成 / 处理 (`media-generation`) | 22 |
 | 写作 / 内容 (`writing-content`) | 7 |
 | 营销 / 增长 (`marketing-growth`) | 14 |
-| 金融 / 交易 (`finance-trading`) | 76 |
+| 金融 / 交易 (`finance-trading`) | 81 |
 | 金融 / 机构服务 (`finance-services`) | 53 |
 | 金融 / 数据源 (`finance-data`) | 19 |
 | 金融 / 知识库 (`finance-knowledge`) | 2 |
@@ -236,11 +236,16 @@
 | `alphaear-news` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
 | `alphaear-predictor` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
 | `alphaear-signal-tracker` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `bayesian-intrinsic-growth-valuation` | `L3 Specialist` | 4★ | `direct`, `finance-research`, `finance-trading`, `investment-framework`, `l3`, `offline`, `serenity-skill` |
+| `buy-side-equity-research-memo` | `L3 Specialist` | 4★ | `direct`, `finance-research`, `finance-trading`, `investment-framework`, `l3`, `online`, `serenity-skill` |
 | `etf-premium` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `gf-dma-health-index` | `L3 Specialist` | 4★ | `direct`, `finance-research`, `finance-trading`, `investment-framework`, `l3`, `offline`, `serenity-skill` |
 | `hormuz-strait` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
 | `kanchi-dividend-us-tax-accounting` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
 | `market-breadth-analyzer` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |
+| `serenity-alpha` | `L3 Specialist` | 4★ | `direct`, `finance-research`, `finance-trading`, `investment-framework`, `l3`, `online`, `serenity-skill` |
 | `stanley-druckenmiller-investment` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
+| `tam-adj-peg` | `L3 Specialist` | 4★ | `direct`, `finance-research`, `finance-trading`, `investment-framework`, `l3`, `offline`, `serenity-skill` |
 | `trade-hypothesis-ideator` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
 | `trader-memory-core` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `offline`, `trading_finance`, `tushare-supplement` |
 | `uptrend-analyzer` | `L3 Specialist` | 4★ | `china-market-data`, `direct`, `finance-trading`, `l3`, `online`, `trading_finance`, `tushare-supplement` |

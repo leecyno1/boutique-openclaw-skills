@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 9 |
-| `direct` | 105 |
+| `direct` | 110 |
 | `mcp-required` | 70 |
 
 ## api-key
@@ -245,12 +245,17 @@
 | `alphaear-news` | 无 | `python` | `medium` |
 | `alphaear-predictor` | 无 | `python` | `medium` |
 | `alphaear-signal-tracker` | 无 | `python` | `medium` |
+| `bayesian-intrinsic-growth-valuation` | 无 | `python` | `medium` |
+| `buy-side-equity-research-memo` | 无 | `python` | `medium` |
 | `etf-premium` | 无 | `python` | `medium` |
+| `gf-dma-health-index` | 无 | `python` | `medium` |
 | `hormuz-strait` | 无 | `python` | `medium` |
 | `kanchi-dividend-us-tax-accounting` | 无 | 无 | `medium` |
 | `market-breadth-analyzer` | 无 | `python` | `medium` |
 | `policy-monitor` | 无 | 无 | `medium` |
+| `serenity-alpha` | 无 | `python` | `medium` |
 | `stanley-druckenmiller-investment` | 无 | 无 | `medium` |
+| `tam-adj-peg` | 无 | `python` | `medium` |
 | `trade-hypothesis-ideator` | 无 | `python` | `medium` |
 | `trader-memory-core` | 无 | 无 | `medium` |
 | `uptrend-analyzer` | 无 | `python` | `medium` |
