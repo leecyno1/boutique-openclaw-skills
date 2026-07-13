@@ -271,6 +271,21 @@
       "groups": []
     },
     {
+      "id": "animation-vocabulary",
+      "name": "animation-vocabulary",
+      "description": "Reverse-lookup glossary that turns a vague description of a web animation or motion effect into its exact term (\"the bouncy thing when a popover opens\" → Pop in; \"the iOS rubber-band scroll\" → Rubber-banding). Use when the user asks \"what's it called when…\", or describes a motion effect without knowing its name and wants the right word to prompt an AI or designer with. For naming an effect, not designing or building one.",
+      "manual": "skills/default/animation-vocabulary/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/animation-vocabulary/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/animation-vocabulary",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "animation",
+        "standard"
+      ]
+    },
+    {
       "id": "anthropic-fs-equity-research-catalyst-calendar",
       "name": "anthropic-fs-equity-research-catalyst-calendar",
       "description": "Build and maintain a calendar of upcoming catalysts across a coverage universe — earnings dates, conferences, product launches, regulatory decisions, and macro events. Helps prioritize attention and position ahead of events. Triggers on \"catalyst calendar\", \"upcoming events\", \"what's coming up\", \"earnings calendar\", \"event calendar\", or \"catalyst tracker\".",
@@ -1393,6 +1408,21 @@
       ]
     },
     {
+      "id": "apple-design",
+      "name": "apple-design",
+      "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
+      "manual": "skills/default/apple-design/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/apple-design/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "animation",
+        "standard"
+      ]
+    },
+    {
       "id": "backtest-expert",
       "name": "backtest-expert",
       "description": "Expert guidance for systematic backtesting of trading strategies.",
@@ -2470,6 +2500,21 @@
       ]
     },
     {
+      "id": "emil-design-eng",
+      "name": "emil-design-eng",
+      "description": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great.",
+      "manual": "skills/default/emil-design-eng/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/emil-design-eng/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "animation",
+        "standard"
+      ]
+    },
+    {
       "id": "estimate-analysis",
       "name": "estimate-analysis",
       "description": "Deep-dive into analyst estimates and revision trends for any stock using Yahoo Finance data.",
@@ -2925,6 +2970,21 @@
       "groups": [
         "taste-skill",
         "design-ui"
+      ]
+    },
+    {
+      "id": "improve-animations",
+      "name": "improve-animations",
+      "description": "Survey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper models) to execute. Read-only on source code — it plans improvements, it does not apply them. Use when the user asks to \"improve the animations\", \"audit the motion\", \"make this app feel better\", or wants a roadmap of animation fixes rather than a review of a single diff.",
+      "manual": "skills/default/improve-animations/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/improve-animations/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/improve-animations",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "animation",
+        "standard"
       ]
     },
     {
@@ -4024,6 +4084,21 @@
       "requires_api_keys": false,
       "api_keys": [],
       "groups": []
+    },
+    {
+      "id": "review-animations",
+      "name": "review-animations",
+      "description": "Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design engineering philosophy. Default to flagging; approval is earned.",
+      "manual": "skills/default/review-animations/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/review-animations/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "animation",
+        "standard"
+      ]
     },
     {
       "id": "saas-valuation-compression",

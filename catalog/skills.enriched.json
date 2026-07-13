@@ -13,14 +13,14 @@
     ]
   },
   "summary": {
-    "skills": 335,
-    "native_origin_verified_or_referenced": 329,
+    "skills": 340,
+    "native_origin_verified_or_referenced": 334,
     "native_origin_excluded_presets": 6,
     "needs_origin_review": 0,
     "preset_excluded": 6,
     "by_horizontal_tier": {
       "L1 Foundation": 21,
-      "L2 Professional": 115,
+      "L2 Professional": 120,
       "L3 Specialist": 199
     },
     "by_category": {
@@ -31,7 +31,7 @@
       "communication": 1,
       "core-agent": 20,
       "data-analysis": 9,
-      "design-ui": 24,
+      "design-ui": 29,
       "docs-office": 10,
       "finance-data": 20,
       "finance-knowledge": 2,
@@ -53,7 +53,7 @@
       "api-key": 100,
       "api-key+mcp-required": 22,
       "browser-required": 10,
-      "direct": 131,
+      "direct": 136,
       "mcp-required": 72
     },
     "by_stars": {
@@ -61,7 +61,7 @@
       "2★": 2,
       "3★": 151,
       "4★": 115,
-      "5★": 61
+      "5★": 66
     }
   },
   "skills": [
@@ -796,6 +796,102 @@
       }
     },
     {
+      "id": "animation-vocabulary",
+      "name": "animation-vocabulary",
+      "description": "Reverse-lookup glossary that turns a vague description of a web animation or motion effect into its exact term (\"the bouncy thing when a popover opens\" → Pop in; \"the iOS rubber-band scroll\" → Rubber-banding). Use when the user asks \"what's it called when…\", or describes a motion effect without knowing its name and wants the right word to prompt an AI or designer with. For naming an effect, not designing or building one.",
+      "manual": "skills/default/animation-vocabulary/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/animation-vocabulary/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/emilkowalski/skills/tree/main/skills/animation-vocabulary",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-13",
+        "mirror_source_url": "https://github.com/emilkowalski/skills/tree/main/skills/animation-vocabulary",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "animation",
+        "design",
+        "design-animation-suite",
+        "design-ui",
+        "direct",
+        "emil-kowalski",
+        "frontend-craft",
+        "l2",
+        "online",
+        "standard"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "online"
+      },
+      "risk_level": "low",
+      "conflict_group": "animation-vocabulary",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
+      "id": "apple-design",
+      "name": "apple-design",
+      "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
+      "manual": "skills/default/apple-design/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/apple-design/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-13",
+        "mirror_source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "animation",
+        "design",
+        "design-animation-suite",
+        "design-ui",
+        "direct",
+        "emil-kowalski",
+        "frontend-craft",
+        "l2",
+        "online",
+        "standard"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "online"
+      },
+      "risk_level": "low",
+      "conflict_group": "apple-design",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
       "id": "backtest-expert",
       "name": "backtest-expert",
       "description": "Expert guidance for systematic backtesting of trading strategies. Use when developing, testing, stress-testing, or validating quantitative trading strategies. Covers \"beating ideas to death\" methodology, parameter robustness testing, slippage modeling, bias prevention, and interpreting backtest results. Applicable when user asks about backtesting, strategy validation, robustness testing, avoiding overfitting, or systematic trading development.",
@@ -1418,6 +1514,54 @@
       }
     },
     {
+      "id": "emil-design-eng",
+      "name": "emil-design-eng",
+      "description": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great.",
+      "manual": "skills/default/emil-design-eng/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/emil-design-eng/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-13",
+        "mirror_source_url": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "animation",
+        "design",
+        "design-animation-suite",
+        "design-ui",
+        "direct",
+        "emil-kowalski",
+        "frontend-craft",
+        "l2",
+        "offline",
+        "standard"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "emil-design-eng",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
       "id": "feishu-doc-creator",
       "name": "feishu-doc-creator",
       "description": "Use when creating or updating Feishu docs from markdown in this repo and you need the known-safe block conversion flow instead of writing docx blocks naively.",
@@ -1850,6 +1994,54 @@
       },
       "risk_level": "low",
       "conflict_group": "imagegen-frontend-web",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
+      "id": "improve-animations",
+      "name": "improve-animations",
+      "description": "Survey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper models) to execute. Read-only on source code — it plans improvements, it does not apply them. Use when the user asks to \"improve the animations\", \"audit the motion\", \"make this app feel better\", or wants a roadmap of animation fixes rather than a review of a single diff.",
+      "manual": "skills/default/improve-animations/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/improve-animations/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/emilkowalski/skills/tree/main/skills/improve-animations",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-13",
+        "mirror_source_url": "https://github.com/emilkowalski/skills/tree/main/skills/improve-animations",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "animation",
+        "design",
+        "design-animation-suite",
+        "design-ui",
+        "direct",
+        "emil-kowalski",
+        "frontend-craft",
+        "l2",
+        "offline",
+        "standard"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "improve-animations",
       "preset_excluded": false,
       "rating": {
         "score": 92,
@@ -2339,6 +2531,54 @@
       },
       "risk_level": "low",
       "conflict_group": "reflection",
+      "preset_excluded": false,
+      "rating": {
+        "score": 92,
+        "stars": 5,
+        "rating_label": "★★★★★"
+      }
+    },
+    {
+      "id": "review-animations",
+      "name": "review-animations",
+      "description": "Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design engineering philosophy. Default to flagging; approval is earned.",
+      "manual": "skills/default/review-animations/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/review-animations/SKILL.md",
+      "install_tiers": [
+        "high"
+      ],
+      "origin": {
+        "origin_url": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+        "origin_type": "github",
+        "origin_confidence": "verified_override",
+        "origin_verified_at": "2026-07-13",
+        "mirror_source_url": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+        "needs_origin_review": false
+      },
+      "horizontal_tier": "L2 Professional",
+      "primary_category": "design-ui",
+      "category_label": "设计 / UI",
+      "tags": [
+        "animation",
+        "design",
+        "design-animation-suite",
+        "design-ui",
+        "direct",
+        "emil-kowalski",
+        "frontend-craft",
+        "l2",
+        "offline",
+        "standard"
+      ],
+      "dependencies": {
+        "requires_api_keys": false,
+        "api_keys": [],
+        "required_tools": [],
+        "access_mode": "direct",
+        "runtime": "offline"
+      },
+      "risk_level": "low",
+      "conflict_group": "review-animations",
       "preset_excluded": false,
       "rating": {
         "score": 92,

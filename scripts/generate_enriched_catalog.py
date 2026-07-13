@@ -169,6 +169,14 @@ SERENITY_SKILLS = {
     "tam-adj-peg",
 }
 
+EMIL_KOWALSKI_SKILLS = {
+    "animation-vocabulary",
+    "apple-design",
+    "emil-design-eng",
+    "improve-animations",
+    "review-animations",
+}
+
 DASHENG_MEDIA_WORKFLOW_CATEGORIES = {
     "bilibili-upload-bridge": "media-generation",
     "dasheng-finance-data": "finance-data",
@@ -210,6 +218,19 @@ STANDARD_BUNDLE_PACKS = [
         "origin_url": "https://github.com/tradermonty/claude-trading-skills",
         "skills_origin_prefix": "https://github.com/tradermonty/claude-trading-skills",
         "note": "Trading research, screeners, market regime, execution planning, options, position sizing, backtest review, thesis memory, and post-trade workflows.",
+    },
+    {
+        "capability": "design-animation-pack",
+        "pack": "emilkowalski-skills",
+        "title": "Emil Kowalski Design & Animation Skills",
+        "category": "design-ui",
+        "stars": 5,
+        "score": 92,
+        "access_mode": "direct",
+        "conflict_group": "design-pack:emilkowalski-skills",
+        "origin_url": "https://github.com/emilkowalski/skills",
+        "skills_origin_prefix": "https://github.com/emilkowalski/skills",
+        "note": "Design engineering, Apple-style fluid interface principles, animation vocabulary, animation review, and motion improvement planning.",
     }
 ]
 
@@ -455,6 +476,8 @@ def classify_category(skill_id: str, description: str) -> str:
         return "marketing-growth"
     if skill_id in SERENITY_SKILLS:
         return "finance-trading"
+    if skill_id in EMIL_KOWALSKI_SKILLS:
+        return "design-ui"
     if skill_id in DASHENG_MEDIA_WORKFLOW_CATEGORIES:
         return DASHENG_MEDIA_WORKFLOW_CATEGORIES[skill_id]
     explicit = {
@@ -561,6 +584,9 @@ def infer_dependencies(skill_id: str, description: str, existing_keys: list[str]
     if skill_id in SERENITY_SKILLS:
         api_keys = []
         tools = sorted(set(tools + ["python"]))
+    if skill_id in EMIL_KOWALSKI_SKILLS:
+        api_keys = []
+        tools = []
     if skill_id == "agent-reach":
         api_keys = []
         tools = ["browser", "ffmpeg", "gh"]
@@ -706,6 +732,8 @@ def build_enriched() -> dict[str, Any]:
             tags.extend(["llmquant", "institutional-research", "finance-suite"])
         if skill_id.startswith("anthropic-fs-"):
             tags.extend(["anthropic-financial-services", "enterprise-data", "institutional-finance", "finance-suite"])
+        if skill_id in EMIL_KOWALSKI_SKILLS:
+            tags.extend(["emil-kowalski", "design-animation-suite", "frontend-craft"])
         if skill_id in tushare_backed:
             tags.extend(["tushare-backed", "china-market-data"])
             if "TUSHARE_TOKEN" not in deps["api_keys"]:

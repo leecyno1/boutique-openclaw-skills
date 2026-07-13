@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 10 |
-| `direct` | 131 |
+| `direct` | 136 |
 | `mcp-required` | 72 |
 
 ## api-key
@@ -173,6 +173,8 @@
 | `verification-before-completion` | 无 | 无 | `low` |
 | `weather` | 无 | 无 | `low` |
 | `writing-skills` | 无 | 无 | `low` |
+| `animation-vocabulary` | 无 | 无 | `low` |
+| `apple-design` | 无 | 无 | `low` |
 | `backtest-expert` | 无 | 无 | `low` |
 | `baoyu-translate` | 无 | 无 | `low` |
 | `brandkit` | 无 | 无 | `low` |
@@ -187,6 +189,7 @@
 | `edge-signal-aggregator` | 无 | `python` | `low` |
 | `edge-strategy-designer` | 无 | 无 | `low` |
 | `edge-strategy-reviewer` | 无 | 无 | `low` |
+| `emil-design-eng` | 无 | 无 | `low` |
 | `feishu-doc-creator` | 无 | `python` | `low` |
 | `full-output-enforcement` | 无 | 无 | `low` |
 | `generative-ui` | 无 | 无 | `low` |
@@ -197,6 +200,7 @@
 | `image-to-code` | 无 | 无 | `low` |
 | `imagegen-frontend-mobile` | 无 | 无 | `low` |
 | `imagegen-frontend-web` | 无 | 无 | `low` |
+| `improve-animations` | 无 | 无 | `low` |
 | `industrial-brutalist-ui` | 无 | 无 | `low` |
 | `khazix-skills` | 无 | 无 | `low` |
 | `linkedin-reader` | 无 | `python` | `low` |
@@ -208,6 +212,7 @@
 | `proactive-agent` | 无 | 无 | `low` |
 | `redesign-existing-projects` | 无 | 无 | `low` |
 | `reflection` | 无 | 无 | `low` |
+| `review-animations` | 无 | 无 | `low` |
 | `scenario-analyzer` | 无 | `python` | `low` |
 | `self-improving-agent-cn` | 无 | 无 | `low` |
 | `skill-designer` | 无 | 无 | `low` |

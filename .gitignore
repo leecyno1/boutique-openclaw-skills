@@ -7,6 +7,10 @@ dist/*.tar.gz
 __pycache__/
 *.pyc
 
+# Local agent skill installs
+.agents/
+skills-lock.json
+
 # SkillOpt local runtime artifacts
 optimization/skillopt/.venv/
 optimization/skillopt-runs/*

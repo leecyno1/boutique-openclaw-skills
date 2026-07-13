@@ -86,6 +86,25 @@
         "value-dividend-screener",
         "vcp-screener"
       ]
+    },
+    {
+      "capability": "design-animation-pack",
+      "pack": "emilkowalski-skills",
+      "title": "Emil Kowalski Design & Animation Skills",
+      "category": "design-ui",
+      "stars": 5,
+      "score": 92,
+      "access_mode": "direct",
+      "conflict_group": "design-pack:emilkowalski-skills",
+      "origin_url": "https://github.com/emilkowalski/skills",
+      "note": "Design engineering, Apple-style fluid interface principles, animation vocabulary, animation review, and motion improvement planning.",
+      "skills": [
+        "animation-vocabulary",
+        "apple-design",
+        "emil-design-eng",
+        "improve-animations",
+        "review-animations"
+      ]
     }
   ],
   "skills": [

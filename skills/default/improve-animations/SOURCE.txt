@@ -1,0 +1,5 @@
+Source: https://github.com/emilkowalski/skills
+Upstream path: https://github.com/emilkowalski/skills/tree/main/skills/improve-animations
+Imported from upstream HEAD: 7bb7061b5cf7de15ea1aeaf00fbd9e6592a20fce
+License: MIT License.
+Installed locally for Codex with: npx skills@latest add emilkowalski/skills
