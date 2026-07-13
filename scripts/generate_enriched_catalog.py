@@ -195,7 +195,7 @@ DASHENG_MEDIA_WORKFLOW_CATEGORIES = {
     "social-auto-upload-bridge": "media-generation",
 }
 
-STANDARD_BUNDLE_MAX_SKILLS = 31
+STANDARD_BUNDLE_MAX_SKILLS = 32
 
 STANDARD_BUNDLE_PACKS = [
     {
@@ -234,7 +234,7 @@ STANDARD_CAPABILITIES = [
     "code-hosting", "terminal", "task-tracking", "planning", "verification", "skill-authoring",
     "security-review", "data-analysis", "docs", "spreadsheet", "slides", "pdf", "frontend",
     "fullstack", "database", "mcp", "media-download", "image-generation", "research-news",
-    "html-publishing",
+    "article-illustration", "html-publishing",
     "finance-data", "content-strategy", "writing", "automation-followup", "cost-observability",
     "email-agent", "ima-notes-knowledge",
     "weather",
@@ -266,6 +266,7 @@ CAPABILITY_RULES = [
     ("media-download", ["media-downloader"]),
     ("image-generation", ["ai-image-generation", "gemini-image-service"]),
     ("research-news", ["news-radar", "notebooklm-skill"]),
+    ("article-illustration", ["ian-xiaohei-illustrations", "baoyu-article-illustrator"]),
     ("html-publishing", ["html-anything", "baoyu-markdown-to-html"]),
     ("finance-data", ["a-stock-data", "openclaw-stock-data-skill", "tushare-openclaw-skill", "yfinance-data", "akshare-stock"]),
     ("content-strategy", ["content-strategy"]),

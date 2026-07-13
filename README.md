@@ -11,7 +11,7 @@
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
 [![Skills](https://img.shields.io/badge/Skills-334-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
-[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-31%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
+[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-32%20skills%20%2B%201%20pack-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
@@ -73,7 +73,7 @@ Or install a grouped suite:
 | Native sources verified or referenced | 328 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
-| Standard bundle size | 31 skills + 1 pack |
+| Standard bundle size | 32 skills + 1 pack |
 
 ## Standard Bundle
 
@@ -105,6 +105,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `skill` | `media-download` | `media-downloader` | 3★ | `api-key` |
 | `skill` | `image-generation` | `gemini-image-service` | 3★ | `api-key` |
 | `skill` | `research-news` | `news-radar` | 4★ | `mcp-required` |
+| `skill` | `article-illustration` | `ian-xiaohei-illustrations` | 5★ | `direct` |
 | `skill` | `html-publishing` | `html-anything` | 5★ | `browser-required` |
 | `skill` | `finance-data` | `a-stock-data` | 4★ | `api-key` |
 | `skill` | `content-strategy` | `content-strategy` | 4★ | `direct` |

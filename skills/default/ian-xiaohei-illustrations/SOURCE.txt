@@ -1,0 +1,4 @@
+Source: https://github.com/helloianneo/ian-xiaohei-illustrations
+Upstream path: https://github.com/helloianneo/ian-xiaohei-illustrations/tree/main/ian-xiaohei-illustrations
+Imported from upstream HEAD: 91b560849e8f883922cc2fa8a358a668caa94105
+License: MIT License.

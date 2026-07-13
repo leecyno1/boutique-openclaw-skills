@@ -6,7 +6,7 @@
     "native_origin_required": true,
     "mirror_sources_are_not_native": true,
     "missing_origin_max_stars": 2,
-    "standard_bundle_max_skills": 31,
+    "standard_bundle_max_skills": 32,
     "preset_excluded_agents": [
       "hermes",
       "open"
