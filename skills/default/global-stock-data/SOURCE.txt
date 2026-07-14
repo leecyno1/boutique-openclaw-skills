@@ -1,0 +1,4 @@
+Source: https://github.com/simonlin1212/global-stock-data
+Upstream path: https://github.com/simonlin1212/global-stock-data/blob/main/SKILL.md
+Imported from upstream HEAD: d52a8a0013363577bceb28ca876c88fe6c1a5aeb
+License: Apache License 2.0.

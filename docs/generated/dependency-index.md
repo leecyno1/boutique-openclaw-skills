@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 10 |
-| `direct` | 136 |
+| `direct` | 137 |
 | `mcp-required` | 72 |
 
 ## api-key
@@ -224,6 +224,7 @@
 | `writing-plans` | 无 | 无 | `low` |
 | `yc-reader` | 无 | `python` | `low` |
 | `dasheng-finance-data` | 无 | `python` | `medium` |
+| `global-stock-data` | 无 | `python` | `medium` |
 | `yfinance-data` | 无 | `python` | `medium` |
 | `baoyu-format-markdown` | 无 | 无 | `low` |
 | `baoyu-infographic` | 无 | 无 | `low` |

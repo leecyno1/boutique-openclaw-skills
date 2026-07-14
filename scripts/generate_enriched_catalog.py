@@ -203,7 +203,7 @@ DASHENG_MEDIA_WORKFLOW_CATEGORIES = {
     "social-auto-upload-bridge": "media-generation",
 }
 
-STANDARD_BUNDLE_MAX_SKILLS = 33
+STANDARD_BUNDLE_MAX_SKILLS = 34
 
 STANDARD_BUNDLE_PACKS = [
     {
@@ -246,6 +246,7 @@ CONFLICT_GROUP_RULES = [
     ("music-generation", ["ai-music-generation", "ai-music-prompts", "minimax-music-gen"]),
     ("email-agent", ["agentmail", "agentmail-cli", "agentmail-mcp", "agentmail-toolkit"]),
     ("ima", ["ima"]),
+    ("finance-global-data", ["global-stock-data", "yfinance-data"]),
     ("finance-data", ["a-stock-data", "akshare-stock", "yfinance-data", "funda-data", "tushare-openclaw-skill", "openclaw-stock-data-skill"]),
     ("persistent-memory", ["claude-mem-plugin"]),
 ]
@@ -256,7 +257,7 @@ STANDARD_CAPABILITIES = [
     "security-review", "data-analysis", "docs", "spreadsheet", "slides", "pdf", "frontend",
     "fullstack", "database", "mcp", "media-download", "image-generation", "research-news",
     "article-illustration", "social-research", "html-publishing",
-    "finance-data", "content-strategy", "writing", "automation-followup", "cost-observability",
+    "finance-data", "finance-global-data", "content-strategy", "writing", "automation-followup", "cost-observability",
     "email-agent", "ima-notes-knowledge",
     "weather",
     "persistent-memory",
@@ -291,6 +292,7 @@ CAPABILITY_RULES = [
     ("social-research", ["agent-reach", "opencli-reader", "twitter-reader", "reddit-reader", "discord-reader", "linkedin-reader"]),
     ("html-publishing", ["html-anything", "baoyu-markdown-to-html"]),
     ("finance-data", ["a-stock-data", "openclaw-stock-data-skill", "tushare-openclaw-skill", "yfinance-data", "akshare-stock"]),
+    ("finance-global-data", ["global-stock-data", "yfinance-data"]),
     ("content-strategy", ["content-strategy"]),
     ("writing", ["writing-skills", "baoyu-format-markdown"]),
     ("automation-followup", ["proactive-agent", "openclaw-cron-setup"]),
@@ -485,6 +487,7 @@ def classify_category(skill_id: str, description: str) -> str:
         "agent-reach": "search-research",
         "akshare-stock": "finance-data",
         "funda-data": "finance-data",
+        "global-stock-data": "finance-data",
         "openclaw-stock-data-skill": "finance-data",
         "tushare-openclaw-skill": "finance-data",
         "yfinance-data": "finance-data",
@@ -1079,6 +1082,7 @@ def finance_source_pack_rows(suite: dict[str, Any] | None) -> list[dict[str, str
         "llmquant": "LLMQuant",
         "claude-trading-skills": "Claude Trading Skills",
         "a-stock-data": "A-stock-data",
+        "global-stock-data": "Global-stock-data",
         "anthropic-fs": "Anthropic Financial Services",
         "alphaear": "AlphaEar",
     }
@@ -1086,6 +1090,7 @@ def finance_source_pack_rows(suite: dict[str, Any] | None) -> list[dict[str, str
         "llmquant": "SEC/13F/宏观、组合/风险、期权、机构研究",
         "claude-trading-skills": "交易筛选、技术形态、执行计划、监控",
         "a-stock-data": "A 股行情、题材、资金流、公告、新闻",
+        "global-stock-data": "美股港股行情、K线、基本面、SEC、期权",
         "anthropic-fs": "机构研究、建模、PE/IB/财富管理",
         "alphaear": "新闻、情绪、信号、报告生成",
     }

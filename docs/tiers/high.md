@@ -2,7 +2,7 @@
 
 完整专家档，包含中档全部能力，并加入默认生图、Baoyu 创作套件、金融交易研究、AlphaEar 与高级分析技能。
 
-- 技能数量：`340`
+- 技能数量：`341`
 - 安装命令：`./scripts/install-tier.sh high`
 - JSON 清单：`tiers/high.json`
 
@@ -196,6 +196,7 @@
 | `gf-dma-health-index` | Score a stock's current valuation/trend health using the GF-DMA Health Index, combining fundamental growth speed, 20/50/100/200DMA trend speed, price-to-DMA divergence, ATR divergence, escape ratio, and estimate revision | [skills/default/gf-dma-health-index/SKILL.md](../../skills/default/gf-dma-health-index/SKILL.md) | [source](https://github.com/haskaomni/serenity-skill/tree/main/skills/gf-dma-health-index) |
 | `gif-sticker-maker` | Convert photos (people, pets, objects, logos) into 4 animated GIF stickers with captions. | [skills/default/gif-sticker-maker/GUIDE.md](../../skills/default/gif-sticker-maker/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/gif-sticker-maker) |
 | `github` | Interact with GitHub using the `gh` CLI. | [skills/default/github/GUIDE.md](../../skills/default/github/GUIDE.md) | [source](https://github.com/leecyno1/auto-install-Openclaw/tree/release/hermes-website-minimax-hardening-20260503/skills/default/github) |
+| `global-stock-data` | 美股港股全栈数据工具包 — 覆盖行情(新浪+腾讯+东财push2)、K线(新浪+Yahoo)、技术指标(MA/MACD/RSI/KDJ/布林带)、基本面(东财datacenter三表+GMAININDICATOR+Yahoo quoteSummary+SEC XBRL)、资金面(东财push2his日级资金流)、期权(Yahoo)、SEC Filing(EDGAR)、搜索与工具(东财search+Yahoo+SEC CIK+全市场列表)八层数据源，内嵌全部调用代码，自包含零依赖外部文件。适用于美股港股个股分析、全市场筛选、财报解读、期权策略、SEC文件检索、资金流追踪、机构持仓分析等场景。 | [skills/default/global-stock-data/SKILL.md](../../skills/default/global-stock-data/SKILL.md) | [source](https://github.com/simonlin1212/global-stock-data) |
 | `gpt-taste` | Elite UX/UI & Advanced GSAP Motion Engineer. | [skills/default/gpt-taste/SKILL.md](../../skills/default/gpt-taste/SKILL.md) | [source](https://github.com/Leonxlnx/taste-skill/tree/main/skills/gpt-tasteskill) |
 | `guizang-ppt-skill` | 文章一键生成网页 PPT，自动提炼要点，支持墨水与瑞士风版式，可导出 PDF/PNG。 | [skills/default/guizang-ppt-skill/SKILL.md](../../skills/default/guizang-ppt-skill/SKILL.md) | [source](https://github.com/op7418/guizang-ppt-skill) |
 | `guizang-social-card-skill` | 新媒体封面与社交卡片制作技能，面向小红书卡片、公众号头图和多平台视觉发布。 | [skills/default/guizang-social-card-skill/SKILL.md](../../skills/default/guizang-social-card-skill/SKILL.md) | [source](https://github.com/op7418/guizang-social-card-skill) |

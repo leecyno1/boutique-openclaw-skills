@@ -4805,6 +4805,21 @@
           "groups": []
         },
         {
+          "id": "global-stock-data",
+          "name": "global-stock-data",
+          "description": "美股港股全栈数据工具包 — 覆盖行情(新浪+腾讯+东财push2)、K线(新浪+Yahoo)、技术指标(MA/MACD/RSI/KDJ/布林带)、基本面(东财datacenter三表+GMAININDICATOR+Yahoo quoteSummary+SEC XBRL)、资金面(东财push2his日级资金流)、期权(Yahoo)、SEC Filing(EDGAR)、搜索与工具(东财search+Yahoo+SEC CIK+全市场列表)八层数据源，内嵌全部调用代码，自包含零依赖外部文件。适用于美股港股个股分析、全市场筛选、财报解读、期权策略、SEC文件检索、资金流追踪、机构持仓分析等场景。",
+          "manual": "skills/default/global-stock-data/SKILL.md",
+          "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/global-stock-data/SKILL.md",
+          "source": "https://github.com/simonlin1212/global-stock-data",
+          "requires_api_keys": false,
+          "api_keys": [],
+          "groups": [
+            "finance",
+            "global-market",
+            "standard"
+          ]
+        },
+        {
           "id": "gpt-taste",
           "name": "gpt-taste",
           "description": "Elite UX/UI & Advanced GSAP Motion Engineer.",

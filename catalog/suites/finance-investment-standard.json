@@ -43,6 +43,10 @@
       "source": "https://github.com/simonlin1212/a-stock-data"
     },
     {
+      "id": "global-stock-data",
+      "source": "https://github.com/simonlin1212/global-stock-data"
+    },
+    {
       "id": "anthropic-fs",
       "source": "https://github.com/anthropics/financial-services"
     },
@@ -60,6 +64,11 @@
     {
       "slot": "A股全栈行情/题材数据",
       "skill": "a-stock-data",
+      "score": 88
+    },
+    {
+      "slot": "美股港股全栈数据",
+      "skill": "global-stock-data",
       "score": 88
     },
     {
@@ -259,6 +268,7 @@
     "value-dividend-screener",
     "vcp-screener",
     "a-stock-data",
+    "global-stock-data",
     "anthropic-fs-equity-research-catalyst-calendar",
     "anthropic-fs-equity-research-earnings-analysis",
     "anthropic-fs-equity-research-earnings-preview",

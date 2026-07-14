@@ -9,9 +9,9 @@
 **面向智能体的精品技能仓库：原生来源可审计、能力不重复、安装可控、持续月评。**
 
 [![Project](https://img.shields.io/badge/Project-Page-2b6cb0)](#boutique-openclaw-skills)
-[![Skills](https://img.shields.io/badge/Skills-340-2ea44f)](#all-skills)
+[![Skills](https://img.shields.io/badge/Skills-341-2ea44f)](#all-skills)
 [![Native Origins](https://img.shields.io/badge/Native%20Origins-0%20missing-brightgreen)](docs/UPDATE_AND_AUDIT.md)
-[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-33%20skills%20%2B%202%20packs-7c3aed)](catalog/standard-bundle.json)
+[![Standard Bundle](https://img.shields.io/badge/Standard%20Bundle-34%20skills%20%2B%202%20packs-7c3aed)](catalog/standard-bundle.json)
 [![Technique](https://img.shields.io/badge/Technique-Source%20Audited-f97316)](docs/generated/scoring-model.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
@@ -68,12 +68,12 @@ Or install a grouped suite:
 
 | Metric | Value |
 |---|---:|
-| Curated skills | 340 |
+| Curated skills | 341 |
 | Skill suites | 4 |
-| Native sources verified or referenced | 334 |
+| Native sources verified or referenced | 335 |
 | Agent preset exclusions | 6 |
 | Missing native origins | 0 |
-| Standard bundle size | 33 skills + 2 packs |
+| Standard bundle size | 34 skills + 2 packs |
 
 ## Standard Bundle
 
@@ -109,6 +109,7 @@ The standard bundle keeps one best skill per capability and excludes skills alre
 | `skill` | `social-research` | `agent-reach` | 4★ | `browser-required` |
 | `skill` | `html-publishing` | `html-anything` | 5★ | `browser-required` |
 | `skill` | `finance-data` | `a-stock-data` | 4★ | `api-key` |
+| `skill` | `finance-global-data` | `global-stock-data` | 4★ | `direct` |
 | `skill` | `content-strategy` | `content-strategy` | 4★ | `direct` |
 | `skill` | `writing` | `writing-skills` | 5★ | `direct` |
 | `skill` | `automation-followup` | `proactive-agent` | 5★ | `direct` |
@@ -125,9 +126,9 @@ Finance skills now have a dedicated **Finance Investment Standard Suite**. It is
 
 | Metric | Value |
 |---|---:|
-| Finance-related skills | 166 |
-| Finance investment standard suite | 158 skills |
-| Finance data skills | 20 |
+| Finance-related skills | 167 |
+| Finance investment standard suite | 159 skills |
+| Finance data skills | 21 |
 | Finance trading/research skills | 81 |
 | Institutional finance services | 53 |
 | Finance monitor/risk skills | 8 |
@@ -141,10 +142,12 @@ This standard suite lists merged upstream source packs and representative standa
 | 组合包 | SEC/13F/宏观、组合/风险、期权、机构研究 | LLMQuant | - | [Source](https://github.com/LLMQuant/skills) |
 | 组合包 | 交易筛选、技术形态、执行计划、监控 | Claude Trading Skills | - | [Source](https://github.com/tradermonty/claude-trading-skills) |
 | 组合包 | A 股行情、题材、资金流、公告、新闻 | A-stock-data | - | [Source](https://github.com/simonlin1212/a-stock-data) |
+| 组合包 | 美股港股行情、K线、基本面、SEC、期权 | Global-stock-data | - | [Source](https://github.com/simonlin1212/global-stock-data) |
 | 组合包 | 机构研究、建模、PE/IB/财富管理 | Anthropic Financial Services | - | [Source](https://github.com/anthropics/financial-services) |
 | 组合包 | 新闻、情绪、信号、报告生成 | AlphaEar | - | [Source](https://github.com/RKiding/Awesome-finance-skills) |
 | 单品 | A股结构化数据 | `tushare-openclaw-skill` | 95 | [Source](https://github.com/DayDreammy/tushare-openclaw-skill) |
 | 单品 | A股全栈行情/题材数据 | `a-stock-data` | 88 | [Source](https://github.com/simonlin1212/a-stock-data) |
+| 单品 | 美股港股全栈数据 | `global-stock-data` | 88 | [Source](https://github.com/simonlin1212/global-stock-data) |
 | 单品 | 全球轻量数据 | `yfinance-data` | 78 | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/market-analysis/skills/yfinance-data) |
 | 单品 | SEC/13F/宏观数据 | `llmquant-data` | 86 | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-data) |
 | 单品 | 个股分析 | `stock-analysis` | 84 | [Source](https://github.com/moinsen-dev/stock-analysis) |
@@ -228,7 +231,7 @@ Skill suites are domain packs kept outside the standard no-duplicate bundle. Use
 |---|---:|---|---|---|---|
 | [Anthropic Financial Services Suite](https://github.com/anthropics/financial-services) | 66 | `high` | `finance-services` | Tools: `mcp` | `./scripts/install-suite.sh anthropic-financial-services` |
 | [大圣自媒体工作流](https://github.com/leecyno1/dasheng-media-workflow-skills) | 29 | `high` | `marketing-growth` | Tools: `node`, `python` | `./scripts/install-suite.sh dasheng-media-workflow` |
-| [Finance Investment Standard Suite](https://github.com/leecyno1/boutique-openclaw-skills) | 158 | `high` | `finance-investment-standard` | API: `TUSHARE_TOKEN`, `FMP_API_KEY`, `FINVIZ_API_KEY`, `LLMQUANT_API_KEY`, `ALPACA_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID`, `OPENAI_API_KEY`<br>Tools: `python`, `mcp`, `node`, `browser` | `./scripts/install-suite.sh finance-investment-standard` |
+| [Finance Investment Standard Suite](https://github.com/leecyno1/boutique-openclaw-skills) | 159 | `high` | `finance-investment-standard` | API: `TUSHARE_TOKEN`, `FMP_API_KEY`, `FINVIZ_API_KEY`, `LLMQUANT_API_KEY`, `ALPACA_API_KEY`, `IMA_API_KEY`, `IMA_CLIENT_ID`, `OPENAI_API_KEY`<br>Tools: `python`, `mcp`, `node`, `browser` | `./scripts/install-suite.sh finance-investment-standard` |
 | [LLMQuant Institutional Finance Suite](https://github.com/LLMQuant/skills) | 18 | `high` | `finance-trading` | API: `LLMQUANT_API_KEY`<br>Tools: `mcp`, `node` | `./scripts/install-suite.sh llmquant` |
 
 ## All Skills
@@ -338,6 +341,7 @@ Skill suites are domain packs kept outside the standard no-duplicate bundle. Use
 | `anthropic-fs-spglobal-tear-sheet` | `L3 Specialist` | `finance-data` | 3★ | `mcp-required` | [Source](https://github.com/anthropics/financial-services/tree/main/plugins/partner-built/spglobal/skills/tear-sheet) |
 | `dasheng-finance-data` | `L2 Professional` | `finance-data` | 4★ | `direct` | [Source](https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/dasheng-finance-data) |
 | `funda-data` | `L2 Professional` | `finance-data` | 4★ | `api-key+mcp-required` | [Source](https://github.com/himself65/finance-skills/tree/main/plugins/data-providers/skills/funda-data) |
+| `global-stock-data` | `L2 Professional` | `finance-data` | 4★ | `direct` | [Source](https://github.com/simonlin1212/global-stock-data) |
 | `llmquant-data` | `L2 Professional` | `finance-data` | 4★ | `api-key+mcp-required` | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-data) |
 | `llmquant-etfs` | `L2 Professional` | `finance-data` | 4★ | `api-key+mcp-required` | [Source](https://github.com/LLMQuant/skills/tree/master/skills/llmquant-etfs) |
 | `openclaw-stock-data-skill` | `L2 Professional` | `finance-data` | 4★ | `api-key` | [Source](https://github.com/1018466411/openclaw-stock-data-skill) |
