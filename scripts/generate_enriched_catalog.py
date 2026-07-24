@@ -173,7 +173,9 @@ EMIL_KOWALSKI_SKILLS = {
     "animation-vocabulary",
     "apple-design",
     "emil-design-eng",
+    "find-animation-opportunities",
     "improve-animations",
+    "pick-ui-library",
     "review-animations",
 }
 
@@ -230,7 +232,7 @@ STANDARD_BUNDLE_PACKS = [
         "conflict_group": "design-pack:emilkowalski-skills",
         "origin_url": "https://github.com/emilkowalski/skills",
         "skills_origin_prefix": "https://github.com/emilkowalski/skills",
-        "note": "Design engineering, Apple-style fluid interface principles, animation vocabulary, animation review, and motion improvement planning.",
+        "note": "Design engineering, Apple-style fluid interface principles, animation vocabulary, motion opportunity discovery, UI library selection, animation review, and motion improvement planning.",
     }
 ]
 

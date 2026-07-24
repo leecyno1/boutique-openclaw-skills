@@ -8,7 +8,7 @@
 | 编程 / 工程工具 (`coding-devtools`) | 10 |
 | 数据分析 (`data-analysis`) | 9 |
 | 文档 / 办公 (`docs-office`) | 10 |
-| 设计 / UI (`design-ui`) | 29 |
+| 设计 / UI (`design-ui`) | 31 |
 | HTML 发布 / 视觉出版 (`html-publishing`) | 3 |
 | 媒体生成 / 处理 (`media-generation`) | 31 |
 | 写作 / 内容 (`writing-content`) | 12 |
@@ -141,6 +141,7 @@
 | `edge-concept-synthesizer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
 | `edge-strategy-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
 | `emil-design-eng` | `L2 Professional` | 5★ | `animation`, `design`, `design-animation-suite`, `design-ui`, `direct`, `emil-kowalski`, `frontend-craft`, `l2`, `offline`, `standard` |
+| `find-animation-opportunities` | `L2 Professional` | 5★ | `animation`, `design`, `design-animation-suite`, `design-ui`, `direct`, `emil-kowalski`, `frontend-craft`, `l2`, `online`, `standard` |
 | `full-output-enforcement` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
 | `generative-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |
 | `gpt-taste` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
@@ -151,6 +152,7 @@
 | `improve-animations` | `L2 Professional` | 5★ | `animation`, `design`, `design-animation-suite`, `design-ui`, `direct`, `emil-kowalski`, `frontend-craft`, `l2`, `offline`, `standard` |
 | `industrial-brutalist-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
 | `minimalist-ui` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `taste-skill` |
+| `pick-ui-library` | `L2 Professional` | 5★ | `design`, `design-animation-suite`, `design-ui`, `direct`, `emil-kowalski`, `frontend`, `frontend-craft`, `l2`, `offline`, `standard` |
 | `redesign-existing-projects` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `online`, `taste-skill` |
 | `review-animations` | `L2 Professional` | 5★ | `animation`, `design`, `design-animation-suite`, `design-ui`, `direct`, `emil-kowalski`, `frontend-craft`, `l2`, `offline`, `standard` |
 | `skill-designer` | `L2 Professional` | 5★ | `design-ui`, `direct`, `l2`, `offline`, `trading_finance` |

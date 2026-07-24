@@ -2598,6 +2598,21 @@
       ]
     },
     {
+      "id": "find-animation-opportunities",
+      "name": "find-animation-opportunities",
+      "description": "Search a codebase or UI for places that don't animate but should, and reject everything that shouldn't. Read-only; it proposes motion with exact values, it does not implement it. Use when the user asks \"what could be animated here?\" or wants to \"make this feel more alive\". For fixing existing animations, use improve-animations or review-animations instead.",
+      "manual": "skills/default/find-animation-opportunities/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/find-animation-opportunities/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/find-animation-opportunities",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "animation",
+        "standard"
+      ]
+    },
+    {
       "id": "find-skills",
       "name": "find-skills",
       "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can.",
@@ -3955,6 +3970,21 @@
       ],
       "groups": [
         "trading_finance"
+      ]
+    },
+    {
+      "id": "pick-ui-library",
+      "name": "pick-ui-library",
+      "description": "Pick the right library for a given frontend task from a curated, opinionated list — numbers, OTP inputs, charts, command menus, virtualization, drag and drop, toasts, state, styling, and more. Use only when the user explicitly asks to choose or compare a UI library; do not auto-trigger it during ordinary frontend work.",
+      "manual": "skills/default/pick-ui-library/SKILL.md",
+      "manual_url": "https://github.com/leecyno1/boutique-openclaw-skills/tree/main/skills/default/pick-ui-library/SKILL.md",
+      "source": "https://github.com/emilkowalski/skills/tree/main/skills/pick-ui-library",
+      "requires_api_keys": false,
+      "api_keys": [],
+      "groups": [
+        "design",
+        "frontend",
+        "standard"
       ]
     },
     {

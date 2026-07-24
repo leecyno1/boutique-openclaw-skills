@@ -1,6 +1,6 @@
 {
   "schema_version": "2026.05.17",
-  "generated_at": "2026-07-14",
+  "generated_at": "2026-07-24",
   "max_skills": 34,
   "dedupe_rule": "one highest-scored skill per capability and conflict_group; Open/Hermes preset skills excluded",
   "overrides": {
@@ -97,12 +97,14 @@
       "access_mode": "direct",
       "conflict_group": "design-pack:emilkowalski-skills",
       "origin_url": "https://github.com/emilkowalski/skills",
-      "note": "Design engineering, Apple-style fluid interface principles, animation vocabulary, animation review, and motion improvement planning.",
+      "note": "Design engineering, Apple-style fluid interface principles, animation vocabulary, motion opportunity discovery, UI library selection, animation review, and motion improvement planning.",
       "skills": [
         "animation-vocabulary",
         "apple-design",
         "emil-design-eng",
+        "find-animation-opportunities",
         "improve-animations",
+        "pick-ui-library",
         "review-animations"
       ]
     }

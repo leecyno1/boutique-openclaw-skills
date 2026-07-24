@@ -5,7 +5,7 @@
 | `api-key` | 100 |
 | `api-key+mcp-required` | 22 |
 | `browser-required` | 10 |
-| `direct` | 137 |
+| `direct` | 139 |
 | `mcp-required` | 72 |
 
 ## api-key
@@ -191,6 +191,7 @@
 | `edge-strategy-reviewer` | 无 | 无 | `low` |
 | `emil-design-eng` | 无 | 无 | `low` |
 | `feishu-doc-creator` | 无 | `python` | `low` |
+| `find-animation-opportunities` | 无 | 无 | `low` |
 | `full-output-enforcement` | 无 | 无 | `low` |
 | `generative-ui` | 无 | 无 | `low` |
 | `gpt-taste` | 无 | 无 | `low` |
@@ -209,6 +210,7 @@
 | `nano-pdf` | 无 | 无 | `low` |
 | `openclaw-stock-kb` | 无 | `python` | `low` |
 | `opencli-reader` | 无 | `python` | `low` |
+| `pick-ui-library` | 无 | 无 | `low` |
 | `proactive-agent` | 无 | 无 | `low` |
 | `redesign-existing-projects` | 无 | 无 | `low` |
 | `reflection` | 无 | 无 | `low` |

@@ -3,7 +3,7 @@
 | 层级 | 定义 | 数量 |
 |---|---|---:|
 | `L1 Foundation` | 跨 Agent、跨领域、高通用、低冲突的基础能力 | 21 |
-| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 121 |
+| `L2 Professional` | 常用专业工作流，适合多数生产环境按需安装 | 123 |
 | `L3 Specialist` | 领域强绑定、依赖明显或适合专家场景的能力 | 199 |
 
 ## L1 Foundation
@@ -55,6 +55,7 @@
 | `edge-strategy-reviewer` | 数据分析 | 5★ | `direct` | [origin](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/edge-strategy-reviewer) |
 | `emil-design-eng` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng) |
 | `feishu-doc-creator` | 文档 / 办公 | 5★ | `direct` | [origin](https://github.com/leecyno1/dasheng-media-workflow-skills/tree/main/skills/feishu-doc-creator) |
+| `find-animation-opportunities` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/emilkowalski/skills/tree/main/skills/find-animation-opportunities) |
 | `full-output-enforcement` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/output-skill) |
 | `generative-ui` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/ui-tools/skills/generative-ui) |
 | `gpt-taste` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/gpt-tasteskill) |
@@ -73,6 +74,7 @@
 | `nano-pdf` | 文档 / 办公 | 5★ | `direct` | [origin](https://github.com/steipete/clawdis/tree/main/skills/nano-pdf) |
 | `openclaw-stock-kb` | 金融 / 知识库 | 5★ | `direct` | [origin](https://github.com/freestylefly/openclaw-stock-kb) |
 | `opencli-reader` | 搜索 / 研究 / 情报 | 5★ | `direct` | [origin](https://github.com/himself65/finance-skills/tree/main/plugins/social-readers/skills/opencli-reader) |
+| `pick-ui-library` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/emilkowalski/skills/tree/main/skills/pick-ui-library) |
 | `proactive-agent` | 效率 / 知识管理 | 5★ | `direct` | [origin](https://clawhub.ai/halthelobster/proactive-agent) |
 | `redesign-existing-projects` | 设计 / UI | 5★ | `direct` | [origin](https://github.com/Leonxlnx/taste-skill/tree/main/skills/redesign-skill) |
 | `reflection` | 媒体生成 / 处理 | 5★ | `direct` | [origin](https://playbooks.com/skills/openclaw/skills/reflection) |
